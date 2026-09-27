@@ -1,0 +1,31 @@
+{
+  "mode": "export",
+  "blender": "5.2.2 LTS",
+  "objects": [
+    "Body",
+    "Head",
+    "LeftLeg",
+    "RightLeg",
+    "LeftArm",
+    "RightArm",
+    "FrontMarker",
+    "BackMarker",
+    "FixtureRig"
+  ],
+  "actions": [
+    "FixtureWave"
+  ],
+  "bounds": {
+    "min": [
+      -0.9600000381469727,
+      -0.3700000047683716,
+      0.0
+    ],
+    "max": [
+      0.9600000381469727,
+      0.39000001549720764,
+      2.8499999046325684
+    ]
+  },
+  "limits": "Static declared snapshot and bounds; clip samples and visual review are separate"
+}

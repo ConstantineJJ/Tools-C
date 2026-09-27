@@ -1,0 +1,26 @@
+00:00.437  blend            | Read blend: "E:\MyCreations\Tools_C\.local\v4-probe-04\fixture.blend"
+INFO Draco is available, use library at C:\Program Files (x86)\Steam\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files (x86)\Steam\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:29:08 | INFO: Starting glTF 2.0 export
+23:29:08 | INFO: Extracting primitive: Cube.007
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.006
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.001
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.004
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.002
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.005
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Extracting primitive: Cube.003
+23:29:08 | INFO: Primitives created: 1
+23:29:08 | INFO: Finished glTF 2.0 export in 0.024983882904052734 s
+
+TOOLS_C_EXPORT_PROBE {"mode": "export", "blender": "5.2.2 LTS", "objects": ["Body", "Head", "LeftLeg", "RightLeg", "LeftArm", "RightArm", "FrontMarker", "BackMarker", "FixtureRig"], "actions": ["FixtureWave"], "bounds": {"min": [-0.9600000381469727, -0.3700000047683716, 0.0], "max": [0.9600000381469727, 0.39000001549720764, 2.8499999046325684]}, "limits": "Static declared snapshot and bounds; clip samples and visual review are separate"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

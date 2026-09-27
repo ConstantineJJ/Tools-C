@@ -1,0 +1,47 @@
+[
+  {
+    "view": "front",
+    "path": "reports\\v4\\live-capture\\front.png",
+    "sha256": "7a63f3ba6c62225b6d38654117794a3f5eac60b5b7b60b5c21344d713a015f51",
+    "status": "VISUAL PASS",
+    "criterion": "Readable capture of the live character; framing includes the full subject; orientation agrees with requested view",
+    "reviewer": "Codex image inspection",
+    "limits": "Capture capability only; not approval of K01 aesthetics, motion, emission or game appearance"
+  },
+  {
+    "view": "side",
+    "path": "reports\\v4\\live-capture\\side.png",
+    "sha256": "75109de639b93b2d09193532480cc65f4b19c8121e0baa91bdf26a6522dd718c",
+    "status": "VISUAL PASS",
+    "criterion": "Readable capture of the live character; framing includes the full subject; orientation agrees with requested view",
+    "reviewer": "Codex image inspection",
+    "limits": "Capture capability only; not approval of K01 aesthetics, motion, emission or game appearance"
+  },
+  {
+    "view": "back",
+    "path": "reports\\v4\\live-capture\\back.png",
+    "sha256": "30743e211b1237c989570994c935d6efddd8e39f672ac14a0b4d0ad9869ce578",
+    "status": "VISUAL PASS",
+    "criterion": "Readable capture of the live character; framing includes the full subject; orientation agrees with requested view",
+    "reviewer": "Codex image inspection",
+    "limits": "Capture capability only; not approval of K01 aesthetics, motion, emission or game appearance"
+  },
+  {
+    "view": "three_quarter",
+    "path": "reports\\v4\\live-capture\\three_quarter.png",
+    "sha256": "50733c7cd1b472de52bdc701346ebab3c3af3e0606e72570b575af3f6c2cecf8",
+    "status": "VISUAL PASS",
+    "criterion": "Readable capture of the live character; framing includes the full subject; orientation agrees with requested view",
+    "reviewer": "Codex image inspection",
+    "limits": "Capture capability only; not approval of K01 aesthetics, motion, emission or game appearance"
+  },
+  {
+    "view": "current",
+    "path": "reports\\v4\\live-capture\\current.png",
+    "sha256": "ae0d27ff9c3c269d20c7fbc70bb47ce87168775448858a531b06b5b29f911edd",
+    "status": "VISUAL PASS",
+    "criterion": "Readable capture of the live character; framing includes the full subject; orientation agrees with requested view",
+    "reviewer": "Codex image inspection",
+    "limits": "Capture capability only; not approval of K01 aesthetics, motion, emission or game appearance"
+  }
+]

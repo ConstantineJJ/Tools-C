@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "tools-c",
+  "review_state": "reviewed",
+  "skills": [
+    "project-audit",
+    "godot-project",
+    "blender-pipeline",
+    "blender-character-modeling",
+    "verification",
+    "contracts-lint",
+    "blender-rigging-skinning",
+    "blender-animation",
+    "blender-export-validation",
+    "godot-asset-integration",
+    "production-mechanic-gym",
+    "production-subagent-worktree",
+    "production-lookdev-gate",
+    "production-project-state-gates"
+  ],
+  "contracts": [
+    ".tooling/contracts.json"
+  ],
+  "references": [
+    "AGENTS.md",
+    "README.md",
+    "docs/contracts.md",
+    "Project-pulse"
+  ]
+}

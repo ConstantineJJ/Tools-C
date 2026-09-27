@@ -1,0 +1,707 @@
+{
+  "front": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "front",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.6292068494294654e-07,
+      -1.0,
+      -8.084725379943848,
+      0.0,
+      1.0,
+      -1.6292068494294654e-07,
+      1.4249999523162842,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\front\\front.png",
+    "sha256": "fffcde1291cf2393b05221d5da3b730b0fae844348f574ac050c6af8a0544e25",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "side": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "side",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      -4.371138828673793e-08,
+      4.371138828673793e-08,
+      1.0,
+      8.094725608825684,
+      1.0,
+      1.910685676922942e-15,
+      4.371138828673793e-08,
+      0.01000000536441803,
+      0.0,
+      1.0,
+      -4.371138828673793e-08,
+      1.4249999523162842,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\side\\side.png",
+    "sha256": "a42370daca7e0c99364e79d6944e77831f2ca80d89280321a24b283ec40bbec8",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "back": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "back",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      -1.0,
+      1.5099580252808664e-07,
+      -1.1399865765455465e-14,
+      0.0,
+      0.0,
+      7.549790126404332e-08,
+      1.0,
+      8.10472583770752,
+      1.5099580252808664e-07,
+      1.0,
+      -7.549790126404332e-08,
+      1.4249999523162842,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\back\\back.png",
+    "sha256": "95ae8ce16047fa48ec50bf5de6d825fc9098d78115eaf1df41e2217b1fb04daf",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "three_quarter": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "three_quarter",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      0.7071067690849304,
+      -0.2761724293231964,
+      0.6509445309638977,
+      5.2692179679870605,
+      0.7071067690849304,
+      0.2761722803115845,
+      -0.6509445905685425,
+      -5.259217739105225,
+      1.183598783427442e-07,
+      0.9205746054649353,
+      0.39056670665740967,
+      4.586530685424805,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\three_quarter\\three_quarter.png",
+    "sha256": "7301795a32b3aacf48ddb26c071df7ec369811186a50def4a886acd0fbecb890",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "top": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "top",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      -1.0,
+      1.5099580252808664e-07,
+      0.0,
+      0.0,
+      -1.5099580252808664e-07,
+      -1.0,
+      0.0,
+      0.01000000536441803,
+      0.0,
+      0.0,
+      1.0,
+      9.519725799560547,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\top\\top.png",
+    "sha256": "9749c2e448cb1fd5da3f878fbfb3b716ddb7f69631428cdf75936eb67ac2423c",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "bottom": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "bottom",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      -1.0,
+      8.74227694680485e-08,
+      -8.742279078433057e-08,
+      0.0,
+      8.742277657347586e-08,
+      1.0,
+      -8.74227694680485e-08,
+      0.01000000536441803,
+      8.742277657347586e-08,
+      -8.742277657347586e-08,
+      -1.0,
+      -6.66972541809082,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\bottom\\bottom.png",
+    "sha256": "379870df9d3a86feb7c6dec761e46e002aef16dc194b0da53b900ffb556bf21c",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "repeat": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "front",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.6292068494294654e-07,
+      -1.0,
+      -8.084725379943848,
+      0.0,
+      1.0,
+      -1.6292068494294654e-07,
+      1.4249999523162842,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\repeat\\front.png",
+    "sha256": "fffcde1291cf2393b05221d5da3b730b0fae844348f574ac050c6af8a0544e25",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "after_edit": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "front",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "solid",
+    "frame": 1.0,
+    "fps": 30.0,
+    "resolution": [
+      256,
+      256
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed studio solid",
+    "camera_matrix": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -1.6292068494294654e-07,
+      -1.0,
+      -8.084725379943848,
+      0.0,
+      1.0,
+      -1.6292068494294654e-07,
+      1.4249999523162842,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\after_edit\\front.png",
+    "sha256": "77813c996250955d5eacb862deda2f61fad716628650e5b4f1262a6736be6fd0",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "material_preview": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "three_quarter",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "material_preview",
+    "frame": 13.0,
+    "fps": 30.0,
+    "resolution": [
+      128,
+      128
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "fixed three area lights, Standard transform, Cycles CPU",
+    "camera_matrix": [
+      0.7071067690849304,
+      -0.2761724293231964,
+      0.6509445309638977,
+      5.2692179679870605,
+      0.7071067690849304,
+      0.2761722803115845,
+      -0.6509445905685425,
+      -5.259217739105225,
+      1.183598783427442e-07,
+      0.9205746054649353,
+      0.39056670665740967,
+      4.586530685424805,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\material_preview\\three_quarter.png",
+    "sha256": "62347729359d63e900317f802e67348fdc7c9db2aa9d95210bcfbdcec89fb6b9",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "rendered": {
+    "ok": true,
+    "status": "VISUAL REVIEW REQUIRED",
+    "capture_kind": "viewport-oriented evidence render",
+    "view": "three_quarter",
+    "target": "character",
+    "objects": [
+      "BackMarker",
+      "Body",
+      "FixtureRig",
+      "FrontMarker",
+      "Head",
+      "LeftArm",
+      "LeftLeg",
+      "RightArm",
+      "RightLeg"
+    ],
+    "mode": "rendered",
+    "frame": 13.0,
+    "fps": 30.0,
+    "resolution": [
+      128,
+      128
+    ],
+    "framing": {
+      "center": [
+        0.0,
+        0.01000000536441803,
+        1.4249999523162842
+      ],
+      "span": 4.047362817724447
+    },
+    "lighting": "source world and visible source lights; bounded Cycles CPU render, no compositor",
+    "camera_matrix": [
+      0.7071067690849304,
+      -0.2761724293231964,
+      0.6509445309638977,
+      5.2692179679870605,
+      0.7071067690849304,
+      0.2761722803115845,
+      -0.6509445905685425,
+      -5.259217739105225,
+      1.183598783427442e-07,
+      0.9205746054649353,
+      0.39056670665740967,
+      4.586530685424805,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "projection": "ORTHO",
+    "ortho_scale": 4.047362804412842,
+    "blender_version": "5.2.2 LTS",
+    "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\rendered\\three_quarter.png",
+    "sha256": "c95ea6d3ca120b41a99f93f475717f1bf5376651a5b010c3f0539fed1ad399d5",
+    "bounds": {
+      "min": [
+        -0.9600000381469727,
+        -0.3700000047683716,
+        0.0
+      ],
+      "max": [
+        0.9600000381469727,
+        0.39000001549720764,
+        2.8499999046325684
+      ]
+    },
+    "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+  },
+  "current": {
+    "ok": false,
+    "status": "SKIP",
+    "reason": "current requires an interactive VIEW_3D, not a background startup screen"
+  }
+}

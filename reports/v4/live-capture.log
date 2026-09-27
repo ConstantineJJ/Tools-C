@@ -1,0 +1,9 @@
+Processing request of type CallToolRequest
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+TOOLS_C_LIVE_CAPTURE {"status": "PASS", "views": ["front", "side", "back", "three_quarter", "current"], "frame": 24, "source_preserved": true}

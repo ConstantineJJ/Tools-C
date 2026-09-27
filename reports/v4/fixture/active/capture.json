@@ -1,0 +1,62 @@
+{
+  "ok": true,
+  "status": "VISUAL REVIEW REQUIRED",
+  "capture_kind": "viewport-oriented evidence render",
+  "view": "front",
+  "target": "active",
+  "objects": [
+    "Head"
+  ],
+  "mode": "solid",
+  "frame": 1.0,
+  "fps": 30.0,
+  "resolution": [
+    128,
+    128
+  ],
+  "framing": {
+    "center": [
+      0.0,
+      0.0,
+      2.5
+    ],
+    "span": 1.3977112173953425
+  },
+  "lighting": "fixed studio solid",
+  "camera_matrix": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.6292068494294654e-07,
+    -1.0,
+    -2.795422315597534,
+    0.0,
+    1.0,
+    -1.6292068494294654e-07,
+    2.5,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "projection": "ORTHO",
+  "ortho_scale": 1.397711157798767,
+  "blender_version": "5.2.2 LTS",
+  "path": "E:\\MyCreations\\Tools_C\\.local\\v4-fixture-delivery\\active\\front.png",
+  "sha256": "1b5e04f8ae569ee399a79052c15b9c8f6247fd137e9abdc6a5e3e5c636a6f8af",
+  "bounds": {
+    "min": [
+      -0.3799999952316284,
+      -0.3199999928474426,
+      2.1500000953674316
+    ],
+    "max": [
+      0.3799999952316284,
+      0.3199999928474426,
+      2.8499999046325684
+    ]
+  },
+  "limits": "Current uses viewport orientation with square framing; not an exact UI screenshot. Stills do not certify motion or engine appearance."
+}

@@ -1,0 +1,184 @@
+{
+  "purpose": "Manual GPT-6 Sol activation evaluation. Present prompts without expected routes; compare selected routes afterward. Integrity tests do not measure model activation.",
+  "cases": [
+    {
+      "alias": "Blender_Character_Pipeline_Core",
+      "should_trigger": [
+        "Нужно с нуля провести персонажа через Blender: референс, модель, rig, анимации и проверку экспорта.",
+        "I have a Blender asset task but need the correct modeling versus rigging workflow and acceptance gates."
+      ],
+      "should_not_trigger": [
+        "Change only the right elbow weight paint on the named armature.",
+        "Review the front silhouette against this supplied image."
+      ],
+      "edge": {
+        "prompt": "Make the character match the reference, then rig and export it.",
+        "expected": [
+          "Blender_Character_Pipeline_Core",
+          "Blender_Reference_Reconstruction_SKILL",
+          "Blender_Character_Rigging_Animation_Godot_SKILL"
+        ],
+        "reason": "Multi-stage request needs a router plus the relevant specialists."
+      }
+    },
+    {
+      "alias": "Blender_Reference_Reconstruction_SKILL",
+      "should_trigger": [
+        "Сделай форму палочника максимально похожей на приложенный референс с фронта и сбоку.",
+        "Compare this model's silhouette and landmarks against the orthographic sheet."
+      ],
+      "should_not_trigger": [
+        "Design a new character freely without any supplied image.",
+        "Rename one existing animation Action."
+      ],
+      "edge": {
+        "prompt": "The model looks wrong from the side, but the front must stay unchanged.",
+        "expected": [
+          "Blender_Reference_Reconstruction_SKILL",
+          "Blender_Iterative_Refinement_SKILL"
+        ],
+        "reason": "Locked front projection and side mismatch require diagnosis before editing."
+      }
+    },
+    {
+      "alias": "Blender_Character_Modeling_SKILL",
+      "should_trigger": [
+        "Create an editable character blockout from the agreed proportions.",
+        "Change this character's head-to-body proportions while preserving the approved costume.",
+        "Improve the front and side silhouette of the body mesh.",
+        "Remodel the head and torso primary forms to match the approved shape.",
+        "Add modeled clothing and accessory geometry without changing the rig."
+      ],
+      "should_not_trigger": [
+        "Add new animation Actions to the existing rig.",
+        "Repair only the shoulder weight painting.",
+        "Rebuild or edit the armature hierarchy.",
+        "Perform final retopology on an approved sculpt without changing its form.",
+        "Export the unchanged character as GLB and validate it in Godot."
+      ],
+      "edge": {
+        "prompt": "The elbow's neutral geometry is visibly too thin; correct its shape while preserving the existing rig and weights.",
+        "expected": [
+          "Blender_Character_Modeling_SKILL",
+          "Blender_Character_QA_SKILL"
+        ],
+        "reason": "The neutral form is a modeling issue, but deformation and protected data still need verification."
+      },
+      "diagnostic_edges": [
+        {
+          "prompt": "The elbow deforms badly when bent; determine whether weights, pivots, topology or form caused it.",
+          "expected_initial": [
+            "Blender_Character_QA_SKILL"
+          ],
+          "reason": "Observed deformation alone does not assign modeling ownership."
+        },
+        {
+          "prompt": "The arm looks wrong only during the attack animation.",
+          "expected_initial": [
+            "Blender_Character_QA_SKILL"
+          ],
+          "reason": "Inspect the Action, rig, weights and geometry before editing form."
+        },
+        {
+          "prompt": "The model looks wrong only after GLB export.",
+          "expected_initial": [
+            "Blender_Character_QA_SKILL"
+          ],
+          "reason": "Isolate exporter/importer effects before remodeling the source."
+        }
+      ]
+    },
+    {
+      "alias": "Blender_Organic_Sculpting_SKILL",
+      "should_trigger": [
+        "Round out only the left cheek while keeping the eye and jaw landmarks.",
+        "Use a bounded sculpt pass to correct this calf volume."
+      ],
+      "should_not_trigger": [
+        "Rebuild elbow edge loops for a clean bend.",
+        "Inspect whether the GLB contains every Action."
+      ],
+      "edge": {
+        "prompt": "Smooth this shoulder, but it is already skinned and the weights must survive.",
+        "expected": [
+          "Blender_Organic_Sculpting_SKILL"
+        ],
+        "reason": "Regional form edit with explicit topology and weight protection."
+      }
+    },
+    {
+      "alias": "Blender_Retopology_Deformation_SKILL",
+      "should_trigger": [
+        "Fix topology at the shoulder so it bends without collapse.",
+        "Retopologize the approved sculpt for the required knee motion."
+      ],
+      "should_not_trigger": [
+        "Increase the head's overall volume without changing topology.",
+        "Add an idle Action to this existing rig."
+      ],
+      "edge": {
+        "prompt": "The elbow pinches when bent; first determine whether weights or loops are responsible.",
+        "expected": [
+          "Blender_Retopology_Deformation_SKILL",
+          "Blender_Character_QA_SKILL"
+        ],
+        "reason": "Diagnosis precedes a topology edit; weights may be the actual owner."
+      }
+    },
+    {
+      "alias": "Blender_Character_QA_SKILL",
+      "should_trigger": [
+        "Проверь персонажа с нескольких ракурсов и в крайних позах, ничего не меняя.",
+        "Review the exported GLB for scale, skeleton, clips and material appearance."
+      ],
+      "should_not_trigger": [
+        "Create a mesh from this concept sketch.",
+        "Sculpt a stronger jawline."
+      ],
+      "edge": {
+        "prompt": "The import succeeded; can we mark visual and deformation acceptance complete?",
+        "expected": [
+          "Blender_Character_QA_SKILL"
+        ],
+        "reason": "Import is lower-level evidence; visual and pose checks remain necessary."
+      }
+    },
+    {
+      "alias": "Blender_Iterative_Refinement_SKILL",
+      "should_trigger": [
+        "Two shoulder fixes failed; diagnose the cause and make one measured correction.",
+        "Use the saved before and after views to improve the head proportion without changing approved eyes."
+      ],
+      "should_not_trigger": [
+        "Make a new blockout from the drawing.",
+        "Export the unchanged model as GLB."
+      ],
+      "edge": {
+        "prompt": "The front got better but the side became worse after this revision.",
+        "expected": [
+          "Blender_Iterative_Refinement_SKILL",
+          "Blender_Character_QA_SKILL"
+        ],
+        "reason": "The iteration needs anti-degradation review and a keep/correct/revert decision."
+      }
+    },
+    {
+      "alias": "Blender_Character_Rigging_Animation_Godot_SKILL",
+      "should_trigger": [
+        "Add a jump Action to the existing armature and preserve all current clips.",
+        "Fix shoulder weights and verify the pose in Blender and Godot."
+      ],
+      "should_not_trigger": [
+        "Only compare silhouette against the reference.",
+        "Paint the base-color texture without rig changes."
+      ],
+      "edge": {
+        "prompt": "Export cloth movement to Godot; decide how motion should survive GLB.",
+        "expected": [
+          "Blender_Character_Rigging_Animation_Godot_SKILL"
+        ],
+        "reason": "Secondary-motion transfer and import are rig/export concerns."
+      }
+    }
+  ]
+}

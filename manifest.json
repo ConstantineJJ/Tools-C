@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "version": "4.0.1",
+  "skills": [
+    {
+      "id": "project-audit",
+      "path": "skills/project-audit/SKILL.md"
+    },
+    {
+      "id": "godot-project",
+      "path": "skills/godot-project/SKILL.md"
+    },
+    {
+      "id": "blender-pipeline",
+      "path": "skills/blender-pipeline/SKILL.md"
+    },
+    {
+      "id": "blender-character-modeling",
+      "path": "skills/blender-character-modeling/SKILL.md"
+    },
+    {
+      "id": "verification",
+      "path": "skills/verification/SKILL.md"
+    },
+    {
+      "id": "contracts-lint",
+      "path": "skills/contracts-lint/SKILL.md"
+    },
+    {
+      "id": "blender-rigging-skinning",
+      "path": "skills/blender-rigging-skinning/SKILL.md"
+    },
+    {
+      "id": "blender-animation",
+      "path": "skills/blender-animation/SKILL.md"
+    },
+    {
+      "id": "blender-export-validation",
+      "path": "skills/blender-export-validation/SKILL.md"
+    },
+    {
+      "id": "godot-asset-integration",
+      "path": "skills/godot-asset-integration/SKILL.md"
+    },
+    {
+      "id": "production-mechanic-gym",
+      "path": "skills/production-mechanic-gym/SKILL.md"
+    },
+    {
+      "id": "production-subagent-worktree",
+      "path": "skills/production-subagent-worktree/SKILL.md"
+    },
+    {
+      "id": "production-lookdev-gate",
+      "path": "skills/production-lookdev-gate/SKILL.md"
+    },
+    {
+      "id": "production-project-state-gates",
+      "path": "skills/production-project-state-gates/SKILL.md"
+    }
+  ],
+  "blender_aliases": {
+    "Blender_Character_Pipeline_Core": {
+      "reference": "skills/blender-pipeline/references/core.md",
+      "source_sha256": "5a6012a4e8e8eaf29e3c0bbcf665c18e648ab7ae7c6c1b4af9330ba691b10500",
+      "source_version": "1.0"
+    },
+    "Blender_Reference_Reconstruction_SKILL": {
+      "reference": "skills/blender-pipeline/references/reference.md",
+      "source_sha256": "5ee777a5b215e66672072b23192f391c5ebec7751fc766c495db1d4084e030c0",
+      "source_version": "1.0"
+    },
+    "Blender_Character_Modeling_SKILL": {
+      "reference": "skills/blender-character-modeling/SKILL.md",
+      "source_sha256": "2b513d28534ec29b9392ba1f922d4a3f898d89dde88b93a24535c07df47b5d21",
+      "source_version": "2.0"
+    },
+    "Blender_Organic_Sculpting_SKILL": {
+      "reference": "skills/blender-pipeline/references/sculpting.md",
+      "source_sha256": "f7acf21bf2dac1275056c34895dac46920b4ea445998a7db5da82e9bf967e48f",
+      "source_version": "1.0"
+    },
+    "Blender_Retopology_Deformation_SKILL": {
+      "reference": "skills/blender-pipeline/references/retopology.md",
+      "source_sha256": "ac327a4d844e878fd80d768d10fd8822308b44d6c5c89890645f9a2e7e741884",
+      "source_version": "1.0"
+    },
+    "Blender_Character_QA_SKILL": {
+      "reference": "skills/blender-pipeline/references/qa.md",
+      "source_sha256": "2c67b6d5db8dc93399d9f23c9b849686e3917193a9bb1709af17fb32affbcacb",
+      "source_version": "1.0"
+    },
+    "Blender_Iterative_Refinement_SKILL": {
+      "reference": "skills/blender-pipeline/references/refinement.md",
+      "source_sha256": "17cbf6c33e055af8727a8d3d654a70bf68dd8c477c15e3da90ea2252692c2139",
+      "source_version": "1.0"
+    },
+    "Blender_Character_Rigging_Animation_Godot_SKILL": {
+      "reference": "skills/blender-pipeline/references/rigging.md",
+      "source_sha256": "77b5a4ab45c26bdc08bbf4119c30ab74a123f2c60fc0fe02464d3292dc439475",
+      "source_version": "2.0"
+    }
+  }
+}

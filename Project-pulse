@@ -1,1 +1,26 @@
-Write here what have been done and what was changet. This file should be as actual project condition
+# Tools_C — Project Pulse
+
+Updated: 2026-09-27. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
+
+## Done
+
+- Imported the user's complete Tools_C v4.0.0 source snapshot into this repository, replacing the obsolete BlenderMCPCon checkout contents; the old repository is separate and has not been deleted here.
+- Integrated four production skills: mechanic gym, subagent worktrees, lookdev gate and project state gates. Fourteen canonical skills are listed in `manifest.json`, `AGENTS.md` and the reviewed local profile. Eight legacy Blender alias mappings remain in the manifest.
+- Updated architecture version references to 4.0.1. JSON `schema_version` remains 1; the v4.0.0 migration report and its evidence remain historical records.
+
+## Verified
+
+- `python3 -m unittest discover -s tests -q`: 55 tests passed, 2 Windows-only tests skipped in this Linux workspace.
+- `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL. L2 engine, L3 runtime and L4 visual gates were not run for this repository transfer.
+- The four production skills are present in the canonical catalog, profile and self-contracts; no engine, MCP server or live Blender/Godot project was modified by this transfer.
+
+## Current / next
+
+- Publish and verify this commit on the new repository's `main` branch.
+- Update the Windows working copy at `E:\MyCreations\Tools_C` from the new canonical repository after comparing its local changes; this repository transfer alone does not update the running Blender/Godot MCP deployment.
+- Design specialist skills for environments, buildings, vehicles/machinery, vegetation and props in separate scoped passes, using the production lookdev and verification gates where applicable.
+
+## Risks / recommendations
+
+- The imported v4 evidence documents prior checks and is not fresh runtime evidence for 4.0.1. Recheck the actual connector and target projects before claiming deployment or visual acceptance.
+- Keep project-specific rig, clips, art direction and asset budgets in profiles/decisions rather than universal skills. Preserve a single canonical owner for each instruction and update this Pulse after substantial work.

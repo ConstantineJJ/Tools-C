@@ -1,0 +1,555 @@
+{
+  "date": "2026-09-22",
+  "validated_code_commits": {
+    "E:\\MyCreations\\Tools_C": "963e9efeebb0a23393b355d7d8c0adfca5f9cc83",
+    "E:\\MyCreations\\Blender-MCP-Co": "a995612a2e88c484d5a32e62e8076f9a1b5a5e53",
+    "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project": "700acacb92162de11b81cc609b95977d15e3ec1c"
+  },
+  "validation": {
+    "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+    "checks": [
+      {
+        "command": [
+          "E:\\MyCreations\\Tools_C\\check.bat",
+          "--self"
+        ],
+        "exit_code": 0,
+        "stdout": "L1 PASS OK [TOOLS-CATALOG] Declared check satisfied\nL1 PASS OK [PROJECT-PROFILE] Declared check satisfied\nL1 PASS OK [PROJECT-ROUTES] Declared check satisfied\nL1 PASS OK [PROJECT-SKILLS] Declared check satisfied\nL1 PASS OK [.tooling/contracts.json] Declared check satisfied\nL1 PASS OK [TOOLS-FILES] Declared check satisfied\nL1 PASS OK [TOOLS-JSON] Declared check satisfied\nL1 PASS OK [TOOLS-LINKS] Declared check satisfied\nL1 PASS OK [TOOLS-GENERIC] Declared check satisfied\nL2 SKIP NOT_RUN [system] Use tools/engine_check.py; no engine executed by L1\nL3 SKIP NOT_RUN [system] Runtime/bridge/input behavior requires an explicit task probe\nL4 SKIP NOT_RUN [system] Visual and engineering review requires recorded evidence\nSUMMARY PASS=9 WARN=0 FAIL=0 SKIP=3\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "E:\\MyCreations\\Tools_C\\check.bat",
+          "--project",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project"
+        ],
+        "exit_code": 0,
+        "stdout": "L1 PASS OK [TOOLS-CATALOG] Declared check satisfied\nL1 PASS OK [PROJECT-PROFILE] Declared check satisfied\nL1 PASS OK [PROJECT-ROUTES] Declared check satisfied\nL1 PASS OK [PROJECT-SKILLS] Declared check satisfied\nL1 PASS OK [.tooling/contracts.json] Declared check satisfied\nL1 PASS OK [SD-FILES] Declared check satisfied\nL1 PASS OK [SD-JSON] Declared check satisfied\nL1 PASS OK [SD-ROUTER-LINKS] Declared check satisfied\nL1 PASS OK [SD-ACTIVE-HAND] Declared check satisfied\nL1 PASS OK [SD-NO-LEGACY] Declared check satisfied\nL1 PASS OK [PROJECT-ADAPTER] Declared check satisfied\nL2 SKIP NOT_RUN [system] Use tools/engine_check.py; no engine executed by L1\nL3 SKIP NOT_RUN [system] Runtime/bridge/input behavior requires an explicit task probe\nL4 SKIP NOT_RUN [system] Visual and engineering review requires recorded evidence\nSUMMARY PASS=11 WARN=0 FAIL=0 SKIP=3\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "E:\\MyCreations\\Tools_C\\check.bat",
+          "--project",
+          "E:\\MyCreations\\Blender-MCP-Co"
+        ],
+        "exit_code": 0,
+        "stdout": "L1 PASS OK [TOOLS-CATALOG] Declared check satisfied\nL1 PASS OK [PROJECT-PROFILE] Declared check satisfied\nL1 PASS OK [PROJECT-ROUTES] Declared check satisfied\nL1 PASS OK [PROJECT-SKILLS] Declared check satisfied\nL1 PASS OK [.tooling/contracts.json] Declared check satisfied\nL1 PASS OK [BMCP-FILES] Declared check satisfied\nL1 PASS OK [BMCP-JSON] Declared check satisfied\nL1 PASS OK [BMCP-LINKS] Declared check satisfied\nL1 PASS OK [PROJECT-ADAPTER] Declared check satisfied\nL2 SKIP NOT_RUN [system] Use tools/engine_check.py; no engine executed by L1\nL3 SKIP NOT_RUN [system] Runtime/bridge/input behavior requires an explicit task probe\nL4 SKIP NOT_RUN [system] Visual and engineering review requires recorded evidence\nSUMMARY PASS=9 WARN=0 FAIL=0 SKIP=3\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "C:\\Python314\\python.exe",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "stdout": "PASS SYNC: 8 compatibility routers\nPASS SYNC: 8 compatibility routers\nPASS SYNC: 8 generated contexts\nPASS SYNC: 8 compatibility routers\nPASS SYNC: 8 compatibility routers\n",
+        "stderr": "test_adapter_rejects_router_drift (test_check.ContractsTest.test_adapter_rejects_router_drift) ... ok\ntest_advisory_failure_warns (test_check.ContractsTest.test_advisory_failure_warns) ... ok\ntest_all_bootstrap_kinds_in_unicode_space_paths (test_check.ContractsTest.test_all_bootstrap_kinds_in_unicode_space_paths) ... ok\ntest_all_eight_blender_contexts_and_routers (test_check.ContractsTest.test_all_eight_blender_contexts_and_routers) ... ok\ntest_batch_launcher_outside_tools_root_preserves_exit_codes (test_check.ContractsTest.test_batch_launcher_outside_tools_root_preserves_exit_codes) ... ok\ntest_bootstrap_ambiguous_markers_fail_before_write (test_check.ContractsTest.test_bootstrap_ambiguous_markers_fail_before_write) ... ok\ntest_bootstrap_preserves_user_bytes_and_is_idempotent (test_check.ContractsTest.test_bootstrap_preserves_user_bytes_and_is_idempotent) ... ok\ntest_bootstrap_project_passes (test_check.ContractsTest.test_bootstrap_project_passes) ... ok\ntest_bootstrap_rejects_symlink_before_writing (test_check.ContractsTest.test_bootstrap_rejects_symlink_before_writing) ... ok\ntest_bundle_is_complete_and_will_not_overwrite (test_check.ContractsTest.test_bundle_is_complete_and_will_not_overwrite) ... ok\ntest_bundle_rejects_empty_and_nonempty_existing_dirs_without_mutation (test_check.ContractsTest.test_bundle_rejects_empty_and_nonempty_existing_dirs_without_mutation) ... ok\ntest_duplicate_canonical_skill_in_project_fails (test_check.ContractsTest.test_duplicate_canonical_skill_in_project_fails) ... ok\ntest_duplicate_ids (test_check.ContractsTest.test_duplicate_ids) ... ok\ntest_duplicate_json_key_and_nonfinite (test_check.ContractsTest.test_duplicate_json_key_and_nonfinite) ... ok\ntest_engine_zero_exit_does_not_hide_script_errors (test_check.ContractsTest.test_engine_zero_exit_does_not_hide_script_errors) ... ok\ntest_escape_and_windows_paths_always_fail (test_check.ContractsTest.test_escape_and_windows_paths_always_fail) ... ok\ntest_godot_adapter_follows_resources (test_check.ContractsTest.test_godot_adapter_follows_resources) ... ok\ntest_legacy_mirror_drift_blocks_all_sync_writes (test_check.ContractsTest.test_legacy_mirror_drift_blocks_all_sync_writes) ... ok\ntest_literals_and_protected_hash (test_check.ContractsTest.test_literals_and_protected_hash) ... ok\ntest_malformed_adapter_cli_reports_failure_without_traceback (test_check.ContractsTest.test_malformed_adapter_cli_reports_failure_without_traceback) ... ok\ntest_markdown_escape_is_rejected (test_check.ContractsTest.test_markdown_escape_is_rejected) ... ok\ntest_markdown_relative_encoded_and_reference_links (test_check.ContractsTest.test_markdown_relative_encoded_and_reference_links) ... ok\ntest_missing_file_fails_and_cli_returns_nonzero (test_check.ContractsTest.test_missing_file_fails_and_cli_returns_nonzero) ... ok\ntest_non_ascii_project_name (test_check.ContractsTest.test_non_ascii_project_name) ... ok\ntest_rejects_structural_types (test_check.ContractsTest.test_rejects_structural_types) ... ok\ntest_rejects_unknown_kind_and_fields (test_check.ContractsTest.test_rejects_unknown_kind_and_fields) ... ok\ntest_review_state_warns_until_explicitly_reviewed (test_check.ContractsTest.test_review_state_warns_until_explicitly_reviewed) ... ok\ntest_symlink_escape (test_check.ContractsTest.test_symlink_escape) ... ok\ntest_sync_refuses_user_drift_before_any_write (test_check.ContractsTest.test_sync_refuses_user_drift_before_any_write) ... ok\ntest_unknown_profile_skill_fails (test_check.ContractsTest.test_unknown_profile_skill_fails) ... ok\ntest_wrong_tools_root_fails (test_check.ContractsTest.test_wrong_tools_root_fails) ... ok\ntest_errors_nonzero_and_missing_marker_never_pass (test_engine_check.EngineResolutionTest.test_errors_nonzero_and_missing_marker_never_pass) ... ok\ntest_explicit_then_environment_and_invalid_selection_never_falls_back (test_engine_check.EngineResolutionTest.test_explicit_then_environment_and_invalid_selection_never_falls_back) ... ok\ntest_identity_records_real_path_and_version_or_fails (test_engine_check.EngineResolutionTest.test_identity_records_real_path_and_version_or_fails) ... ok\ntest_invalid_explicit_cli_returns_failure (test_engine_check.EngineResolutionTest.test_invalid_explicit_cli_returns_failure) ... ok\ntest_newest_blender_install_precedes_stale_path (test_engine_check.EngineResolutionTest.test_newest_blender_install_precedes_stale_path) ... ok\ntest_path_fallback_and_missing_engine (test_engine_check.EngineResolutionTest.test_path_fallback_and_missing_engine) ... ok\ntest_probe_records_command_and_detects_real_child_failure (test_engine_check.EngineResolutionTest.test_probe_records_command_and_detects_real_child_failure) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 3.066s\n\nOK\n"
+      }
+    ],
+    "markdown": {
+      "status": "PASS",
+      "count": 56,
+      "scope": "All Tools_C Markdown plus all integration/router/profile/local skill Markdown; supported local-link subset, no remote URL claims"
+    },
+    "final_documentation_pass": {
+      "status": "PASS",
+      "tools_c_markdown_files": 23,
+      "final_json_strict_parse": "PASS",
+      "all_three_L1": "PASS",
+      "code_unchanged_since_tested_commit": true
+    }
+  },
+  "engine_runs": {
+    "before_p1_repair": [
+      {
+        "level": "L2",
+        "engine": "godot",
+        "executable": "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+        "version": "4.7.2.stable.steam.ed1daf0bf",
+        "resolution": "explicit argument",
+        "status": "PASS",
+        "command": [
+          "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+          "--headless",
+          "--path",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+          "--editor",
+          "--import"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\before\\godot-import.log",
+        "errors": [],
+        "evidence": [
+          "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org"
+        ]
+      },
+      {
+        "level": "L3",
+        "engine": "godot",
+        "executable": "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+        "version": "4.7.2.stable.steam.ed1daf0bf",
+        "resolution": "explicit argument",
+        "scope": "scene-load smoke only",
+        "status": "FAIL",
+        "command": [
+          "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+          "--headless",
+          "--path",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+          "--script",
+          "E:\\MyCreations\\Tools_C\\tools\\probes\\godot_load.gd",
+          "--",
+          "res://scenes/sticksman_duel.tscn"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\before\\godot-runtime.log",
+        "errors": [
+          "ERROR: FighterCombatAdapter3D P1Combat: profile must be set.",
+          "ERROR: FighterCombatAdapter3D P1Combat: fighter profile does not match FighterData profile",
+          "SCRIPT ERROR: Invalid access to property or key 'fighter_id' on a base object of type 'Nil'."
+        ],
+        "evidence": [
+          "TOOLS_C_GODOT_RUNTIME {\"class\":\"Node3D\",\"nodes\":93,\"physics_frames\":30,\"scene\":\"res://scenes/sticksman_duel.tscn\",\"version\":\"4.7.2-stable (steam)\"}"
+        ]
+      },
+      {
+        "level": "L2",
+        "engine": "blender",
+        "status": "SKIP",
+        "reason": "Engine not requested"
+      },
+      {
+        "level": "L4",
+        "status": "SKIP",
+        "reason": "Headless probes do not provide visual or input/feel acceptance"
+      }
+    ],
+    "after_p1_repair": [
+      {
+        "level": "L2",
+        "engine": "godot",
+        "executable": "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+        "version": "4.7.2.stable.steam.ed1daf0bf",
+        "resolution": "explicit argument",
+        "status": "PASS",
+        "command": [
+          "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+          "--headless",
+          "--path",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+          "--editor",
+          "--import"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\after\\godot-import.log",
+        "errors": [],
+        "evidence": [
+          "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org"
+        ]
+      },
+      {
+        "level": "L3",
+        "engine": "godot",
+        "executable": "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+        "version": "4.7.2.stable.steam.ed1daf0bf",
+        "resolution": "explicit argument",
+        "scope": "scene-load smoke only",
+        "status": "PASS",
+        "command": [
+          "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+          "--headless",
+          "--path",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+          "--script",
+          "E:\\MyCreations\\Tools_C\\tools\\probes\\godot_load.gd",
+          "--",
+          "res://scenes/sticksman_duel.tscn"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\after\\godot-runtime.log",
+        "errors": [],
+        "evidence": [
+          "TOOLS_C_GODOT_RUNTIME {\"class\":\"Node3D\",\"nodes\":102,\"physics_frames\":30,\"scene\":\"res://scenes/sticksman_duel.tscn\",\"version\":\"4.7.2-stable (steam)\"}"
+        ]
+      },
+      {
+        "level": "L2",
+        "engine": "blender",
+        "executable": "C:\\Program Files\\Blender Foundation\\Blender 5.1\\blender.exe",
+        "version": "5.1.1",
+        "resolution": "newest versioned Windows installation",
+        "status": "PASS",
+        "command": [
+          "C:\\Program Files\\Blender Foundation\\Blender 5.1\\blender.exe",
+          "--background",
+          "--factory-startup",
+          "--disable-autoexec",
+          "--python-exit-code",
+          "1",
+          "--python",
+          "E:\\MyCreations\\Tools_C\\tools\\probes\\blender_import.py",
+          "--",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_Green_Animated.glb",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_white.glb"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\after\\blender-import.log",
+        "errors": [],
+        "evidence": [
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}",
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}"
+        ]
+      },
+      {
+        "level": "L4",
+        "status": "SKIP",
+        "reason": "Headless probes do not provide visual or input/feel acceptance"
+      }
+    ],
+    "current_blender_5_2": [
+      {
+        "level": "L2",
+        "engine": "godot",
+        "status": "SKIP",
+        "reason": "Engine not requested"
+      },
+      {
+        "level": "L3",
+        "status": "SKIP",
+        "reason": "Engine not requested"
+      },
+      {
+        "level": "L2",
+        "engine": "blender",
+        "executable": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+        "version": "5.2.2 LTS",
+        "resolution": "newest reported version: Windows installed applications",
+        "status": "PASS",
+        "command": [
+          "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+          "--background",
+          "--factory-startup",
+          "--disable-autoexec",
+          "--python-exit-code",
+          "1",
+          "--python",
+          "E:\\MyCreations\\Tools_C\\tools\\probes\\blender_import.py",
+          "--",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_Green_Animated.glb",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_white.glb"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\current-blender\\blender-import.log",
+        "errors": [],
+        "evidence": [
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}",
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}"
+        ]
+      },
+      {
+        "level": "L4",
+        "status": "SKIP",
+        "reason": "Headless probes do not provide visual or input/feel acceptance"
+      }
+    ],
+    "later_concurrent_editor_run": [
+      {
+        "level": "L2",
+        "engine": "godot",
+        "executable": "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+        "version": "4.7.2.stable.steam.ed1daf0bf",
+        "resolution": "environment configuration",
+        "status": "FAIL",
+        "command": [
+          "F:\\SteamLibrary\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+          "--headless",
+          "--path",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+          "--editor",
+          "--import"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\engines\\godot-import.log",
+        "errors": [
+          "ERROR: Godot MCP could not listen on 127.0.0.1:6262 (error 22)."
+        ],
+        "evidence": [
+          "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org"
+        ]
+      },
+      {
+        "level": "L3",
+        "status": "SKIP",
+        "reason": "No runtime scene requested or import failed"
+      },
+      {
+        "level": "L2",
+        "engine": "blender",
+        "executable": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+        "version": "5.2.2 LTS",
+        "resolution": "newest reported version: Windows installed applications",
+        "status": "PASS",
+        "command": [
+          "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+          "--background",
+          "--factory-startup",
+          "--disable-autoexec",
+          "--python-exit-code",
+          "1",
+          "--python",
+          "E:\\MyCreations\\Tools_C\\tools\\probes\\blender_import.py",
+          "--",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_Green_Animated.glb",
+          "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project\\Assets\\StickMans\\Stickman_white.glb"
+        ],
+        "exit_code": 0,
+        "log": ".local\\final\\engines\\blender-import.log",
+        "errors": [],
+        "evidence": [
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}",
+          "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}"
+        ]
+      },
+      {
+        "level": "L4",
+        "status": "SKIP",
+        "reason": "Headless probes do not provide visual or input/feel acceptance"
+      }
+    ]
+  },
+  "p1_targeted_runtime": {
+    "status": "PASS",
+    "command": [
+      "F:/SteamLibrary/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+      "--headless",
+      "--path",
+      "E:/MyCreations/Stickmans_Duel/stickmans-duel-project",
+      "--script",
+      "E:\\MyCreations\\Tools_C\\.local\\final\\p1_profile_smoke.gd"
+    ],
+    "exit_code": 0,
+    "log": ".local\\final\\p1-repair.log",
+    "errors": [],
+    "evidence": [
+      "TOOLS_C_P1_REPAIR [{\"fighter_id\":\"player_a\",\"hurtboxes\":3,\"profile\":\"res://fighters/3d/green_stickman_profile.tres\",\"setup_errors\":[],\"slot\":\"P1Combat\",\"typed_shared_profile\":true},{\"fighter_id\":\"player_b\",\"hurtboxes\":3,\"profile\":\"res://fighters/3d/white_stickman_profile.tres\",\"setup_errors\":[],\"slot\":\"P2Combat\",\"typed_shared_profile\":true}]"
+    ]
+  },
+  "p1_targeted_runtime_source": "extends SceneTree\n\nfunc _initialize() -> void:\n\tcall_deferred(\"_probe\")\n\nfunc _probe() -> void:\n\tvar scene = load(\"res://scenes/sticksman_duel.tscn\").instantiate()\n\troot.add_child(scene)\n\tcurrent_scene = scene\n\tfor frame in range(30):\n\t\tawait physics_frame\n\tvar rows := []\n\tfor slot in [\"P1Combat\", \"P2Combat\"]:\n\t\tvar adapter = scene.find_child(slot, true, false)\n\t\tif adapter == null or not adapter.setup_errors.is_empty() or adapter.target == null:\n\t\t\tpush_error(\"Missing/invalid combat adapter: \" + slot)\n\t\t\tquit(1)\n\t\t\treturn\n\t\tif not adapter.fighter_data.profile is Fighter3DProfile or adapter.fighter.profile != adapter.fighter_data.profile:\n\t\t\tpush_error(\"Typed/shared profile mismatch: \" + slot)\n\t\t\tquit(1)\n\t\t\treturn\n\t\tif adapter.target.fighter_id != adapter.fighter_data.fighter_id or adapter.hurtboxes.size() != 3:\n\t\t\tpush_error(\"Combat identity/hurtboxes invalid: \" + slot)\n\t\t\tquit(1)\n\t\t\treturn\n\t\trows.append({\"slot\": slot, \"fighter_id\": adapter.target.fighter_id,\n\t\t\t\"profile\": adapter.fighter_data.profile.resource_path, \"hurtboxes\": adapter.hurtboxes.size(),\n\t\t\t\"setup_errors\": Array(adapter.setup_errors), \"typed_shared_profile\": true})\n\tprint(\"TOOLS_C_P1_REPAIR \", JSON.stringify(rows))\n\tscene.queue_free()\n\tawait process_frame\n\tquit(0)\n",
+  "offline_loader": {
+    "status": "PASS",
+    "aliases": 8,
+    "context_queries": 3,
+    "registration": "stubbed only; not live MCP",
+    "server_sha256": "c144fb6920271d3b085e1619b7fa2c8ccb4658460daac0d169095183f41147f9"
+  },
+  "live_mcp": {
+    "status": "PASS",
+    "path": "Real MCP SDK client -> unchanged repository FastMCP server -> current TCP addon -> Blender",
+    "server": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+    "server_sha256": "c144fb6920271d3b085e1619b7fa2c8ccb4658460daac0d169095183f41147f9",
+    "python": "C:\\Users\\kosti\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "listed_read_aliases": 8,
+    "context_queries": 3,
+    "live_render_alias": "Blender_Character_Modeling_SKILL",
+    "canonical_sha256": "abf8b079848930859f59bcf9781f1aa283006b7e809e9003caf2dcf90b5fb1e5",
+    "scene_preserved": true,
+    "scene_object_count": 3,
+    "result": {
+      "result": {
+        "skill": "Blender_Character_Modeling_SKILL",
+        "sha256": "abf8b079848930859f59bcf9781f1aa283006b7e809e9003caf2dcf90b5fb1e5",
+        "version": "5.2.2 LTS",
+        "executable": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe"
+      }
+    }
+  },
+  "live_smoke_source": "import asyncio\nimport hashlib\nimport json\nfrom pathlib import Path\nimport sys\nfrom datetime import timedelta\nfrom mcp import ClientSession, StdioServerParameters\nfrom mcp.client.stdio import stdio_client\n\nROOT = Path('E:/MyCreations/Tools_C')\nSERVER = Path('E:/MyCreations/Blender-MCP-Co/mcp-server/blender_mcp_server.py')\nsys.path.insert(0, str(ROOT / 'tools'))\nimport read_blender_skill\n\n\nasync def main():\n    params = StdioServerParameters(command=sys.executable, args=[str(SERVER)])\n    with (ROOT / '.local/final/live-mcp.log').open('w', encoding='utf-8') as log:\n        async with stdio_client(params, errlog=log) as (read, write):\n            async with ClientSession(read, write) as session:\n                await session.initialize()\n                async def call(name, args=None):\n                    result = await session.call_tool(name, args or {}, read_timeout_seconds=timedelta(seconds=15))\n                    assert not result.isError, result\n                    value = json.loads(next(c.text for c in result.content if c.type == 'text'))\n                    assert value['ok'], value\n                    return value\n                listed = await call('list_skills')\n                assert listed['count'] == 8\n                routers = {}\n                for item in listed['skills']:\n                    r = await call('read_skill', {'name': item['name']})\n                    assert r['content'] == read_blender_skill.router(ROOT, item['name'])\n                    routers[item['name']] = r['content']\n                for task in ('model character', 'rig animation godot', 'model and rig'):\n                    r = await call('get_skill_context', {'task': task})\n                    assert all(not s['truncated'] and s['content'] == routers[s['name']] for s in r['skills'])\n                before = await call('get_scene_info')\n                alias = 'Blender_Character_Modeling_SKILL'\n                code = routers[alias].split('```python\\n')[1].split('```')[0]\n                code += '\\nimport bpy, hashlib\\n_result = {\"skill\": ' + repr(alias) + ', \"sha256\": hashlib.sha256(context.encode()).hexdigest(), \"version\": bpy.app.version_string, \"executable\": bpy.app.binary_path}\\n'\n                rendered = await call('execute_blender_python', {'code': code})\n                expected = hashlib.sha256(read_blender_skill.render(ROOT, alias).encode()).hexdigest()\n                assert expected in json.dumps(rendered), 'Canonical content hash not returned by live Blender'\n                after = await call('get_scene_info')\n                assert before == after, 'Scene changed during read-only skill retrieval'\n                result = {'status': 'PASS', 'path': 'Real MCP SDK client -> unchanged repository FastMCP server -> current TCP addon -> Blender',\n                          'server': str(SERVER), 'server_sha256': hashlib.sha256(SERVER.read_bytes()).hexdigest(),\n                          'python': sys.executable, 'listed_read_aliases': 8, 'context_queries': 3,\n                          'live_render_alias': alias, 'canonical_sha256': expected,\n                          'scene_preserved': True, 'scene_object_count': before['data']['object_count'],\n                          'result': rendered.get('data', rendered)}\n                # stdout contains the whole canonical context; keep bounded result/evidence only.\n                if isinstance(result['result'], dict):\n                    result['result'].pop('stdout', None)\n                (ROOT / '.local/final/live.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')\n                print(json.dumps({k:v for k,v in result.items() if k != 'result'}, indent=2))\n\nasyncio.run(asyncio.wait_for(main(), timeout=55))\n",
+  "connector_results": {
+    "initial_attempt": {
+      "godot": "SKIP: MCP SSE probe HTTP 429 UNAVAILABLE",
+      "blender": "SKIP: MCP SSE probe HTTP 429 UNAVAILABLE"
+    },
+    "after_environment_changed": [
+      {
+        "engine": "godot",
+        "status": "PASS",
+        "result": {
+          "editor": {
+            "connected": true,
+            "target": "editor",
+            "current_scene": "res://fighters/3d/white_fighter.tscn",
+            "editor_playing": false,
+            "editor_port": 6262,
+            "engine_version": {
+              "build": "steam",
+              "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+              "hex": 263938,
+              "major": 4,
+              "minor": 7,
+              "patch": 2,
+              "status": "stable",
+              "string": "4.7.2-stable (steam)",
+              "timestamp": 0
+            },
+            "executable_path": "F:/SteamLibrary/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+            "extended_tools": 88,
+            "project_name": "Sticksman Duel",
+            "project_path": "E:/MyCreations/Stickmans_Duel/stickmans-duel-project",
+            "scene_root": "WhiteFighter"
+          },
+          "runtime": {
+            "connected": false,
+            "target": "runtime",
+            "error": "Cannot connect to Godot runtime bridge at 127.0.0.1:6263. Start the project with godot_run_project before using runtime tools. (connect ECONNREFUSED 127.0.0.1:6263)"
+          },
+          "launched_process": {
+            "running": false,
+            "pid": null,
+            "started_at": null,
+            "exited_at": null,
+            "exit_code": null,
+            "exit_signal": null,
+            "log_lines": 0,
+            "fallback_log_file": null
+          }
+        }
+      },
+      {
+        "engine": "blender",
+        "status": "PASS",
+        "result": {
+          "result": {
+            "ok": true,
+            "data": {
+              "scene": "Scene",
+              "frame_current": 1,
+              "object_count": 3,
+              "objects": [
+                {
+                  "name": "Cube",
+                  "type": "MESH",
+                  "location": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "rotation_euler": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "name": "Light",
+                  "type": "LIGHT",
+                  "location": [
+                    4.076245307922363,
+                    1.0054539442062378,
+                    5.903861999511719
+                  ],
+                  "rotation_euler": [
+                    0.6503279805183411,
+                    0.055217113345861435,
+                    1.8663908243179321
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "name": "Camera",
+                  "type": "CAMERA",
+                  "location": [
+                    7.358891487121582,
+                    -6.925790786743164,
+                    4.958309173583984
+                  ],
+                  "rotation_euler": [
+                    1.1093189716339111,
+                    0,
+                    0.8149281740188599
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "godot_file_tool": {
+      "status": "SKIP",
+      "reason": "Connector rejected valid res://.tooling/profile.json with a path-pattern schema error; editor status smoke succeeded. No policy settings changed."
+    }
+  },
+  "external_mirror": {
+    "status": "WARN",
+    "path": "C:/Users/kosti/chatgpt-blender-mcp/skills/Blender_Character_Modeling_SKILL/SKILL.md",
+    "observed_header": "Blender Character Modeling Skill - Stickmans Duel; Version 1.0",
+    "note": "Deployed tunnel mirror still has old skills. Live canonical chain proved using unchanged repository MCP implementation in a temporary real stdio session. Existing deployment was not rewritten or restarted."
+  },
+  "optional_validator": {
+    "status": "SKIP",
+    "helper": "skill-creator quick_validate",
+    "reason": "C:/Python314/python.exe lacks PyYAML; optional external compatibility helper, not Tools_C authority. No dependency installed."
+  },
+  "logs": {
+    ".local/final/live-mcp.log": {
+      "sha256": "4aaca84a47f09a34263962f012521e9733ebf3e3e099cdae4365935e763c3edb",
+      "text": "Processing request of type CallToolRequest\nProcessing request of type ListToolsRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\nProcessing request of type CallToolRequest\n"
+    },
+    ".local/final/p1-repair.log": {
+      "sha256": "a332063faadb7c373e3ca44f7ccbe7e18d5b8d42b9cb55eacfa010f6cf151f83",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\nGodot MCP runtime bridge listening on 127.0.0.1:6263\nTOOLS_C_P1_REPAIR [{\"fighter_id\":\"player_a\",\"hurtboxes\":3,\"profile\":\"res://fighters/3d/green_stickman_profile.tres\",\"setup_errors\":[],\"slot\":\"P1Combat\",\"typed_shared_profile\":true},{\"fighter_id\":\"player_b\",\"hurtboxes\":3,\"profile\":\"res://fighters/3d/white_stickman_profile.tres\",\"setup_errors\":[],\"slot\":\"P2Combat\",\"typed_shared_profile\":true}]\n\n"
+    },
+    ".local/final/after/blender-import.log": {
+      "sha256": "b06a38bde6761d01dad61a5b362ad39557982d8ce9cb8510da0bb75227aa9284",
+      "text": "18:28:09 | INFO: Data are loaded, start creating Blender stuff\n18:28:09 | INFO: Blender create Mesh node tripo_mesh_3dc91da0-c428-468c-88ef-35b3b4cc58e9\n18:28:09 | INFO: glTF import finished in 0.34s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}\n18:28:09 | INFO: Data are loaded, start creating Blender stuff\n18:28:09 | INFO: Blender create Mesh node tripo_mesh_aa605c8c-9f14-4736-a87d-e57479813d46\n18:28:09 | INFO: glTF import finished in 0.48s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}\nBlender 5.1.1 (hash b70da489d7f4 built 2026-04-14 01:37:22)\n\nBlender quit\n\n"
+    },
+    ".local/final/after/godot-import.log": {
+      "sha256": "96f1ed9759b3e4a4ba785815563d6734db3920ab20b573372a8a564ec9165376",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\nGodot MCP extended tool adapter ready: 0 tools\nGodot MCP editor bridge listening on 127.0.0.1:6262\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (2 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | mcp_panel.csv\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | tool_descriptions.csv\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n\n"
+    },
+    ".local/final/after/godot-runtime.log": {
+      "sha256": "934be0bf8c3b0a9ca392ae1adb0fad005c8d35e0172204f97701b28e9f9b519b",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\nGodot MCP runtime bridge listening on 127.0.0.1:6263\nTOOLS_C_GODOT_RUNTIME {\"class\":\"Node3D\",\"nodes\":102,\"physics_frames\":30,\"scene\":\"res://scenes/sticksman_duel.tscn\",\"version\":\"4.7.2-stable (steam)\"}\n\n"
+    },
+    ".local/final/before/godot-import.log": {
+      "sha256": "96f1ed9759b3e4a4ba785815563d6734db3920ab20b573372a8a564ec9165376",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\nGodot MCP extended tool adapter ready: 0 tools\nGodot MCP editor bridge listening on 127.0.0.1:6262\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (2 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | mcp_panel.csv\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | tool_descriptions.csv\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n\n"
+    },
+    ".local/final/before/godot-runtime.log": {
+      "sha256": "45de95c0e85c28c17709b0b50ed01f38d3c4b6fd011da919360e1a178bea3774",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\nGodot MCP runtime bridge listening on 127.0.0.1:6263\nTOOLS_C_GODOT_RUNTIME {\"class\":\"Node3D\",\"nodes\":93,\"physics_frames\":30,\"scene\":\"res://scenes/sticksman_duel.tscn\",\"version\":\"4.7.2-stable (steam)\"}\n\nERROR: FighterCombatAdapter3D P1Combat: profile must be set.\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _build_runtime_nodes (res://scripts/combat/fighter_combat_adapter_3d.gd:66)\n       [1] _ready (res://scripts/combat/fighter_combat_adapter_3d.gd:38)\n       [2] _create_adapter (res://scripts/combat/combat_runtime_3d.gd:73)\n       [3] _ready (res://scripts/combat/combat_runtime_3d.gd:46)\n       [4] _probe (E:/MyCreations/Tools_C/tools/probes/godot_load.gd:19)\nERROR: FighterCombatAdapter3D P1Combat: fighter profile does not match FighterData profile\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] _build_runtime_nodes (res://scripts/combat/fighter_combat_adapter_3d.gd:66)\n       [1] _ready (res://scripts/combat/fighter_combat_adapter_3d.gd:38)\n       [2] _create_adapter (res://scripts/combat/combat_runtime_3d.gd:73)\n       [3] _ready (res://scripts/combat/combat_runtime_3d.gd:46)\n       [4] _probe (E:/MyCreations/Tools_C/tools/probes/godot_load.gd:19)\nSCRIPT ERROR: Invalid access to property or key 'fighter_id' on a base object of type 'Nil'.\n   at: CombatHitBatch.register_target (res://scripts/combat/combat_hit_batch.gd:20)\n   GDScript backtrace (most recent call first):\n       [0] register_target (res://scripts/combat/combat_hit_batch.gd:20)\n       [1] _ready (res://scripts/combat/combat_runtime_3d.gd:48)\n       [2] _probe (E:/MyCreations/Tools_C/tools/probes/godot_load.gd:19)\n"
+    },
+    ".local/final/current-blender/blender-import.log": {
+      "sha256": "3565f4412817b0c103e7a618eb0a38cb4778d42900ab3c8453324d31aec613ca",
+      "text": "18:29:26 | INFO: Data are loaded, start creating Blender stuff\n18:29:26 | INFO: Blender create Mesh node tripo_mesh_3dc91da0-c428-468c-88ef-35b3b4cc58e9\n18:29:26 | INFO: glTF import finished in 0.28s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}\n18:29:26 | INFO: Data are loaded, start creating Blender stuff\n18:29:26 | INFO: Blender create Mesh node tripo_mesh_aa605c8c-9f14-4736-a87d-e57479813d46\n18:29:27 | INFO: glTF import finished in 0.31s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}\nBlender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)\n\nBlender quit\n\n"
+    },
+    ".local/final/engines/blender-import.log": {
+      "sha256": "bbea28540e9105fedf3f8f15669eb2cd4787aa52cbbb0b415f4966d505bf19ef",
+      "text": "18:32:59 | INFO: Data are loaded, start creating Blender stuff\n18:32:59 | INFO: Blender create Mesh node tripo_mesh_3dc91da0-c428-468c-88ef-35b3b4cc58e9\n18:33:00 | INFO: glTF import finished in 0.26s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}\n18:33:00 | INFO: Data are loaded, start creating Blender stuff\n18:33:00 | INFO: Blender create Mesh node tripo_mesh_aa605c8c-9f14-4736-a87d-e57479813d46\n18:33:00 | INFO: glTF import finished in 0.31s\nTOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.2.2 LTS\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}\nBlender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)\n\nBlender quit\n\n"
+    },
+    ".local/final/engines/godot-import.log": {
+      "sha256": "3fecc65193d08b69923800d07f7065c752e681d81255922962ce5a4fb8d9298b",
+      "text": "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\nGodot MCP extended tool adapter ready: 0 tools\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | Started Сканирование действий… (2 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | mcp_panel.csv\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1m_update_scan_actions\u001b[22m | tool_descriptions.csv\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1m_update_scan_actions\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Повторное открытие сцен…\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета центрального редактора…\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета окна плагина…\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Макет редактора готов.\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n\nERROR: Godot MCP could not listen on 127.0.0.1:6262 (error 22).\n   at: push_error (core/variant/variant_utility.cpp:1023)\n   GDScript backtrace (most recent call first):\n       [0] start (res://addons/godot_mcp/tcp_json_server.gd:13)\n       [1] _enter_tree (res://addons/godot_mcp/plugin.gd:21)\n"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "tools_root": ".",
+  "profile": ".tooling/profile.json"
+}

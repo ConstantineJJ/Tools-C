@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "tools-c-contracts",
+  "rules": [
+    {
+      "id": "TOOLS-FILES",
+      "kind": "files",
+      "paths": [
+        "AGENTS.md",
+        "manifest.json",
+        "README.md",
+        "check.bat",
+        "bootstrap.bat",
+        "tools/check.py",
+        "tools/bootstrap.py",
+        "tools/sync_blender.py",
+        "tools/engine_check.py",
+        "tests/test_check.py",
+        "docs/foundation.md",
+        "docs/architecture-v4.md",
+        "docs/blender-evidence.md",
+        "docs/mcp-deployment.md",
+        "tools/handoff_snapshot.py",
+        "tools/blender_snapshot.py",
+        "tools/blender_capture.py",
+        "tools/glb_inspect.py",
+        "tools/export_validate.py",
+        "tools/blender_export_probe.py",
+        "tools/python_preflight.py",
+        "tools/mcp_runtime.py",
+        "tools/mcp_deployment.py",
+        "tests/test_v4.py",
+        "tests/blender_v4_probe.py",
+        "tests/live_mcp_v4_probe.py",
+        "skills/production-mechanic-gym/SKILL.md",
+        "skills/production-subagent-worktree/SKILL.md",
+        "skills/production-lookdev-gate/SKILL.md",
+        "skills/production-project-state-gates/SKILL.md",
+        "Project-pulse"
+      ]
+    },
+    {
+      "id": "TOOLS-JSON",
+      "kind": "json",
+      "paths": [
+        "manifest.json",
+        ".tooling/config.json",
+        ".tooling/profile.json",
+        ".tooling/contracts.json",
+        "reports/preflight.json"
+      ]
+    },
+    {
+      "id": "TOOLS-LINKS",
+      "kind": "markdown",
+      "paths": [
+        "AGENTS.md",
+        "README.md",
+        "docs/contracts.md",
+        "docs/foundation.md",
+        "docs/architecture-v4.md",
+        "docs/blender-evidence.md",
+        "docs/mcp-deployment.md",
+        "Project-pulse"
+      ]
+    },
+    {
+      "id": "TOOLS-GENERIC",
+      "kind": "text",
+      "paths": [
+        "skills/project-audit/SKILL.md",
+        "skills/godot-project/SKILL.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/blender-character-modeling/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/contracts-lint/SKILL.md",
+        "skills/blender-rigging-skinning/SKILL.md",
+        "skills/blender-animation/SKILL.md",
+        "skills/blender-export-validation/SKILL.md",
+        "skills/godot-asset-integration/SKILL.md",
+        "skills/production-mechanic-gym/SKILL.md",
+        "skills/production-subagent-worktree/SKILL.md",
+        "skills/production-lookdev-gate/SKILL.md",
+        "skills/production-project-state-gates/SKILL.md"
+      ],
+      "required": [],
+      "forbidden": [
+        "Fixed 18-bone names:",
+        "fixed 18-bone production naming contract",
+        "res://3D/Assets/"
+      ]
+    }
+  ]
+}

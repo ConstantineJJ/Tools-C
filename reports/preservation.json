@@ -1,0 +1,79 @@
+[
+  {
+    "root": "E:\\MyCreations\\Tools_C",
+    "preserved": [],
+    "authorized_migration": [],
+    "unexpected_changes": []
+  },
+  {
+    "root": "E:\\MyCreations\\Blender-MCP-Co",
+    "preserved": [
+      "README.md.bak_skills_v050",
+      "icons.png",
+      "mcp-server/__pycache__/blender_mcp_server.cpython-314.pyc",
+      "mcp-server/blender_mcp_server.py",
+      "mcp-server/blender_mcp_server.py.bak-v051-20260911-095859",
+      "mcp-server/run_blender_mcp_server.cmd",
+      "scripts/publish-release.cmd",
+      "scripts/publish-release.ps1",
+      "scripts/publish-release.ps1.bak_skills_v050",
+      "scripts/upgrade-blender-mcp-v0.5.1.cmd",
+      "scripts/upgrade-blender-mcp-v0.5.1.ps1",
+      "skills/README_Blender_Character_Agent_Pipeline.md",
+      "src/BlenderMCPCon/BlenderMCPCon.csproj.bak_skills_v050",
+      "src/BlenderMCPCon/MainForm.cs.bak_skills_v050",
+      "src/BlenderMCPCon/SkillStore.cs",
+      "src/BlenderMCPCon/assets/BlenderMCPCon.ico",
+      "src/BlenderMCPCon/assets/icons.png",
+      ".gitignore",
+      "README.md",
+      "config/config.example.json",
+      "src/BlenderMCPCon/AppConfig.cs",
+      "src/BlenderMCPCon/BlenderMCPCon.csproj",
+      "src/BlenderMCPCon/ConfigStore.cs",
+      "src/BlenderMCPCon/ExecutableLocator.cs",
+      "src/BlenderMCPCon/MainForm.cs",
+      "src/BlenderMCPCon/ProcessRunner.cs",
+      "src/BlenderMCPCon/SettingsForm.cs",
+      "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.dll",
+      "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.exe",
+      "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.pdb",
+      "src/BlenderMCPCon/obj/BlenderMCPCon.csproj.nuget.dgspec.json",
+      "src/BlenderMCPCon/obj/BlenderMCPCon.csproj.nuget.g.props",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.AssemblyInfo.cs",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.AssemblyInfoInputs.cache",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.csproj.FileListAbsolute.txt",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.dll",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.pdb",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/apphost.exe",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/ref/BlenderMCPCon.dll",
+      "src/BlenderMCPCon/obj/Debug/net10.0-windows/refint/BlenderMCPCon.dll",
+      "src/BlenderMCPCon/obj/project.assets.json",
+      "src/BlenderMCPCon/obj/project.nuget.cache"
+    ],
+    "authorized_migration": [
+      "skills/Blender_Character_Modeling_SKILL/SKILL.md",
+      "skills/Blender_Character_Pipeline_Core/SKILL.md",
+      "skills/Blender_Character_QA_SKILL/SKILL.md",
+      "skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+      "skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+      "skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+      "skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+      "skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+      "skills/PIPELINE_MANIFEST.json"
+    ],
+    "unexpected_changes": []
+  },
+  {
+    "root": "E:\\MyCreations\\Stickmans_Duel\\stickmans-duel-project",
+    "preserved": [
+      "fighters/3d/green_stickman_model.tscn",
+      "fighters/3d/green_stickman_profile.tres",
+      "fighters/3d/white_stickman_model.tscn",
+      "fighters/data/player_a_data.tres",
+      "fighters/data/player_b_data.tres"
+    ],
+    "authorized_migration": [],
+    "unexpected_changes": []
+  }
+]

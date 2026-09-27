@@ -1,0 +1,208 @@
+{
+  "engine": {
+    "executable": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+    "version": "5.2.2 LTS",
+    "resolution": "explicit argument"
+  },
+  "probes": [
+    {
+      "status": "PASS",
+      "command": [
+        "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "E:\\MyCreations\\Tools_C\\tools\\blender_export_probe.py",
+        "--",
+        "E:\\MyCreations\\Tools_C\\.local\\v4-roundtrip-final-fps\\export-job.json"
+      ],
+      "exit_code": 0,
+      "log": "E:\\MyCreations\\Tools_C\\.local\\v4-roundtrip-final-fps\\export.log",
+      "errors": [],
+      "evidence": [
+        "TOOLS_C_EXPORT_PROBE {\"mode\": \"export\", \"blender\": \"5.2.2 LTS\", \"objects\": [\"Body\", \"Head\", \"LeftLeg\", \"RightLeg\", \"LeftArm\", \"RightArm\", \"FrontMarker\", \"BackMarker\", \"FixtureRig\"], \"actions\": [\"FixtureWave\"], \"bounds\": {\"min\": [-0.9600000381469727, -0.3700000047683716, 0.0], \"max\": [0.9600000381469727, 0.39000001549720764, 2.8499999046325684]}, \"limits\": \"Static declared snapshot and bounds; clip samples and visual review are separate\"}"
+      ]
+    },
+    {
+      "status": "PASS",
+      "command": [
+        "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Blender\\blender.exe",
+        "--background",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "E:\\MyCreations\\Tools_C\\tools\\blender_export_probe.py",
+        "--",
+        "E:\\MyCreations\\Tools_C\\.local\\v4-roundtrip-final-fps\\import-job.json"
+      ],
+      "exit_code": 0,
+      "log": "E:\\MyCreations\\Tools_C\\.local\\v4-roundtrip-final-fps\\import.log",
+      "errors": [],
+      "evidence": [
+        "TOOLS_C_EXPORT_PROBE {\"mode\": \"import\", \"blender\": \"5.2.2 LTS\", \"objects\": [\"BackMarker\", \"Body\", \"FixtureRig\", \"FrontMarker\", \"Head\", \"LeftArm\", \"LeftLeg\", \"RightArm\", \"RightLeg\"], \"actions\": [\"FixtureWave\"], \"bounds\": {\"min\": [-0.9600000381469727, -0.3700000047683716, 0.0], \"max\": [0.9600000381469727, 0.39000001549720764, 2.8499999046325684]}, \"limits\": \"Static declared snapshot and bounds; clip samples and visual review are separate\", \"startup_objects_excluded\": [], \"import_options\": {\"filepath\": \"E:\\\\MyCreations\\\\Tools_C\\\\.local\\\\v4-roundtrip-final-fps\\\\asset.glb\", \"disable_bone_shape\": true}}"
+      ]
+    }
+  ],
+  "glb": {
+    "status": "STRUCTURAL PASS",
+    "bytes": 20924,
+    "nodes": 11,
+    "meshes": 8,
+    "primitives": 8,
+    "triangles": 96,
+    "skins": [
+      {
+        "name": "FixtureRig",
+        "joints": [
+          "Root",
+          "Tip"
+        ]
+      }
+    ],
+    "skinned_nodes": 8,
+    "materials": [
+      "FixtureMarker",
+      "FixtureBlue"
+    ],
+    "animations": [
+      {
+        "name": "FixtureWave",
+        "channels": [
+          {
+            "node": "Root",
+            "path": "translation",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 2,
+            "value_min": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "value_max": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "node": "Root",
+            "path": "rotation",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 2,
+            "value_min": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "value_max": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "node": "Root",
+            "path": "scale",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 2,
+            "value_min": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "value_max": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "node": "Tip",
+            "path": "translation",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 2,
+            "value_min": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "value_max": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "node": "Tip",
+            "path": "rotation",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 25,
+            "value_min": [
+              0.0,
+              0.0,
+              0.0,
+              0.9689124226570129
+            ],
+            "value_max": [
+              0.0,
+              0.0,
+              0.24740399420261383,
+              1.0
+            ]
+          },
+          {
+            "node": "Tip",
+            "path": "scale",
+            "start": 0.03330003097653389,
+            "end": 0.8325008153915405,
+            "samples": 2,
+            "value_min": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "value_max": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Bounded GLB subset, not full Khronos conformance",
+      "Texture payloads, shading equivalence, arbitrary extensions and visual quality require separate checks"
+    ]
+  },
+  "comparison": {
+    "status": "FAIL",
+    "failures": [
+      "FixtureWave: exported duration differs"
+    ],
+    "representation_differences": [
+      "BackMarker: source mesh representation differs; bounds/other gates checked separately",
+      "Body: source mesh representation differs; bounds/other gates checked separately",
+      "FrontMarker: source mesh representation differs; bounds/other gates checked separately",
+      "Head: source mesh representation differs; bounds/other gates checked separately",
+      "LeftArm: source mesh representation differs; bounds/other gates checked separately",
+      "LeftLeg: source mesh representation differs; bounds/other gates checked separately",
+      "RightArm: source mesh representation differs; bounds/other gates checked separately",
+      "RightLeg: source mesh representation differs; bounds/other gates checked separately"
+    ],
+    "tolerance": 1e-05,
+    "visual": "SKIP",
+    "semantic_review": "REVIEW REQUIRED",
+    "limits": "Static sampled-frame bounds, names/hierarchy/inclusion/duration only; not material shading, rest-matrix/weight equivalence, root-motion policy, arbitrary poses or playback feel"
+  }
+}

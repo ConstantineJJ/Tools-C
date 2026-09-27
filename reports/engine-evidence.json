@@ -1,0 +1,31 @@
+[
+  {
+    "probe": "godot-import",
+    "status": "PASS",
+    "exit_code": 0,
+    "evidence": [
+      "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org"
+    ]
+  },
+  {
+    "probe": "godot-runtime",
+    "status": "FAIL",
+    "exit_code": 0,
+    "evidence": [
+      "Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org",
+      "TOOLS_C_GODOT_RUNTIME {\"class\":\"Node3D\",\"nodes\":93,\"physics_frames\":30,\"scene\":\"res://scenes/sticksman_duel.tscn\",\"version\":\"4.7.2-stable (steam)\"}",
+      "ERROR: FighterCombatAdapter3D P1Combat: profile must be set.",
+      "ERROR: FighterCombatAdapter3D P1Combat: fighter profile does not match FighterData profile",
+      "SCRIPT ERROR: Invalid access to property or key 'fighter_id' on a base object of type 'Nil'."
+    ]
+  },
+  {
+    "probe": "blender-import",
+    "status": "PASS",
+    "exit_code": 0,
+    "evidence": [
+      "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_Green_Animated.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 2918, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"bow\", \"box_01\", \"box_03\", \"defeat_02\", \"front_kick_02\", \"idle\", \"walk\"], \"materials\": 1}",
+      "TOOLS_C_BLENDER {\"source\": \"E:\\\\MyCreations\\\\Stickmans_Duel\\\\stickmans-duel-project\\\\Assets\\\\StickMans\\\\Stickman_white.glb\", \"version\": \"5.1.1\", \"meshes\": 2, \"vertices\": 8531, \"uv_meshes\": 2, \"armatures\": [{\"name\": \"Armature\", \"bones\": 65}], \"actions\": [\"box_01.001\", \"box_02.001\", \"defeat_03.001\", \"front_kick_01.001\", \"front_kick_02.001\", \"idle.001\", \"run.001\", \"walk.001\", \"\\u0421\\u0434\\u0435\\u043b\\u0430\\u0439 \\u0435\\u043c\\u0443 idle \\u0430\\u043d\\u0438\\u043c\\u0430\\u0446\\u0438\\u044e. \\u0420\\u0443\\u043a\\u0438 \\u043f\\u0440\\u0438\\u043f\\u043e\"], \"materials\": 1}"
+    ]
+  }
+]

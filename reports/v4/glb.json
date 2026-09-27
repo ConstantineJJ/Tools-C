@@ -1,0 +1,139 @@
+{
+  "status": "STRUCTURAL PASS",
+  "bytes": 20924,
+  "nodes": 11,
+  "meshes": 8,
+  "primitives": 8,
+  "triangles": 96,
+  "skins": [
+    {
+      "name": "FixtureRig",
+      "joints": [
+        "Root",
+        "Tip"
+      ]
+    }
+  ],
+  "skinned_nodes": 8,
+  "materials": [
+    "FixtureMarker",
+    "FixtureBlue"
+  ],
+  "animations": [
+    {
+      "name": "FixtureWave",
+      "channels": [
+        {
+          "node": "Root",
+          "path": "translation",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 2,
+          "value_min": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "value_max": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "node": "Root",
+          "path": "rotation",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 2,
+          "value_min": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "value_max": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "node": "Root",
+          "path": "scale",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 2,
+          "value_min": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "value_max": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "node": "Tip",
+          "path": "translation",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 2,
+          "value_min": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "value_max": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "node": "Tip",
+          "path": "rotation",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 25,
+          "value_min": [
+            0.0,
+            0.0,
+            0.0,
+            0.9689124226570129
+          ],
+          "value_max": [
+            0.0,
+            0.0,
+            0.24740399420261383,
+            1.0
+          ]
+        },
+        {
+          "node": "Tip",
+          "path": "scale",
+          "start": 0.0416666679084301,
+          "end": 1.0416666269302368,
+          "samples": 2,
+          "value_min": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "value_max": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Bounded GLB subset, not full Khronos conformance",
+    "Texture payloads, shading equivalence, arbitrary extensions and visual quality require separate checks"
+  ]
+}

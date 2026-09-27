@@ -1,0 +1,79 @@
+{
+  "purpose": "Manual activation evaluation for the four non-Blender canonical skills. Cases identify the primary owner; companion skills may also apply. Present prompts without expected routes, then compare. Integrity tests do not measure model activation.",
+  "cases": [
+    {
+      "skill": "contracts-lint",
+      "should_trigger": [
+        "Add a Tools_C contract rule that rejects duplicate declared resource IDs and prove the failure case.",
+        "A recurring checker defect needs a durable lesson or a reliable L1 rule; update the owning tests."
+      ],
+      "should_not_trigger": [
+        "Run the existing checker on this Godot project and report its current failures.",
+        "Fix a character's shoulder deformation in Blender."
+      ],
+      "edge": {
+        "prompt": "The project profile has a stale resource path; determine whether the local contract or universal checker must change.",
+        "expected": [
+          "contracts-lint",
+          "project-audit"
+        ],
+        "reason": "Inspect actual project ownership before changing a local rule or universal checker."
+      }
+    },
+    {
+      "skill": "godot-project",
+      "should_trigger": [
+        "A reimport removes an editor-authored offset; fix scene ownership in this Godot project.",
+        "Update a shared Godot Resource for one instance without changing its siblings."
+      ],
+      "should_not_trigger": [
+        "Rig and animate the source character in Blender only.",
+        "Add a new Tools_C JSON contract kind without editing a Godot project."
+      ],
+      "edge": {
+        "prompt": "A GLB imports into Godot but its material looks wrong in the project scene.",
+        "expected": [
+          "godot-project",
+          "verification"
+        ],
+        "reason": "The target scene and visual evidence must distinguish import from appearance."
+      }
+    },
+    {
+      "skill": "project-audit",
+      "should_trigger": [
+        "Audit this project's current branch, dirty files, instructions and active scene before planning changes.",
+        "Connect this existing repository to Tools_C while preserving its AGENTS.md and user edits."
+      ],
+      "should_not_trigger": [
+        "Adjust a single named Godot node and test its runtime behavior.",
+        "Review only the before and after renders of a Blender sculpt."
+      ],
+      "edge": {
+        "prompt": "An old handoff names an 18-bone rig, while the current asset may use another skeleton.",
+        "expected": [
+          "project-audit"
+        ],
+        "reason": "Current consumers and profile must establish which statement is active."
+      }
+    },
+    {
+      "skill": "verification",
+      "should_trigger": [
+        "Check whether this change actually works at runtime and whether another instance regressed.",
+        "Compare fixed camera views before and after a mesh correction and report any unrun checks."
+      ],
+      "should_not_trigger": [
+        "Create a new scene script without asking for a review.",
+        "Design a new contract rule and its validator."
+      ],
+      "edge": {
+        "prompt": "The import command exited successfully; can we claim the animation looks and plays correctly?",
+        "expected": [
+          "verification"
+        ],
+        "reason": "L2 import success does not establish L3 playback or L4 visual quality."
+      }
+    }
+  ]
+}
