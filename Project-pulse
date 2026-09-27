@@ -17,8 +17,13 @@ Updated: 2026-09-27. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/T
 
 ## Current / next
 
-- Update the Windows working copy at `E:\MyCreations\Tools_C` from the new canonical repository after comparing its local changes; this repository transfer alone does not update the running Blender/Godot MCP deployment.
+- User ran the Windows updater for `E:\MyCreations\Tools_C`; Windows Git HEAD and backup path have not been independently observed. Verify the live copy before any further migration.
 - Design specialist skills for environments, buildings, vehicles/machinery, vegetation and props in separate scoped passes, using the production lookdev and verification gates where applicable.
+
+## Open bridge incident (2026-09-27)
+
+- Blender MCP_Con v0.5.2 log at 22:03 shows Blender bridge 127.0.0.1:9876 connected and 8/8 routers verified, but tunnel health 127.0.0.1:8080 did not answer; launcher refused another tunnel. The configured wrapper remains under `E:\MyCreations\Blender-MCP-Co`. The Work connector currently returns 404. Root cause is not yet verified.
+- User deleted `Stickmans_Duel`, which contained their Godot MCP launcher/client. The Godot_MCP_R Work connector remains registered but returns 404 because its local endpoint is unavailable. Earlier notes identify `C:\VibeBatling3D` as a possible separate source; check it and the Recycle Bin before recreating any MCP stack.
 
 ## Risks / recommendations
 
