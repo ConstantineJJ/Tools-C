@@ -13,14 +13,16 @@ Updated: 2026-09-27. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/T
 - `python3 -m unittest discover -s tests -q`: 55 tests passed, 2 Windows-only tests skipped in this Linux workspace.
 - `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL. L2 engine, L3 runtime and L4 visual gates were not run for this repository transfer.
 - The four production skills are present in the canonical catalog, profile and self-contracts; no engine, MCP server or live Blender/Godot project was modified by this transfer.
+- Published import commit `7b6b6ff` on the new `main`; the published tree SHA `1d415a7d08fb4919cf3ae44223e219766d48d141` exactly matched the local checked commit, including 157 files.
 
 ## Current / next
 
-- Publish and verify this commit on the new repository's `main` branch.
 - Update the Windows working copy at `E:\MyCreations\Tools_C` from the new canonical repository after comparing its local changes; this repository transfer alone does not update the running Blender/Godot MCP deployment.
 - Design specialist skills for environments, buildings, vehicles/machinery, vegetation and props in separate scoped passes, using the production lookdev and verification gates where applicable.
 
 ## Risks / recommendations
+
+- This Linux workspace has no credentials for command-line `git push`; the repository was published through the connected GitHub account. Check remote access before future publishing from another workspace.
 
 - The imported v4 evidence documents prior checks and is not fresh runtime evidence for 4.0.1. Recheck the actual connector and target projects before claiming deployment or visual acceptance.
 - Keep project-specific rig, clips, art direction and asset budgets in profiles/decisions rather than universal skills. Preserve a single canonical owner for each instruction and update this Pulse after substantial work.
