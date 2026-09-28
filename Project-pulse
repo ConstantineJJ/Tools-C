@@ -4,34 +4,33 @@ Updated: 2026-09-28. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/T
 
 ## Done
 
-- Imported the user's complete Tools_C v4.0.0 source snapshot into this repository, replacing the obsolete BlenderMCPCon checkout contents; the old repository is separate and has not been deleted here.
-- Integrated four production skills: mechanic gym, subagent worktrees, lookdev gate and project state gates.
-- Added `blender-animal-anthropomorphic-modeling` as a specialist canonical skill for animals, creatures, quadrupeds, stylized pets and anthropomorphic characters. The skill includes species/body-plan preflight, multi-reference anatomy, plantigrade/digitigrade/unguligrade safeguards, anthropomorphic region blending, stylized/low-poly priorities, deformation-aware topology guidance, motion-readiness checks and handoff rules.
-- Added supporting references for animal body plans, topology/deformation and a dated external research note grounded in Blender Manual, CG Cookie production guidance, 80 Level character workflow, Polycount and Blender Artists community practice.
-- Registered the new skill in `manifest.json`, `AGENTS.md`, the reviewed profile, self-contracts and Blender pipeline routing. Canonical catalog is now fifteen skills; Blender compatibility aliases are now nine.
-- Synced the local Blender compatibility routers and verified the new `Blender_Animal_Anthropomorphic_Modeling_SKILL` resolves back to the canonical Tools_C context.
-- Updated architecture version references to 4.0.1. JSON `schema_version` remains 1; the v4.0.0 migration report and its evidence remain historical records.
+- Imported the user's complete Tools_C v4.0.0 source snapshot into the canonical GitHub repository and integrated the four production skills: mechanic gym, subagent worktrees, lookdev gate and project state gates.
+- Added `blender-animal-anthropomorphic-modeling` as a specialist canonical skill for animals, creatures, quadrupeds, stylized pets and anthropomorphic characters, with body-plan, anatomy, anthropomorphic blending, low-poly/stylization, deformation and handoff guidance.
+- Registered the animal specialist in `manifest.json`, `AGENTS.md`, the reviewed profile, self-contracts and Blender pipeline routing. Canonical catalog is now fifteen skills; Blender compatibility aliases are now nine.
+- Reconciled the live Windows Tools_C content at `E:\MyCreations\Tools_C` with the canonical 4.0.1 catalog: all four production skills are now present locally together with the animal specialist, current routing/profile/contracts, README and architecture docs.
+- Created a full pre-reconciliation backup at `D:\Desktop\Constantine Hub docs and backups\Tools_C_pre_sync_2026-09-28` before replacing live metadata/content.
+- Updated active documentation counts to fifteen canonical skills and nine Blender aliases; historical v4.0.0 migration evidence remains historical and is not rewritten.
 
 ## Verified
 
 - Existing repository baseline: `python3 -m unittest discover -s tests -q`: 55 tests passed, 2 Windows-only tests skipped in the Linux workspace used for the prior transfer.
-- Existing repository baseline: `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL. L2 engine, L3 runtime and L4 visual gates were not run for that repository transfer.
-- 2026-09-28 local live check after adding the animal skill: Tools_C catalog/profile/routes/skills/contracts/file/json/link/text checks all returned L1 PASS with 0 FAIL.
-- 2026-09-28 Blender compatibility sync: `PASS SYNC: 9 compatibility routers`; Blender MCP `list_skills` returned 9 entries and `read_skill(Blender_Animal_Anthropomorphic_Modeling_SKILL)` returned canonical root `E:\MyCreations\Tools_C` with the new specialist context.
-- The four production skills remain present in the canonical GitHub catalog/profile/self-contracts; the animal-skill branch is based on the 4.0.1 remote state rather than replacing it with the older local manifest.
+- Existing repository baseline: `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL for the canonical transfer baseline.
+- 2026-09-28 animal-skill live check: Tools_C catalog/profile/routes/skills/contracts/file/json/link/text checks returned L1 PASS before the production-skill reconciliation.
+- 2026-09-28 Blender compatibility sync after the animal skill: `PASS SYNC: 9 compatibility routers`; Blender MCP listed 9 entries and resolved `Blender_Animal_Anthropomorphic_Modeling_SKILL` to canonical root `E:\MyCreations\Tools_C`.
+- 2026-09-28 post-reconciliation live check: Tools_C catalog/profile/routes/skills/contracts/file/json/link/text checks all returned L1 PASS with 0 FAIL.
+- 2026-09-28 post-reconciliation Blender router sync returned `PASS SYNC: 9 compatibility routers`.
 
 ## Current / next
 
-- The Windows checkout at `E:\MyCreations\Tools_C` was observed to be behind GitHub `main` at the start of this change (local manifest still reported 4.0.0 and did not contain the four production skills). The new animal skill is live locally and its Blender router works, but the checkout should be reconciled/pulled to the 4.0.1 remote after this branch is merged so local and remote catalogs converge.
-- Use the new specialist route for future animal/creature/anthropomorphic modeling work and keep generic character modeling, final retopology, rigging, animation and export under their existing owners.
+- Content-level reconciliation is complete, but the local Git metadata is still the older standalone history: local `main` points to `1b72290445a37f014f9fe468abafdb9570d7ffcb`, and `.git/config` has no `origin`. Do not hand-edit Git object/ref files. A one-time safe Git relink/fetch should attach this working copy to `https://github.com/ConstantineJJ/Tools-C.git` after confirming the backed-up state.
+- Use the new animal/creature specialist for future animal and anthropomorphic modeling work; keep generic character modeling, final retopology, rigging, animation and export under their existing owners.
 - Design specialist skills for environments, buildings, vehicles/machinery, vegetation and props in separate scoped passes, using the production lookdev and verification gates where applicable.
 
-## Open bridge incident (historical 2026-09-27 note)
+## Historical bridge note
 
-- Blender MCP_Con v0.5.2 previously had a tunnel health/lifecycle failure while the Blender bridge itself remained connected. Constantine Hub work after this note restored managed Blender/Local Files/Godot control; treat this paragraph as historical context, not current live status.
-- `Stickmans_Duel` was deleted and the old Godot launcher/client was lost with it. Constantine Hub later rebuilt a managed Godot adapter/project plugin; do not use the deleted project as an infrastructure source.
+- The 2026-09-27 Blender tunnel lifecycle failure and loss of the old Godot launcher with the deleted Stickmans_Duel project are historical. Constantine Hub later restored managed Blender, Local Files and Godot adapters; do not use the deleted project as an infrastructure source.
 
 ## Risks / recommendations
 
-- The imported v4 evidence documents prior checks and is not fresh runtime evidence for every later change. Recheck the actual connector and target projects before claiming deployment or visual acceptance.
+- The imported v4 evidence documents prior checks and is not fresh runtime evidence for every later change. Recheck actual connectors and target projects before claiming deployment or visual acceptance.
 - Keep project-specific rig, clips, art direction and asset budgets in profiles/decisions rather than universal skills. Preserve a single canonical owner for each instruction and update this Pulse after substantial work.
