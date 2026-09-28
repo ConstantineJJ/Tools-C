@@ -1,6 +1,6 @@
 # Tools_C architecture 4.0
 
-Architecture 4.0.1 has fourteen canonical skills, one shared foundation, eight stable
+Architecture 4.0.1 has fifteen canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.
