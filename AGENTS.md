@@ -15,6 +15,7 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Audit, task scope, project integration | [project-audit](skills/project-audit/SKILL.md) |
 | Godot scenes, resources, import, engine integration | [godot-project](skills/godot-project/SKILL.md) |
 | Blender character blockout, proportions, silhouette and geometry revision | [blender-character-modeling](skills/blender-character-modeling/SKILL.md) |
+| Blender animals, creatures, quadrupeds and anthropomorphic animal modeling | [blender-animal-anthropomorphic-modeling](skills/blender-animal-anthropomorphic-modeling/SKILL.md) |
 | Blender multi-stage work, sculpt, UV/PBR, rig, animation, external asset repair | [blender-pipeline](skills/blender-pipeline/SKILL.md) |
 | Blender bones, bindings and weights | [blender-rigging-skinning](skills/blender-rigging-skinning/SKILL.md) |
 | Blender Actions and motion | [blender-animation](skills/blender-animation/SKILL.md) |
