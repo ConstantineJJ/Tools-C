@@ -3,10 +3,10 @@
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
 [Current project state](Project-pulse) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to fourteen canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to fifteen canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
 semantics. Rigging/skinning, animation, GLB export validation and Godot asset
-integration now have separate owners. Eight legacy Blender names remain compatible.
+integration now have separate owners. Nine legacy Blender names remain compatible.
 
 Four production skills coordinate a playable [mechanic gym](skills/production-mechanic-gym/SKILL.md),
 [parallel worktrees](skills/production-subagent-worktree/SKILL.md), a representative
@@ -60,7 +60,7 @@ Tools_C folder, update tools_root or set TOOLS_C_ROOT; regenerate Blender router
 with `python tools/sync_blender.py --project "C:\path\to\Blender-MCP-Co"`.
 No global installation, environment-variable mutation or symlinks are required.
 
-Blender MCP compatibility: list/read/context keep the eight legacy names. The
+Blender MCP compatibility: list/read/context keep the nine legacy names. The
 integration server resolves canonical text on each read; direct canonical names
 are also readable. `get_skill_context` selects stage owners and reports truncation
 as incomplete. `capture_viewport` returns PNG evidence and metadata; `deployment_info`
