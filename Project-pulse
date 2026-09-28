@@ -1,33 +1,37 @@
 # Tools_C — Project Pulse
 
-Updated: 2026-09-27. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
+Updated: 2026-09-28. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
 
 ## Done
 
 - Imported the user's complete Tools_C v4.0.0 source snapshot into this repository, replacing the obsolete BlenderMCPCon checkout contents; the old repository is separate and has not been deleted here.
-- Integrated four production skills: mechanic gym, subagent worktrees, lookdev gate and project state gates. Fourteen canonical skills are listed in `manifest.json`, `AGENTS.md` and the reviewed local profile. Eight legacy Blender alias mappings remain in the manifest.
+- Integrated four production skills: mechanic gym, subagent worktrees, lookdev gate and project state gates.
+- Added `blender-animal-anthropomorphic-modeling` as a specialist canonical skill for animals, creatures, quadrupeds, stylized pets and anthropomorphic characters. The skill includes species/body-plan preflight, multi-reference anatomy, plantigrade/digitigrade/unguligrade safeguards, anthropomorphic region blending, stylized/low-poly priorities, deformation-aware topology guidance, motion-readiness checks and handoff rules.
+- Added supporting references for animal body plans, topology/deformation and a dated external research note grounded in Blender Manual, CG Cookie production guidance, 80 Level character workflow, Polycount and Blender Artists community practice.
+- Registered the new skill in `manifest.json`, `AGENTS.md`, the reviewed profile, self-contracts and Blender pipeline routing. Canonical catalog is now fifteen skills; Blender compatibility aliases are now nine.
+- Synced the local Blender compatibility routers and verified the new `Blender_Animal_Anthropomorphic_Modeling_SKILL` resolves back to the canonical Tools_C context.
 - Updated architecture version references to 4.0.1. JSON `schema_version` remains 1; the v4.0.0 migration report and its evidence remain historical records.
 
 ## Verified
 
-- `python3 -m unittest discover -s tests -q`: 55 tests passed, 2 Windows-only tests skipped in this Linux workspace.
-- `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL. L2 engine, L3 runtime and L4 visual gates were not run for this repository transfer.
-- The four production skills are present in the canonical catalog, profile and self-contracts; no engine, MCP server or live Blender/Godot project was modified by this transfer.
-- Published import commit `7b6b6ff` on the new `main`; the published tree SHA `1d415a7d08fb4919cf3ae44223e219766d48d141` exactly matched the local checked commit, including 157 files.
+- Existing repository baseline: `python3 -m unittest discover -s tests -q`: 55 tests passed, 2 Windows-only tests skipped in the Linux workspace used for the prior transfer.
+- Existing repository baseline: `python3 tools/check.py --self`: L1 9 PASS, 0 WARN, 0 FAIL. L2 engine, L3 runtime and L4 visual gates were not run for that repository transfer.
+- 2026-09-28 local live check after adding the animal skill: Tools_C catalog/profile/routes/skills/contracts/file/json/link/text checks all returned L1 PASS with 0 FAIL.
+- 2026-09-28 Blender compatibility sync: `PASS SYNC: 9 compatibility routers`; Blender MCP `list_skills` returned 9 entries and `read_skill(Blender_Animal_Anthropomorphic_Modeling_SKILL)` returned canonical root `E:\MyCreations\Tools_C` with the new specialist context.
+- The four production skills remain present in the canonical GitHub catalog/profile/self-contracts; the animal-skill branch is based on the 4.0.1 remote state rather than replacing it with the older local manifest.
 
 ## Current / next
 
-- User ran the Windows updater for `E:\MyCreations\Tools_C`; Windows Git HEAD and backup path have not been independently observed. Verify the live copy before any further migration.
+- The Windows checkout at `E:\MyCreations\Tools_C` was observed to be behind GitHub `main` at the start of this change (local manifest still reported 4.0.0 and did not contain the four production skills). The new animal skill is live locally and its Blender router works, but the checkout should be reconciled/pulled to the 4.0.1 remote after this branch is merged so local and remote catalogs converge.
+- Use the new specialist route for future animal/creature/anthropomorphic modeling work and keep generic character modeling, final retopology, rigging, animation and export under their existing owners.
 - Design specialist skills for environments, buildings, vehicles/machinery, vegetation and props in separate scoped passes, using the production lookdev and verification gates where applicable.
 
-## Open bridge incident (2026-09-27)
+## Open bridge incident (historical 2026-09-27 note)
 
-- Blender MCP_Con v0.5.2 log at 22:03 shows Blender bridge 127.0.0.1:9876 connected and 8/8 routers verified, but tunnel health 127.0.0.1:8080 did not answer; launcher refused another tunnel. The configured wrapper remains under `E:\MyCreations\Blender-MCP-Co`. The Work connector currently returns 404. Root cause is not yet verified.
-- User deleted `Stickmans_Duel`, which contained their Godot MCP launcher/client. The Godot_MCP_R Work connector remains registered but returns 404 because its local endpoint is unavailable. Earlier notes identify `C:\VibeBatling3D` as a possible separate source; check it and the Recycle Bin before recreating any MCP stack.
+- Blender MCP_Con v0.5.2 previously had a tunnel health/lifecycle failure while the Blender bridge itself remained connected. Constantine Hub work after this note restored managed Blender/Local Files/Godot control; treat this paragraph as historical context, not current live status.
+- `Stickmans_Duel` was deleted and the old Godot launcher/client was lost with it. Constantine Hub later rebuilt a managed Godot adapter/project plugin; do not use the deleted project as an infrastructure source.
 
 ## Risks / recommendations
 
-- This Linux workspace has no credentials for command-line `git push`; the repository was published through the connected GitHub account. Check remote access before future publishing from another workspace.
-
-- The imported v4 evidence documents prior checks and is not fresh runtime evidence for 4.0.1. Recheck the actual connector and target projects before claiming deployment or visual acceptance.
+- The imported v4 evidence documents prior checks and is not fresh runtime evidence for every later change. Recheck the actual connector and target projects before claiming deployment or visual acceptance.
 - Keep project-specific rig, clips, art direction and asset budgets in profiles/decisions rather than universal skills. Preserve a single canonical owner for each instruction and update this Pulse after substantial work.

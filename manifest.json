@@ -19,6 +19,10 @@
       "path": "skills/blender-character-modeling/SKILL.md"
     },
     {
+      "id": "blender-animal-anthropomorphic-modeling",
+      "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md"
+    },
+    {
       "id": "verification",
       "path": "skills/verification/SKILL.md"
     },
@@ -74,6 +78,11 @@
       "reference": "skills/blender-character-modeling/SKILL.md",
       "source_sha256": "2b513d28534ec29b9392ba1f922d4a3f898d89dde88b93a24535c07df47b5d21",
       "source_version": "2.0"
+    },
+    "Blender_Animal_Anthropomorphic_Modeling_SKILL": {
+      "reference": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+      "source_sha256": "158c831131f7bb01a114ef8144014ae808f4828937e79a9246064d7320adbb37",
+      "source_version": "1.0"
     },
     "Blender_Organic_Sculpting_SKILL": {
       "reference": "skills/blender-pipeline/references/sculpting.md",
