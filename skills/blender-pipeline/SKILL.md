@@ -19,7 +19,8 @@ Select only the reference matching the task:
 | Work | Procedure |
 |---|---|
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
-| Create or substantially revise character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
+| Create or substantially revise generic character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
+| Model animals, creatures, quadrupeds or anthropomorphic animal characters | [animal & anthropomorphic modeling](../blender-animal-anthropomorphic-modeling/SKILL.md) |
 | Sculpt an organic form or region | [organic sculpting](references/sculpting.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |
