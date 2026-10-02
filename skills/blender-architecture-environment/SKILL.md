@@ -24,13 +24,13 @@ Own:
 - assembly validation, repetition control and large-structure optimization decisions.
 
 Route:
-- benches, lamps, fences, bins, bollards and similar standalone environment objects to `blender-environment-assets` when that specialist exists;
+- benches, lamps, fences, bins, bollards and similar standalone environment objects to `blender-environment-assets`;
 - roads, curbs, sidewalks, paths, gutters and network infrastructure to `blender-roads-infrastructure`;
 - furniture and hand-held/interior detail objects to `blender-props`;
 - vehicles to `blender-vehicle-modeling`;
 - appliances/electronics to `blender-product-electronics-modeling`;
 - vegetation to `blender-vegetation`;
-- organic or damage sculpting as the primary task to `blender-sculpting` when available, otherwise the current sculpting route;
+- organic or damage sculpting as the primary task to `blender-sculpting`;
 - final GLB delivery to export validation and target-engine integration.
 
 A building can contain work owned by several specialists. Keep the architectural shell here and hand off embedded assets instead of turning this skill into a universal environment owner.

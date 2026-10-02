@@ -30,7 +30,7 @@ Route:
 - roads, sidewalks and paths to `blender-roads-infrastructure`;
 - buildings and architectural supports to `blender-architecture-environment`;
 - planters, benches, pots and other non-plant environment fixtures to `blender-environment-assets` or `blender-props` by role;
-- a primary generic sculpting task to `blender-sculpting` when implemented, while vegetation retains ownership of plant growth logic;
+- a primary generic sculpting task to `blender-sculpting`, while vegetation retains ownership of plant growth logic;
 - generic rig implementation or animation Actions to rigging/animation owners when bones/Actions are explicitly required;
 - final GLB delivery and target-engine wind/material validation to export/integration owners.
 

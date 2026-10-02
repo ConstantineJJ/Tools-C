@@ -33,7 +33,7 @@ Route:
 - street/site fixtures to `blender-environment-assets`;
 - roads/network infrastructure to `blender-roads-infrastructure`;
 - vegetation to `blender-vegetation`;
-- primary sculpting to `blender-sculpting` when implemented, otherwise the current sculpting route;
+- primary sculpting to `blender-sculpting`;
 - final GLB/export/runtime validation to the existing export and engine owners.
 
 Boundary rule: classify by the asset's **engineering/product-design burden**, not size. A decorative box with a label can stay `blender-props`; a close-view game console with shell halves, vents, ports, controls and display/LED interfaces belongs here.

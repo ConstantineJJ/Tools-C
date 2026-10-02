@@ -25,12 +25,12 @@ Own:
 
 Route:
 - integral windows, doors, facade trims and building modules to `blender-architecture-environment`;
-- continuous roads, curbs, sidewalks, gutters, paths, medians and network geometry to `blender-roads-infrastructure` when implemented;
-- furniture, containers, tools, handheld/interior clutter and narrative small objects to `blender-props` when implemented;
+- continuous roads, curbs, sidewalks, gutters, paths, medians and network geometry to `blender-roads-infrastructure`;
+- furniture, containers, tools, handheld/interior clutter and narrative small objects to `blender-props`;
 - vehicles to `blender-vehicle-modeling`;
 - appliances/electronics to `blender-product-electronics-modeling`;
 - vegetation to `blender-vegetation`;
-- primary sculpting/damage sculpt to `blender-sculpting` when available, otherwise the current sculpting route;
+- primary sculpting/damage sculpt to `blender-sculpting`;
 - final GLB delivery to export validation and target-engine integration.
 
 Boundary rule: classify by production role, not size alone. A freestanding public bench belongs here; a movable dining chair usually belongs to props. A discrete fence panel/gate can belong here; a kilometer-long fence network or spline-managed corridor belongs to the infrastructure owner.

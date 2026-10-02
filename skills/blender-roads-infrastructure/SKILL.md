@@ -28,7 +28,7 @@ Own:
 Route:
 - building shells, entrances, drive-through architecture and facade modules to `blender-architecture-environment`;
 - standalone lamps, benches, signs, bollards, hydrants, barriers and discrete fence/railing assets to `blender-environment-assets`;
-- hand-held/interior or narrative small objects to `blender-props` when implemented;
+- hand-held/interior or narrative small objects to `blender-props`;
 - vehicles to `blender-vehicle-modeling`;
 - vegetation to `blender-vegetation`;
 - primary terrain sculpting or erosion to the appropriate terrain/sculpt workflow when that becomes the actual task;

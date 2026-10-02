@@ -12,7 +12,7 @@ from check import ROOT, catalog, existing
 ROUTE_DESCRIPTIONS = {
     "Blender_Character_Pipeline_Core": "Route a Blender character task to the relevant canonical procedure and scope its acceptance checks. Use for multi-stage work or an unclear Blender workflow.",
     "Blender_Reference_Reconstruction_SKILL": "Match or repair a Blender character against supplied images, orthographic views or measured silhouettes. Use when reference fidelity is the task.",
-    "Blender_Organic_Sculpting_SKILL": "Sculpt a Blender character's organic volume or a bounded region. Use for form corrections, not topology or weight repair.",
+    "Blender_Organic_Sculpting_SKILL": "Route organic or hard-surface sculpting, bounded form corrections and sculpted damage to canonical blender-sculpting. Use for sculpt execution, not final retopology or weight repair.",
     "Blender_Retopology_Deformation_SKILL": "Retopologize a Blender mesh or repair edge flow for required deformation. Use when topology is the diagnosed owner.",
     "Blender_Character_QA_SKILL": "Review a Blender character's geometry, reference match, deformation, animation or export with evidence. Use for validation, not unrequested edits.",
     "Blender_Animal_Anthropomorphic_Modeling_SKILL": "Model or substantially revise animals, creatures, quadrupeds, stylized pets or anthropomorphic animal characters when body-plan anatomy and animal/human feature integration are central.",

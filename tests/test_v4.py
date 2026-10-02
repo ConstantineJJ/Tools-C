@@ -109,6 +109,31 @@ class V4Test(unittest.TestCase):
             'The elbow deforms badly; diagnose the cause.':['verification'],
             'Review the mesh without editing it.':['verification'],
             'Continue the asset task.':['blender-pipeline'],
+            'Create chairs and tables.':['blender-props'],
+            'Create toolboxes and cabinets.':['blender-props'],
+            'Build curbs and sidewalks.':['blender-roads-infrastructure'],
+            'Create bicycles and carts.':['blender-vehicle-modeling'],
+            'Create game-ready plants.':['blender-vegetation'],
+            'Create a close-view radio with ports and controls.':['blender-product-electronics-modeling'],
+            'Create a decorative radio prop.':['blender-props'],
+            'Create road signs beside an existing road.':['blender-environment-assets','blender-roads-infrastructure'],
+            'Create a building-integrated railing.':['blender-architecture-environment'],
+            'Create a path-following fence corridor.':['blender-roads-infrastructure'],
+            'Create a dashboard screen integrated into a car.':['blender-vehicle-modeling'],
+            'Create a tree in a planter.':['blender-environment-assets','blender-vegetation'],
+            'Make a mesh-only tree with no sculpting.':['blender-vegetation'],
+            'Сделай дерево без скульптинга.':['blender-vegetation'],
+            'Keep sculpting the cheek.':['blender-sculpting'],
+            'Preserve animation clips and fix vehicle weights.':['blender-rigging-skinning','blender-vehicle-modeling'],
+            'Preserve the vehicle and then create a jump animation.':['blender-animation'],
+            'Review the vehicle without editing it.':['verification'],
+            'Проверь дерево без изменения геометрии.':['verification'],
+            'Review the vehicle and fix its panels.':['verification','blender-vehicle-modeling'],
+            'Retopologize the vehicle body without changing its silhouette.':['blender-pipeline'],
+            'Сделай ретопологию скульпта, сохрани силуэт.':['blender-pipeline'],
+            'Unwrap UVs and bake normal maps for the microwave; preserve its geometry.':['blender-pipeline'],
+            'Исправь UV и материалы чайника, геометрию не меняй.':['blender-pipeline'],
+            'Create a chair, then unwrap its UVs.':['blender-pipeline','blender-props'],
         }
         for prompt,expected in cases.items():
             with self.subTest(prompt=prompt): self.assertEqual(mcp_runtime.route_task(prompt),expected)
@@ -144,6 +169,48 @@ class V4Test(unittest.TestCase):
         self.assertIn('SOURCE: skills/blender-sculpting/SKILL.md',legacy_sculpt)
         self.assertNotIn('SOURCE: skills/blender-pipeline/references/sculpting.md',legacy_sculpt)
         self.assertFalse(mcp_runtime.context(check.ROOT,'blender-animation',5)['ok'])
+
+    def test_stage_context_loads_existing_procedures_without_modeling(self):
+        cases={
+            'Retopologize the vehicle body without changing its silhouette.':['retopology'],
+            'Сделай ретопологию скульпта, сохрани силуэт.':['retopology'],
+            'Unwrap UVs and bake normal maps for the microwave; preserve its geometry.':['surfaces'],
+            'Исправь UV и материалы чайника, геометрию не меняй.':['surfaces'],
+            'Retopologize the car and unwrap UVs.':['retopology','surfaces'],
+        }
+        for prompt,procedures in cases.items():
+            with self.subTest(prompt=prompt):
+                result=mcp_runtime.context(check.ROOT,prompt)
+                self.assertTrue(result['ok'])
+                self.assertEqual(result['routing']['owners'],['blender-pipeline'])
+                self.assertEqual(result['routing']['procedures'],procedures)
+                content=result['skills'][0]['content']
+                for procedure,path in mcp_runtime.PROCEDURES.items():
+                    if procedure in procedures:
+                        self.assertIn('SOURCE: '+path,content)
+                        self.assertIn((check.ROOT/path).read_text(),content)
+                    else: self.assertNotIn('SOURCE: '+path,content)
+        review=mcp_runtime.context(check.ROOT,'Review the vehicle without editing it.')
+        self.assertEqual(review['routing']['owners'],['verification'])
+        self.assertNotIn('SOURCE: skills/blender-vehicle-modeling/SKILL.md',review['skills'][0]['content'])
+        creation=mcp_runtime.context(check.ROOT,'Create a chair, then unwrap its UVs.',100000)
+        self.assertTrue(creation['ok'])
+        self.assertEqual(creation['routing']['owners'],['blender-pipeline','blender-props'])
+        # A warm MCP server may retain the reader's original two-argument function.
+        original_render=read_blender_skill.render
+        def cached_reader(root,owner): return original_render(root,owner)
+        with patch.object(mcp_runtime,'render',side_effect=cached_reader):
+            warm=mcp_runtime.context(check.ROOT,'Unwrap the vehicle UVs.')
+        self.assertTrue(warm['ok'])
+        self.assertEqual(warm['routing']['procedures'],['surfaces'])
+
+    def test_procedure_render_is_bounded_and_legacy_compatibility_is_unchanged(self):
+        with self.assertRaises(ValueError):
+            mcp_runtime.render_context(check.ROOT,'blender-pipeline',['../../outside'])
+        legacy=read_blender_skill.render(check.ROOT,'Blender_Retopology_Deformation_SKILL')
+        self.assertIn('SOURCE: '+mcp_runtime.PROCEDURES['retopology'],legacy)
+        canonical=read_blender_skill.render(check.ROOT,'blender-pipeline')
+        self.assertNotIn('SOURCE: '+mcp_runtime.PROCEDURES['surfaces'],canonical)
 
     def test_legacy_combined_route_resolves_all_replacements(self):
         context=read_blender_skill.render(check.ROOT,'Blender_Character_Rigging_Animation_Godot_SKILL')

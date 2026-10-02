@@ -1,6 +1,6 @@
 # Blender domain skill pack — Pass 0 architecture
 
-Status: architecture baseline established 2026-10-02. Implement specialist skills one at a time; do not pre-fill future skills with copied generic rules. Shared invariants stay in `docs/foundation.md`, project-specific budgets stay in project profiles/contracts, and each specialist owns only its domain decisions.
+Status: all eight specialist implementation passes complete; cross-pack review completed 2026-10-03. Dedicated contracts pass is NOT STARTED. Shared invariants stay in `docs/foundation.md`, project-specific budgets stay in project profiles/contracts, and each specialist owns only its domain decisions.
 
 ## Purpose
 
@@ -15,14 +15,14 @@ Every specialist should answer:
 - what structural and visual evidence proves the result;
 - when to stop or hand off to another owner.
 
-## Planned specialist owners
+## Implemented specialist owners
 
 ### 1. `blender-architecture-environment` — buildings and large structures
 Own buildings, houses, halls, towers, industrial structures, architectural shells, modular building kits, facade/roof/opening systems, architectural scale, grid/pivot conventions and architecture-facing trim/tileable material strategy.
 
 Do not own roads/curbs, standalone street objects, furniture/props, vegetation, vehicles or appliances except where required as temporary scale/reference context.
 
-Status: first implementation pass active/implemented in this workstream.
+Status: first implementation pass complete.
 
 ### 2. `blender-environment-assets` — standalone environment objects
 Own benches, street lamps, fences, railings, barriers, bins, bollards, hydrants, posts, simple utility/street fixtures and other repeatable set-dressing objects whose main role is environmental structure rather than hand-held/interior prop detail.
@@ -31,45 +31,45 @@ Boundary with architecture: if the item is an integral building module, architec
 
 Boundary with roads/infrastructure: continuous/network geometry belongs to roads/infrastructure; discrete fixtures belong here.
 
-Status: second implementation pass active/implemented in this workstream.
+Status: second implementation pass complete.
 
 ### 3. `blender-roads-infrastructure` — roads, paths and networked ground infrastructure
 Own roads, sidewalks/pavements, curbs, gutters, medians, paths, trails, ramps, crossings, road shoulders and other connected linear/network systems, including modular intersections, splines/curves and transition logic.
 
 Do not own vehicles, standalone street furniture, terrain/vegetation or building shells.
 
-Status: first implementation pass active/implemented in this workstream.
+Status: third implementation pass complete.
 
 ### 4. `blender-props` — small and medium props
 Own furniture, containers, tools, clutter, decor, hand-held objects, interior set dressing and miscellaneous discrete assets whose production logic is prop-centric rather than architectural, botanical, vehicular or electronic-product-specific.
 
 Boundary with environment-assets: props are generally portable/interior/detail storytelling objects; environment-assets are generally site/street fixtures tied to an environment system. Ambiguous objects should be routed by intended reuse and placement, not by size alone.
 
-Status: fourth implementation pass active/implemented in this workstream.
+Status: fourth implementation pass complete.
 
 ### 5. `blender-vehicle-modeling` — cars and wheeled vehicles
 Own cars, trucks, vans, buses, trailers, motorcycles where applicable, carts and other wheeled vehicles: proportion/reference alignment, body panels, wheel/tire systems, suspension-visible geometry, repeated/symmetric parts, hard-surface topology, moving assemblies and vehicle-specific QA.
 
 Do not own generic electronics, environment props or character rigs. Vehicle animation/rigging may hand off to general rigging/animation after vehicle-specific articulation decisions are established.
 
-Status: fifth implementation pass active/implemented in this workstream.
+Status: fifth implementation pass complete.
 
 ### 6. `blender-product-electronics-modeling` — household and digital equipment
 Own appliances, consumer electronics, computers, monitors, TVs, consoles, kitchen devices and product-design-like hard-surface assets where manufactured assembly, panel gaps, bevel language, vents, connectors, display surfaces and material separation are central.
 
 Boundary with props: a generic decorative object stays in props; an engineered appliance/device with product-design construction belongs here.
 
-Status: sixth implementation pass active/implemented in this workstream.
+Status: sixth implementation pass complete.
 
 ### 7. `blender-vegetation` — plants and foliage
 Own trees, shrubs, grass, flowers, vines and plant clusters: botanical reference, branching hierarchy, silhouette, cards/mesh choices, variation, instancing, wind-ready segmentation and performance-aware vegetation construction.
 
 Do not own terrain, roads or generic environment props. Organic sculpting can support trunk/rock-like forms but vegetation remains the production owner.
 
-Status: seventh implementation pass active/implemented in this workstream.
+Status: seventh implementation pass complete.
 
 ### 8. `blender-sculpting` — expanded sculpting specialist
-Promote/replace the current narrow organic-sculpting reference with a canonical specialist for controlled organic and hard-surface sculpt passes, form hierarchy, brush/remesh decisions, regional correction, damage/weathering sculpt, topology-loss safeguards and handoff to retopology.
+Replaced the former narrow organic-sculpting reference with a canonical specialist for controlled organic and hard-surface sculpt passes, form hierarchy, brush/remesh decisions, regional correction, damage/weathering sculpt, topology-loss safeguards and handoff to retopology.
 
 This skill must absorb useful current sculpting guidance rather than creating a competing rule source. Existing pipeline references should become compatibility/routing pointers where appropriate.
 
@@ -161,7 +161,7 @@ routing defect.
 7. Vegetation.
 8. Sculpting consolidation/upgrade.
 
-After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. After all eight, perform the dedicated contracts pass: promote only stable, machine-checkable invariants; do not turn tuning advice or asset identity into contracts.
+After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. The final 8/8 review is recorded in [review report](../reports/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md). The dedicated contracts pass remains a separate next stage: promote only stable, machine-checkable invariants; do not turn tuning advice or asset identity into contracts.
 
 ## Acceptance for each specialist
 

@@ -31,12 +31,12 @@ Route:
 - benches, street lamps, bollards, hydrants, public bins, site barriers and similar standalone street/site fixtures to `blender-environment-assets`;
 - roads, curbs, sidewalks, paths, crossings and connected network infrastructure to `blender-roads-infrastructure`;
 - cars and wheeled vehicles to `blender-vehicle-modeling`;
-- appliances, computers, monitors, TVs, consoles and engineered consumer/digital devices whose product-design construction is central to `blender-product-electronics-modeling` when implemented;
+- appliances, computers, monitors, TVs, consoles and engineered consumer/digital devices whose product-design construction is central to `blender-product-electronics-modeling`;
 - vegetation to `blender-vegetation`;
-- a primary sculpting task to `blender-sculpting` when implemented, otherwise the current sculpting route;
+- a primary sculpting task to `blender-sculpting`;
 - final GLB delivery to export validation and target-engine integration.
 
-Boundary rule: classify by **production role**, not physical size. A dining chair is normally a prop; a public park bench is environment-assets. A simple decorative radio can remain a prop if the task is scene dressing, but a close product-accurate electronic device with connectors, controls, vents and engineered assembly should route to product/electronics once that owner exists.
+Boundary rule: classify by **production role**, not physical size. A dining chair is normally a prop; a public park bench is environment-assets. A simple decorative radio can remain a prop if the task is scene dressing, but a close product-accurate electronic device with connectors, controls, vents and engineered assembly should route to product/electronics.
 
 ## Preflight: define the prop before modeling
 

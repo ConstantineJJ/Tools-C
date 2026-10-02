@@ -16,6 +16,11 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 Select only the reference matching the task:
 
+For stage-only work, the named asset supplies context: follow the retopology,
+surfaces, rigging, animation or export owner without restarting domain modeling.
+For a read-only review, use verification. Load a domain owner alongside a stage
+only when its geometry or domain decisions are also part of the request.
+
 | Work | Procedure |
 |---|---|
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
