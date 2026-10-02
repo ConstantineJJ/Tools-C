@@ -1,6 +1,6 @@
 # Tools_C architecture 4.0
 
-Architecture 4.0.1 has twenty-one canonical skills, one shared foundation, nine stable
+Architecture 4.0.1 has twenty-two canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.
@@ -13,9 +13,9 @@ replacing specialist Blender/Godot skills, per-project profiles or evidence chec
 The environment/game-asset specialist expansion is staged rather than bulk-generated.
 Its scope boundaries and implementation order live in [Blender domain skill pack](blender-domain-skill-pack.md).
 `blender-architecture-environment`, `blender-environment-assets`,
-`blender-roads-infrastructure`, `blender-props`, `blender-vehicle-modeling` and
-`blender-product-electronics-modeling` are implemented canonical owners in that pack;
-vegetation and sculpting remain staged until their own research and QA passes.
+`blender-roads-infrastructure`, `blender-props`, `blender-vehicle-modeling`,
+`blender-product-electronics-modeling` and `blender-vegetation` are implemented
+canonical owners in that pack; sculpting remains staged until its own research and QA pass.
 
 The foundation is a short contract under docs, not a universal production skill.
 Domain procedures keep their concrete protections and decisions. The combined

@@ -47,6 +47,10 @@
       "path": "skills/blender-product-electronics-modeling/SKILL.md"
     },
     {
+      "id": "blender-vegetation",
+      "path": "skills/blender-vegetation/SKILL.md"
+    },
+    {
       "id": "verification",
       "path": "skills/verification/SKILL.md"
     },

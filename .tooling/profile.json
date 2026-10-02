@@ -14,6 +14,7 @@
     "blender-props",
     "blender-vehicle-modeling",
     "blender-product-electronics-modeling",
+    "blender-vegetation",
     "verification",
     "contracts-lint",
     "blender-rigging-skinning",

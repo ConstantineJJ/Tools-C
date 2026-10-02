@@ -27,6 +27,7 @@ Select only the reference matching the task:
 | Model furniture, containers, tools, clutter, decor, hand-held or interior set-dressing props | [props](../blender-props/SKILL.md) |
 | Model cars, trucks, buses, motorcycles, trailers or other wheeled vehicles | [vehicle modeling](../blender-vehicle-modeling/SKILL.md) |
 | Model household appliances, consumer electronics, computers, displays or other engineered product devices | [product & electronics](../blender-product-electronics-modeling/SKILL.md) |
+| Model trees, shrubs, grass, flowers, vines or vegetation families | [vegetation](../blender-vegetation/SKILL.md) |
 | Sculpt an organic form or region | [organic sculpting](references/sculpting.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |

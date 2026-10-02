@@ -66,6 +66,8 @@ Own trees, shrubs, grass, flowers, vines and plant clusters: botanical reference
 
 Do not own terrain, roads or generic environment props. Organic sculpting can support trunk/rock-like forms but vegetation remains the production owner.
 
+Status: seventh implementation pass active/implemented in this workstream.
+
 ### 8. `blender-sculpting` — expanded sculpting specialist
 Promote/replace the current narrow organic-sculpting reference with a canonical specialist for controlled organic and hard-surface sculpt passes, form hierarchy, brush/remesh decisions, regional correction, damage/weathering sculpt, topology-loss safeguards and handoff to retopology.
 

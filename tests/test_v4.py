@@ -95,6 +95,9 @@ class V4Test(unittest.TestCase):
             'Сделай игровую приставку с крышкой, вентиляцией и одинаковыми кнопками.':['blender-product-electronics-modeling'],
             'Place a wooden crate beside a detailed game console with ports and vents.':['blender-props','blender-product-electronics-modeling'],
             'Build a vehicle and a separate removable game console device for its cabin.':['blender-vehicle-modeling','blender-product-electronics-modeling'],
+            'Create a stylized tree with reusable leaf clusters and wind-ready branch pivots.':['blender-vegetation'],
+            'Сделай кусты, траву и цветы с несколькими вариантами и общими кластерами листвы.':['blender-vegetation'],
+            'Place grass patches and shrubs beside a new sidewalk.':['blender-roads-infrastructure','blender-vegetation'],
             'The elbow deforms badly; diagnose the cause.':['verification'],
             'Review the mesh without editing it.':['verification'],
             'Continue the asset task.':['blender-pipeline'],
@@ -123,6 +126,9 @@ class V4Test(unittest.TestCase):
         self.assertEqual(mcp_runtime.route_task('blender-product-electronics-modeling'),['blender-product-electronics-modeling'])
         product=mcp_runtime.context(check.ROOT,'blender-product-electronics-modeling')
         self.assertTrue(product['ok']); self.assertIn('SOURCE: skills/blender-product-electronics-modeling/SKILL.md',product['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-vegetation'),['blender-vegetation'])
+        vegetation=mcp_runtime.context(check.ROOT,'blender-vegetation')
+        self.assertTrue(vegetation['ok']); self.assertIn('SOURCE: skills/blender-vegetation/SKILL.md',vegetation['skills'][0]['content'])
         self.assertFalse(mcp_runtime.context(check.ROOT,'blender-animation',5)['ok'])
 
     def test_legacy_combined_route_resolves_all_replacements(self):
