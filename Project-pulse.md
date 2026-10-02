@@ -87,7 +87,7 @@ Current catalog: twenty-one canonical skills, nine legacy Blender compatibility 
 - Integration pass 2 across props + vehicles + product/electronics is complete. Ownership boundaries and intentional mixed-route behavior are explicit; no shared hard-surface owner/reference was extracted because the repeated tools do not yet form one identical cross-domain decision procedure.
 - Next specialist pass: `blender-vegetation`. `blender-sculpting` remains staged for the final specialist pass and must consolidate/replace the existing narrow sculpting guidance rather than create a competing rule source.
 - Dedicated domain contracts for this eight-skill expansion remain deferred until the specialist set is mature. Only existing Tools_C self-contract registration has been updated so far.
-- The local Git metadata note from the 2026-09-28 reconciliation remains unresolved unless handled elsewhere: local `main` was then on the older standalone history with no `origin`. Re-check current Git state before acting; do not hand-edit Git object/ref files.
+- Local Git metadata is reconciled as of 2026-10-03: `origin` is configured, local `main` was moved with a non-destructive mixed reset to the current remote history after the safe worktree commits, and the working tree was clean after generated `.bak-*` edit backups were removed. Future work can commit normally from this repository without the old standalone-history workaround.
 - Keep generic character modeling, retopology, rigging, animation, export and verification under their existing owners; the new domain specialists must not become alternate rule sources for those stages.
 
 ## Historical bridge note
