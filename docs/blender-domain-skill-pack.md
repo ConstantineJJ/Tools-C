@@ -73,6 +73,8 @@ Promote/replace the current narrow organic-sculpting reference with a canonical 
 
 This skill must absorb useful current sculpting guidance rather than creating a competing rule source. Existing pipeline references should become compatibility/routing pointers where appropriate.
 
+Status: eighth implementation pass complete; the former organic-sculpting pipeline reference is compatibility-only and the legacy alias resolves the canonical specialist directly. The dedicated domain contracts pass remains the next separate milestone.
+
 ## Shared principles — do not duplicate as independent policy
 
 The following already have canonical owners and should be referenced, not redefined inconsistently:

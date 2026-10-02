@@ -51,6 +51,10 @@
       "path": "skills/blender-vegetation/SKILL.md"
     },
     {
+      "id": "blender-sculpting",
+      "path": "skills/blender-sculpting/SKILL.md"
+    },
+    {
       "id": "verification",
       "path": "skills/verification/SKILL.md"
     },
@@ -113,7 +117,7 @@
       "source_version": "1.0"
     },
     "Blender_Organic_Sculpting_SKILL": {
-      "reference": "skills/blender-pipeline/references/sculpting.md",
+      "reference": "skills/blender-sculpting/SKILL.md",
       "source_sha256": "f7acf21bf2dac1275056c34895dac46920b4ea445998a7db5da82e9bf967e48f",
       "source_version": "1.0"
     },

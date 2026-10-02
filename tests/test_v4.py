@@ -98,6 +98,14 @@ class V4Test(unittest.TestCase):
             'Create a stylized tree with reusable leaf clusters and wind-ready branch pivots.':['blender-vegetation'],
             'Сделай кусты, траву и цветы с несколькими вариантами и общими кластерами листвы.':['blender-vegetation'],
             'Place grass patches and shrubs beside a new sidewalk.':['blender-roads-infrastructure','blender-vegetation'],
+            'Use voxel remesh for a disposable creature sculpt blockout, then refine primary and secondary forms.':['blender-sculpting'],
+            'Сделай локальный скульптинг щеки без Dyntopo и сохрани текущую топологию и веса.':['blender-sculpting'],
+            'Sculpt the cheek while preserving topology and weights.':['blender-sculpting'],
+            'Preserve the silhouette. Fix the weights.':['blender-rigging-skinning'],
+            'Sculpt the cheek, preserve its silhouette and fix the weights.':['blender-rigging-skinning','blender-sculpting'],
+            'Сохрани силуэт, затем исправь веса.':['blender-rigging-skinning'],
+            'Сохрани силуэт и исправь веса.':['blender-rigging-skinning'],
+            'Sculpt crash dents and chipped damage into the vehicle body while preserving wheel pivots.':['blender-vehicle-modeling','blender-sculpting'],
             'The elbow deforms badly; diagnose the cause.':['verification'],
             'Review the mesh without editing it.':['verification'],
             'Continue the asset task.':['blender-pipeline'],
@@ -129,6 +137,12 @@ class V4Test(unittest.TestCase):
         self.assertEqual(mcp_runtime.route_task('blender-vegetation'),['blender-vegetation'])
         vegetation=mcp_runtime.context(check.ROOT,'blender-vegetation')
         self.assertTrue(vegetation['ok']); self.assertIn('SOURCE: skills/blender-vegetation/SKILL.md',vegetation['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-sculpting'),['blender-sculpting'])
+        sculpting=mcp_runtime.context(check.ROOT,'blender-sculpting')
+        self.assertTrue(sculpting['ok']); self.assertIn('SOURCE: skills/blender-sculpting/SKILL.md',sculpting['skills'][0]['content'])
+        legacy_sculpt=read_blender_skill.render(check.ROOT,'Blender_Organic_Sculpting_SKILL')
+        self.assertIn('SOURCE: skills/blender-sculpting/SKILL.md',legacy_sculpt)
+        self.assertNotIn('SOURCE: skills/blender-pipeline/references/sculpting.md',legacy_sculpt)
         self.assertFalse(mcp_runtime.context(check.ROOT,'blender-animation',5)['ok'])
 
     def test_legacy_combined_route_resolves_all_replacements(self):
