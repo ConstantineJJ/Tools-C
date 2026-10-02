@@ -80,7 +80,7 @@ class ContractsTest(unittest.TestCase):
             except OSError as exc:
                 self.skipTest(str(exc))
             with self.assertRaises(check.Violation):
-                bootstrap.install(target, 'generic')
+                bootstrap.install(self.root, 'generic')
             self.assertFalse((target / 'AGENTS.md').exists())
             self.assertEqual(list(Path(outside).iterdir()), [])
 
@@ -238,7 +238,7 @@ class ContractsTest(unittest.TestCase):
             bootstrap.install(self.root, "generic")
         self.assertEqual(raw, (self.root / "AGENTS.md").read_bytes())
 
-    def test_all_eight_blender_contexts_and_routers(self):
+    def test_all_blender_contexts_and_routers(self):
         from profile_adapters import check_adapter
         sync_blender.generate(self.root)
         check_adapter(self.root, check.ROOT, dict(kind="blender", manifest="skills/PIPELINE_MANIFEST.json"))
@@ -326,7 +326,7 @@ class ContractsTest(unittest.TestCase):
     def test_bundle_is_complete_and_will_not_overwrite(self):
         target = self.root / "offline"
         sync_blender.generate(target, bundle=True)
-        self.assertEqual(len(list(target.glob('*/SKILL.md'))), 8)
+        self.assertEqual(len(list(target.glob('*/SKILL.md'))), len(check.catalog(check.ROOT)['blender_aliases']))
         for alias, technique in read_blender_skill.ROUTE_TECHNIQUES.items():
             self.assertIn(technique, (target / alias / 'SKILL.md').read_text(encoding='utf-8'))
         with self.assertRaises(check.Violation):
@@ -359,7 +359,7 @@ class ContractsTest(unittest.TestCase):
         server.write_text('# fixture server presence')
         sync_blender.generate(self.root)
         paths = list((self.root / 'mcp-server/skills').glob('*/SKILL.md'))
-        self.assertEqual(len(paths), 8)
+        self.assertEqual(len(paths), len(check.catalog(check.ROOT)['blender_aliases']))
         paths[0].write_text('user edit')
         before = {p: p.read_bytes() for p in self.root.rglob('SKILL.md')}
         with self.assertRaises(check.Violation):

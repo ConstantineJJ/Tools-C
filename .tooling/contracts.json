@@ -18,6 +18,7 @@
         "tests/test_check.py",
         "docs/foundation.md",
         "docs/architecture-v4.md",
+        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
         "tools/handoff_snapshot.py",
@@ -36,7 +37,7 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "Project-pulse"
+        "Project-pulse.md"
       ]
     },
     {
@@ -59,9 +60,10 @@
         "docs/contracts.md",
         "docs/foundation.md",
         "docs/architecture-v4.md",
+        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
-        "Project-pulse"
+        "Project-pulse.md"
       ]
     },
     {
@@ -73,6 +75,9 @@
         "skills/blender-pipeline/SKILL.md",
         "skills/blender-character-modeling/SKILL.md",
         "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
         "skills/verification/SKILL.md",
         "skills/contracts-lint/SKILL.md",
         "skills/blender-rigging-skinning/SKILL.md",

@@ -2,7 +2,7 @@
 
 This is the primary workspace root and the only canonical source of universal
 skills, checkers and contract definitions. Architecture version: 4.0.1.
-Read [Project Pulse](Project-pulse) for the latest verified state and next work;
+Read [Project Pulse](Project-pulse.md) for the latest verified state and next work;
 update it after meaningful changes with what changed, checks, blockers and next actions.
 Historical reports remain evidence of their own dates, not the live project state.
 Additional workspace roots do not automatically supply instructions: explicitly
@@ -16,6 +16,9 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Godot scenes, resources, import, engine integration | [godot-project](skills/godot-project/SKILL.md) |
 | Blender character blockout, proportions, silhouette and geometry revision | [blender-character-modeling](skills/blender-character-modeling/SKILL.md) |
 | Blender animals, creatures, quadrupeds and anthropomorphic animal modeling | [blender-animal-anthropomorphic-modeling](skills/blender-animal-anthropomorphic-modeling/SKILL.md) |
+| Blender buildings, architectural shells, modular kits and large structures | [blender-architecture-environment](skills/blender-architecture-environment/SKILL.md) |
+| Blender standalone environment fixtures, street/site assets and repeatable set-dressing objects | [blender-environment-assets](skills/blender-environment-assets/SKILL.md) |
+| Blender roads, sidewalks, curbs, paths, crossings, junctions and connected linear ground infrastructure | [blender-roads-infrastructure](skills/blender-roads-infrastructure/SKILL.md) |
 | Blender multi-stage work, sculpt, UV/PBR, rig, animation, external asset repair | [blender-pipeline](skills/blender-pipeline/SKILL.md) |
 | Blender bones, bindings and weights | [blender-rigging-skinning](skills/blender-rigging-skinning/SKILL.md) |
 | Blender Actions and motion | [blender-animation](skills/blender-animation/SKILL.md) |

@@ -23,6 +23,18 @@
       "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md"
     },
     {
+      "id": "blender-architecture-environment",
+      "path": "skills/blender-architecture-environment/SKILL.md"
+    },
+    {
+      "id": "blender-environment-assets",
+      "path": "skills/blender-environment-assets/SKILL.md"
+    },
+    {
+      "id": "blender-roads-infrastructure",
+      "path": "skills/blender-roads-infrastructure/SKILL.md"
+    },
+    {
       "id": "verification",
       "path": "skills/verification/SKILL.md"
     },

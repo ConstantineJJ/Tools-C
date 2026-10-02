@@ -1,9 +1,9 @@
 # Tools_C architecture 4.0.1
 
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Current project state](Project-pulse) records the latest completed work, checks,
+[Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to fifteen canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to eighteen canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
 semantics. Rigging/skinning, animation, GLB export validation and Godot asset
 integration now have separate owners. Nine legacy Blender names remain compatible.

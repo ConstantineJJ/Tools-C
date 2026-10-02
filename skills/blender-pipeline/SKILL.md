@@ -21,6 +21,9 @@ Select only the reference matching the task:
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
 | Create or substantially revise generic character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
 | Model animals, creatures, quadrupeds or anthropomorphic animal characters | [animal & anthropomorphic modeling](../blender-animal-anthropomorphic-modeling/SKILL.md) |
+| Model buildings, architectural shells, modular building kits or large man-made structures | [architecture & large structures](../blender-architecture-environment/SKILL.md) |
+| Model standalone environment fixtures, street/site furniture or repeatable outdoor set-dressing assets | [environment assets](../blender-environment-assets/SKILL.md) |
+| Build roads, sidewalks, curbs, paths, crossings, medians or connected linear ground infrastructure | [roads & infrastructure](../blender-roads-infrastructure/SKILL.md) |
 | Sculpt an organic form or region | [organic sculpting](references/sculpting.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |

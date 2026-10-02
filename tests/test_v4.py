@@ -76,6 +76,12 @@ class V4Test(unittest.TestCase):
             'Fix shoulder weights and preserve all current clips.':['blender-rigging-skinning'],
             'Export the unchanged character as GLB and validate it in Godot.':['blender-export-validation','godot-asset-integration'],
             'Build a character blockout.':['blender-character-modeling'],
+            'Create a modular building blockout with reusable wall and roof pieces.':['blender-architecture-environment'],
+            'Model a house facade and preserve the current grid.':['blender-architecture-environment'],
+            'Create a reusable park bench environment asset.':['blender-environment-assets'],
+            'Model a street lamp and bollard family with shared proportions.':['blender-environment-assets'],
+            'Build a road with curb, sidewalk and a pedestrian crossing.':['blender-roads-infrastructure'],
+            'Create a curved path network with intersections and gutters.':['blender-roads-infrastructure'],
             'The elbow deforms badly; diagnose the cause.':['verification'],
             'Review the mesh without editing it.':['verification'],
             'Continue the asset task.':['blender-pipeline'],
@@ -86,6 +92,15 @@ class V4Test(unittest.TestCase):
             self.assertEqual(mcp_runtime.route_task(name),[name])
             result=mcp_runtime.context(check.ROOT,name)
             self.assertTrue(result['ok']); self.assertIn('SOURCE: docs/foundation.md',result['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-architecture-environment'),['blender-architecture-environment'])
+        architecture=mcp_runtime.context(check.ROOT,'blender-architecture-environment')
+        self.assertTrue(architecture['ok']); self.assertIn('SOURCE: skills/blender-architecture-environment/SKILL.md',architecture['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-environment-assets'),['blender-environment-assets'])
+        environment=mcp_runtime.context(check.ROOT,'blender-environment-assets')
+        self.assertTrue(environment['ok']); self.assertIn('SOURCE: skills/blender-environment-assets/SKILL.md',environment['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-roads-infrastructure'),['blender-roads-infrastructure'])
+        roads=mcp_runtime.context(check.ROOT,'blender-roads-infrastructure')
+        self.assertTrue(roads['ok']); self.assertIn('SOURCE: skills/blender-roads-infrastructure/SKILL.md',roads['skills'][0]['content'])
         self.assertFalse(mcp_runtime.context(check.ROOT,'blender-animation',5)['ok'])
 
     def test_legacy_combined_route_resolves_all_replacements(self):

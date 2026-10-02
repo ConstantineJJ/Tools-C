@@ -21,7 +21,7 @@ def resolve_root(project):
 
 def route_task(task):
     query=task.strip().lower()
-    explicit=re.findall(r'\b(?:blender-(?:rigging-skinning|animation|export-validation|character-modeling)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:blender-(?:rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure)|godot-asset-integration)\b',query)
     if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
     # mentions do not grant modeling or rig-edit ownership.
@@ -31,7 +31,10 @@ def route_task(task):
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ).*скелет',query): routes.append('blender-rigging-skinning')
     motion_query=re.split(r'\b(?:preserve|keep|without|unchanged)\b',query)[0]
     if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',motion_query): routes.append('blender-animation')
-    if re.search(r'blockout|remodel|proportion|silhouette|(?:create|build|revise).*geometry|блокаут|пропорц|силуэт',query): routes.append('blender-character-modeling')
+    if re.search(r'\b(?:building|buildings|house|houses|architecture|architectural|facade|façade|roof|modular\s+(?:building|architecture|kit|wall)|wall\s+module|floor\s+module|building\s+blockout)\b|здани|постройк|архитект|фасад|кры[шш]|модульн.*(?:здани|дом|стен)',query): routes.append('blender-architecture-environment')
+    if re.search(r'\b(?:environment\s+asset|street\s+furniture|site\s+fixture|bench|street\s*lamp|lamp\s*post|bollard|hydrant|litter\s*bin|trash\s*bin|bike\s*rack|planter|fence\s+panel|railing\s+panel|traffic\s+barrier)\b|скамейк|уличн.*фонар|фонарн.*столб|урн(?:а|ы|у|ой)?\b|боллард|гидрант|велопарков|заборн.*секц|секц.*забор|огражд.*секц',query): routes.append('blender-environment-assets')
+    if re.search(r'\b(?:road|roads|street\s+surface|sidewalk|pavement|curb|kerb|gutter|median|crosswalk|pedestrian\s+crossing|path|trail|road\s+shoulder|intersection|roundabout|ramp|roadway|lane\s+network)\b|дорог|тротуар|бордюр|поребрик|обочин|пешеходн.*переход|переход.*дорог|перекр[её]ст|тропин|дорожк|медиан|разделительн.*полос|съезд|рамп',query): routes.append('blender-roads-infrastructure')
+    if re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
         return ['blender-pipeline']

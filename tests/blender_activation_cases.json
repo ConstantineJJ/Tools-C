@@ -144,6 +144,24 @@
       }
     },
     {
+      "alias": "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+      "should_trigger": [
+        "Create a stylized quadruped cat with believable shoulder, hock and paw structure.",
+        "Blend human torso and arm behavior with digitigrade animal legs for this anthropomorphic character."
+      ],
+      "should_not_trigger": [
+        "Model a modular building facade with reusable windows and roof sections.",
+        "Fix only the existing humanoid character's shoulder weights."
+      ],
+      "edge": {
+        "prompt": "The anthropomorphic fox should stand upright but keep clearly digitigrade leg mechanics.",
+        "expected": [
+          "Blender_Animal_Anthropomorphic_Modeling_SKILL"
+        ],
+        "reason": "Regional human/animal blending and animal limb mechanics belong to the animal specialist."
+      }
+    },
+    {
       "alias": "Blender_Iterative_Refinement_SKILL",
       "should_trigger": [
         "Two shoulder fixes failed; diagnose the cause and make one measured correction.",

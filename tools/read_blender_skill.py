@@ -15,6 +15,7 @@ ROUTE_DESCRIPTIONS = {
     "Blender_Organic_Sculpting_SKILL": "Sculpt a Blender character's organic volume or a bounded region. Use for form corrections, not topology or weight repair.",
     "Blender_Retopology_Deformation_SKILL": "Retopologize a Blender mesh or repair edge flow for required deformation. Use when topology is the diagnosed owner.",
     "Blender_Character_QA_SKILL": "Review a Blender character's geometry, reference match, deformation, animation or export with evidence. Use for validation, not unrequested edits.",
+    "Blender_Animal_Anthropomorphic_Modeling_SKILL": "Model or substantially revise animals, creatures, quadrupeds, stylized pets or anthropomorphic animal characters when body-plan anatomy and animal/human feature integration are central.",
     "Blender_Iterative_Refinement_SKILL": "Iterate on a measured defect in an existing Blender asset using comparable before and after evidence. Use for repeated correction, not routine creation.",
     "Blender_Character_Rigging_Animation_Godot_SKILL": "Route legacy requests to separate rigging-skinning, animation, export-validation and Godot-asset-integration owners. Load only the stage relevant to the task.",
 }

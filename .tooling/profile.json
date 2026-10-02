@@ -8,6 +8,9 @@
     "blender-pipeline",
     "blender-character-modeling",
     "blender-animal-anthropomorphic-modeling",
+    "blender-architecture-environment",
+    "blender-environment-assets",
+    "blender-roads-infrastructure",
     "verification",
     "contracts-lint",
     "blender-rigging-skinning",
@@ -26,6 +29,7 @@
     "AGENTS.md",
     "README.md",
     "docs/contracts.md",
-    "Project-pulse"
+    "docs/blender-domain-skill-pack.md",
+    "Project-pulse.md"
   ]
 }
