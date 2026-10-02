@@ -80,7 +80,7 @@ class ContractsTest(unittest.TestCase):
             except OSError as exc:
                 self.skipTest(str(exc))
             with self.assertRaises(check.Violation):
-                bootstrap.install(self.root, 'generic')
+                bootstrap.install(target, 'generic')
             self.assertFalse((target / 'AGENTS.md').exists())
             self.assertEqual(list(Path(outside).iterdir()), [])
 

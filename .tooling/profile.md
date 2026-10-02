@@ -1,6 +1,6 @@
 # Tools_C self profile
 
-Tools_C architecture 4.0.1 owns eighteen canonical skills, nine legacy Blender aliases,
+Tools_C architecture 4.0.1 owns twenty-one canonical skills, nine legacy Blender aliases,
 a shared foundation, bounded evidence/export/preflight tools and deployment diagnosis.
 JSON format schema_version remains 1; it is independent of architecture version.
 Provider-neutral L1 uses only Python standard library. Engine/runtime/visual gates

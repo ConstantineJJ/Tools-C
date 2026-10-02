@@ -45,15 +45,21 @@ Own furniture, containers, tools, clutter, decor, hand-held objects, interior se
 
 Boundary with environment-assets: props are generally portable/interior/detail storytelling objects; environment-assets are generally site/street fixtures tied to an environment system. Ambiguous objects should be routed by intended reuse and placement, not by size alone.
 
+Status: fourth implementation pass active/implemented in this workstream.
+
 ### 5. `blender-vehicle-modeling` — cars and wheeled vehicles
 Own cars, trucks, vans, buses, trailers, motorcycles where applicable, carts and other wheeled vehicles: proportion/reference alignment, body panels, wheel/tire systems, suspension-visible geometry, repeated/symmetric parts, hard-surface topology, moving assemblies and vehicle-specific QA.
 
 Do not own generic electronics, environment props or character rigs. Vehicle animation/rigging may hand off to general rigging/animation after vehicle-specific articulation decisions are established.
 
+Status: fifth implementation pass active/implemented in this workstream.
+
 ### 6. `blender-product-electronics-modeling` — household and digital equipment
 Own appliances, consumer electronics, computers, monitors, TVs, consoles, kitchen devices and product-design-like hard-surface assets where manufactured assembly, panel gaps, bevel language, vents, connectors, display surfaces and material separation are central.
 
 Boundary with props: a generic decorative object stays in props; an engineered appliance/device with product-design construction belongs here.
+
+Status: sixth implementation pass active/implemented in this workstream.
 
 ### 7. `blender-vegetation` — plants and foliage
 Own trees, shrubs, grass, flowers, vines and plant clusters: botanical reference, branching hierarchy, silhouette, cards/mesh choices, variation, instancing, wind-ready segmentation and performance-aware vegetation construction.
@@ -84,6 +90,61 @@ The following already have canonical owners and should be referenced, not redefi
 Architecture, vehicles, product/electronics, environment assets and props will share recurring techniques such as bevels, booleans, arrays, symmetry, instancing, normals and manufactured-material logic. Do not create a shared hard-surface contract pre-emptively. If three or more completed specialist skills converge on the same substantial decision procedure, extract one shared reference later and replace duplicates deliberately.
 
 Technique overlap alone is not ownership overlap: the domain specialist decides why/where a technique is appropriate; Blender documentation defines software behavior.
+
+## Integration pass 1 — architecture + environment assets + roads
+
+Reviewed after the first three specialists were implemented and structurally exercised.
+The ownership split is intentionally based on production role and continuity, not size:
+
+| Subject | Canonical owner | Boundary rule |
+|---|---|---|
+| Building shell, facade, integrated window/door/trim, architectural stairs/railings | `blender-architecture-environment` | If it is structurally part of the building and follows the building kit/metric contract, architecture owns it. |
+| Road, sidewalk, curb, gutter, median, path/trail, crossing, connected junction/network | `blender-roads-infrastructure` | Continuous route/cross-section/network geometry stays with roads, including its junction and terrain interfaces. |
+| Bench, lamp, bin, bollard, hydrant, planter, bike rack, standalone sign/barrier | `blender-environment-assets` | Discrete reusable fixtures remain independent assets even when they snap to road or building anchors. |
+| Fence/railing | Depends on role | Building-integrated railing: architecture. Reusable panel/gate: environment-assets. Path-following/procedural corridor generated as part of a route system: roads. |
+| Building entrance meeting sidewalk | Split handoff | Architecture owns threshold/entrance geometry; roads owns exterior sidewalk/curb continuity. Exchange an explicit elevation/edge anchor instead of duplicating geometry. |
+| Roadside fixture placement | Split handoff | Roads may expose placement anchors; environment-assets owns the fixture mesh, family, pivot and variants. |
+
+Cross-cutting techniques such as scale anchors, transforms, instancing, variants,
+modifiers, tileables/trims and recoverable sources appear in all three skills, but
+their decisions are domain-specific and currently do not justify a new shared
+hard-surface owner. The shared foundation already owns preservation/evidence rules.
+Revisit extraction only if later props/vehicles/product skills expose a substantial
+identical decision procedure rather than merely the same Blender tools.
+
+Routing is allowed to return multiple owners for genuinely mixed requests. A task
+that asks for a building entrance plus connected sidewalk should load architecture
+and roads; a task that asks for bollards along a new sidewalk should load
+environment-assets and roads. This is deliberate collaboration, not a collision.
+
+## Integration pass 2 — props + vehicles + product/electronics
+
+Reviewed after the three manufactured-object specialists were implemented. Their
+shared Blender techniques are substantial, but their decision owners remain distinct:
+
+| Subject | Canonical owner | Boundary rule |
+|---|---|---|
+| Furniture, containers, tools, decor, hand-held and narrative clutter | `blender-props` | Use when the object's prop/story/interaction role dominates and engineered product architecture is not the main modeling problem. |
+| Cars, trucks, motorcycles, trailers and wheeled vehicle assemblies | `blender-vehicle-modeling` | Vehicle stance, wheelbase/track, body surfaces, wheel systems and vehicle articulation axes remain vehicle-owned even when the cabin contains product-like parts. |
+| Appliances, computers, consoles, displays, radios, peripherals and engineered consumer devices | `blender-product-electronics-modeling` | Use when enclosure architecture, controls, vents, connectors, screens and manufactured assembly are central. |
+| Vehicle dashboard / infotainment | Usually vehicle | Keep integrated dashboard geometry with the vehicle; route a removable/standalone device to product/electronics only when it becomes its own asset task. |
+| Decorative radio / simple box-like scene dressing | Depends on burden | A simple narrative dressing prop can remain props; a close accurate device with shell splits, ports, controls and ventilation belongs to product/electronics. |
+| Tool or appliance mounted on a vehicle | Split handoff | Vehicle owns mounting envelope/attachment context; props or product/electronics owns the reusable asset itself. Exchange explicit mount dimensions/pivots rather than duplicating geometry. |
+
+All three use blockout-first reasoning, bevel/boolean/modifier discipline, shared data,
+UV/bake choices, material-before-wear logic and physical pivots. This is still not
+one identical decision procedure: vehicles are dominated by stance/body-surface and
+mechanical articulation; product/electronics by enclosure/control/interface systems;
+props by role, handling and storytelling. Keep these procedures in their domain
+owners for now. Do not extract a shared hard-surface owner/reference merely to reduce
+repeated mentions of Blender tools. Revisit only if later maintenance shows the same
+multi-step representation/shading procedure changing in lockstep across owners.
+
+Mixed requests may intentionally route to multiple owners. A scene task that asks
+for a wooden crate beside a detailed game console should load props plus
+product/electronics; a vehicle task that separately includes a removable consumer
+device may load vehicle plus product/electronics. This is collaboration, not a
+routing defect.
 
 ## Research/implementation sequence
 

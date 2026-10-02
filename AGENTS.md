@@ -19,6 +19,9 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Blender buildings, architectural shells, modular kits and large structures | [blender-architecture-environment](skills/blender-architecture-environment/SKILL.md) |
 | Blender standalone environment fixtures, street/site assets and repeatable set-dressing objects | [blender-environment-assets](skills/blender-environment-assets/SKILL.md) |
 | Blender roads, sidewalks, curbs, paths, crossings, junctions and connected linear ground infrastructure | [blender-roads-infrastructure](skills/blender-roads-infrastructure/SKILL.md) |
+| Blender furniture, containers, tools, clutter, decor, hand-held and interior set-dressing props | [blender-props](skills/blender-props/SKILL.md) |
+| Blender cars, trucks, buses, motorcycles, trailers and other wheeled vehicle modeling | [blender-vehicle-modeling](skills/blender-vehicle-modeling/SKILL.md) |
+| Blender household appliances, consumer electronics, computers, displays and product-design devices | [blender-product-electronics-modeling](skills/blender-product-electronics-modeling/SKILL.md) |
 | Blender multi-stage work, sculpt, UV/PBR, rig, animation, external asset repair | [blender-pipeline](skills/blender-pipeline/SKILL.md) |
 | Blender bones, bindings and weights | [blender-rigging-skinning](skills/blender-rigging-skinning/SKILL.md) |
 | Blender Actions and motion | [blender-animation](skills/blender-animation/SKILL.md) |

@@ -35,6 +35,18 @@
       "path": "skills/blender-roads-infrastructure/SKILL.md"
     },
     {
+      "id": "blender-props",
+      "path": "skills/blender-props/SKILL.md"
+    },
+    {
+      "id": "blender-vehicle-modeling",
+      "path": "skills/blender-vehicle-modeling/SKILL.md"
+    },
+    {
+      "id": "blender-product-electronics-modeling",
+      "path": "skills/blender-product-electronics-modeling/SKILL.md"
+    },
+    {
       "id": "verification",
       "path": "skills/verification/SKILL.md"
     },

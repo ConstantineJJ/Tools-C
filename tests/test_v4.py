@@ -82,6 +82,19 @@ class V4Test(unittest.TestCase):
             'Model a street lamp and bollard family with shared proportions.':['blender-environment-assets'],
             'Build a road with curb, sidewalk and a pedestrian crossing.':['blender-roads-infrastructure'],
             'Create a curved path network with intersections and gutters.':['blender-roads-infrastructure'],
+            'Build a building entrance with a connected sidewalk.':['blender-architecture-environment','blender-roads-infrastructure'],
+            'Place reusable bollards along a new sidewalk.':['blender-environment-assets','blender-roads-infrastructure'],
+            'Create a standalone fence panel.':['blender-environment-assets'],
+            'Create a curb and gutter network.':['blender-roads-infrastructure'],
+            'Model a portable dining chair and wooden crate for an interior.':['blender-props'],
+            'Create a hand-held wrench prop with a usable grip pivot.':['blender-props'],
+            'Model a game-ready car with correct wheelbase and wheel pivots.':['blender-vehicle-modeling'],
+            'Build a motorcycle with steering-head and swingarm articulation axes.':['blender-vehicle-modeling'],
+            'Model a game console with shell halves, vents, ports and shared buttons.':['blender-product-electronics-modeling'],
+            'Create a microwave with a hinged door, display plane and reusable control knobs.':['blender-product-electronics-modeling'],
+            'Сделай игровую приставку с крышкой, вентиляцией и одинаковыми кнопками.':['blender-product-electronics-modeling'],
+            'Place a wooden crate beside a detailed game console with ports and vents.':['blender-props','blender-product-electronics-modeling'],
+            'Build a vehicle and a separate removable game console device for its cabin.':['blender-vehicle-modeling','blender-product-electronics-modeling'],
             'The elbow deforms badly; diagnose the cause.':['verification'],
             'Review the mesh without editing it.':['verification'],
             'Continue the asset task.':['blender-pipeline'],
@@ -101,6 +114,15 @@ class V4Test(unittest.TestCase):
         self.assertEqual(mcp_runtime.route_task('blender-roads-infrastructure'),['blender-roads-infrastructure'])
         roads=mcp_runtime.context(check.ROOT,'blender-roads-infrastructure')
         self.assertTrue(roads['ok']); self.assertIn('SOURCE: skills/blender-roads-infrastructure/SKILL.md',roads['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-props'),['blender-props'])
+        props=mcp_runtime.context(check.ROOT,'blender-props')
+        self.assertTrue(props['ok']); self.assertIn('SOURCE: skills/blender-props/SKILL.md',props['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-vehicle-modeling'),['blender-vehicle-modeling'])
+        vehicle=mcp_runtime.context(check.ROOT,'blender-vehicle-modeling')
+        self.assertTrue(vehicle['ok']); self.assertIn('SOURCE: skills/blender-vehicle-modeling/SKILL.md',vehicle['skills'][0]['content'])
+        self.assertEqual(mcp_runtime.route_task('blender-product-electronics-modeling'),['blender-product-electronics-modeling'])
+        product=mcp_runtime.context(check.ROOT,'blender-product-electronics-modeling')
+        self.assertTrue(product['ok']); self.assertIn('SOURCE: skills/blender-product-electronics-modeling/SKILL.md',product['skills'][0]['content'])
         self.assertFalse(mcp_runtime.context(check.ROOT,'blender-animation',5)['ok'])
 
     def test_legacy_combined_route_resolves_all_replacements(self):
