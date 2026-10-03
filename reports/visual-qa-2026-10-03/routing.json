@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "transport": "disposable stdio MCP",
+  "cases": [
+    {
+      "task": "blender-architecture-environment",
+      "chars": 40212,
+      "sha256": [
+        "68e610f79d4681c832c746ee81ee9aa5d5bbb9cb519fef36c9ced977b7db8f76"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-environment-assets",
+      "chars": 40952,
+      "sha256": [
+        "9e8b20c3dbe7ceef3cdbd0829dee5c2a11dcd317d70d81f8b7fd12dea64d243f"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-roads-infrastructure",
+      "chars": 42081,
+      "sha256": [
+        "58b84655097724ea58da58cb3f040213f980c06b86c253d7b6f186ca10af7ea5"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-props",
+      "chars": 43296,
+      "sha256": [
+        "5cc04886069b29abc2a27ffcaa9dafbe396dc212698bff857639e998626e4324"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-vehicle-modeling",
+      "chars": 44192,
+      "sha256": [
+        "3bd41b246d9623d0489d0e796856a382011e678ff72d2f3cadad16eb87e4b292"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-product-electronics-modeling",
+      "chars": 44310,
+      "sha256": [
+        "97a28d12869e04d3883de1f1d3281527c678093cbdc85b8e7ee05192a2b73670"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-vegetation",
+      "chars": 44740,
+      "sha256": [
+        "efab0b84fa16487906f21e12a477800c1465e1b262a313aa9d094a67802cf95a"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "blender-sculpting",
+      "chars": 44182,
+      "sha256": [
+        "6d21006de6c80a6e19eca12e47dbe3e18542a1b68dd64cb7acd1f09d090c5f3e"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "Review only the silhouette of this Blender model",
+      "chars": 19877,
+      "sha256": [
+        "277f71b5c01ea27863abbc38de9fb92622748c6bf68f2228a86224b0465514ac"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "Retopologize this car without changing its silhouette",
+      "chars": 23158,
+      "sha256": [
+        "94481f322e33dc44f6dacf386a5be365115802cd8c2c630cfe5a67eae08c2dfa"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    },
+    {
+      "task": "Create UVs and PBR materials for this tree",
+      "chars": 22229,
+      "sha256": [
+        "3dbd6c6a686095934d5fe2bb1a3fe3ad663d707da984477d00b890e6b37fd055"
+      ],
+      "default_truncated": false,
+      "status": "PASS"
+    }
+  ],
+  "connector": "SKIP: session terminated",
+  "live_blender_capture": "SKIP: bridge unavailable"
+}

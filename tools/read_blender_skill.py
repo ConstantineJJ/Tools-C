@@ -38,7 +38,7 @@ def render(root, alias):
     canonical = {s["id"]: s["path"] for s in manifest["skills"]}
     if alias not in manifest["blender_aliases"] and alias not in canonical:
         raise ValueError(f"Unknown Blender skill alias: {alias}")
-    paths = ["docs/foundation.md", "skills/blender-pipeline/SKILL.md",
+    paths = ["docs/foundation.md", "docs/blender-evidence.md", "skills/blender-pipeline/SKILL.md",
              "skills/blender-pipeline/references/core.md",
              canonical[alias] if alias in canonical else manifest["blender_aliases"][alias]["reference"],
              "skills/verification/SKILL.md"]

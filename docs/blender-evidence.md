@@ -51,6 +51,78 @@ VISUAL REVIEW REQUIRED. Material differences still require target-engine review.
 For offline/factory probes, run the helper in Blender Python using
 `capture_viewport(NEW_OUTPUT_DIRECTORY, ...)`. The same API underlies the MCP tool.
 
+## Visual feedback loop and capture fallbacks
+
+For geometry creation or a visible revision, the agent must capture and **open the
+actual PNGs**, review silhouette/proportions/intersections/shading against the scoped
+criteria, list visible defects, correct them through the appropriate owner, and
+recapture/review affected views. Keep another relevant view as a regression check.
+Use the BEFORE objects, frame (including subframe), framing, resolution, mode and
+lighting for AFTER. For a captured fractional frame, leave `frame=None` and restore
+that source frame/subframe explicitly before recapturing; the capture frame argument
+accepts integers. Record reviewer, image paths/hashes, observation and KEEP/CORRECT/
+REVERT. Read-only review identifies defects without authorizing geometry edits.
+Stop at scoped acceptance or an explained blocker; no blind/unbounded polishing.
+
+Use these routes in order; tool discovery failure is a reason to try the next route:
+
+1. `capture_viewport` MCP returns image content plus metadata. Open/inspect the image.
+2. If that named tool is absent, but `execute_blender_python` works, invoke the same
+   canonical helper below. It uses Blender's render operation/Render Result and
+   saves a PNG without needing a live VIEW_3D or an OS screenshot tool. Run
+   `tools/python_preflight.py` on the payload first; the existing safety gate applies.
+   Resolve the canonical root from the active project configuration or TOOLS_C_ROOT;
+   replace the example root, output path and object names with verified project values.
+
+```python
+import runpy, uuid
+from pathlib import Path
+tools_c = Path("E:/MyCreations/Tools_C")
+capture = runpy.run_path(str(tools_c / "tools/blender_capture.py"))["capture_viewport"]
+output = tools_c / ".local/captures" / uuid.uuid4().hex
+_result = capture(output=str(output),
+                  view="front", target="character", object_names=["Body", "Head"],
+                  mode="solid", frame=1, resolution=512)
+print(_result)
+```
+
+The updated Tools_C integration adapter recognizes this managed capture and
+returns a verified MCP image alongside the unchanged structured Python result.
+Its loaded server must include that adapter update; discovery of a new tool is
+not required. It accepts only matching capture manifests and PNG hashes beneath
+Tools_C `.local/captures`; arbitrary Python-returned file paths are not attached.
+With an older adapter, the response is metadata only: open `_result['path']` with
+the client's local image-view capability (for example `view_image`) or an authorized
+image attachment/download mechanism. Verify the PNG against `_result['sha256']`.
+A JSON path alone is not visual review. If a remote client cannot retrieve image
+bytes, report that image-access blocker instead of claiming that Python solved it.
+Do not overwrite the evidence folder; use a new directory for each capture.
+
+3. If the Blender bridge/session is down, a local agent can render an explicitly
+   saved current candidate in an isolated Blender process without MCP:
+
+```text
+python tools/blender_capture_file.py --blender "C:/path/to/blender.exe" --source "C:/project/candidate.blend" --output "C:/project/evidence/NEW_before_front" --objects Body Head --view front --frame 1 --resolution 512
+```
+
+For AFTER or another comparable fixed view, use a new output directory and pass
+`--framing "C:/project/evidence/NEW_before_front/image/capture.json"`. Supports
+front/side/back/top/bottom/three_quarter and solid/material_preview/rendered.
+The tool opens the source with autoexec disabled, uses the same capture helper,
+verifies the PNG/hash/completion marker and source-file hash, and writes `result.json`
+and `blender.log`. Open `result.capture.path` and inspect it. It never saves the
+source .blend or changes an open editor. Unsaved edits are absent: use a separately
+saved current candidate within authorized scope, or report stale/missing source.
+Script/driver-dependent appearance may require interactive validation; disabling
+autoexec is not proof of its equivalence. An offline render does not repair MCP.
+
+If all applicable routes fail or images cannot be inspected, record attempts,
+diagnostics and remaining owner as VISUAL SKIP. Keep required visual acceptance
+open; do not report the modeling task as fully accepted. A blank/clipped/wrong-target
+image is failed evidence setup to fix before judging the model. Capture output
+always remains VISUAL REVIEW REQUIRED until the agent records actual observations.
+
+
 ## Export and round trip
 
 `tools/blender_export_probe.py` runs in a disposable background Blender process:

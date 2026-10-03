@@ -18,7 +18,9 @@ Use only applicable checks: object hierarchy, transforms and normals for geometr
 
 Use [capture_viewport](../../../docs/blender-evidence.md) to keep before/after target,
 frame, framing, resolution, lighting and mode identical. Keep STRUCTURAL PASS separate
-from VISUAL SKIP / VISUAL REVIEW REQUIRED / VISUAL PASS; inspect the returned images. A beauty render, successful API call or clean import cannot prove other views, deformations or target-engine behavior. For export, fresh-import when feasible and inspect the specific target engine when that is part of acceptance. See [QA evidence matrix](techniques/qa-evidence.md) for detailed checks and severity examples.
+from VISUAL SKIP / VISUAL REVIEW REQUIRED / VISUAL PASS; open and inspect the actual images.
+If the capture tool is missing or fails, attempt the Blender Python or offline-render
+fallback documented there before reporting a blocked required visual gate. A beauty render, successful API call or clean import cannot prove other views, deformations or target-engine behavior. For export, fresh-import when feasible and inspect the specific target engine when that is part of acceptance. See [QA evidence matrix](techniques/qa-evidence.md) for detailed checks and severity examples.
 
 ## Anti-degradation and stop
 
