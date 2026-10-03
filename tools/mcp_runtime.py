@@ -22,6 +22,11 @@ def render_context(root, owner, procedures=()):
     if owner == 'blender-posteffects-polishing' and f'SOURCE: {finishing}\n\n' not in content:
         # A live adapter can retain the earlier two-argument reader module.
         paths.append(finishing)
+    if owner == "blender-anime-character-modeling":
+        for path in ["skills/blender-character-modeling/SKILL.md",
+                     "skills/blender-anime-character-modeling/references/face-hair-workflow.md"]:
+            if f"SOURCE: {path}\n\n" not in content:
+                paths.append(path)
     for procedure in procedures:
         if procedure not in PROCEDURES:
             raise ValueError(f'Unknown Blender procedure: {procedure}')
@@ -77,9 +82,31 @@ def procedure_routes(query):
     return procedures
 
 
+def anime_modeling_route(query):
+    """Style-specific geometry intent; existing asset style does not own other stages."""
+    if not re.search(r'\b(?:anime|manga)\b|аниме|манга', query):
+        return False
+    create = re.search(
+        r'\b(?:create|build|make|model|remodel)\s+'
+        r'(?:(?:an?|the|new|full-body|chibi|anime|manga|stylized|male|female|human)\s+)*'
+        r'(?:character|humanoid|avatar|person|head|face|body|hair|hairstyle)\b|'
+        r'(?:созда|сдела|смодел|передел)\w*\s+'
+        r'(?:(?:нов\w*|аниме|манга|чиби|стилизованн\w*)\s+)*'
+        r'(?:персонаж|гуманоид|аватар|голов|лиц|прич[её]ск|волос)\w*', query)
+    revise = re.search(
+        r'\b(?:remodel|blockout)\b|'
+        r'\b(?:adjust|change|fix|repair|edit|refine|improve)\s+'
+        r'(?:(?:the|this|an?|existing|anime|manga|character|humanoid)\s+)*'
+        r"(?:head|face|body|hair|hairstyle|proportions?|silhouette|geometry)\b|"
+        r'(?:исправ|измени|поправ|передел|улучш)\w*\s+'
+        r'(?:(?:аниме|манга|текущ\w*|эт\w*)\s+)*'
+        r'(?:пропорц|силуэт|геометр|лиц|голов|волос|прич[её]ск)\w*|блокаут', query)
+    return bool(create or revise)
+
+
 def route_task(task):
     query=task.strip().lower()
-    explicit=re.findall(r'\b(?:blender-(?:posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:blender-(?:anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     if explicit: return list(dict.fromkeys(explicit))
     query=action_query(query)
     reviewing=bool(re.search(r'\b(?:review|inspect|audit|diagnose)\b|проверь|проверить|осмотр',query))
@@ -114,7 +141,9 @@ def route_task(task):
         routes.append('blender-product-electronics-modeling')
     if re.search(r'\b(?:vegetation|foliage|tree|trees|sapling|saplings|shrub|shrubs|bush|bushes|grass|grasses|flower|flowers|vine|vines|reed|reeds|leaf\s+cluster|foliage\s+cluster|grass\s+patch|plants|potted\s+plant|plant\s+(?:asset|model|cluster|family))\b|растительн|дерев(?:о|ья|ьев|ьями)|сажен|куст|трав(?:а|ы|у|ой)|цвет(?:ок|ы|ов|ами)|листв|лоз(?:а|ы|у|ой)|камыш|тростник',query): routes.append('blender-vegetation')
     if re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|dynamic\s+topology|voxel\s+remesh|multires(?:olution)?|face\s+sets?|sculpt\s+mask|clay\s+brush|crease\s+brush)\b|скульпт|скульптинг|динтопо|динамич.*тополог|воксельн.*ремеш|мультирез|мультирес',query): routes.append('blender-sculpting')
-    if re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
+    anime = anime_modeling_route(query)
+    if anime: routes.append("blender-anime-character-modeling")
+    if not anime and re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
         return ['blender-pipeline']

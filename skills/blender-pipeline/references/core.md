@@ -12,6 +12,8 @@ requested finish, then final visual QA and delivery. It preserves approved shape
 Use [snapshots and visual evidence](../../../docs/blender-evidence.md) at relevant
 handoffs; gates are quality conditions, not recurring permission requests.
 
+For anime/manga humanoid forms, use [anime character modeling](../../blender-anime-character-modeling/SKILL.md); surfaces, rigging and delivery still own their stages.
+
 For geometry creation or a visible revision, execute the visual feedback loop in
 [Blender evidence](../../../docs/blender-evidence.md): capture relevant fixed views,
 open and inspect the actual images, identify defects, correct the scoped defects

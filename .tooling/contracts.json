@@ -5,15 +5,23 @@
     {
       "id": "TOOLS-SELF-PROFILE",
       "kind": "json_subset",
-      "paths": [".tooling/config.json"],
-      "expected": {"profile": ".tooling/profile.json"}
+      "paths": [
+        ".tooling/config.json"
+      ],
+      "expected": {
+        "profile": ".tooling/profile.json"
+      }
     },
     {
       "id": "TOOLS-DOMAIN-CONTRACTS",
       "kind": "json_subset",
-      "paths": [".tooling/profile.json"],
+      "paths": [
+        ".tooling/profile.json"
+      ],
       "expected": {
-        "contracts": [".tooling/blender-domain-contracts.json"]
+        "contracts": [
+          ".tooling/blender-domain-contracts.json"
+        ]
       }
     },
     {
@@ -25,6 +33,18 @@
       "expected": {
         "contracts": [
           ".tooling/blender-polishing-contracts.json"
+        ]
+      }
+    },
+    {
+      "id": "TOOLS-ANIME-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/blender-anime-contracts.json"
         ]
       }
     },
@@ -73,7 +93,12 @@
         "skills/blender-posteffects-polishing/SKILL.md",
         "skills/blender-posteffects-polishing/references/finishing-techniques.md",
         "skills/blender-posteffects-polishing/references/research-notes.md",
-        "tests/test_polishing.py"
+        "tests/test_polishing.py",
+        "skills/blender-anime-character-modeling/SKILL.md",
+        "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+        "skills/blender-anime-character-modeling/references/research-notes.md",
+        ".tooling/blender-anime-contracts.json",
+        "tests/test_anime.py"
       ]
     },
     {
@@ -86,7 +111,8 @@
         ".tooling/contracts.json",
         "reports/preflight.json",
         ".tooling/blender-domain-contracts.json",
-        ".tooling/blender-polishing-contracts.json"
+        ".tooling/blender-polishing-contracts.json",
+        ".tooling/blender-anime-contracts.json"
       ]
     },
     {
@@ -131,7 +157,8 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "skills/blender-posteffects-polishing/SKILL.md"
+        "skills/blender-posteffects-polishing/SKILL.md",
+        "skills/blender-anime-character-modeling/SKILL.md"
       ],
       "required": [],
       "forbidden": [

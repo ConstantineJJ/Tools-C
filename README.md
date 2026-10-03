@@ -5,7 +5,7 @@ Central, provider-neutral agent tooling for Godot/Blender/3D projects.
 includes the canonical ZIP, checksums and extracted-package verification.
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to twenty-four canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to twenty-five canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
 semantics. Rigging/skinning, animation, GLB export validation and Godot asset
 integration now have separate owners. Nine legacy Blender names remain compatible.
@@ -15,6 +15,8 @@ materials/textures, localized wear and motivated glow near final QA/delivery.
 Its [contracts](.tooling/blender-polishing-contracts.json) protect registration and
 handoff links; project art direction and inspected visual evidence still decide
 the finish. UV/bakes remain with surfaces, structural damage with sculpting.
+
+[Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) owns anime/manga humanoid form, faces, eyes, hair and clothing, with renderer-compatible visual QA and explicit downstream handoffs.
 
 Four production skills coordinate a playable [mechanic gym](skills/production-mechanic-gym/SKILL.md),
 [parallel worktrees](skills/production-subagent-worktree/SKILL.md), a representative

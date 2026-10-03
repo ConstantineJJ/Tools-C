@@ -1,9 +1,15 @@
 # Tools_C — Project Pulse
 
-Updated: 2026-10-03. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
-Current catalog: twenty-four canonical skills, nine legacy Blender compatibility aliases.
+Updated: 2026-10-04. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
+Current catalog: twenty-five canonical skills, nine legacy Blender compatibility aliases.
 
 ## Done
+
+- 2026-10-04: added canonical blender-anime-character-modeling for anime/manga humanoid forms, chibi proportions, faces/eyes, hair masses and clothing. Three source/workflow files distill primary GameDev.tv, GDC, CHARM, Blender and VRM material references; unseen video/paid lessons are not claimed. Generic character safeguards remain shared; sculpt, retopology, surfaces, polishing, rigging, animation and delivery retain their ownership. The skill explicitly distinguishes solid geometry review from EEVEE/target-renderer toon appearance and requires capture/open/diagnose/correct/recapture with documented fallbacks.
+- 2026-10-04: registered the 25th owner in manifest/profile/AGENTS/README/pipeline, four anime contracts plus activation protection and 11 positive/negative regression tests. Local suite: 105 PASS; self L1: 32 PASS, 0 WARN/FAIL; integration L1: 9 PASS. Disposable stdio MCP verified nine legacy aliases and nine routing queries against canonical bytes; the actual connector read the new canonical skill and passed creation, surfaces, weights and read-only review routes. Default anime context: 41,082 characters, no truncation. Legacy readers receive the new geometry/workflow dependencies through bounded compatibility fallback. Optional skill-creator quick_validate is SKIP because its separate PyYAML dependency is unavailable; dependency-free canonical checks pass.
+- 2026-10-04: inspected Constantine Hub's BlenderSkillVerifier and MainForm without editing Hub. Its 9/9 counter compares the nine legacy router files in integration skills/ and mcp-server/skills/. It does not enumerate canonical Tools_C owners. Nine aliases are retained; the canonical catalog now has 25 skills.
+- 2026-10-04: published anime skill/harness commit `512c10350111e24982d52fd8c825f3d6cecdd176` by fast-forward from the cleaned public main. The independently reconstructed clean package matched the accepted v4.0.2 source digest before applying 18 scoped edits; 117 public files, 108 regression tests PASS and public L1 33 PASS, 0 WARN/FAIL. Main's manifest and anime entrypoint were read back and matched tested bytes. Internal Pulse/AGENTS/reports remain local. The current main ZIP includes 25 skills; the existing v4.0.2 release remains its earlier 24-skill snapshot.
+- 2026-10-03: GitHub-only cleanup and v4.0.2 removed 112 internal project artifacts from the public tree. The local workspace deliberately retains Pulse, AGENTS and historical material. Subsequent public commits use the cleaned remote tree and an explicit skills/harness allowlist; local internal files are not published.
 
 - 2026-10-03: published the first [Tools_C GitHub release, v4.0.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.1), using the existing architecture version and exact source commit `dfd0aec5d9bca210e682afa456460dd17daeef8f`. Assets are the canonical ZIP, release-verification.json and SHA256SUMS.txt; the tag remains at the tested source commit while this publication record is a later documentation update. Added [release notes and extraction/integration guidance](docs/releases/v4.0.1.md), aligned the self-profile's catalog count to 24, and scoped the archive to 221 committed files. [Publication evidence](reports/releases/v4.0.1-publication.json).
 
@@ -122,6 +128,8 @@ Current catalog: twenty-four canonical skills, nine legacy Blender compatibility
 - 2026-09-28 post-reconciliation Blender router sync returned `PASS SYNC: 9 compatibility routers`.
 
 ## Current / next
+
+- Anime character modeling is available locally and through the live Blender MCP. An explicitly scoped character exercise can validate actual model likeness, expressions and renderer-compatible toon appearance; this skill/harness pass does not claim asset Visual PASS. The Hub counter UI can separately label routers and display the canonical catalog if requested.
 
 - Posteffects and polishing is implemented and structurally/runtime-routing accepted as the late finishing stage across asset domains. Next separately scoped asset work can exercise actual material/wear/emission and compositor Visual QA; no model, particle system, animation, export or target-engine production pass was started automatically.
 
