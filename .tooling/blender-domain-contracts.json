@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "id": "blender-domain-pack-contracts",
+  "rules": [
+    {
+      "id": "BDP-REGISTRATION",
+      "kind": "json_subset",
+      "paths": [
+        "manifest.json"
+      ],
+      "expected": {
+        "skills": [
+          {
+            "id": "blender-architecture-environment",
+            "path": "skills/blender-architecture-environment/SKILL.md"
+          },
+          {
+            "id": "blender-environment-assets",
+            "path": "skills/blender-environment-assets/SKILL.md"
+          },
+          {
+            "id": "blender-roads-infrastructure",
+            "path": "skills/blender-roads-infrastructure/SKILL.md"
+          },
+          {
+            "id": "blender-props",
+            "path": "skills/blender-props/SKILL.md"
+          },
+          {
+            "id": "blender-vehicle-modeling",
+            "path": "skills/blender-vehicle-modeling/SKILL.md"
+          },
+          {
+            "id": "blender-product-electronics-modeling",
+            "path": "skills/blender-product-electronics-modeling/SKILL.md"
+          },
+          {
+            "id": "blender-vegetation",
+            "path": "skills/blender-vegetation/SKILL.md"
+          },
+          {
+            "id": "blender-sculpting",
+            "path": "skills/blender-sculpting/SKILL.md"
+          }
+        ]
+      }
+    },
+    {
+      "id": "BDP-PROFILE",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "skills": [
+          "blender-architecture-environment",
+          "blender-environment-assets",
+          "blender-roads-infrastructure",
+          "blender-props",
+          "blender-vehicle-modeling",
+          "blender-product-electronics-modeling",
+          "blender-vegetation",
+          "blender-sculpting"
+        ],
+        "contracts": [".tooling/contracts.json", ".tooling/blender-domain-contracts.json"]
+      }
+    },
+    {
+      "id": "BDP-LEGACY",
+      "kind": "json_subset",
+      "paths": [
+        "manifest.json"
+      ],
+      "expected": {
+        "blender_aliases": {
+          "Blender_Character_Pipeline_Core": {
+            "reference": "skills/blender-pipeline/references/core.md"
+          },
+          "Blender_Reference_Reconstruction_SKILL": {
+            "reference": "skills/blender-pipeline/references/reference.md"
+          },
+          "Blender_Character_Modeling_SKILL": {
+            "reference": "skills/blender-character-modeling/SKILL.md"
+          },
+          "Blender_Animal_Anthropomorphic_Modeling_SKILL": {
+            "reference": "skills/blender-animal-anthropomorphic-modeling/SKILL.md"
+          },
+          "Blender_Organic_Sculpting_SKILL": {
+            "reference": "skills/blender-sculpting/SKILL.md"
+          },
+          "Blender_Retopology_Deformation_SKILL": {
+            "reference": "skills/blender-pipeline/references/retopology.md"
+          },
+          "Blender_Character_QA_SKILL": {
+            "reference": "skills/blender-pipeline/references/qa.md"
+          },
+          "Blender_Iterative_Refinement_SKILL": {
+            "reference": "skills/blender-pipeline/references/refinement.md"
+          },
+          "Blender_Character_Rigging_Animation_Godot_SKILL": {
+            "reference": "skills/blender-pipeline/references/rigging.md"
+          }
+        }
+      }
+    },
+    {
+      "id": "BDP-AGENTS",
+      "kind": "markdown",
+      "paths": [
+        "AGENTS.md"
+      ],
+      "required_targets": [
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-vehicle-modeling/SKILL.md",
+        "skills/blender-product-electronics-modeling/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-sculpting/SKILL.md"
+      ]
+    },
+    {
+      "id": "BDP-PIPELINE",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-pipeline/SKILL.md"
+      ],
+      "required_targets": [
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-vehicle-modeling/SKILL.md",
+        "skills/blender-product-electronics-modeling/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-sculpting/SKILL.md",
+        "skills/blender-pipeline/references/retopology.md",
+        "skills/blender-pipeline/references/surfaces.md",
+        "skills/blender-character-modeling/SKILL.md",
+        "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "skills/blender-rigging-skinning/SKILL.md",
+        "skills/blender-animation/SKILL.md",
+        "skills/blender-export-validation/SKILL.md",
+        "skills/godot-asset-integration/SKILL.md",
+        "skills/verification/SKILL.md"
+      ]
+    },
+    {
+      "id": "BDP-FOUNDATION",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-vehicle-modeling/SKILL.md",
+        "skills/blender-product-electronics-modeling/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-sculpting/SKILL.md"
+      ],
+      "required_targets": [
+        "docs/foundation.md"
+      ]
+    },
+    {
+      "id": "BDP-SCULPT-COMPAT",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-pipeline/references/sculpting.md"
+      ],
+      "required_targets": [
+        "skills/blender-sculpting/SKILL.md"
+      ]
+    }
+  ]
+}

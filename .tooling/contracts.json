@@ -3,6 +3,20 @@
   "id": "tools-c-contracts",
   "rules": [
     {
+      "id": "TOOLS-SELF-PROFILE",
+      "kind": "json_subset",
+      "paths": [".tooling/config.json"],
+      "expected": {"profile": ".tooling/profile.json"}
+    },
+    {
+      "id": "TOOLS-DOMAIN-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [".tooling/profile.json"],
+      "expected": {
+        "contracts": [".tooling/blender-domain-contracts.json"]
+      }
+    },
+    {
       "id": "TOOLS-FILES",
       "kind": "files",
       "paths": [
@@ -37,7 +51,12 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "Project-pulse.md"
+        "Project-pulse.md",
+        ".tooling/blender-domain-contracts.json",
+        "tests/test_domain_contracts.py",
+        "tools/blender_capture_file.py",
+        "tools/mcp_capture_response.py",
+        "tests/test_capture_file.py"
       ]
     },
     {
@@ -48,7 +67,8 @@
         ".tooling/config.json",
         ".tooling/profile.json",
         ".tooling/contracts.json",
-        "reports/preflight.json"
+        "reports/preflight.json",
+        ".tooling/blender-domain-contracts.json"
       ]
     },
     {

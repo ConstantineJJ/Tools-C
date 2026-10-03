@@ -1,0 +1,41 @@
+[
+  {
+    "case": "profile owner omitted",
+    "status": "EXPECTED FAIL",
+    "diagnostics": [
+      {
+        "level": "L1",
+        "status": "FAIL",
+        "code": "E_JSON_VALUE",
+        "rule": "BDP-PROFILE",
+        "message": ".tooling/profile.json#/skills: missing required member \"blender-vegetation\""
+      }
+    ]
+  },
+  {
+    "case": "legacy sculpt alias retargeted",
+    "status": "EXPECTED FAIL",
+    "diagnostics": [
+      {
+        "level": "L1",
+        "status": "FAIL",
+        "code": "E_JSON_VALUE",
+        "rule": "BDP-LEGACY",
+        "message": "manifest.json#/blender_aliases/Blender_Organic_Sculpting_SKILL/reference: expected 'skills/blender-sculpting/SKILL.md', got 'skills/blender-props/SKILL.md'"
+      }
+    ]
+  },
+  {
+    "case": "domain pipeline route removed",
+    "status": "EXPECTED FAIL",
+    "diagnostics": [
+      {
+        "level": "L1",
+        "status": "FAIL",
+        "code": "E_ROUTE",
+        "rule": "BDP-PIPELINE",
+        "message": "skills\\blender-pipeline\\SKILL.md: missing required local route to skills/blender-vegetation/SKILL.md"
+      }
+    ]
+  }
+]

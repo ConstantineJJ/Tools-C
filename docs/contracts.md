@@ -49,7 +49,8 @@ IDs are unique across all loaded contracts and rules. Canonical lesson IDs use
 |---|---|---|
 | files | none | Exact files exist |
 | json | none | Strict JSON parsing; not arbitrary JSON-schema compliance |
-| markdown | none | Local links in supported Markdown syntax resolve |
+| json_subset | expected: nonempty object; exactly one path | Declared JSON keys/scalars and required array members remain present; extra values and array reordering are allowed |
+| markdown | none; optional required_targets: nonempty string array | Local links resolve; when declared, each document also links to every required project-relative target |
 | text | required, forbidden: string arrays, at least one nonempty | Case-sensitive literal presence/absence |
 | sha256 | expected: lowercase 64-digit hex; exactly one path | Exact bytes match a declared protected artifact |
 
@@ -60,9 +61,36 @@ alternate-stream paths are rejected. This is an offline integrity guard, not an
 OS security sandbox against concurrent hostile filesystem changes.
 
 Markdown subset: inline links/images and reference definitions; code fences/spans
-excluded; percent-encoded paths supported. Web URLs, anchors and inline-code paths
+and HTML comments excluded; percent-encoded paths supported. Web URLs, anchors and inline-code paths
 are not verified. Nested-parenthesis destinations and full CommonMark parsing are
 outside V1. List important backtick resource references explicitly in contracts.
+
+`required_targets` are project-relative paths, not relative to the Markdown file.
+They use the same containment checks as `paths`, including symlinks/junctions.
+Only local links/reference definitions satisfy them; images, web links, code and
+comments do not. These are reference-integrity checks, not proof that surrounding
+prose assigns correct ownership or that a runtime chooses that owner.
+
+`json_subset` recursively requires the declared object keys. Each expected array
+member must match some actual member (order and multiplicity are not certified).
+Scalars require the same JSON/Python type and exact value, including null/bool;
+object/array extras remain replaceable. Empty nested containers constrain only the
+container type. It executes no selectors, expressions, Python or contract text.
+JSON parsing rejects non-finite constants and overflow such as `1e999`.
+
+The Tools_C self-profile opts into [Blender domain contracts](../.tooling/blender-domain-contracts.json):
+eight canonical IDs/paths, their self-profile membership, nine legacy targets,
+AGENTS/pipeline owner links, shared-foundation links and the sculpt compatibility
+pointer. Projects are not required to activate all eight domains. Canonical source
+hashes remain migration provenance; current context hashes are still generated.
+No asset identity, dimensions, triangle/texture/LOD budget or visual acceptance is
+encoded. Routing behavior stays under regression/live checks; artistic judgment,
+safeguards in prose and project suitability stay under review/verification.
+The Tools_C base contract also checks its canonical self-profile path and domain
+contract activation; the domain profile check requires both base and domain files.
+These declarations apply to Tools_C's own layout, not arbitrary project profiles.
+They detect accidental deactivation while either checked-in contract remains active;
+removing all validators/contract declarations is outside an opt-in integrity check.
 
 Profile adapters live in [profile_adapters.py](../tools/profile_adapters.py):
 
@@ -87,6 +115,7 @@ not every installed MCP mirror or arbitrary folder on the computer.
 Stable diagnostics: E_SCHEMA structure; E_JSON parse/duplicate keys; E_ID duplicate
 IDs; E_PATH containment; E_FILE missing file; E_LINK broken Markdown reference;
 E_TEXT literal contract; E_HASH protected bytes; E_CATALOG routing/skill drift;
+E_JSON_VALUE declared JSON subset mismatch; E_ROUTE missing required local link;
 E_TOOLS_ROOT wrong central source; E_IO filesystem/encoding; E_BOOTSTRAP/E_SYNC
 installer conflicts. Shape/JSON/ID/path errors always FAIL, even in advisory rules.
 Exit 0 means no FAIL; exit 1 means FAIL; argparse usage errors use exit 2.

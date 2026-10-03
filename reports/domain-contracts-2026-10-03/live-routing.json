@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "task": "blender-architecture-environment",
+      "status": "PASS",
+      "owners": [
+        "blender-architecture-environment"
+      ],
+      "procedures": [],
+      "hashes": [
+        "68e610f79d4681c832c746ee81ee9aa5d5bbb9cb519fef36c9ced977b7db8f76"
+      ]
+    },
+    {
+      "task": "blender-environment-assets",
+      "status": "PASS",
+      "owners": [
+        "blender-environment-assets"
+      ],
+      "procedures": [],
+      "hashes": [
+        "9e8b20c3dbe7ceef3cdbd0829dee5c2a11dcd317d70d81f8b7fd12dea64d243f"
+      ]
+    },
+    {
+      "task": "blender-roads-infrastructure",
+      "status": "PASS",
+      "owners": [
+        "blender-roads-infrastructure"
+      ],
+      "procedures": [],
+      "hashes": [
+        "58b84655097724ea58da58cb3f040213f980c06b86c253d7b6f186ca10af7ea5"
+      ]
+    },
+    {
+      "task": "blender-props",
+      "status": "PASS",
+      "owners": [
+        "blender-props"
+      ],
+      "procedures": [],
+      "hashes": [
+        "5cc04886069b29abc2a27ffcaa9dafbe396dc212698bff857639e998626e4324"
+      ]
+    },
+    {
+      "task": "blender-vehicle-modeling",
+      "status": "PASS",
+      "owners": [
+        "blender-vehicle-modeling"
+      ],
+      "procedures": [],
+      "hashes": [
+        "3bd41b246d9623d0489d0e796856a382011e678ff72d2f3cadad16eb87e4b292"
+      ]
+    },
+    {
+      "task": "blender-product-electronics-modeling",
+      "status": "PASS",
+      "owners": [
+        "blender-product-electronics-modeling"
+      ],
+      "procedures": [],
+      "hashes": [
+        "97a28d12869e04d3883de1f1d3281527c678093cbdc85b8e7ee05192a2b73670"
+      ]
+    },
+    {
+      "task": "blender-vegetation",
+      "status": "PASS",
+      "owners": [
+        "blender-vegetation"
+      ],
+      "procedures": [],
+      "hashes": [
+        "efab0b84fa16487906f21e12a477800c1465e1b262a313aa9d094a67802cf95a"
+      ]
+    },
+    {
+      "task": "blender-sculpting",
+      "status": "PASS",
+      "owners": [
+        "blender-sculpting"
+      ],
+      "procedures": [],
+      "hashes": [
+        "6d21006de6c80a6e19eca12e47dbe3e18542a1b68dd64cb7acd1f09d090c5f3e"
+      ]
+    },
+    {
+      "task": "Review the vehicle without editing it.",
+      "status": "PASS",
+      "owners": [
+        "verification"
+      ],
+      "procedures": [],
+      "hashes": [
+        "277f71b5c01ea27863abbc38de9fb92622748c6bf68f2228a86224b0465514ac"
+      ]
+    },
+    {
+      "task": "Retopologize the vehicle body without changing its silhouette.",
+      "status": "PASS",
+      "owners": [
+        "blender-pipeline"
+      ],
+      "procedures": [
+        "retopology"
+      ],
+      "hashes": [
+        "94481f322e33dc44f6dacf386a5be365115802cd8c2c630cfe5a67eae08c2dfa"
+      ]
+    },
+    {
+      "task": "Unwrap UVs and bake normal maps for the microwave; preserve its geometry.",
+      "status": "PASS",
+      "owners": [
+        "blender-pipeline"
+      ],
+      "procedures": [
+        "surfaces"
+      ],
+      "hashes": [
+        "3dbd6c6a686095934d5fe2bb1a3fe3ad663d707da984477d00b890e6b37fd055"
+      ]
+    },
+    {
+      "task": "Create a crate and a detailed game console.",
+      "status": "PASS",
+      "owners": [
+        "blender-props",
+        "blender-product-electronics-modeling"
+      ],
+      "procedures": [],
+      "hashes": [
+        "5cc04886069b29abc2a27ffcaa9dafbe396dc212698bff857639e998626e4324",
+        "97a28d12869e04d3883de1f1d3281527c678093cbdc85b8e7ee05192a2b73670"
+      ]
+    },
+    {
+      "task": "Create bollards along a new sidewalk.",
+      "status": "PASS",
+      "owners": [
+        "blender-environment-assets",
+        "blender-roads-infrastructure"
+      ],
+      "procedures": [],
+      "hashes": [
+        "9e8b20c3dbe7ceef3cdbd0829dee5c2a11dcd317d70d81f8b7fd12dea64d243f",
+        "58b84655097724ea58da58cb3f040213f980c06b86c253d7b6f186ca10af7ea5"
+      ]
+    }
+  ],
+  "comparison": "Actual connector full contexts equal current local canonical output; no scene edits"
+}

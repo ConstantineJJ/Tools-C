@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path, PureWindowsPath
 import re
@@ -56,9 +57,14 @@ def read_json(path):
     def constant(value):
         raise Violation("E_JSON", f"Non-finite JSON constant {value} in {path}")
 
+    def finite_float(value):
+        number = float(value)
+        require(math.isfinite(number), f"Non-finite JSON number {value} in {path}", "E_JSON")
+        return number
+
     try:
         return json.loads(path.read_text(encoding="utf-8-sig"), object_pairs_hook=pairs,
-                          parse_constant=constant)
+                          parse_constant=constant, parse_float=finite_float)
     except (ValueError, OSError, UnicodeError) as exc:
         raise Violation("E_JSON", f"{path}: {exc}") from exc
 
@@ -112,13 +118,16 @@ class Report:
             self.add("PASS", "OK", "Declared check satisfied", rule)
 
 
-def markdown_links(root, path):
+def markdown_links(root, path, required_targets=()):
     """Deliberately bounded Markdown subset; no code spans, anchors or web checks."""
     text = re.sub(r"(?ms)^(`{3,}|~{3,}).*?^\1[^\n]*$", "", path.read_text(encoding="utf-8-sig"))
     text = re.sub(r"`[^`\n]*`", "", text)
-    targets = re.findall(r"\[[^\]\n]*\]\((<[^>]+>|[^\s)]+)(?:\s+\"[^\"]*\")?\)", text)
-    targets += re.findall(r"(?m)^\s*\[[^\]]+\]:\s*(<[^>]+>|\S+)", text)
-    for target in targets:
+    text = re.sub(r"(?s)<!--.*?-->", "", text)
+    targets = [(match.group(1), match.start() > 0 and text[match.start()-1] == '!')
+               for match in re.finditer(r"\[[^\]\n]*\]\((<[^>]+>|[^\s)]+)(?:\s+\"[^\"]*\")?\)", text)]
+    targets += [(target, False) for target in re.findall(r"(?m)^\s*\[[^\]]+\]:\s*(<[^>]+>|\S+)", text)]
+    routed = set()
+    for target, image in targets:
         target = target.strip("<>")
         if target.startswith("#"):
             continue
@@ -133,6 +142,32 @@ def markdown_links(root, path):
             continue
         resolved = local_path(root, rel, path.parent)
         require(resolved.exists(), f"{path.relative_to(root)}: broken local link {target}", "E_LINK")
+        if not image:
+            routed.add(resolved)
+    for target in required_targets:
+        resolved = existing(root, target)
+        require(resolved in routed, f"{path.relative_to(root)}: missing required local route to {target}", "E_ROUTE")
+
+
+def json_subset(actual, expected, location='$'):
+    """Declarative subset only: mappings recurse; arrays require matching members."""
+    require(type(actual) is type(expected), f"{location}: expected {type(expected).__name__}", "E_JSON_VALUE")
+    if isinstance(expected, dict):
+        for key, value in expected.items():
+            require(key in actual, f"{location}: missing required key {key!r}", "E_JSON_VALUE")
+            json_subset(actual[key], value, location + '/' + key.replace('~', '~0').replace('/', '~1'))
+    elif isinstance(expected, list):
+        for member in expected:
+            for candidate in actual:
+                try:
+                    json_subset(candidate, member, location + '/[]')
+                except Violation:
+                    continue
+                break
+            else:
+                raise Violation('E_JSON_VALUE', f"{location}: missing required member {json.dumps(member, ensure_ascii=False)}")
+    else:
+        require(actual == expected, f"{location}: expected {expected!r}, got {actual!r}", "E_JSON_VALUE")
 
 
 def catalog(root):
@@ -181,7 +216,8 @@ def catalog(root):
 
 
 RULE_FIELDS = {
-    "files": ([], []), "json": ([], []), "markdown": ([], []),
+    "files": ([], []), "json": ([], []), "markdown": ([], ["required_targets"]),
+    "json_subset": (["expected"], []),
     "text": (["required", "forbidden"], []),
     "sha256": (["expected"], []),
 }
@@ -205,6 +241,15 @@ def validate_contract(data, seen):
         seen.add(rule["id"])
         strings(rule["paths"])
         require(rule.get("severity", "FAIL") in ("FAIL", "WARN"), "Severity must be FAIL or WARN")
+        if kind == 'markdown' and 'required_targets' in rule:
+            strings(rule['required_targets'])
+        if kind == 'json_subset':
+            require(len(rule['paths']) == 1 and isinstance(rule['expected'], dict) and rule['expected'],
+                    'json_subset needs one path and a nonempty expected object')
+            try:
+                json.dumps(rule['expected'], allow_nan=False)
+            except (TypeError, ValueError):
+                raise Violation('E_SCHEMA', 'json_subset expected must contain finite JSON values')
         if kind == "text":
             strings(rule["required"], False)
             strings(rule["forbidden"], False)
@@ -220,8 +265,10 @@ def check_rule(root, rule):
         kind = rule["kind"]
         if kind == "json":
             read_json(path)
+        elif kind == 'json_subset':
+            json_subset(read_json(path), rule['expected'], value + '#')
         elif kind == "markdown":
-            markdown_links(root, path)
+            markdown_links(root, path, rule.get('required_targets', ()))
         elif kind == "text":
             content = path.read_text(encoding="utf-8-sig")
             for token in rule["required"]:
@@ -295,6 +342,8 @@ def run(root, tools_root=ROOT):
             for rule in data["rules"]:
                 for path in rule["paths"]:
                     local_path(root, path)
+                for target in rule.get('required_targets', ()):
+                    local_path(root, target)
             contracts.append(data)
         report.attempt(load, value)
     if not report.failed:

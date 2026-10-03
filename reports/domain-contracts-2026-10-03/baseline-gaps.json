@@ -1,0 +1,17 @@
+[
+  {
+    "case": "profile owner omitted",
+    "baseline_failed": false,
+    "diagnostics": []
+  },
+  {
+    "case": "legacy sculpt alias retargeted",
+    "baseline_failed": false,
+    "diagnostics": []
+  },
+  {
+    "case": "domain pipeline route removed",
+    "baseline_failed": false,
+    "diagnostics": []
+  }
+]

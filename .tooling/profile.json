@@ -28,7 +28,8 @@
     "production-project-state-gates"
   ],
   "contracts": [
-    ".tooling/contracts.json"
+    ".tooling/contracts.json",
+    ".tooling/blender-domain-contracts.json"
   ],
   "references": [
     "AGENTS.md",

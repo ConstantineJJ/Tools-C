@@ -1,6 +1,6 @@
 # Blender domain skill pack — Pass 0 architecture
 
-Status: all eight specialist implementation passes complete; cross-pack review completed 2026-10-03. Dedicated contracts pass is NOT STARTED. Shared invariants stay in `docs/foundation.md`, project-specific budgets stay in project profiles/contracts, and each specialist owns only its domain decisions.
+Status: all eight specialist implementation passes complete; cross-pack review and dedicated contracts pass completed 2026-10-03. Shared invariants stay in `docs/foundation.md`, project-specific budgets stay in project profiles/contracts, and each specialist owns only its domain decisions.
 
 ## Purpose
 
@@ -73,7 +73,7 @@ Replaced the former narrow organic-sculpting reference with a canonical speciali
 
 This skill must absorb useful current sculpting guidance rather than creating a competing rule source. Existing pipeline references should become compatibility/routing pointers where appropriate.
 
-Status: eighth implementation pass complete; the former organic-sculpting pipeline reference is compatibility-only and the legacy alias resolves the canonical specialist directly. The dedicated domain contracts pass remains the next separate milestone.
+Status: eighth implementation pass and dedicated contracts pass complete; the former organic-sculpting pipeline reference is compatibility-only and the legacy alias resolves the canonical specialist directly.
 
 ## Shared principles — do not duplicate as independent policy
 
@@ -161,7 +161,24 @@ routing defect.
 7. Vegetation.
 8. Sculpting consolidation/upgrade.
 
-After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. The final 8/8 review is recorded in [review report](../reports/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md). The dedicated contracts pass remains a separate next stage: promote only stable, machine-checkable invariants; do not turn tuning advice or asset identity into contracts.
+After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. The final 8/8 review is recorded in [review report](../reports/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md). The following dedicated contracts pass is recorded in [contracts report](../reports/BLENDER_DOMAIN_CONTRACTS_2026-10-03.md): only stable, machine-checkable invariants were promoted; tuning advice and asset identity remain project decisions.
+
+## Dedicated contracts acceptance
+
+The Tools_C self-profile activates [domain contracts](../.tooling/blender-domain-contracts.json)
+alongside its base contract. Seven domain rules cover the eight canonical IDs/paths,
+self-profile membership, nine legacy targets, AGENTS/pipeline links, shared-foundation
+links and the sculpt compatibility pointer. Two base rules protect the current
+Tools_C self-profile path and activation of the domain contract. They do not force
+ordinary projects to activate all eight skills or use the Tools_C self-profile layout.
+
+The checks prove declared JSON membership and local reference integrity, including
+negative cases for missing/retargeted owners and hidden/code-only links. They do not
+prove prose ownership, safeguards, routing intent, art quality or production suitability.
+Runtime routing stays under regression and live context checks. No skeleton, asset
+identity, dimensions, triangle/texture/LOD/collision/wind budgets or capture-success
+shortcut to VISUAL PASS is introduced. Existing domain/retopo/surfaces/rigging/export
+owners and the Visual QA feedback workflow are unchanged.
 
 ## Acceptance for each specialist
 
