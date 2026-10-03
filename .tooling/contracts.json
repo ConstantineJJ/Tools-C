@@ -37,6 +37,18 @@
       }
     },
     {
+      "id": "TOOLS-ANIME-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/blender-anime-contracts.json"
+        ]
+      }
+    },
+    {
       "id": "TOOLS-CATALOG-ROUTES",
       "kind": "markdown",
       "paths": [
@@ -66,7 +78,8 @@
         "skills/production-mechanic-gym/SKILL.md",
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
-        "skills/production-project-state-gates/SKILL.md"
+        "skills/production-project-state-gates/SKILL.md",
+        "skills/blender-anime-character-modeling/SKILL.md"
       ]
     },
     {
@@ -112,7 +125,12 @@
         "skills/blender-posteffects-polishing/references/finishing-techniques.md",
         "skills/blender-posteffects-polishing/references/research-notes.md",
         "tests/test_polishing.py",
-        "docs/skills.md"
+        "docs/skills.md",
+        "skills/blender-anime-character-modeling/SKILL.md",
+        "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+        "skills/blender-anime-character-modeling/references/research-notes.md",
+        ".tooling/blender-anime-contracts.json",
+        "tests/test_anime.py"
       ]
     },
     {
@@ -124,7 +142,8 @@
         ".tooling/profile.json",
         ".tooling/contracts.json",
         ".tooling/blender-domain-contracts.json",
-        ".tooling/blender-polishing-contracts.json"
+        ".tooling/blender-polishing-contracts.json",
+        ".tooling/blender-anime-contracts.json"
       ]
     },
     {
@@ -167,7 +186,8 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "skills/blender-posteffects-polishing/SKILL.md"
+        "skills/blender-posteffects-polishing/SKILL.md",
+        "skills/blender-anime-character-modeling/SKILL.md"
       ],
       "required": [],
       "forbidden": [

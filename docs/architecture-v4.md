@@ -1,6 +1,6 @@
 # Skills and harness architecture
 
-Tools_C 4.0.2 contains twenty-four canonical skills, one shared foundation and
+Tools_C 4.0.2 contains twenty-five canonical skills, one shared foundation and
 nine legacy Blender aliases. Catalog/profile/contract schema_version remains 1;
 it is independent of the package version and original lesson provenance.
 

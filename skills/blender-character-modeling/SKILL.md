@@ -41,6 +41,8 @@ Choose direct editing or a procedural/modifier method according to editability a
 
 Prioritize task correctness, silhouette and primary proportions, major volumes, deformation-critical structure, secondary forms, then tertiary detail. Intentional stylization can override generic anatomy.
 
+For anime/manga humanoid form decisions, use [anime character modeling](../blender-anime-character-modeling/SKILL.md) as the specialist layer over this geometry contract. Stage-only work retains its existing owner.
+
 Use [Reference Reconstruction](../blender-pipeline/references/reference.md) for image registration or fidelity diagnosis; [Organic Sculpting](../blender-pipeline/references/sculpting.md) for freeform volume edits; [Retopology](../blender-pipeline/references/retopology.md) for final edge flow; [Rigging](../blender-rigging-skinning/SKILL.md) for weights/bones and [Animation](../blender-animation/SKILL.md) for Actions; [Refinement](../blender-pipeline/references/refinement.md) for repeated measured corrections; and [QA](../blender-pipeline/references/qa.md) with [verification](../verification/SKILL.md) for acceptance evidence. Load only the relevant neighbor.
 
 ## Anti-degradation and validation

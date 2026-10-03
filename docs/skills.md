@@ -9,6 +9,7 @@ crosses stages; each owner keeps its scope and handoff conditions.
 | Audit, task scope, project integration | [project-audit](../skills/project-audit/SKILL.md) |
 | Godot scenes, resources, import, engine integration | [godot-project](../skills/godot-project/SKILL.md) |
 | Blender character blockout, proportions, silhouette and geometry revision | [blender-character-modeling](../skills/blender-character-modeling/SKILL.md) |
+| Blender anime/manga humanoids, chibi forms, stylized faces and hair geometry | [anime character modeling](../skills/blender-anime-character-modeling/SKILL.md) |
 | Blender animals, creatures, quadrupeds and anthropomorphic animal modeling | [blender-animal-anthropomorphic-modeling](../skills/blender-animal-anthropomorphic-modeling/SKILL.md) |
 | Blender buildings, architectural shells, modular kits and large structures | [blender-architecture-environment](../skills/blender-architecture-environment/SKILL.md) |
 | Blender standalone environment fixtures, street/site assets and repeatable set-dressing objects | [blender-environment-assets](../skills/blender-environment-assets/SKILL.md) |

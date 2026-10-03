@@ -7,6 +7,7 @@
     "godot-project",
     "blender-pipeline",
     "blender-character-modeling",
+    "blender-anime-character-modeling",
     "blender-animal-anthropomorphic-modeling",
     "blender-architecture-environment",
     "blender-environment-assets",
@@ -31,7 +32,8 @@
   "contracts": [
     ".tooling/contracts.json",
     ".tooling/blender-domain-contracts.json",
-    ".tooling/blender-polishing-contracts.json"
+    ".tooling/blender-polishing-contracts.json",
+    ".tooling/blender-anime-contracts.json"
   ],
   "references": [
     "README.md",

@@ -1,6 +1,6 @@
 ---
 name: blender-pipeline
-description: Route multi-stage Blender asset work and specialist sculpting, topology, surface, finishing, rigging, import and QA tasks. Use blender-character-modeling for a focused character geometry task.
+description: Route multi-stage Blender asset work and specialist sculpting, topology, surface, finishing, rigging, import and QA tasks. Use the matching character or domain specialist for focused geometry work.
 ---
 
 # Blender pipeline
@@ -25,6 +25,7 @@ only when its geometry or domain decisions are also part of the request.
 |---|---|
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
 | Create or substantially revise generic character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
+| Create or revise anime/manga humanoid forms, chibi proportions, faces or hair | [anime character modeling](../blender-anime-character-modeling/SKILL.md) |
 | Model animals, creatures, quadrupeds or anthropomorphic animal characters | [animal & anthropomorphic modeling](../blender-animal-anthropomorphic-modeling/SKILL.md) |
 | Model buildings, architectural shells, modular building kits or large man-made structures | [architecture & large structures](../blender-architecture-environment/SKILL.md) |
 | Model standalone environment fixtures, street/site furniture or repeatable outdoor set-dressing assets | [environment assets](../blender-environment-assets/SKILL.md) |

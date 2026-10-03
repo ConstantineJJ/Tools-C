@@ -1,11 +1,16 @@
 # Tools_C 4.0.2
 
-Twenty-four reusable skills and a provider-neutral harness for Blender, Godot
+Twenty-five reusable skills and a provider-neutral harness for Blender, Godot
 and 3D production. Browse the [skills catalog](docs/skills.md) for ownership,
 activation and handoff boundaries.
 
-[Download v4.0.2](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.2)
-for the skills and harness ZIP, SHA-256 checksums and package verification.
+[Download current skills and harness](https://github.com/ConstantineJJ/Tools-C/archive/refs/heads/main.zip).
+The [v4.0.2 release](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.2)
+is the previous 24-skill snapshot with ZIP checksums.
+
+[Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) adds humanoid anime/manga and chibi forms,
+face/eye/hair decisions and renderer-compatible visual QA, while preserving
+specialist topology, surface, rigging and delivery ownership.
 
 Skills explain how to work. Project profiles hold local choices; declarative
 contracts protect invariants; bounded checkers report evidence. The shared
