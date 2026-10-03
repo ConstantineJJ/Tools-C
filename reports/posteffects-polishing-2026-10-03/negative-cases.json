@@ -1,0 +1,68 @@
+[
+  {
+    "case": "profile-membership",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_JSON_VALUE",
+      "rule": "BPP-PROFILE",
+      "message": ".tooling/profile.json#/skills: missing required member \"blender-posteffects-polishing\""
+    }
+  },
+  {
+    "case": "contract-activation",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_JSON_VALUE",
+      "rule": "TOOLS-POLISHING-CONTRACTS",
+      "message": ".tooling/profile.json#/contracts: missing required member \".tooling/blender-polishing-contracts.json\""
+    }
+  },
+  {
+    "case": "agents-real-link",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_ROUTE",
+      "rule": "BPP-ENTRYPOINTS",
+      "message": "AGENTS.md: missing required local route to skills/blender-posteffects-polishing/SKILL.md"
+    }
+  },
+  {
+    "case": "pipeline-route",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_ROUTE",
+      "rule": "BPP-ENTRYPOINTS",
+      "message": "skills\\blender-pipeline\\SKILL.md: missing required local route to skills/blender-posteffects-polishing/SKILL.md"
+    }
+  },
+  {
+    "case": "surfaces-handoff",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_ROUTE",
+      "rule": "BPP-SURFACES-HANDOFF",
+      "message": "skills\\blender-pipeline\\references\\surfaces.md: missing required local route to skills/blender-posteffects-polishing/SKILL.md"
+    }
+  },
+  {
+    "case": "evidence-link",
+    "verdict": "PASS",
+    "diagnostic": {
+      "level": "L1",
+      "status": "FAIL",
+      "code": "E_ROUTE",
+      "rule": "BPP-DEPENDENCIES",
+      "message": "skills\\blender-posteffects-polishing\\SKILL.md: missing required local route to docs/blender-evidence.md"
+    }
+  }
+]

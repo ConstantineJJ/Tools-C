@@ -1,0 +1,292 @@
+[
+  {
+    "task": "blender-posteffects-polishing",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Posteffects and polishing",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Add dirt and chipped paint to the existing car materials.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Улучши материалы и текстуры чайника, добавь свечение индикатора.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Add masked emission and glow to the console display.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Review the car dirt and glow without editing it.",
+    "verdict": "PASS",
+    "owners": [
+      "verification"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "verification",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 20700,
+        "sha256": "97607c13e428edee5d9363269fb791b5e6647916e3990240a9dc33fb89cf4580"
+      }
+    ]
+  },
+  {
+    "task": "Unwrap the crate and add chipped paint.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-pipeline",
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [
+      "surfaces"
+    ],
+    "contexts": [
+      {
+        "name": "blender-pipeline",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 23402,
+        "sha256": "cfe17d7f05ce7fb4a49c3ede91fb4cf5d9a7aded9b36184d7ef3a6866dd83b9f"
+      },
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Sculpt scratches, then add masked glow.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing",
+      "blender-sculpting"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      },
+      {
+        "name": "blender-sculpting",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 45005,
+        "sha256": "7b89ceff3b741d6e38b2dd27b390c869bf0f413953bb2e00bebe5509ba235b0e"
+      }
+    ]
+  },
+  {
+    "task": "Create a crate, then add dirt and peeling paint.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing",
+      "blender-props"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      },
+      {
+        "name": "blender-props",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 44119,
+        "sha256": "5f115a2082ee2b9e555d43a97c897bea5bfe736d049ebdb830bcdab42ab1daa4"
+      }
+    ]
+  },
+  {
+    "task": "Add glow to the console and export GLB.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing",
+      "blender-export-validation"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      },
+      {
+        "name": "blender-export-validation",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 23733,
+        "sha256": "1c83fbe528ad67745c024cf3808668cb0ef4e7a202398051840b6860c0fb1bb4"
+      }
+    ]
+  },
+  {
+    "task": "Set up PBR materials for the microwave.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-pipeline"
+    ],
+    "procedures": [
+      "surfaces"
+    ],
+    "contexts": [
+      {
+        "name": "blender-pipeline",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 23402,
+        "sha256": "cfe17d7f05ce7fb4a49c3ede91fb4cf5d9a7aded9b36184d7ef3a6866dd83b9f"
+      }
+    ]
+  },
+  {
+    "task": "Retopologize the vehicle body without changing its silhouette.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-pipeline"
+    ],
+    "procedures": [
+      "retopology"
+    ],
+    "contexts": [
+      {
+        "name": "blender-pipeline",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 23981,
+        "sha256": "b1de943596f6f5df2609bc846b0fe8e738dad992d26240ef895f755cdca233b2"
+      }
+    ]
+  },
+  {
+    "task": "blender-sculpting",
+    "verdict": "PASS",
+    "owners": [
+      "blender-sculpting"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-sculpting",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 45005,
+        "sha256": "7b89ceff3b741d6e38b2dd27b390c869bf0f413953bb2e00bebe5509ba235b0e"
+      }
+    ]
+  },
+  {
+    "task": "blender-vegetation",
+    "verdict": "PASS",
+    "owners": [
+      "blender-vegetation"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-vegetation",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 45563,
+        "sha256": "1caa013de1e201ca8314df143ceafe709e6a8fdcd5ab5dc996458dd06f78a785"
+      }
+    ]
+  },
+  {
+    "task": "Improve the existing textures of the crate.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  },
+  {
+    "task": "Preserve UVs and weights and improve the existing textures of the crate.",
+    "verdict": "PASS",
+    "owners": [
+      "blender-posteffects-polishing"
+    ],
+    "procedures": [],
+    "contexts": [
+      {
+        "name": "blender-posteffects-polishing",
+        "canonical_root": "E:\\MyCreations\\Tools_C",
+        "length": 35686,
+        "sha256": "1758322d5a2c0a1d1186dde1357321344ecec444a3ebef8f21a30a0922650c48"
+      }
+    ]
+  }
+]

@@ -25,6 +25,7 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Blender trees, shrubs, grass, flowers, vines and vegetation systems | [blender-vegetation](skills/blender-vegetation/SKILL.md) |
 | Blender organic/hard-surface sculpting, remesh/Dyntopo/Multires and bounded sculpt corrections | [blender-sculpting](skills/blender-sculpting/SKILL.md) |
 | Blender multi-stage work, sculpt, UV/PBR, rig, animation, external asset repair | [blender-pipeline](skills/blender-pipeline/SKILL.md) |
+| Blender late material/texture finishing, wear, surface damage, emission and posteffects | [Posteffects and polishing](skills/blender-posteffects-polishing/SKILL.md) |
 | Blender bones, bindings and weights | [blender-rigging-skinning](skills/blender-rigging-skinning/SKILL.md) |
 | Blender Actions and motion | [blender-animation](skills/blender-animation/SKILL.md) |
 | Blender GLB export and round-trip validation | [blender-export-validation](skills/blender-export-validation/SKILL.md) |

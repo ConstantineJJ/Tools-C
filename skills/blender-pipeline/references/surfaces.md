@@ -1,5 +1,10 @@
 # UV, baking and PBR authoring
 
+This procedure owns UV layout, bake/projection and baseline PBR channel/binding
+correctness. Late material/texture refinement, localized wear, emission/glow and
+approved image effects belong to [Posteffects and polishing](../../blender-posteffects-polishing/SKILL.md).
+Pass stable maps/UVs to it near final QA; receive UV/bake defects back from it.
+
 Inspect existing UVs, materials, textures, color spaces, mesh split boundaries,
 target engine and texel budget before replacing anything. Preserve authored UVs
 when the requested repair does not require a new unwrap.

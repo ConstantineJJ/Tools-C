@@ -77,6 +77,14 @@ Status: eighth implementation pass and dedicated contracts pass complete; the fo
 
 ## Shared principles — do not duplicate as independent policy
 
+The subsequent [Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md)
+stage adds final materials/textures, localized weathering and motivated emission
+or approved image effects near final QA/delivery. It is an additional stage across
+domains, not a ninth geometry domain. Surfaces retains UV/bake/baseline PBR;
+sculpting retains shape damage. Its dedicated structural
+[contracts](../.tooling/blender-polishing-contracts.json) protect registration and
+handoff/evidence links without introducing artistic budgets.
+
 The following already have canonical owners and should be referenced, not redefined inconsistently:
 - task scope, preserve/change/success, evidence levels, destructive baseline and handoff: `docs/foundation.md`;
 - broad Blender stage routing: `skills/blender-pipeline/SKILL.md`;

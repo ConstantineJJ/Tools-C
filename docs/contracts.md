@@ -92,6 +92,16 @@ These declarations apply to Tools_C's own layout, not arbitrary project profiles
 They detect accidental deactivation while either checked-in contract remains active;
 removing all validators/contract declarations is outside an opt-in integrity check.
 
+The late [Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md)
+stage has a separate [polishing contract](../.tooling/blender-polishing-contracts.json).
+It protects its canonical ID/path, self-profile membership/activation, AGENTS and
+pipeline entrypoints, prerequisite/evidence/research links and the surfaces/core
+handoff. The base contract guards its activation; the original eight domain-owner
+contracts retain their ownership scope and require this downstream pipeline link.
+These rules prove declared structure, not artistic finish, effect placement, stage
+ordering in prose or shader portability. No wear/glow strength or texture budget is
+fixed universally; regression/live routing and inspected images remain separate.
+
 Profile adapters live in [profile_adapters.py](../tools/profile_adapters.py):
 
 - `{"kind":"godot","resources":["scenes/main.tscn"]}` requires project.godot and

@@ -1,9 +1,11 @@
 # Tools_C — Project Pulse
 
 Updated: 2026-10-03. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
-Current catalog: twenty-three canonical skills, nine legacy Blender compatibility aliases.
+Current catalog: twenty-four canonical skills, nine legacy Blender compatibility aliases.
 
 ## Done
+
+- 2026-10-03: added canonical `blender-posteffects-polishing` (Posteffects and polishing) as a late finishing stage before final visual QA/delivery. It owns scoped material/texture refinement, causal wear and surface damage, motivated emission and approved image effects; surfaces retains UV/bake/baseline PBR and sculpting retains shape damage. Added technique/research references from eleven primary sources, explicit capture→inspect→correct→recapture feedback/fallbacks, shared-resource safeguards and target-portability handoff. Registered it in manifest/profile/AGENTS/pipeline and five structural polishing rules plus activation protection; the original eight-domain pack and nine legacy aliases remain intact. [Report](reports/BLENDER_POSTEFFECTS_POLISHING_2026-10-03.md).
 
 - 2026-10-03: completed the dedicated Blender domain contracts pass. Seven declarative domain rules protect eight owner IDs/paths, self-profile membership, nine legacy reference targets, AGENTS/pipeline/foundation links and the sculpt compatibility pointer; two base rules protect self-profile location and contract activation. Added bounded JSON-subset checks and required Markdown targets with positive/negative fixtures; strict JSON also rejects numeric overflow. No asset identity, artistic tuning or geometry/runtime budgets became universal policy. [Contracts report](reports/BLENDER_DOMAIN_CONTRACTS_2026-10-03.md).
 
@@ -51,6 +53,8 @@ Current catalog: twenty-three canonical skills, nine legacy Blender compatibilit
 - Updated active documentation counts to fifteen canonical skills and nine Blender aliases; historical v4.0.0 migration evidence remains historical and is not rewritten.
 
 ## Verified
+
+- 2026-10-03 polishing: Tools_C L1 26 PASS / 0 WARN / 0 FAIL; integration L1 9 PASS / 0 WARN / 0 FAIL; 94/94 regression tests PASS. Actual connector smoke 16/16 full current contexts and content hashes PASS, including English/Russian finishing, preservation, read-only, UV/sculpt/domain/delivery boundaries; disposable stdio verified 15 tools and all nine legacy contexts. Fixed a live cached-reader omission of the new finishing reference; a focused regression and repeat connector comparison prove complete delivery without restart. Six persisted negative cases reject missing membership/activation/entrypoints/handoff/evidence links. Managed routers regenerated; all 27 unrelated dirty integration files byte-preserved. Optional skill-creator validator SKIP for absent PyYAML; no production asset visual/target acceptance claimed.
 
 - 2026-10-03 dedicated contracts: Tools_C L1 19 PASS / 0 WARN / 0 FAIL; Blender-MCP-Co L1 9 PASS / 0 WARN / 0 FAIL; 84/84 regression tests PASS, 0 failures/errors/skips. Actual connector smoke 13/13 complete contexts matched local canonical bytes; disposable stdio verified 15 tools, nine legacy contexts, loaded/disk identity and syntax rejection. Three former false-green baseline mutations are now covered. Manifest/AGENTS/domain skill bodies/pipeline reader/runtime ownership code and integration files are unchanged; 27 pre-existing dirty integration files preserved. No MCP restart or asset edits were required; visual-art/engine asset gates are inapplicable to this declarative checker pass.
 
@@ -114,6 +118,8 @@ Current catalog: twenty-three canonical skills, nine legacy Blender compatibilit
 - 2026-09-28 post-reconciliation Blender router sync returned `PASS SYNC: 9 compatibility routers`.
 
 ## Current / next
+
+- Posteffects and polishing is implemented and structurally/runtime-routing accepted as the late finishing stage across asset domains. Next separately scoped asset work can exercise actual material/wear/emission and compositor Visual QA; no model, particle system, animation, export or target-engine production pass was started automatically.
 
 - `blender-architecture-environment`, `blender-environment-assets` and `blender-roads-infrastructure` are implemented and structurally accepted for their bounded passes. Visual acceptance remains intentionally SKIP because these exercises tested routing, scale/metrics, pivots, reuse/shared data, assembly/placement and network structure rather than polished production art.
 - Integration pass 1 across architecture + environment-assets + roads is complete. Ownership boundaries and mixed-route behavior are explicit; no shared hard-surface owner was extracted because the overlap is still technique-level rather than one substantial identical decision procedure.

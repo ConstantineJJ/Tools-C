@@ -47,6 +47,8 @@ def render(root, alias):
         paths.append("skills/blender-animation/references/motion.md")
     elif alias == "blender-animation":
         paths.append("skills/blender-animation/references/motion.md")
+    elif alias == "blender-posteffects-polishing":
+        paths.append("skills/blender-posteffects-polishing/references/finishing-techniques.md")
     if alias in ROUTE_TECHNIQUES:
         paths.append("skills/blender-pipeline/references/techniques/" + ROUTE_TECHNIQUES[alias])
     return "\n\n".join(f"SOURCE: {p}\n\n{existing(root, p).read_text(encoding='utf-8')}"

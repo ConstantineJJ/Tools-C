@@ -1,6 +1,6 @@
 # Tools_C architecture 4.0
 
-Architecture 4.0.1 has twenty-three canonical skills, one shared foundation, nine stable
+Architecture 4.0.1 has twenty-four canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.
@@ -16,7 +16,12 @@ Its scope boundaries and implementation order live in [Blender domain skill pack
 `blender-roads-infrastructure`, `blender-props`, `blender-vehicle-modeling`,
 `blender-product-electronics-modeling`, `blender-vegetation` and `blender-sculpting`
 are implemented canonical owners in that pack. All eight staged domain specialists
-are now present; their dedicated contracts remain a separate post-pack pass.
+are now present; their dedicated contracts pass is complete. The subsequent
+[Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md) stage
+owns late surface finishing and requested image effects before final QA/delivery.
+It preserves the eight-domain pack and existing UV/bake, shape and delivery owners;
+[polishing contracts](../.tooling/blender-polishing-contracts.json) protect its
+registration, activation and declared handoff/evidence links.
 
 The foundation is a short contract under docs, not a universal production skill.
 Domain procedures keep their concrete protections and decisions. The combined

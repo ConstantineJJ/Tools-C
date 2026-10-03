@@ -1,6 +1,6 @@
 ---
 name: blender-pipeline
-description: Route multi-stage Blender asset work and specialist sculpting, topology, surface, rigging, import and QA tasks. Use blender-character-modeling for a focused character geometry task.
+description: Route multi-stage Blender asset work and specialist sculpting, topology, surface, finishing, rigging, import and QA tasks. Use blender-character-modeling for a focused character geometry task.
 ---
 
 # Blender pipeline
@@ -17,7 +17,7 @@ Apply the foundation contract before changing an asset. Complete only the select
 Select only the reference matching the task:
 
 For stage-only work, the named asset supplies context: follow the retopology,
-surfaces, rigging, animation or export owner without restarting domain modeling.
+surfaces, polishing, rigging, animation or export owner without restarting domain modeling.
 For a read-only review, use verification. Load a domain owner alongside a stage
 only when its geometry or domain decisions are also part of the request.
 
@@ -36,6 +36,7 @@ only when its geometry or domain decisions are also part of the request.
 | Sculpt organic/hard-surface forms, use remesh/Dyntopo/Multires, or make bounded sculpt corrections | [sculpting](../blender-sculpting/SKILL.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |
+| Finish existing materials/textures, weathering, surface damage, emission or final image effects | [Posteffects and polishing](../blender-posteffects-polishing/SKILL.md) |
 | Bones, bindings and weights | [rigging and skinning](../blender-rigging-skinning/SKILL.md) |
 | Actions, loops and secondary motion | [animation](../blender-animation/SKILL.md) |
 | GLB delivery and fresh import | [export validation](../blender-export-validation/SKILL.md) |
@@ -43,6 +44,12 @@ only when its geometry or domain decisions are also part of the request.
 | Inspect or repair a supplied model | [external intake](references/external-import.md) |
 | Validate visual or structural quality | [character QA](references/qa.md) and [verification](../verification/SKILL.md) |
 | Iterate on measured defects | [refinement](references/refinement.md) |
+
+For a full production task, use Posteffects and polishing near the end: after the
+relevant geometry/topology, UV/bake and rig/animation prerequisites, before final
+visual QA and export/delivery. Finishing can return to a diagnosed prerequisite
+owner; it does not authorize rebuilding geometry. Baseline UV/bake/PBR setup stays
+with surfaces, final surface refinement with polishing. Skip unrelated stages.
 
 Blender-native and external-assisted production are both supported. Neither path implies a fixed skeleton, provider, genre or character. Read the [Tripo note](../../adapters/tripo.md) only for that source.
 

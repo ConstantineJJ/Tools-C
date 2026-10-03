@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "blender-polishing-contracts",
+  "rules": [
+    {
+      "id": "BPP-REGISTRATION",
+      "kind": "json_subset",
+      "paths": [
+        "manifest.json"
+      ],
+      "expected": {
+        "skills": [
+          {
+            "id": "blender-posteffects-polishing",
+            "path": "skills/blender-posteffects-polishing/SKILL.md"
+          }
+        ]
+      }
+    },
+    {
+      "id": "BPP-PROFILE",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "skills": [
+          "blender-posteffects-polishing"
+        ],
+        "contracts": [
+          ".tooling/contracts.json",
+          ".tooling/blender-domain-contracts.json",
+          ".tooling/blender-polishing-contracts.json"
+        ]
+      }
+    },
+    {
+      "id": "BPP-ENTRYPOINTS",
+      "kind": "markdown",
+      "paths": [
+        "AGENTS.md",
+        "skills/blender-pipeline/SKILL.md"
+      ],
+      "required_targets": [
+        "skills/blender-posteffects-polishing/SKILL.md"
+      ]
+    },
+    {
+      "id": "BPP-DEPENDENCIES",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-posteffects-polishing/SKILL.md"
+      ],
+      "required_targets": [
+        "docs/foundation.md",
+        "docs/blender-evidence.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/blender-pipeline/references/surfaces.md",
+        "skills/blender-pipeline/references/retopology.md",
+        "skills/blender-sculpting/SKILL.md",
+        "skills/blender-rigging-skinning/SKILL.md",
+        "skills/blender-animation/SKILL.md",
+        "skills/blender-export-validation/SKILL.md",
+        "skills/godot-asset-integration/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/blender-posteffects-polishing/references/finishing-techniques.md",
+        "skills/blender-posteffects-polishing/references/research-notes.md"
+      ]
+    },
+    {
+      "id": "BPP-SURFACES-HANDOFF",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-pipeline/references/surfaces.md",
+        "skills/blender-pipeline/references/core.md"
+      ],
+      "required_targets": [
+        "skills/blender-posteffects-polishing/SKILL.md"
+      ]
+    }
+  ]
+}

@@ -16,6 +16,7 @@
     "blender-product-electronics-modeling",
     "blender-vegetation",
     "blender-sculpting",
+    "blender-posteffects-polishing",
     "verification",
     "contracts-lint",
     "blender-rigging-skinning",
@@ -29,7 +30,8 @@
   ],
   "contracts": [
     ".tooling/contracts.json",
-    ".tooling/blender-domain-contracts.json"
+    ".tooling/blender-domain-contracts.json",
+    ".tooling/blender-polishing-contracts.json"
   ],
   "references": [
     "AGENTS.md",

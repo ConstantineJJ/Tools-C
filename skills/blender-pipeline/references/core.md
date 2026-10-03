@@ -6,6 +6,9 @@ from [pipeline routing](../SKILL.md). This legacy path owns no duplicate contrac
 For multi-stage production: reference intent and primary form precede detail;
 stable form and joint landmarks precede final topology/rigging; explicit delivery
 selection precedes export and fresh import. Skip stages unrelated to the request.
+After the relevant surface/rig/motion prerequisites, use
+[Posteffects and polishing](../../blender-posteffects-polishing/SKILL.md) for the
+requested finish, then final visual QA and delivery. It preserves approved shape.
 Use [snapshots and visual evidence](../../../docs/blender-evidence.md) at relevant
 handoffs; gates are quality conditions, not recurring permission requests.
 
