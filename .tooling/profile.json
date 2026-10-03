@@ -34,10 +34,10 @@
     ".tooling/blender-polishing-contracts.json"
   ],
   "references": [
-    "AGENTS.md",
     "README.md",
+    "docs/skills.md",
     "docs/contracts.md",
-    "docs/blender-domain-skill-pack.md",
-    "Project-pulse.md"
+    "docs/architecture-v4.md",
+    "docs/blender-evidence.md"
   ]
 }

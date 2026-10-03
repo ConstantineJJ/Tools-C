@@ -5,15 +5,23 @@
     {
       "id": "TOOLS-SELF-PROFILE",
       "kind": "json_subset",
-      "paths": [".tooling/config.json"],
-      "expected": {"profile": ".tooling/profile.json"}
+      "paths": [
+        ".tooling/config.json"
+      ],
+      "expected": {
+        "profile": ".tooling/profile.json"
+      }
     },
     {
       "id": "TOOLS-DOMAIN-CONTRACTS",
       "kind": "json_subset",
-      "paths": [".tooling/profile.json"],
+      "paths": [
+        ".tooling/profile.json"
+      ],
       "expected": {
-        "contracts": [".tooling/blender-domain-contracts.json"]
+        "contracts": [
+          ".tooling/blender-domain-contracts.json"
+        ]
       }
     },
     {
@@ -29,10 +37,42 @@
       }
     },
     {
+      "id": "TOOLS-CATALOG-ROUTES",
+      "kind": "markdown",
+      "paths": [
+        "docs/skills.md"
+      ],
+      "required_targets": [
+        "skills/project-audit/SKILL.md",
+        "skills/godot-project/SKILL.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/blender-character-modeling/SKILL.md",
+        "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-vehicle-modeling/SKILL.md",
+        "skills/blender-product-electronics-modeling/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-sculpting/SKILL.md",
+        "skills/blender-posteffects-polishing/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/contracts-lint/SKILL.md",
+        "skills/blender-rigging-skinning/SKILL.md",
+        "skills/blender-animation/SKILL.md",
+        "skills/blender-export-validation/SKILL.md",
+        "skills/godot-asset-integration/SKILL.md",
+        "skills/production-mechanic-gym/SKILL.md",
+        "skills/production-subagent-worktree/SKILL.md",
+        "skills/production-lookdev-gate/SKILL.md",
+        "skills/production-project-state-gates/SKILL.md"
+      ]
+    },
+    {
       "id": "TOOLS-FILES",
       "kind": "files",
       "paths": [
-        "AGENTS.md",
         "manifest.json",
         "README.md",
         "check.bat",
@@ -44,7 +84,6 @@
         "tests/test_check.py",
         "docs/foundation.md",
         "docs/architecture-v4.md",
-        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
         "tools/handoff_snapshot.py",
@@ -63,7 +102,6 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "Project-pulse.md",
         ".tooling/blender-domain-contracts.json",
         "tests/test_domain_contracts.py",
         "tools/blender_capture_file.py",
@@ -73,7 +111,8 @@
         "skills/blender-posteffects-polishing/SKILL.md",
         "skills/blender-posteffects-polishing/references/finishing-techniques.md",
         "skills/blender-posteffects-polishing/references/research-notes.md",
-        "tests/test_polishing.py"
+        "tests/test_polishing.py",
+        "docs/skills.md"
       ]
     },
     {
@@ -84,7 +123,6 @@
         ".tooling/config.json",
         ".tooling/profile.json",
         ".tooling/contracts.json",
-        "reports/preflight.json",
         ".tooling/blender-domain-contracts.json",
         ".tooling/blender-polishing-contracts.json"
       ]
@@ -93,15 +131,13 @@
       "id": "TOOLS-LINKS",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md",
         "README.md",
         "docs/contracts.md",
         "docs/foundation.md",
         "docs/architecture-v4.md",
-        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
-        "Project-pulse.md"
+        "docs/skills.md"
       ]
     },
     {

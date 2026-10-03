@@ -1,36 +1,32 @@
-# Tools_C architecture 4.0
+# Skills and harness architecture
 
-Architecture 4.0.1 has twenty-four canonical skills, one shared foundation, nine stable
-legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
-stage snapshots and visual capture, bounded GLB inspection, Python preflight and
-deployment evidence. Contract/profile/catalog format schema_version remains 1.
-Historical v1 reports and lesson provenance retain their original versions.
+Tools_C 4.0.2 contains twenty-four canonical skills, one shared foundation and
+nine legacy Blender aliases. Catalog/profile/contract schema_version remains 1;
+it is independent of the package version and original lesson provenance.
 
-The four new production owners cover mechanic gyms, isolated parallel agent work,
-lookdev baselines and project state gates. They orchestrate project work without
-replacing specialist Blender/Godot skills, per-project profiles or evidence checks.
+The [skills catalog](skills.md) routes tasks to canonical owners. Blender
+specialists own shape, sculpting, topology, surfaces, finishing, rigging,
+animation and delivery at their declared boundaries. Production coordination
+skills guide mechanic gyms, explicitly requested parallel work, lookdev
+baselines and project state gates. Project choices stay in profiles.
 
-The environment/game-asset specialist expansion is staged rather than bulk-generated.
-Its scope boundaries and implementation order live in [Blender domain skill pack](blender-domain-skill-pack.md).
-`blender-architecture-environment`, `blender-environment-assets`,
-`blender-roads-infrastructure`, `blender-props`, `blender-vehicle-modeling`,
-`blender-product-electronics-modeling`, `blender-vegetation` and `blender-sculpting`
-are implemented canonical owners in that pack. All eight staged domain specialists
-are now present; their dedicated contracts pass is complete. The subsequent
-[Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md) stage
-owns late surface finishing and requested image effects before final QA/delivery.
-It preserves the eight-domain pack and existing UV/bake, shape and delivery owners;
-[polishing contracts](../.tooling/blender-polishing-contracts.json) protect its
-registration, activation and declared handoff/evidence links.
+The [foundation](foundation.md) supplies shared scope, preservation, evidence
+and handoff semantics. Concrete procedures retain their own safeguards.
+Legacy routers are generated outputs; their context loads replacement owners.
+Current context hashes protect generated integrity; original source hashes
+record migration provenance.
 
-The foundation is a short contract under docs, not a universal production skill.
-Domain procedures keep their concrete protections and decisions. The combined
-rigging reference is only a compatibility pointer. Legacy context loading includes
-the replacement owners; a direct canonical skill selects one stage. No project
-skeleton, Action names, genre or supplier is a universal default.
+The harness comprises project bootstrap, catalog/profile/contract checks,
+bounded snapshots and capture, GLB inspection, export/import probes, syntax
+preflight and runtime routing. Core helpers use Python's standard library.
+Blender helpers use bpy inside Blender; explicit live MCP probes need the MCP SDK.
 
-New helpers use the standard library outside Blender, except opt-in live MCP SDK
-probes. Blender helpers use bpy only inside Blender. Images/snapshots do not claim
-automatic aesthetic judgment. Deployment diagnostics never turn local sync into
-runtime acceptance. See [foundation](foundation.md), [evidence](blender-evidence.md),
-[MCP deployment](mcp-deployment.md) and the [migration report](../TOOLS_C_V4_MIGRATION_REPORT.md).
+L1 runs without engines. Engine and runtime probes are opt-in. Image capture
+requires subsequent inspection, correction and repeat capture before visual
+acceptance. Deployment checks distinguish disk, process and connector evidence.
+See [contracts](contracts.md), [engine probes](engines.md),
+[Blender evidence](blender-evidence.md) and [MCP deployment](mcp-deployment.md).
+
+Project journals, execution logs, captured test images and dated reports are
+consumer-owned artifacts; the distributed pack contains instructions and the
+tools/tests needed to produce and verify them.

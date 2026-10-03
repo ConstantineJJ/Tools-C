@@ -194,7 +194,7 @@ def catalog(root):
         if manifest["version"].startswith("4."):
             require("../../docs/foundation.md" in text, f"Missing shared foundation reference: {path}", "E_CATALOG")
             existing(root, "docs/foundation.md")
-        require(item["path"] in (root / "AGENTS.md").read_text(encoding="utf-8"), f"Unrouted skill: {path}")
+        require(item["path"] in existing(root, "docs/skills.md").read_text(encoding="utf-8"), f"Unrouted skill: {path}")
     actual = {p.resolve() for p in (root / "skills").rglob("SKILL.md")}
     require(actual == paths, "Unlisted or duplicated canonical SKILL.md in skills tree", "E_CATALOG")
     require(isinstance(manifest["blender_aliases"], dict), "Invalid Blender aliases")

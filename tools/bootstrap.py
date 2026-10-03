@@ -18,7 +18,7 @@ def block():
 ## Central tools
 
 Read `.tooling/config.json`: resolve tools_root relative to this project root, or
-use TOOLS_C_ROOT. Explicitly read that folder's AGENTS.md and matching skills.
+use TOOLS_C_ROOT. Read that folder's docs/skills.md catalog and the matching skills.
 Read `.tooling/profile.md` and `.tooling/profile.json` for local choices/contracts.
 Current code and dated project status override historical asset descriptions.
 Universal skills stay in Tools_C; local project skills supplement them.

@@ -38,7 +38,7 @@
       "id": "BPP-ENTRYPOINTS",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md",
+        "docs/skills.md",
         "skills/blender-pipeline/SKILL.md"
       ],
       "required_targets": [
