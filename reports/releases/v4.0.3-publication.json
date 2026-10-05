@@ -1,0 +1,174 @@
+{
+  "release_id": 403407521,
+  "url": "https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.3",
+  "tag": "v4.0.3",
+  "source_commit": "5500f547c8754d641b6f6e7857335476a946fa5c",
+  "local_source_commit": "9daf43ce7bf7e13ccf966bed96ba57abd2d9b606",
+  "integration_commit": "6fa360718cc34e31079201e414538f36560363c5",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "main_and_tag_match_tested_commit": true,
+  "public_archive_download": "PASS",
+  "assets": [
+    {
+      "name": "release-verification.json",
+      "size": 58674,
+      "digest": "sha256:60908e170c36e33712755a4d2590cccb1b79b91e59baf1603b9f1123fc14071b",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.0.3/release-verification.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 177,
+      "digest": "sha256:a422bcefde0a8d62a892e4da00a6c9b17ea76d83e0ba49ddd903d377e0b14837",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.0.3/SHA256SUMS.txt"
+    },
+    {
+      "name": "Tools_C-v4.0.3.zip",
+      "size": 9310712,
+      "digest": "sha256:2ea5330c840b6a2e14280e1ca101885989ccc55befbb9f696c6d37c318389fc9",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.0.3/Tools_C-v4.0.3.zip"
+    }
+  ],
+  "published_at": "2026-10-05T06:00:42Z",
+  "extracted_package": {
+    "python": "3.14.2",
+    "source_bytes_after_checks": "PASS",
+    "unittest": {
+      "status": "PASS",
+      "tests": 120,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 128.676
+    },
+    "l1": {
+      "PASS": 33,
+      "SKIP": 3
+    },
+    "windows_launcher": {
+      "status": "PASS",
+      "invocation": "check.bat --self",
+      "foreign_cwd_and_install_path_with_spaces": true,
+      "explicit_python_override": true
+    },
+    "blender": {
+      "version": "5.2.2 LTS",
+      "runtime_checks": [
+        {
+          "check": "editable sweep mesh and UVs created",
+          "status": "PASS"
+        },
+        {
+          "check": "invalid paths rejected before datablock mutation",
+          "status": "PASS"
+        },
+        {
+          "check": "1300 fibres remain one editable curve object",
+          "status": "PASS"
+        },
+        {
+          "check": "parent assignment preserves world placement",
+          "status": "PASS"
+        },
+        {
+          "check": "parent cycle rejected without mutation",
+          "status": "PASS"
+        },
+        {
+          "check": "oversized timer batch rejected before scene mutation",
+          "status": "PASS"
+        },
+        {
+          "check": "operation IDs cannot escape receipt directory",
+          "status": "PASS"
+        },
+        {
+          "check": "unfinished historical receipt reports interruption without replay",
+          "status": "PASS"
+        },
+        {
+          "check": "contact diagnostics distinguish containment, crossing, distance, near and open surface",
+          "status": "PASS"
+        },
+        {
+          "check": "open surface cannot get volume acceptance",
+          "status": "PASS"
+        },
+        {
+          "check": "limited volume sampling stays inconclusive",
+          "status": "PASS"
+        },
+        {
+          "check": "uvs mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "normals mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "shape_keys mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "weights mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "modifiers mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "curves mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "material_graphs mutation detected on protected data",
+          "status": "PASS"
+        },
+        {
+          "check": "snapshot evaluates inactive scene transforms before capture",
+          "status": "PASS"
+        }
+      ],
+      "saved_reopen": {
+        "checks": [
+          {
+            "check": "saved-file declared categories and fresh world transforms preserved",
+            "status": "PASS"
+          }
+        ],
+        "diff": {
+          "changed_objects": [],
+          "protected_regressions": [],
+          "actions_changed": false,
+          "comparable_time": true,
+          "data_categories_changed": false,
+          "limits": "Declared source identity only; omitted categories/resources, export equivalence and visual acceptance are not certified"
+        }
+      },
+      "examples_reopen": {
+        "status": "PASS",
+        "blender": "5.2.2 LTS",
+        "objects": 85,
+        "cameras": 7,
+        "meshes": 47,
+        "blend_and_png_hashes": "PASS",
+        "mesh_validation": "PASS",
+        "limb_hair_uv_layers": "PASS",
+        "relative_render_output": "PASS",
+        "scope": "Fresh package independently reopened with script execution disabled; no fresh visual review implied"
+      }
+    }
+  },
+  "archive": {
+    "name": "Tools_C-v4.0.3.zip",
+    "bytes": 9310712,
+    "sha256": "2ea5330c840b6a2e14280e1ca101885989ccc55befbb9f696c6d37c318389fc9",
+    "committed_files": 155,
+    "all_entries_match_source_with_declared_bat_crlf": true,
+    "conversions": []
+  },
+  "verification_scope": "Fresh exact-source extracted package and bounded Blender helpers. Seven prior inspected educational renders are construction fixtures; production likeness, animation, export and target-engine acceptance are not certified."
+}
