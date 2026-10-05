@@ -44,4 +44,3 @@ Test at least one realistic placement context. For repeated assets, place severa
 - variants remain compatible with the family placement logic.
 
 Where an asset is intended for a reusable library, package meaningful dependencies together and preserve clear asset-level hierarchy. Blender's Asset Browser supports linked/appended assets and collection instances; choose a reuse method consistent with whether downstream edits should propagate.
-

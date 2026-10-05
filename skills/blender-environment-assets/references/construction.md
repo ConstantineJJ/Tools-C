@@ -73,4 +73,3 @@ Check for:
 - broken face orientation/normals;
 - shading pinches near bevels, booleans or non-planar faces;
 - parts that visually intersect without a believable joint.
-

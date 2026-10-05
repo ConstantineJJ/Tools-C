@@ -28,4 +28,3 @@ Collect references by question rather than filling one board with beauty shots:
 - family references when several props must share a visual/manufacturing language.
 
 Reference gathering is iterative. If a hidden joint or material response becomes unclear during modeling/texturing, gather targeted evidence instead of inventing detail from habit.
-

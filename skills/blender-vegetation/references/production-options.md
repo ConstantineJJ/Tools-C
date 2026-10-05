@@ -105,4 +105,3 @@ For a reusable vegetation set, inspect:
 - near and far representation or at least the planned LOD boundary.
 
 A tree that looks convincing as one hero asset but collapses into a noisy repeated forest is not accepted as a reusable vegetation system.
-

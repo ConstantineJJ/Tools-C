@@ -97,4 +97,3 @@ Create variation from meaningful axes:
 Keep stable species/family cues: characteristic trunk taper, branch tendency, leaf scale, crown architecture and material language. Randomly scaling every branch or rotating every cluster independently can destroy identity while still looking "varied."
 
 Prefer a small set of strong source variants plus procedural placement variation over thousands of unique meshes.
-

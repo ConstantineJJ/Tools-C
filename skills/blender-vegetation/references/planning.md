@@ -30,4 +30,3 @@ Collect references by plant question:
 Study growth as hierarchy: root/base → trunk or primary stems → primary branches → secondary/tertiary branches → twigs/leaf clusters. Stylized plants may compress or exaggerate levels, but random sticks with leaves attached uniformly rarely produce a convincing silhouette.
 
 Do not copy one photograph's accidental asymmetry as a universal species rule. Identify repeated growth tendencies across multiple references, then preserve deliberate concept-art departures.
-

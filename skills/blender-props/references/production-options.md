@@ -89,4 +89,3 @@ For prop families:
 - make geometry unique only for real silhouette/function changes.
 
 Place the prop in one representative target context. For clutter/family assets, test several together. Confirm scale, visual hierarchy, repetition, ground/surface contact and target-camera readability. An isolated beauty render alone is not acceptance for an in-game set-dressing prop.
-

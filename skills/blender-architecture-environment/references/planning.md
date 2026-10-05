@@ -27,4 +27,3 @@ Use references by function instead of collecting only beauty images:
 For historical or regional architecture, identify repeated design rules before copying isolated decorative details. For invented/stylized buildings, use real construction as support for believable joins and scale, while preserving the concept's deliberate departures.
 
 Record a small metric sheet before committing the kit: base grid or increment, story height, typical wall thickness if exposed, standard module widths, primary opening sizes and pivot convention. These are project choices, not universal constants.
-

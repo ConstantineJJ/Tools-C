@@ -27,4 +27,3 @@ Gather references by question rather than only by appearance:
 - family references when multiple fixtures must share a design language.
 
 Do not invent random mechanical seams, bolts or damage where the construction would not support them. Believable secondary detail follows assembly and material logic.
-

@@ -57,4 +57,3 @@ Choose tools by function:
 Keep symmetry/modifiers live while they support iteration. Break symmetry deliberately when the reference/design requires different geometry or unique wear, not merely because the model is "almost finished."
 
 Inspect transforms before dimension-sensitive bevels, solidify, arrays, baking or export. Apply transforms only when appropriate for the hierarchy/animation/instance state; do not destructively normalize objects by habit.
-

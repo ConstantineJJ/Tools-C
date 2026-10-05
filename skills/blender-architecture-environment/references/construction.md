@@ -78,4 +78,3 @@ Check:
 - face orientation and smoothing on visible surfaces.
 
 Avoid topology complexity that exists only to make a large planar wall "look modeled." Spend geometry on silhouette, joins, curvature, shadow-producing depth and deformation/destruction requirements.
-

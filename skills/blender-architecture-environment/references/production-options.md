@@ -38,4 +38,3 @@ Verify:
 - target-engine import, collision, lightmap/UV or LOD requirements are handed to the appropriate owner rather than assumed.
 
 A structurally valid module library is not visually accepted until representative assembled views have been reviewed.
-
