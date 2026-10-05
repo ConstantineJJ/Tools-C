@@ -35,6 +35,15 @@ next owner. For Blender, use the bounded [snapshot and capture tools](blender-ev
 where practical. Snapshots summarize declared scope; omitted data is not certified.
 Geometry fingerprints compare unchanged source representation, not glTF round trips.
 
+For assets with PASS0, preserve the single [Model Contract](../skills/visual-reference-reconstruction/references/model-contract.md)
+in pass0.json and its id/revision/hash binding in assembly_graph.json. Trust USER
+REQUIRED > ORIGINAL REFERENCE / LOCKED HERO > MODEL CONTRACT > GENERATED MULTIVIEW
+> AGENT INFERENCE. Use only consistent permitted panels; crop/foreshortening never
+redefines locked geometry. Downstream passes reuse the graph rather than reinterpret
+it. Check counts, key proportions/anchors and critical relationships at significant
+stage checkpoints only. Intentional locked changes require explicit revisions;
+stage-only edits retain the existing design without restarting production.
+
 Before sending Blender Python through MCP, run [Python preflight](../tools/python_preflight.py).
 AST success does not prove Blender API compatibility or safety. Keep the existing
 safety gate. If a legitimate call is blocked, report the actual diagnostic, narrow

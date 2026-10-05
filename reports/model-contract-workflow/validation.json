@@ -1,0 +1,91 @@
+{
+  "central": {
+    "exit_code": 0,
+    "counts": {
+      "PASS": 42,
+      "SKIP": 3
+    }
+  },
+  "integration": {
+    "exit_code": 0,
+    "counts": {
+      "PASS": 9,
+      "SKIP": 3
+    }
+  },
+  "unit_tests": {
+    "status": "PASS",
+    "count": 186
+  },
+  "historical_packet_errors": [],
+  "contract_ref": {
+    "id": "scout-sphere-design",
+    "revision": 1,
+    "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+  },
+  "stage_gate": {
+    "status": "READY_WITH_LIMITS",
+    "permitted_stage": "MACRO_BLOCKOUT",
+    "limits": [
+      "Source-only Hero and persistent Contract; all old generated panels rejected for modeling",
+      "Rear and actual mechanics remain SPECULATIVE; no material/wear acceptance"
+    ],
+    "reviewer": "Codex inspected actual hero",
+    "review_notes": "Actual sheet fails VIEW COMPLETENESS on front and 3/4; remaining panels have insufficient comparable geometry; use unchanged Hero"
+  },
+  "macro": {
+    "status": "PASS",
+    "receipt": "e691d1a26d1cca4d83acbc4983b1c5749a6cd6d61ee2daf3d6cbd11be13b161c",
+    "checks": 28,
+    "soft_warnings": 2
+  },
+  "reopen": "PASS",
+  "real_negative_probes": {
+    "shortened-gun-negative.json": "FAIL",
+    "extra-gun-negative.json": "FAIL"
+  },
+  "historical_bytes": {
+    "brief.txt": true,
+    "canonical-hero.png": true,
+    "auxiliary-multiview.png": true,
+    "concept_prompt.txt": true,
+    "multiview_prompt.txt": true
+  },
+  "live_context": {
+    "status": "PASS",
+    "owners": [
+      "visual-reference-reconstruction",
+      "blender-robot-mechanism-modeling"
+    ],
+    "contract_delivered_once": true
+  },
+  "unrelated_preservation": {
+    "status": "PASS",
+    "files": 35
+  },
+  "artifacts": {
+    "assembly_graph.json": "3a97eb3091e3922003bb3a8b0cd51d41fa30bddf62060fe92d465b3cd6b95831",
+    "auxiliary-multiview.png": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+    "brief.txt": "076b4262239d6540328b0dc27829831de9bc87371ef6ee7b0d628a6e5d1191f9",
+    "canonical-hero.png": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+    "central-l1.json": "777382d7f16760e13b5cb04aa447b977f30a30e95547b6925471483902962092",
+    "concept_prompt.txt": "d0acd8684fbd279e1ee9cd50dd96c8d31a2e64d05eea85d6c028dfa44aad9595",
+    "extra-gun-negative.json": "7254b07944f40bef3162ae7e9a46f311a7b43cf677a3e69fb309e900b6e137ea",
+    "integration-l1.json": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+    "live-context.json": "0bfcbbea49b4b0796aa1d0798c620008814108a02f4fcad027ced33485b5dbc7",
+    "macro-clay.png": "71fbad12a91dd5dc0af755219705c4bff72a3ebc41dd10c92d4e16e06a6ed2cc",
+    "macro-probe.blend": "edd765e59a902038a46f9a9475bdb8863244c461326d717ebd7168601fb657a7",
+    "multiview_prompt.txt": "68d7b8c29877b0888d797c5d9d331926c2dfa6f8d5d9d4fb586f028f822cc09d",
+    "pass0.json": "2c57be0bea58842a359f8063b417bac0336c805a81006c1994445e083c669302",
+    "saved-reopen.json": "b4ae6d23526c62626e81c39a781e6f6089f3711f1e38b9839a19ca1181f6be92",
+    "shortened-gun-negative.json": "6d98864c6254e65dc4b5886e4a19f4d29beb1d5d1819c5ced07441215058489f",
+    "unit-regressions.log": "9ac080d42ab58662881e3e5a24cf23c98562b211ce75b3ce1427d4a4c618c27e",
+    "view-checkpoints.json": "14463cdd60c857abdfa6f6b4d0b376b6ac2133b044a64694fa3c2636da800449"
+  },
+  "acceptance_limits": [
+    "Measured macro conformance only; manual semantic fixture declarations are not visual/engineering proof",
+    "Old generated multiview rejected; no fresh image generation",
+    "G3 likeness/mechanics/materials/wear/rig/animation/export/target runtime SKIP",
+    "General Blender bridge not globally intercepted; consumers use stage/checkpoint gates"
+  ]
+}

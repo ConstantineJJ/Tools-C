@@ -11,7 +11,7 @@ from check import ROOT, catalog, existing
 # Keep legacy names stable; these descriptions decide discovery at the old entrypoints.
 ROUTE_DESCRIPTIONS = {
     "Blender_Character_Pipeline_Core": "Route a Blender character task to the relevant canonical procedure and scope its acceptance checks. Use for multi-stage work or an unclear Blender workflow.",
-    "Blender_Reference_Reconstruction_SKILL": "Route image understanding and auxiliary technical views to visual-reference-reconstruction PASS 0 before complex reference-based modeling across asset domains.",
+    "Blender_Reference_Reconstruction_SKILL": "Route images or a text design brief to visual-reference-reconstruction PASS 0: source analysis or canonical concept selection/Identity Lock, then reviewed auxiliary views before complex 3D modeling.",
     "Blender_Organic_Sculpting_SKILL": "Route organic or hard-surface sculpting, bounded form corrections and sculpted damage to canonical blender-sculpting. Use for sculpt execution, not final retopology or weight repair.",
     "Blender_Retopology_Deformation_SKILL": "Retopologize a Blender mesh or repair edge flow for required deformation. Use when topology is the diagnosed owner.",
     "Blender_Character_QA_SKILL": "Review a Blender character's geometry, reference match, deformation, animation or export with evidence. Use for validation, not unrequested edits.",
@@ -63,6 +63,8 @@ def document_paths(root, alias):
     elif alias == "blender-robot-mechanism-modeling":
         paths.extend(["skills/visual-reference-reconstruction/SKILL.md",
                       "skills/blender-pipeline/references/techniques/form-development.md"])
+    if alias in {"visual-reference-reconstruction", "Blender_Reference_Reconstruction_SKILL", "blender-robot-mechanism-modeling"}:
+        paths.append("skills/visual-reference-reconstruction/references/model-contract.md")
     if alias in ROUTE_TECHNIQUES:
         paths.append("skills/blender-pipeline/references/techniques/" + ROUTE_TECHNIQUES[alias])
     return list(dict.fromkeys(paths))

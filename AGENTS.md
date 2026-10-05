@@ -15,7 +15,7 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Audit, task scope, project integration | [project-audit](skills/project-audit/SKILL.md) |
 | Godot scenes, resources, import, engine integration | [godot-project](skills/godot-project/SKILL.md) |
 | Blender character blockout, proportions, silhouette and geometry revision | [blender-character-modeling](skills/blender-character-modeling/SKILL.md) |
-| Mandatory PASS 0 before complex image-based reconstruction across asset domains | [visual-reference-reconstruction](skills/visual-reference-reconstruction/SKILL.md) |
+| Mandatory PASS 0 before complex text-to-design or image-based reconstruction across asset domains | [visual-reference-reconstruction](skills/visual-reference-reconstruction/SKILL.md) |
 | Blender robots, mechs, manipulators and articulated mechanism geometry | [blender-robot-mechanism-modeling](skills/blender-robot-mechanism-modeling/SKILL.md) |
 | Blender anime/manga humanoids, chibi forms, stylized faces and hair geometry | [anime character modeling](skills/blender-anime-character-modeling/SKILL.md) |
 | Blender animals, creatures, quadrupeds and anthropomorphic animal modeling | [blender-animal-anthropomorphic-modeling](skills/blender-animal-anthropomorphic-modeling/SKILL.md) |

@@ -17,13 +17,23 @@ vehicles, buildings, props and electronic devices keep their domain owners;
 co-load this skill only for requested articulated subassemblies. A humanoid robot
 does not automatically need organic character modeling.
 
-For complex image-based creation or major reconstruction, require a current
+For complex new design from text or image-based creation/major reconstruction, require a current
 [visual-reference-reconstruction PASS 0](../visual-reference-reconstruction/SKILL.md)
 **before scene mutation**. Verify hashes and the permitted stage; consume component
 and claim IDs, relative ranges, source authority, limits and auxiliary review.
 `BLOCKED` stops dependent construction. `READY_WITH_LIMITS` permits only named work;
-deferred rear geometry stays deferred. Reference-free design can record approved
-design assumptions directly without generating fictitious source evidence.
+deferred rear geometry stays deferred. Consume the same packet in REFERENCE or
+DESCRIPTION mode. REQUIRED constraints survive conversion to geometry; CANONICAL
+choices remain locked design decisions, never CONFIRMED evidence. No concept selection
+or multiview redesign belongs to this skill. An unavailable/PENDING concept blocks
+the visual design workflow rather than authorizing fictitious source evidence.
+
+Reuse the single [Model Contract](../visual-reference-reconstruction/references/model-contract.md)
+without reinterpreting locked properties at each pass. Bind assembly_graph.json and
+saved asset metadata to its id/revision/hash; compare hard invariants, key measured
+proportions/anchors and critical relationships at meaningful stage gates. Use only
+permitted generated panels. Intentional design changes require explicit Contract
+revisions, not new interpretations of crop or another material/detail pass.
 
 Do not promote inferred/speculative claims while converting them to geometry.
 Attach claim IDs/uncertainty to assembly records and editable proxies. Materials,

@@ -1,0 +1,670 @@
+{
+  "front": {
+    "status": "FAIL",
+    "errors": [],
+    "checks": [
+      {
+        "rule_id": "count.torso",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.feet",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.optics",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "count.antenna",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.scout",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.sphere",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.energy",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.longlegs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.torso.shape",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.type",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.proportion",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.width",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.depth",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.legs.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.guns.length",
+        "result": "FAIL",
+        "reason": "VIEW COMPLETENESS: known geometry is cropped; never shorten it"
+      },
+      {
+        "rule_id": "dimension.feet.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.gun_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.leg_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.hip_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.gun_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.torso.panels",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.feet.form",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      }
+    ],
+    "contract_ref": {
+      "id": "scout-sphere-design",
+      "revision": 1,
+      "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+    },
+    "checkpoint": "VIEWS"
+  },
+  "right": {
+    "status": "UNKNOWN",
+    "errors": [],
+    "checks": [
+      {
+        "rule_id": "count.torso",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.feet",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.optics",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "count.antenna",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.scout",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.sphere",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.energy",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.longlegs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.torso.shape",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.type",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.proportion",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.width",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.depth",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.legs.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.guns.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.feet.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.gun_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.leg_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.hip_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.gun_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.torso.panels",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.feet.form",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      }
+    ],
+    "contract_ref": {
+      "id": "scout-sphere-design",
+      "revision": 1,
+      "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+    },
+    "checkpoint": "VIEWS"
+  },
+  "rear": {
+    "status": "UNKNOWN",
+    "errors": [],
+    "checks": [
+      {
+        "rule_id": "count.torso",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.feet",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.optics",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "count.antenna",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.scout",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.sphere",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.energy",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.longlegs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.torso.shape",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.type",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.proportion",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.width",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.depth",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.legs.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.guns.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.feet.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.gun_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.leg_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.hip_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.gun_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.torso.panels",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.feet.form",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      }
+    ],
+    "contract_ref": {
+      "id": "scout-sphere-design",
+      "revision": 1,
+      "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+    },
+    "checkpoint": "VIEWS"
+  },
+  "3/4": {
+    "status": "FAIL",
+    "errors": [],
+    "checks": [
+      {
+        "rule_id": "count.torso",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.feet",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.optics",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "count.antenna",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.scout",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.sphere",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.energy",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.R.longlegs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.torso.shape",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.guns.type",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.count",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "required.legs.proportion",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.width",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.depth",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.torso.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.legs.height",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "dimension.guns.length",
+        "result": "FAIL",
+        "reason": "VIEW COMPLETENESS: known geometry is cropped; never shorten it"
+      },
+      {
+        "rule_id": "dimension.feet.length",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.gun_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "ratio.leg_body",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.hip_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "anchor.gun_z",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "relationship.attach.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.guns",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "symmetry.legs",
+        "result": "UNKNOWN",
+        "reason": "occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.torso.panels",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      },
+      {
+        "rule_id": "soft.feet.form",
+        "result": "WARN",
+        "reason": "adaptable detail: occluded/foreshortened/missing; authoritative geometry still wins"
+      }
+    ],
+    "contract_ref": {
+      "id": "scout-sphere-design",
+      "revision": 1,
+      "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+    },
+    "checkpoint": "VIEWS"
+  }
+}

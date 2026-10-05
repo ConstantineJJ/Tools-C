@@ -3,6 +3,24 @@
   "id": "pass0-mechanics-registration",
   "rules": [
     {
+      "id": "VRM-MODEL-CONTRACT-FILES",
+      "kind": "files",
+      "paths": [
+        "tools/model_contract.py",
+        "skills/visual-reference-reconstruction/references/model-contract.md",
+        "tests/test_model_contract.py"
+      ]
+    },
+    {
+      "id": "VRM-DESCRIPTION-FILES",
+      "kind": "files",
+      "paths": [
+        "skills/visual-reference-reconstruction/references/description-mode.md",
+        "skills/visual-reference-reconstruction/scripts/description_contract.py",
+        "tests/test_pass0_description.py"
+      ]
+    },
+    {
       "id": "VRM-REGISTRATION",
       "kind": "json_subset",
       "paths": [

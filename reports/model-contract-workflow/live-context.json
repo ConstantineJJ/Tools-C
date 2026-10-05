@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "routing": {
+    "owners": [
+      "visual-reference-reconstruction",
+      "blender-robot-mechanism-modeling"
+    ],
+    "procedures": [],
+    "limits": "Routing suggestions; inspect actual ownership before edits"
+  },
+  "missing_documents": [],
+  "documents": [
+    {
+      "path": "docs/foundation.md",
+      "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+      "characters": 3409,
+      "status": "delivered"
+    },
+    {
+      "path": "docs/blender-evidence-entry.md",
+      "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+      "characters": 1553,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/blender-pipeline/SKILL.md",
+      "sha256": "b9869953b70c2a542c6e2de9d7935460a2c007132ec0c836171c9e05b2829fdf",
+      "characters": 6036,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/visual-reference-reconstruction/SKILL.md",
+      "sha256": "33c48403fca59b228f5d77808132c274dc54288f2c4689d99fc1e37565ede2f2",
+      "characters": 9711,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/verification/SKILL.md",
+      "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+      "characters": 2640,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+      "sha256": "775a603480a97417b6bb4ecbce23a9018bbb94d3c9ce62236042622b5a20c497",
+      "characters": 9848,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+      "sha256": "f0b1debc2f0ae3e4b94f0b3a1318cdd5fbd1dbfa60ef984479951a9051fb0b3a",
+      "characters": 8800,
+      "status": "delivered"
+    },
+    {
+      "path": "skills/blender-pipeline/references/techniques/form-development.md",
+      "sha256": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0",
+      "characters": 5833,
+      "status": "delivered"
+    }
+  ],
+  "conditional_documents": [
+    {
+      "path": "docs/blender-evidence.md",
+      "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+      "reason": "Read the full acquisition recipe before capture/snapshot/export"
+    },
+    {
+      "path": "skills/blender-pipeline/references/core.md",
+      "sha256": "4644cddadca073e300463ca05d4a6b921f081536d85386a269d61185776476b2",
+      "reason": "Legacy compatibility pointer; foundation and pipeline are delivered directly"
+    }
+  ],
+  "receipts": {
+    "docs/foundation.md": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+    "docs/blender-evidence-entry.md": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+    "skills/blender-pipeline/SKILL.md": "b9869953b70c2a542c6e2de9d7935460a2c007132ec0c836171c9e05b2829fdf",
+    "skills/visual-reference-reconstruction/SKILL.md": "33c48403fca59b228f5d77808132c274dc54288f2c4689d99fc1e37565ede2f2",
+    "skills/verification/SKILL.md": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+    "skills/visual-reference-reconstruction/references/model-contract.md": "775a603480a97417b6bb4ecbce23a9018bbb94d3c9ce62236042622b5a20c497",
+    "skills/blender-robot-mechanism-modeling/SKILL.md": "f0b1debc2f0ae3e4b94f0b3a1318cdd5fbd1dbfa60ef984479951a9051fb0b3a",
+    "skills/blender-pipeline/references/techniques/form-development.md": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0"
+  }
+}

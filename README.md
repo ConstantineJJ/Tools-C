@@ -20,7 +20,14 @@ the finish. UV/bakes remain with surfaces, structural damage with sculpting.
 [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) owns anime/manga humanoid form, faces, eyes, hair and clothing, with renderer-compatible visual QA and explicit downstream handoffs.
 
 [Visual reference reconstruction](skills/visual-reference-reconstruction/SKILL.md)
-is the required PASS 0 before complex image-based modeling across asset domains.
+is the required PASS 0 before complex image-based modeling or new text-only design across asset domains.
+Its [DESCRIPTION mode](skills/visual-reference-reconstruction/references/description-mode.md)
+extracts constraints, selects a hero concept, freezes its identity and derives reviewed
+views from that image. Both modes use schema 3 and one persistent
+[Model Contract](skills/visual-reference-reconstruction/references/model-contract.md)
+for hard identity, proportion envelopes and soft details. Assembly/view reviews pin
+its revision/hash; known crop or geometric drift cannot become new design truth.
+Historical packets still parse for audit and require reviewed migration before modeling.
 Its provenance-aware packet feeds [robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
 or the matching domain owner. [Implementation and real workflow evidence](reports/PASS0_AND_ROBOT_SKILLS_2026-10-05.md)
 separate structured handoff acceptance, auxiliary-image limits and clay quality.

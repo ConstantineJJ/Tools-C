@@ -16,9 +16,14 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 Select only the reference matching the task:
 
-Before complex image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
+Before complex new design from text or image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
 Verify hashes and stage limits; BLOCKED stops construction. Reuse valid packets;
 stage-only work and read-only QA do not restart PASS 0.
+All downstream owners consume the same [Model Contract](../visual-reference-reconstruction/references/model-contract.md)
+and its permitted visual package. Pin id/revision/hash in assembly_graph.json;
+verify counts, key proportions/anchors and critical relationships only at relevant
+blockout, mechanics, clay handoff and delivery checkpoints. Generated panels cannot
+override source/Contract; explicit revisions invalidate stale reviews and bindings.
 
 For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
 Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.

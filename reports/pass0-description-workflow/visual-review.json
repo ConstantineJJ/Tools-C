@@ -1,0 +1,95 @@
+{
+  "candidate": "A",
+  "hard_requirements": 6,
+  "hard_requirement_results": "PASS",
+  "quality_score": 20,
+  "quality_max": 25,
+  "candidate_count": 1,
+  "candidate_strategy": "SINGLE",
+  "selector": "AGENT",
+  "auxiliary": {
+    "id": "sheet",
+    "path": "auxiliary-multiview.png",
+    "sha256": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+    "prompt_path": "multiview_prompt.txt",
+    "prompt_sha256": "68d7b8c29877b0888d797c5d9d331926c2dfa6f8d5d9d4fb586f028f822cc09d",
+    "input_source_ids": [
+      "hero",
+      "brief"
+    ],
+    "generated": true,
+    "views": [
+      "front",
+      "right",
+      "rear",
+      "3/4"
+    ],
+    "use_status": "RESTRICTED",
+    "lock_version": 1,
+    "canonical_sha256": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+    "permitted_uses": [
+      "Coarse sphere/long-leg envelope and pose-corresponded front/side silhouette aid"
+    ],
+    "forbidden_uses": [
+      "Exact gun length from cropped panels",
+      "Hidden rear construction or joint axes",
+      "Metric side-vs-front measurements without pose reconciliation",
+      "New CANONICAL design decisions"
+    ],
+    "claim_links": [
+      "silhouette.primary",
+      "torso.shape",
+      "legs.proportion",
+      "torso.auxrear"
+    ],
+    "consistency_checks": [
+      {
+        "criterion": "identity",
+        "result": "PASS",
+        "observations": "All four panels retain spherical scout body, paired side guns and long thin legs."
+      },
+      {
+        "criterion": "proportions",
+        "result": "WARN",
+        "observations": "Overall envelope similar, but side knee bend/pose and projected leg spacing are not a metrically comparable pose."
+      },
+      {
+        "criterion": "part_counts",
+        "result": "WARN",
+        "observations": "Front/rear/3/4 depict two legs and paired guns; side occlusion expected, but outer front-left and 3/4-right gun are cropped."
+      },
+      {
+        "criterion": "construction",
+        "result": "WARN",
+        "observations": "Rear disk/paneling and backside joint details are invented hypotheses; amber uncertainty marking requested but absent."
+      },
+      {
+        "criterion": "handedness",
+        "result": "PASS",
+        "observations": "Antenna appears image-right front and image-left rear; side forward guns and top sensor orientation broadly correspond. No hidden axis proof."
+      },
+      {
+        "criterion": "silhouette",
+        "result": "PASS",
+        "observations": "Main spherical mass, long legs and two short lateral gun housings preserve macro read."
+      }
+    ]
+  },
+  "identity_bytes_before_after": {
+    "hero": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+    "manifest": "39dd94539c2c887ee01b204e7128ddee87b92b9afb0ffdfc8aead731df46de2b"
+  },
+  "unchanged_identity": "PASS",
+  "gate": {
+    "status": "READY_WITH_LIMITS",
+    "permitted_stage": "MACRO_BLOCKOUT",
+    "limits": [
+      "Only visible macro design; hidden internals/real scale deferred",
+      "Hero perspective ranges are adopted estimates",
+      "Multiview RESTRICTED: cropped guns, pose mismatch and speculative rear details"
+    ],
+    "reviewer": "Codex inspected actual hero",
+    "review_notes": "Actual hero and all four auxiliary panels inspected; only macro envelope permitted. No detail/hidden mechanics authority."
+  },
+  "limits": "Single-candidate live exercise; three-candidate selection covered structurally, not visually. No Blender production geometry, articulation, rig or materials acceptance."
+}

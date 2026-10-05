@@ -26,6 +26,9 @@ def render_context(root, owner, procedures=()):
     pass0='skills/visual-reference-reconstruction/SKILL.md'
     if owner in {'blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {pass0}\n\n' not in content:
         paths.append(pass0)
+    contract='skills/visual-reference-reconstruction/references/model-contract.md'
+    if owner in {'visual-reference-reconstruction','blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {contract}\n\n' not in content:
+        paths.append(contract)
     finishing='skills/blender-posteffects-polishing/references/finishing-techniques.md'
     if owner == 'blender-posteffects-polishing' and f'SOURCE: {finishing}\n\n' not in content:
         # A live adapter can retain the earlier two-argument reader module.
@@ -139,10 +142,10 @@ def robot_modeling_route(query):
                        r'робот|\bмех(?:а|и|ов|у|ом)?\b|манипулятор|сочлен[её]нн\w*\s+механизм', query)
     create = re.search(
         r'\b(?:create|build|make|model|remodel|rebuild)\s+'
-        r'(?:(?:an?|the|existing|new|hard-surface|humanoid|biped|articulated|mechanical)\s+)*'
+        r'(?:(?:an?|the|existing|new|hard-surface|humanoid|biped|articulated|mechanical|light|reconnaissance|scout|spherical|long-legged)\s+)*'
         r'(?:robots?|mechs?|manipulators?|robotic\s+arms?|articulated\s+mechanisms?)\b|'
         r'(?:созда|сдела|смодел|постро|передел|перестро)\w*\s+'
-        r'(?:(?:нов\w*|модель|механич\w*|гуманоидн\w*|сочлен[её]нн\w*)\s+)*'
+        r'(?:(?:модель|[а-яё]+(?:ого|ую|ый|ий|ой|ые|ое|ных|ный|кого))\s+)*'
         r'(?:робот|мех\w*|манипулятор|механизм)', query)
     return bool(domain and (create or primary_geometry_revision(query) or re.search(r'\bblockout\b|блокаут',query)))
 
@@ -197,7 +200,7 @@ def _route_task(task):
 
 
 def route_task(task):
-    """PASS 0 precedes image-based geometry; suggestions do not authorize edits."""
+    """PASS 0 precedes visual/text design; actual artifacts determine input mode."""
     query = action_query(task)
     visual = bool(re.search(r'\b(?:images?|references?|blueprints?|photos?|multiview|multi-view)\b|'
                             r'референс|изображени|картинк|черт[её]ж|фотограф', query))
@@ -213,7 +216,18 @@ def route_task(task):
     domain = any(o.endswith('modeling') or o in {
         'blender-props', 'blender-architecture-environment', 'blender-environment-assets',
         'blender-roads-infrastructure', 'blender-vegetation', 'blender-sculpting'} for o in owners)
-    if visual and geometry_intent(query) and (domain or owners == ['blender-pipeline']):
+    description = bool(re.search(r'\b(?:description|text[ -]only|text[ -]brief|design\s+brief|without\s+(?:images?|references?))\b|'
+                                  r'описани|текстов\w*\s+(?:бриф|задани)|без\s+референс', query))
+    planning = bool(re.search(r'\b(?:canonical\s+concept|hero\s+view|concept\s+candidates|visual\s+concept)\b|'
+                              r'визуальн\w*\s+концепт|выбер\w*\s+концепт', query))
+    new_design = bool(re.search(r'\b(?:create|build|make|model)\b|(?:созда|сдела|смодел|постро)\w*', query))
+    if (description and analysis or planning) and owners == ['blender-pipeline']:
+        return ['visual-reference-reconstruction']
+    stage_only = bool(procedure_routes(query)) and not domain
+    # Generic creation can be a trivial primitive. Domain agents assess complexity
+    # from actual inputs; explicit briefs and new articulated robot design need PASS 0.
+    complex_design = new_design and 'blender-robot-mechanism-modeling' in owners
+    if not stage_only and (visual or description or complex_design) and geometry_intent(query) and (domain or (visual or description) and owners == ['blender-pipeline']):
         owners = ['visual-reference-reconstruction', *owners]
     return list(dict.fromkeys(owners))
 
@@ -247,16 +261,20 @@ def context(root, task, max_chars=50000, known_documents=None, requested_documen
     for name in requested:
         content=render_context(root,name,procedures if name == 'blender-pipeline' else ())
         blocks=_context_documents(content)
+        # This pointer repeats foundation/pipeline rather than adding rules.
+        defer={'skills/blender-pipeline/references/core.md':'Legacy compatibility pointer; foundation and pipeline are delivered directly'}
         if len(requested) > 1:
             # Multi-domain entry: acquire the full capture recipe when actually
             # capturing; retain the bounded renderer/fallback contract now.
-            defer={'docs/blender-evidence.md':'Read the full acquisition recipe before capture/snapshot/export',
-                   'skills/blender-pipeline/references/core.md':'Legacy compatibility pointer; the foundation and pipeline retain their contracts'}
+            defer['docs/blender-evidence.md']='Read the full acquisition recipe before capture/snapshot/export'
+            if len(requested) > 2:
+                defer['skills/blender-pipeline/references/techniques/form-development.md']='Read before macro/form construction; domain entrypoints and design locks remain delivered'
             if not re.search(r'\b(?:face|eyes?|hair|hairstyle)\b|лиц|глаз|волос|прич[её]ск',action_query(task)):
                 defer['skills/blender-anime-character-modeling/references/face-hair-workflow.md']='Read before face/eye/hair construction'
-            for p,b in blocks:
-                if p in defer: conditional[p]=dict(path=p,sha256=hashlib.sha256(b.encode()).hexdigest(),reason=defer[p])
-            blocks=[(p,b) for p,b in blocks if p not in defer]
+        for p,b in blocks:
+            if p in defer: conditional[p]=dict(path=p,sha256=hashlib.sha256(b.encode()).hexdigest(),reason=defer[p])
+        blocks=[(p,b) for p,b in blocks if p not in defer]
+        if len(requested) > 1:
             blocks.insert(1,('docs/blender-evidence-entry.md',existing(root,'docs/blender-evidence-entry.md').read_text(encoding='utf-8')))
         owner_documents.append((name,content,blocks))
     if requested_documents:

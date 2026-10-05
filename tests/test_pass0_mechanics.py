@@ -49,7 +49,8 @@ class Pass0Test(unittest.TestCase):
     def test_source_only_without_generator_is_usable_and_not_mutated(self):
         p=fixture(); before=copy.deepcopy(p)
         self.assertEqual(v.validate(p),[])
-        self.assertEqual(v.require_stage(p,'MACRO_BLOCKOUT',verify_files=False)['status'],'READY')
+        with self.assertRaisesRegex(ValueError, 'persistent contract'):
+            v.require_stage(p,'MACRO_BLOCKOUT',verify_files=False)
         self.assertEqual(p,before)
 
     def test_generated_and_report_evidence_cannot_confirm_original_geometry(self):
@@ -181,7 +182,7 @@ class RoutingTest(unittest.TestCase):
             'Unwrap UVs on the mech.':['blender-pipeline'],
             'Review the robot silhouette against the reference image.':['verification'],
             'Do not rebuild the mech from images. Add scratches.':['blender-posteffects-polishing'],
-            'Create a mech.':['blender-robot-mechanism-modeling'],
+            'Create a mech.':['visual-reference-reconstruction','blender-robot-mechanism-modeling'],
             'Analyze the vehicle reference images.':['visual-reference-reconstruction'],
             'Create a technical reference pack for a robot from images.':['visual-reference-reconstruction']}
         for task,owners in cases.items():self.assertEqual(mcp_runtime.route_task(task),owners,task)

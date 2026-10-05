@@ -1,0 +1,51 @@
++{
+  "ok": true,
+  "routing": {
+    "owners": [
+      "visual-reference-reconstruction",
+      "blender-robot-mechanism-modeling"
+    ],
+    "procedures": [],
+    "limits": "Routing suggestions; inspect actual ownership before edits"
+  },
+  "missing_documents": [],
+  "entry_has_description": true,
+  "documents": [
+    {
+      "path": "docs/foundation.md",
+      "status": "delivered",
+      "sha256": "780c9dffb9819c477cacea94752ea29ed59c0f7ec7c72ce8d7ade33d58f85b95"
+    },
+    {
+      "path": "docs/blender-evidence-entry.md",
+      "status": "delivered",
+      "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945"
+    },
+    {
+      "path": "skills/blender-pipeline/SKILL.md",
+      "status": "delivered",
+      "sha256": "28a0d560924bdfede2d4ec44f57e22634a09cd9b0e9972e1f7c9e9998329ea4b"
+    },
+    {
+      "path": "skills/visual-reference-reconstruction/SKILL.md",
+      "status": "delivered",
+      "sha256": "f8a5ef8d3dee3723261acb44d9604362d5b4d42c17ae04125de5a718c879c1bb"
+    },
+    {
+      "path": "skills/verification/SKILL.md",
+      "status": "delivered",
+      "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769"
+    },
+    {
+      "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+      "status": "delivered",
+      "sha256": "0a2127b3c0d941ac54bd0cb9890188616760cb6c0fcbeceff8207840f14ee3f1"
+    },
+    {
+      "path": "skills/blender-pipeline/references/techniques/form-development.md",
+      "status": "delivered",
+      "sha256": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0"
+    }
+  ],
+  "limits": "Read-only context delivery; no Blender geometry or visual production acceptance"
+}
