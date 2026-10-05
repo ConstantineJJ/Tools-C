@@ -1,0 +1,53 @@
+{
+  "blender_version": "5.2.2 LTS",
+  "structural": "PASS",
+  "visual": "PASS",
+  "images": [
+    {
+      "kind": "limb",
+      "path": "limb.png",
+      "sha256": "319b822cd1b40bb4789e87919eef8c43de7ebf3dee6f64533ef8bbf2922d2632"
+    },
+    {
+      "kind": "limb_threequarter",
+      "path": "limb_threequarter.png",
+      "sha256": "c1eba07ff45f1fb3c55b76cc6ed36c227a9d247405b251677364b9d1874cdfe2"
+    },
+    {
+      "kind": "hair",
+      "path": "hair.png",
+      "sha256": "81ee658bb9ec10de8a0c1cc8e3ab950a191c74162dc3ccbecd30963184368dd4"
+    },
+    {
+      "kind": "hair_threequarter",
+      "path": "hair_threequarter.png",
+      "sha256": "6ef813ed54b7fa7e62e9c9462ee9960c67c2af9c5f40c21a3b1180fcb2bc3fb8"
+    },
+    {
+      "kind": "ribbon",
+      "path": "ribbon.png",
+      "sha256": "aaa3cad18a303aba7f408297eff085e90abcfb6cf13a4f3ac871f7bca36ba9ba"
+    },
+    {
+      "kind": "canopy",
+      "path": "canopy.png",
+      "sha256": "cd5ff84d75774a4329d541af00475d75274f1cb1f973e97de03d2d256cac180f"
+    },
+    {
+      "kind": "fur",
+      "path": "fur.png",
+      "sha256": "7765a94256134ca6f795a44010837ff1fafa1af105510954358f73c5980e1763"
+    }
+  ],
+  "limits": "Isolated construction fixtures; no beauty, anatomy, reference-fidelity or runtime asset certificate",
+  "blend_sha256": "c00a892d9be5fc63fda6db201375e6099debb71917ed9b04026048c6f2e01344",
+  "review_scope": "Construction criteria only; seven actual PNGs inspected by agent on 2026-10-05",
+  "observations": {
+    "limb": "Variable thigh/knee/calf sections and bent centerline visible in front and alternate view; terminal cuts remain study boundaries.",
+    "hair": "Width, depth and taper vary along an S-shaped lock; thickness and narrowed positive tip visible in both views.",
+    "ribbon": "Folded strip loops, visible inner surfaces and separate tails read as ribbon instead of two oval masses.",
+    "canopy": "Separate spheres replaced with a connected asymmetric lobed silhouette; secondary leaf distribution is outside this study.",
+    "fur": "Uniform angular tuft row replaced with varied soft directional tufts and selective fibres; this is a small construction patch, not final fur grooming."
+  },
+  "portable_render_output": "//form-example-render.png"
+}

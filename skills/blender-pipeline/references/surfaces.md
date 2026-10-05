@@ -1,5 +1,8 @@
 # UV, baking and PBR authoring
 
+For clean color, soft highlights and directional texture without a wear/glow
+brief, use the [clean stylized route](techniques/clean-stylized-surfaces.md).
+
 This procedure owns UV layout, bake/projection and baseline PBR channel/binding
 correctness. Late material/texture refinement, localized wear, emission/glow and
 approved image effects belong to [Posteffects and polishing](../../blender-posteffects-polishing/SKILL.md).

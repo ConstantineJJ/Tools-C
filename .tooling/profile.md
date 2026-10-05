@@ -1,6 +1,6 @@
 # Tools_C self profile
 
-Tools_C 4.0.2 activates all twenty-five canonical skills and four self-contract
+Tools_C 4.0.3 activates all twenty-five canonical skills and four self-contract
 files. It validates the public skills catalog, shared foundation, nine legacy
 Blender aliases and bounded harness tools. Schema_version remains 1.
 Core L1 uses only the Python standard library; engine/runtime/visual evidence

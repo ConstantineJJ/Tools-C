@@ -31,6 +31,11 @@ Use the strongest available visual contract:
 - detail density;
 - performance/platform constraints.
 
+Record the delivery target: Blender-only image/scene, exported asset or target-engine
+use. A Blender-only slice uses the intended Blender renderer and camera; engine
+import/gameplay checks apply only when delivery includes them. Do not require an
+engine or manufacture runtime requirements for a static diorama.
+
 If no formal art bible exists, derive only the minimum needed for the look-dev pass.
 
 ## 2. Representative slice
@@ -87,7 +92,7 @@ Evaluate:
 - does one category visually overpower another?
 - does the result still match the references?
 
-### Runtime
+### Runtime when delivery includes a target engine
 - target engine import;
 - shader/material compatibility;
 - expected performance budget;
@@ -100,7 +105,7 @@ Prefer fixed-view comparisons.
 Capture:
 
 ```text
-GAMEPLAY VIEW
+PRODUCTION VIEW (gameplay view when applicable)
 HERO DETAIL VIEW
 WIDE ENVIRONMENT VIEW
 OPTIONAL MATERIAL/LIGHTING DEBUG VIEW
@@ -124,7 +129,7 @@ PASS requires:
 
 - the representative slice matches the intended direction closely enough for production;
 - major asset categories can share the same visual language;
-- engine import does not destroy the intended look;
+- when engine delivery is requested, engine import does not destroy the intended look;
 - known limitations are recorded;
 - no unresolved primary-form or lighting contradiction remains.
 

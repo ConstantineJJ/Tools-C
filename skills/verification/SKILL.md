@@ -28,6 +28,10 @@ A PNG must be inspected for the named criterion before visual acceptance.
 
 ## Anti-degradation and stop
 
+For Blender, select [local/final QA profiles](../blender-pipeline/references/techniques/qa-profiles.md)
+according to the changed dependencies. A local iteration does not replace the final
+saved-file or requested delivery gate.
+
 Compare the requested improvement and affected views, assets, topology, deformation, animation, runtime stability or complexity as applicable. Keep an improvement without material regression; correct a bounded regression; otherwise restore only your own attempted change through the project's recovery method. Stop after the required evidence is gathered and the result and open checks are reported. Test counts and exit codes alone do not establish visual or user-feel acceptance.
 
 ## Pitfalls / Lessons Learned

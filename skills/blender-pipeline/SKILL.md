@@ -16,6 +16,9 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 Select only the reference matching the task:
 
+For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
+Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.
+
 For stage-only work, the named asset supplies context: follow the retopology,
 surfaces, polishing, rigging, animation or export owner without restarting domain modeling.
 For a read-only review, use verification. Load a domain owner alongside a stage

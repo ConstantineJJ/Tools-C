@@ -1,6 +1,6 @@
 # Skills and harness architecture
 
-Tools_C 4.0.2 contains twenty-five canonical skills, one shared foundation and
+Tools_C 4.0.3 contains twenty-five canonical skills, one shared foundation and
 nine legacy Blender aliases. Catalog/profile/contract schema_version remains 1;
 it is independent of the package version and original lesson provenance.
 
@@ -30,3 +30,8 @@ See [contracts](contracts.md), [engine probes](engines.md),
 Project journals, execution logs, captured test images and dated reports are
 consumer-owned artifacts; the distributed pack contains instructions and the
 tools/tests needed to produce and verify them.
+
+Shared [form methods](../skills/blender-pipeline/references/techniques/form-development.md)
+and recipes support concrete shape development across owners. Context receipts
+track complete deduplicated documents, while typed curve operations and selected
+contact/snapshot diagnostics remain bounded helpers rather than artistic gates.

@@ -57,6 +57,10 @@ Ownership boundaries:
 
 ## Preflight and finishing workflow
 
+For a clean stylized finish, use [the short surface route](../blender-pipeline/references/techniques/clean-stylized-surfaces.md)
+and [QA profiles](../blender-pipeline/references/techniques/qa-profiles.md).
+Condition-history, wear, damage and emission sections apply only when requested.
+
 Inspect the actual Blender version/renderer, named objects and their shared
 materials/images, UVs, existing maps, shader outputs, target camera/distance and
 delivery target. Establish the condition story: substrate/coating, age, use,

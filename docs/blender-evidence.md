@@ -6,17 +6,34 @@ are canonical in Tools_C; the integration server calls them without copying bodi
 ## Stage snapshot
 
 In Blender, load `tools/blender_snapshot.py` with runpy and call
-`snapshot(stage, object_names, protected=(), action_names=(), blockers=())`.
+`snapshot(stage, object_names, protected=(), action_names=(), blockers=(), data_categories=())`.
 Supply explicit object/Action lists, not a project-name heuristic. Validate with
 `tools/handoff_snapshot.py SNAPSHOT.json`; compare unchanged source scope with
 `--compare AFTER.json`. Serialization is stable, sorted and finite; schema is 1.
 It includes per-object counts/local mesh hash, finite world matrices, bone names and
 parents, materials, Action ranges, time base, protected objects and blockers.
 
-The hash includes base mesh coordinates/connectivity/material indices. It excludes
-evaluated modifiers, weights, UVs, shape keys, bone rest matrices and Action curve
-values. Use targeted baseline checks for those when protected; no whole-scene
-equivalence claim follows from a snapshot. Counts are summaries, not acceptance.
+The base geometry hash includes mesh coordinates/connectivity/material indices.
+Optional `data_categories` add separate hashes for `uvs`, `normals`, `shape_keys`,
+`weights`, `modifiers`, `curves`, and `material_graphs`. Capture only declared source
+fields: modifier writable scalar/pointer properties, legacy `CURVE` control points/handles,
+material slots/node properties/inputs/links/nested groups and ramps. These do not
+cover every resource, image pixel, driver, constraint, node-group interface or
+arbitrary collection/pointer subtree. Omitted categories, evaluated modifier output,
+bone rest matrices and Action curve values need targeted checks when protected.
+No whole-scene equivalence follows from a snapshot; counts are not acceptance.
+
+All scenes' view layers are updated before capture, including inactive cameras and
+lights. After reopening, compare declared source data and fresh world matrices;
+keep evaluation and source-data acceptance separate. The default schema remains 1
+and accepts older snapshots with no additional categories.
+
+Use [QA profiles](../skills/blender-pipeline/references/techniques/qa-profiles.md)
+for local iterations versus final delivery, [form helpers](../tools/blender_forms.py)
+for editable profiles/curve batches, and [contact diagnostics](../tools/blender_contacts.py)
+for explicit object pairs. Proximity reports a sampled upper bound, not a certified
+minimum clearance. Open/ambiguous volumes stay inconclusive. Expected organic
+joins must be declared; they are not global collision exclusions.
 
 ## Universal MCP capture
 
