@@ -35,6 +35,11 @@ For a broad task: blockout → primary silhouette → major forms/proportions �
 
 For a revision: inspect → isolate the requested change and dependencies → make the smallest sufficient edit → compare the requested result and protected views/data → stop.
 
+When a blockout still reads as accidental balls, tubes or slabs, use
+[form development](../blender-pipeline/references/techniques/form-development.md)
+and its section-controlled limb/hair/cloth examples before tertiary detail.
+Smooth shading alone does not change silhouette. Keep intended toy/low-poly forms.
+
 Choose direct editing or a procedural/modifier method according to editability and downstream needs. Use separate geometry for genuinely separate or rigid parts; use continuous geometry when continuous deformation is required. Do not join objects just to reduce count or rebuild geometry to mask a rig, weight, animation or exporter problem. Read [geometry decisions](references/geometry-decisions.md) for joint, part, hand, face or clothing choices, and [modifiers and transforms](references/modifiers-transforms.md) when those data are affected.
 
 ## Modeling priorities and routing
@@ -50,6 +55,9 @@ Use [Reference Reconstruction](../blender-pipeline/references/reference.md) for 
 After a meaningful revision, compare the requested feature, silhouette, required other views, proportions, topology, deformation-critical areas, unrelated regions and editability against the baseline. Correct a bounded regression, restore the attempted change if net quality worsens, or report a genuine constraint conflict. Do not hide regression with unrelated polish.
 
 Validate only what is applicable: fixed relevant views, proportions, intersections, surface continuity, normals, internal/duplicate geometry, transforms, modifiers, deformation clearance and object structure. Record actual observations; unavailable visual, pose or engine evidence is SKIP with reason, never PASS.
+
+Use [QA profiles](../blender-pipeline/references/techniques/qa-profiles.md) to select
+local form/material/hierarchy checks and the final saved-file gate.
 
 ## Handoff, completion and stop
 

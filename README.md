@@ -1,7 +1,7 @@
 # Tools_C architecture 4.0.1
 
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Download Tools_C v4.0.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.1)
+[Download Tools_C v4.0.3](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.3)
 includes the canonical ZIP, checksums and extracted-package verification.
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
@@ -36,7 +36,7 @@ library; no third-party packages to install. Its own contracts/checkers are
 authoritative. Optional external validators (including skill-creator quick_validate)
 have their own dependencies; their absence does not invalidate Tools_C checks.
 Engine probes, full live MCP service dependencies and human review are separate.
-Current migration and evidence: [v4 report](TOOLS_C_V4_MIGRATION_REPORT.md).
+Latest Blender form/context improvements and evidence: [form-methods report](reports/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
 Historical acceptance: [V1 final report](reports/V1_FINAL.md) and [V1 report](reports/V1.md). Godot and Blender are optional for
 L1 and required only for their applicable engine/runtime checks.
 

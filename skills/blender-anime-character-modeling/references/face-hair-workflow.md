@@ -36,6 +36,10 @@ preserve designed asymmetry and separate its causes from accidental drift.
 
 ## Hair as designed masses
 
+Use [form recipes](../../blender-pipeline/references/techniques/form-recipes.md)
+when round tubes or constant slabs cannot describe the intended locks, limb
+sections, cloth loops or fur. Prove one editable sample before multiplying it.
+
 Block the cap, parting and large clumps first: fringe, sides, crown/back and any
 separate tails or ornaments. Follow the intended root-to-tip flow. Compare negative
 spaces and the outer contour before subdividing or adding strands.

@@ -68,6 +68,11 @@ Resolve hair groups and clothing clearance, then refine only identity-bearing
 secondary forms. Choose polygon editing, curves or an authorized sculpt stage
 according to editability and the requested result.
 
+For a focal character in a larger scene, prove its face, pose and primary hair/body
+masses in a [representative lookdev slice](../production-lookdev-gate/SKILL.md)
+before spending heavily on background dressing. For a Blender-only result, use
+the intended Blender renderer; target-engine checks are conditional on delivery.
+
 For revision, capture the current state, isolate the feature and its dependencies,
 make a bounded change and compare protected views/data. A dark face patch may come
 from geometry, custom normals, a shadow mask or the renderer; diagnose its source

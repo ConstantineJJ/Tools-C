@@ -31,9 +31,13 @@ ROUTE_TECHNIQUES = {
 
 SPECIALISTS = ("blender-rigging-skinning", "blender-animation",
                "blender-export-validation", "godot-asset-integration")
+FORM_OWNERS = {"blender-character-modeling", "blender-anime-character-modeling",
+               "blender-architecture-environment", "blender-environment-assets",
+               "blender-props", "blender-vegetation"}
 
 
-def render(root, alias):
+def document_paths(root, alias):
+    """Ordered canonical document identities, independent of context transport."""
     manifest = catalog(root)
     canonical = {s["id"]: s["path"] for s in manifest["skills"]}
     if alias not in manifest["blender_aliases"] and alias not in canonical:
@@ -42,6 +46,8 @@ def render(root, alias):
              "skills/blender-pipeline/references/core.md",
              canonical[alias] if alias in canonical else manifest["blender_aliases"][alias]["reference"],
              "skills/verification/SKILL.md"]
+    if paths[4] in {canonical[s] for s in FORM_OWNERS}:
+        paths.append("skills/blender-pipeline/references/techniques/form-development.md")
     if alias == "Blender_Character_Rigging_Animation_Godot_SKILL":
         paths.extend(canonical[s] for s in SPECIALISTS)
         paths.append("skills/blender-animation/references/motion.md")
@@ -54,8 +60,12 @@ def render(root, alias):
                       "skills/blender-anime-character-modeling/references/face-hair-workflow.md"])
     if alias in ROUTE_TECHNIQUES:
         paths.append("skills/blender-pipeline/references/techniques/" + ROUTE_TECHNIQUES[alias])
+    return list(dict.fromkeys(paths))
+
+
+def render(root, alias):
     return "\n\n".join(f"SOURCE: {p}\n\n{existing(root, p).read_text(encoding='utf-8')}"
-                        for p in dict.fromkeys(paths))
+                        for p in document_paths(root, alias))
 
 
 def router(root, alias):

@@ -33,4 +33,4 @@ New helpers use the standard library outside Blender, except opt-in live MCP SDK
 probes. Blender helpers use bpy only inside Blender. Images/snapshots do not claim
 automatic aesthetic judgment. Deployment diagnostics never turn local sync into
 runtime acceptance. See [foundation](foundation.md), [evidence](blender-evidence.md),
-[MCP deployment](mcp-deployment.md) and the [migration report](../TOOLS_C_V4_MIGRATION_REPORT.md).
+[MCP deployment](mcp-deployment.md).

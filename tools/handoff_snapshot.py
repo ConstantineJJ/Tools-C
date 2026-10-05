@@ -20,7 +20,10 @@ def names(value):
 
 def validate(data):
     fields(data, ["schema_version", "stage", "blender_version", "frame", "fps", "objects",
-                  "actions", "protected_objects", "blockers", "verification"])
+                  "actions", "protected_objects", "blockers", "verification"], ['data_categories'])
+    categories=data.get('data_categories',[])
+    names(categories)
+    require(set(categories)<={'uvs','normals','shape_keys','weights','modifiers','curves','material_graphs'}, 'Unknown protected-data category')
     require(type(data["schema_version"]) is int and data["schema_version"] == 1, "Unknown snapshot schema")
     for key in ("stage", "blender_version"):
         require(isinstance(data[key], str) and bool(data[key].strip()), f"Empty {key}")
@@ -28,7 +31,10 @@ def validate(data):
     require(isinstance(data["objects"], list), "Objects must be an array")
     object_names = []
     for obj in data["objects"]:
-        fields(obj, ["name", "type", "parent", "parent_bone", "matrix_world", "geometry", "bones", "materials"])
+        fields(obj, ["name", "type", "parent", "parent_bone", "matrix_world", "geometry", "bones", "materials"], ['data_fingerprints'])
+        fingerprints=obj.get('data_fingerprints',{})
+        require(isinstance(fingerprints,dict) and set(fingerprints)==set(categories), 'Declared fingerprints missing or undeclared')
+        require(all(isinstance(v,str) and re.fullmatch(r'[0-9a-f]{64}',v) for v in fingerprints.values()), 'Invalid data fingerprint')
         strings([obj["name"], obj["type"]])
         require(obj["parent"] is None or isinstance(obj["parent"], str), "Invalid parent")
         require(isinstance(obj["parent_bone"], str), "Invalid parent bone")
@@ -88,7 +94,8 @@ def compare(before, after):
     return {"changed_objects": changed, "protected_regressions": protected,
             "actions_changed": before["actions"] != after["actions"],
             "comparable_time": before["frame"] == after["frame"] and before["fps"] == after["fps"],
-            "limits": "Raw source identity only; not export equivalence, weights, curves or visual acceptance"}
+            "data_categories_changed": before.get('data_categories',[])!=after.get('data_categories',[]),
+            "limits": "Declared source identity only; omitted categories/resources, export equivalence and visual acceptance are not certified"}
 
 
 if __name__ == "__main__":

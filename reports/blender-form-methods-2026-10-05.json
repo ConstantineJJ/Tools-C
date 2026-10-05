@@ -1,0 +1,612 @@
+{
+  "date": "2026-10-05",
+  "scope": "Six authorized skill/tool improvements; original diorama not edited",
+  "unittest": {
+    "status": "PASS",
+    "count": 117
+  },
+  "l1": {
+    "pass_count": 32,
+    "warn_count": 0,
+    "fail_count": 0
+  },
+  "migration": {
+    "blender-architecture-environment": {
+      "before_chars": 20275,
+      "after_chars": 5047,
+      "moved_chars": 17501,
+      "preserved_sections": [
+        "planning.md",
+        "construction.md",
+        "production-options.md",
+        "validation-and-handoff.md"
+      ]
+    },
+    "blender-environment-assets": {
+      "before_chars": 21021,
+      "after_chars": 5264,
+      "moved_chars": 18028,
+      "preserved_sections": [
+        "planning.md",
+        "construction.md",
+        "production-options.md",
+        "validation-and-handoff.md"
+      ]
+    },
+    "blender-props": {
+      "before_chars": 23378,
+      "after_chars": 5698,
+      "moved_chars": 19889,
+      "preserved_sections": [
+        "planning.md",
+        "construction.md",
+        "production-options.md",
+        "validation-and-handoff.md"
+      ]
+    },
+    "blender-vegetation": {
+      "before_chars": 24817,
+      "after_chars": 5584,
+      "moved_chars": 21595,
+      "preserved_sections": [
+        "planning.md",
+        "construction.md",
+        "production-options.md",
+        "validation-and-handoff.md"
+      ]
+    }
+  },
+  "examples": {
+    "blender_version": "5.2.2 LTS",
+    "structural": "PASS",
+    "visual": "PASS",
+    "images": [
+      {
+        "kind": "limb",
+        "path": "limb.png",
+        "sha256": "319b822cd1b40bb4789e87919eef8c43de7ebf3dee6f64533ef8bbf2922d2632"
+      },
+      {
+        "kind": "limb_threequarter",
+        "path": "limb_threequarter.png",
+        "sha256": "c1eba07ff45f1fb3c55b76cc6ed36c227a9d247405b251677364b9d1874cdfe2"
+      },
+      {
+        "kind": "hair",
+        "path": "hair.png",
+        "sha256": "81ee658bb9ec10de8a0c1cc8e3ab950a191c74162dc3ccbecd30963184368dd4"
+      },
+      {
+        "kind": "hair_threequarter",
+        "path": "hair_threequarter.png",
+        "sha256": "6ef813ed54b7fa7e62e9c9462ee9960c67c2af9c5f40c21a3b1180fcb2bc3fb8"
+      },
+      {
+        "kind": "ribbon",
+        "path": "ribbon.png",
+        "sha256": "aaa3cad18a303aba7f408297eff085e90abcfb6cf13a4f3ac871f7bca36ba9ba"
+      },
+      {
+        "kind": "canopy",
+        "path": "canopy.png",
+        "sha256": "cd5ff84d75774a4329d541af00475d75274f1cb1f973e97de03d2d256cac180f"
+      },
+      {
+        "kind": "fur",
+        "path": "fur.png",
+        "sha256": "7765a94256134ca6f795a44010837ff1fafa1af105510954358f73c5980e1763"
+      }
+    ],
+    "limits": "Isolated construction fixtures; no beauty, anatomy, reference-fidelity or runtime asset certificate",
+    "blend_sha256": "c00a892d9be5fc63fda6db201375e6099debb71917ed9b04026048c6f2e01344",
+    "review_scope": "Construction criteria only; seven actual PNGs inspected by agent on 2026-10-05",
+    "observations": {
+      "limb": "Variable thigh/knee/calf sections and bent centerline visible in front and alternate view; terminal cuts remain study boundaries.",
+      "hair": "Width, depth and taper vary along an S-shaped lock; thickness and narrowed positive tip visible in both views.",
+      "ribbon": "Folded strip loops, visible inner surfaces and separate tails read as ribbon instead of two oval masses.",
+      "canopy": "Separate spheres replaced with a connected asymmetric lobed silhouette; secondary leaf distribution is outside this study.",
+      "fur": "Uniform angular tuft row replaced with varied soft directional tufts and selective fibres; this is a small construction patch, not final fur grooming."
+    },
+    "portable_render_output": "//form-example-render.png"
+  },
+  "deployment": {
+    "disk": "PASS",
+    "stdio": "PASS",
+    "source_tools": [
+      "blender_operation_status",
+      "capture_viewport",
+      "create_camera",
+      "create_cube",
+      "create_light",
+      "create_uv_sphere",
+      "delete_object",
+      "deployment_info",
+      "execute_blender_python",
+      "find_skills",
+      "get_scene_info",
+      "get_skill_context",
+      "list_skills",
+      "read_skill",
+      "save_blend_file",
+      "set_object_material",
+      "start_curve_batch"
+    ],
+    "server_sha256": "a62fb37edeac9dae4ceabf184ba6fec500bd107f12c13d45f7b9c49e3d4965cd",
+    "catalog": "1efc6e96d53f4a6c70ed74e1e2347106b0908e329ffc2521087ca544afe81f1f",
+    "aliases_checked": [
+      "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+      "Blender_Character_Modeling_SKILL",
+      "Blender_Character_Pipeline_Core",
+      "Blender_Character_QA_SKILL",
+      "Blender_Character_Rigging_Animation_Godot_SKILL",
+      "Blender_Iterative_Refinement_SKILL",
+      "Blender_Organic_Sculpting_SKILL",
+      "Blender_Reference_Reconstruction_SKILL",
+      "Blender_Retopology_Deformation_SKILL"
+    ],
+    "tunnel": {
+      "status": "PASS",
+      "profile": "C:\\Users\\kosti\\AppData\\Roaming\\tunnel-client\\blender-local.yaml",
+      "health": "127.0.0.1:8080",
+      "command": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\run_blender_mcp_server.cmd",
+      "limits": "Target and ready status only; actual connector calls remain separate"
+    }
+  },
+  "source_sha256": {
+    "tools/blender_forms.py": "b464ae659dea646418c8bf2a7e21985d35ad54f733c5ff3ea1215e733a0f92dc",
+    "tools/blender_contacts.py": "46dd9c71db5691317fa92cb80418dcf4ed33b5783102dadba6c717a9278ef909",
+    "tools/blender_jobs.py": "691400503f5efe7045a7c48dbc94e1ecf0dca95ca02c356fd9ce8e541e8eb352",
+    "tools/blender_snapshot.py": "ad3992ea6f2f7d110601477abce886700673dc709af43cdb63737be64ea91702",
+    "tools/handoff_snapshot.py": "14a35d8a51598967f5979e689ecf44c01d5f9ebad9253eb2887b5e329bcbd06b",
+    "tools/mcp_runtime.py": "462a7f9035d1baa7d7fcf8729e7d4da7a2fa7ef8416802fc6dcc38a9be760a38",
+    "tools/read_blender_skill.py": "143606ada9f3c04c66daa1fc92b1e2060348c37b3686e15c603eca196d8db589",
+    "tests/test_form_tools.py": "55a161098fcd2516366310597406d197a5f4759c1cab7bc79746b86f2161927e",
+    "tests/blender_form_runtime_probe.py": "bc6908e88ce5941fc070845cda8bd22e3f6729da62aed2bdcff6fc0a72631f29",
+    "tests/mcp_form_probe.py": "307db5211e8a30c97060a4f5d34fb43bd3f402b5219dbeaf431712c139958168"
+  },
+  "form_runtime": {
+    "blender": "5.2.2 LTS",
+    "checks": [
+      {
+        "check": "editable sweep mesh and UVs created",
+        "status": "PASS"
+      },
+      {
+        "check": "invalid paths rejected before datablock mutation",
+        "status": "PASS"
+      },
+      {
+        "check": "1300 fibres remain one editable curve object",
+        "status": "PASS"
+      },
+      {
+        "check": "parent assignment preserves world placement",
+        "status": "PASS"
+      },
+      {
+        "check": "parent cycle rejected without mutation",
+        "status": "PASS"
+      },
+      {
+        "check": "oversized timer batch rejected before scene mutation",
+        "status": "PASS"
+      },
+      {
+        "check": "operation IDs cannot escape receipt directory",
+        "status": "PASS"
+      },
+      {
+        "check": "unfinished historical receipt reports interruption without replay",
+        "status": "PASS"
+      },
+      {
+        "check": "contact diagnostics distinguish containment, crossing, distance, near and open surface",
+        "status": "PASS"
+      },
+      {
+        "check": "open surface cannot get volume acceptance",
+        "status": "PASS"
+      },
+      {
+        "check": "limited volume sampling stays inconclusive",
+        "status": "PASS"
+      },
+      {
+        "check": "uvs mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "normals mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "shape_keys mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "weights mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "modifiers mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "curves mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "material_graphs mutation detected on protected data",
+        "status": "PASS"
+      },
+      {
+        "check": "snapshot evaluates inactive scene transforms before capture",
+        "status": "PASS"
+      }
+    ],
+    "contacts": {
+      "pairs": [
+        {
+          "a": "ContactOuter",
+          "b": "ContactInner",
+          "expected": [
+            "containment"
+          ],
+          "relationship": "containment",
+          "status": "PASS",
+          "surface_triangle_pairs": 0,
+          "closed_a": true,
+          "closed_b": true,
+          "sample_limit_reached": false,
+          "sampled_distance_upper_bound": 1.5,
+          "tolerance": 0.025
+        },
+        {
+          "a": "ContactOuter",
+          "b": "ContactIntersection",
+          "expected": [
+            "surface_intersection"
+          ],
+          "relationship": "surface_intersection",
+          "status": "PASS",
+          "surface_triangle_pairs": 10,
+          "closed_a": true,
+          "closed_b": true,
+          "sample_limit_reached": false,
+          "sampled_distance_upper_bound": 0.39999961853027344,
+          "tolerance": 0.025
+        },
+        {
+          "a": "ContactOuter",
+          "b": "ContactFar",
+          "expected": [
+            "separated"
+          ],
+          "relationship": "separated",
+          "status": "PASS",
+          "surface_triangle_pairs": 0,
+          "closed_a": true,
+          "closed_b": true,
+          "sample_limit_reached": false,
+          "sampled_distance_upper_bound": 7.5,
+          "tolerance": 0.025
+        },
+        {
+          "a": "ContactOuter",
+          "b": "ContactNear",
+          "expected": [
+            "proximity"
+          ],
+          "relationship": "proximity",
+          "status": "PASS",
+          "surface_triangle_pairs": 0,
+          "closed_a": true,
+          "closed_b": true,
+          "sample_limit_reached": false,
+          "sampled_distance_upper_bound": 0.020000457763671875,
+          "tolerance": 0.025
+        },
+        {
+          "a": "ContactOuter",
+          "b": "ContactOpen",
+          "expected": [
+            "inconclusive"
+          ],
+          "relationship": "inconclusive",
+          "status": "REVIEW REQUIRED",
+          "surface_triangle_pairs": 0,
+          "closed_a": true,
+          "closed_b": false,
+          "sample_limit_reached": false,
+          "sampled_distance_upper_bound": 17.5,
+          "tolerance": 0.025
+        }
+      ],
+      "limits": "Selected current-pose surfaces only; coplanarity/near-boundary cases need review. Sampled proximity is not a certified global minimum clearance; no motion or global-scene certificate."
+    }
+  },
+  "saved_reopen": {
+    "checks": [
+      {
+        "check": "saved-file declared categories and fresh world transforms preserved",
+        "status": "PASS"
+      }
+    ],
+    "diff": {
+      "changed_objects": [],
+      "protected_regressions": [],
+      "actions_changed": false,
+      "comparable_time": true,
+      "data_categories_changed": false,
+      "limits": "Declared source identity only; omitted categories/resources, export equivalence and visual acceptance are not certified"
+    }
+  },
+  "mcp_interface": {
+    "checks": [
+      {
+        "check": "context continuation fields registered in actual MCP schema",
+        "status": "PASS"
+      },
+      {
+        "check": "tight budget returns required missing documents",
+        "status": "PASS"
+      },
+      {
+        "check": "continuation completes five Russian domain owners",
+        "status": "PASS"
+      },
+      {
+        "check": "retained context emits no duplicate bodies",
+        "status": "PASS"
+      },
+      {
+        "check": "context path traversal is rejected",
+        "status": "PASS"
+      },
+      {
+        "check": "typed MCP operation returns queued receipt",
+        "status": "PASS"
+      },
+      {
+        "check": "typed MCP status observes actual Blender timer completion",
+        "status": "PASS"
+      },
+      {
+        "check": "typed smoke output cleaned up",
+        "status": "PASS"
+      },
+      {
+        "check": "operation state survives a new MCP server process",
+        "status": "PASS"
+      },
+      {
+        "check": "partial-failure fixture submitted",
+        "status": "PASS"
+      },
+      {
+        "check": "failed operation retains first completed batch and its identity",
+        "status": "PASS"
+      },
+      {
+        "check": "partial-failure fixture cleaned",
+        "status": "PASS"
+      }
+    ],
+    "first_context": {
+      "owners": [
+        "blender-architecture-environment",
+        "blender-environment-assets",
+        "blender-props",
+        "blender-vegetation",
+        "blender-anime-character-modeling"
+      ],
+      "missing": [
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/blender-pipeline/references/techniques/form-development.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-anime-character-modeling/SKILL.md",
+        "skills/blender-character-modeling/SKILL.md"
+      ]
+    },
+    "operation": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-mcp-probe-1791178928273168200",
+      "kind": "curve_batch",
+      "status": "completed",
+      "request_sha256": "0be82631256f118000f20b9d66a4bff2c10ec82eb981abdaa717a5522cf4558b",
+      "collection": "ToolsC_MCP_FormSmoke_1791178928273169500",
+      "total_batches": 1,
+      "completed_batches": 1,
+      "created_objects": [
+        "ToolsC_MCP_FormSmoke_1791178928273169500_Curve"
+      ],
+      "started_at": 1791178928.3083804,
+      "cancel_requested": false,
+      "error": null,
+      "finished_at": 1791178928.3306081
+    },
+    "scope": "Disposable stdio MCP server to current Blender addon; existing connector catalog is separate"
+  },
+  "examples_reopen": {
+    "blender": "5.2.2 LTS",
+    "status": "PASS",
+    "source": "E:\\MyCreations\\Tools_C\\skills\\blender-pipeline\\assets\\form-examples\\Form_Examples.blend",
+    "objects": 85,
+    "cameras": 7,
+    "meshes": 47,
+    "checks": [
+      "independent reopen with autoexec disabled",
+      "seven comparison cameras present",
+      "source meshes validate without corrections",
+      "limb/hair source UV layers present"
+    ]
+  },
+  "live_jobs": {
+    "completed": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-methods-20261005-live1",
+      "kind": "curve_batch",
+      "status": "completed",
+      "request_sha256": "705b096e985a81f3364148c41008138d1833dd71420c151bfecb75706c9a4375",
+      "collection": "ToolsC_FormProbe_Live",
+      "total_batches": 13,
+      "completed_batches": 13,
+      "created_objects": [
+        "ToolsC_ProbeBatch_0",
+        "ToolsC_ProbeBatch_1",
+        "ToolsC_ProbeBatch_2",
+        "ToolsC_ProbeBatch_3",
+        "ToolsC_ProbeBatch_4",
+        "ToolsC_ProbeBatch_5",
+        "ToolsC_ProbeBatch_6",
+        "ToolsC_ProbeBatch_7",
+        "ToolsC_ProbeBatch_8",
+        "ToolsC_ProbeBatch_9",
+        "ToolsC_ProbeBatch_10",
+        "ToolsC_ProbeBatch_11",
+        "ToolsC_ProbeBatch_12"
+      ],
+      "started_at": 1791176586.3707814,
+      "cancel_requested": false,
+      "error": null,
+      "finished_at": 1791176586.6848006
+    },
+    "repeat": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-methods-20261005-live1",
+      "kind": "curve_batch",
+      "status": "completed",
+      "request_sha256": "705b096e985a81f3364148c41008138d1833dd71420c151bfecb75706c9a4375",
+      "collection": "ToolsC_FormProbe_Live",
+      "total_batches": 13,
+      "completed_batches": 13,
+      "created_objects": [
+        "ToolsC_ProbeBatch_0",
+        "ToolsC_ProbeBatch_1",
+        "ToolsC_ProbeBatch_2",
+        "ToolsC_ProbeBatch_3",
+        "ToolsC_ProbeBatch_4",
+        "ToolsC_ProbeBatch_5",
+        "ToolsC_ProbeBatch_6",
+        "ToolsC_ProbeBatch_7",
+        "ToolsC_ProbeBatch_8",
+        "ToolsC_ProbeBatch_9",
+        "ToolsC_ProbeBatch_10",
+        "ToolsC_ProbeBatch_11",
+        "ToolsC_ProbeBatch_12"
+      ],
+      "started_at": 1791176586.3707814,
+      "cancel_requested": false,
+      "error": null,
+      "finished_at": 1791176586.6848006
+    },
+    "changed_input_rejected": true,
+    "cancel_request": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-methods-20261005-cancel1",
+      "kind": "curve_batch",
+      "status": "queued",
+      "request_sha256": "16c08054c632ab094b8ec6fa72f302d513e21117300eedfd15f2563b8d1bfb0d",
+      "collection": "ToolsC_CancelProbe",
+      "total_batches": 1,
+      "completed_batches": 0,
+      "created_objects": [],
+      "started_at": 1791176627.460285,
+      "cancel_requested": true,
+      "error": null
+    },
+    "cancelled": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-methods-20261005-cancel1",
+      "kind": "curve_batch",
+      "status": "cancelled",
+      "request_sha256": "16c08054c632ab094b8ec6fa72f302d513e21117300eedfd15f2563b8d1bfb0d",
+      "collection": "ToolsC_CancelProbe",
+      "total_batches": 1,
+      "completed_batches": 0,
+      "created_objects": [],
+      "started_at": 1791176627.460285,
+      "cancel_requested": true,
+      "error": null,
+      "finished_at": 1791176627.4840293
+    },
+    "failed": {
+      "ok": true,
+      "process_state": "live",
+      "operation_id": "form-methods-20261005-fail1",
+      "kind": "curve_batch",
+      "status": "failed",
+      "request_sha256": "1f2db586cf954892a5915475e7b648158b2b4584baf39e4450cdd731cee53b79",
+      "collection": "ToolsC_FailProbe",
+      "total_batches": 1,
+      "completed_batches": 0,
+      "created_objects": [],
+      "started_at": 1791176627.4616053,
+      "cancel_requested": false,
+      "error": "Unique object name and positive finite radius required",
+      "finished_at": 1791176627.4848669
+    },
+    "protected_diff": {
+      "changed_objects": [],
+      "protected_regressions": [],
+      "actions_changed": false,
+      "comparable_time": true,
+      "data_categories_changed": false,
+      "limits": "Declared source identity only; omitted categories/resources, export equivalence and visual acceptance are not certified"
+    },
+    "scene_restored": true
+  },
+  "final_scene": {
+    "diff": {
+      "changed_objects": [],
+      "protected_regressions": [],
+      "actions_changed": false,
+      "comparable_time": true,
+      "data_categories_changed": false,
+      "limits": "Declared source identity only; omitted categories/resources, export equivalence and visual acceptance are not certified"
+    },
+    "object_count": 3,
+    "status": "PASS"
+  },
+  "connector": {
+    "observed_tool_names": [
+      "create_camera",
+      "create_cube",
+      "create_light",
+      "create_uv_sphere",
+      "delete_object",
+      "execute_blender_python",
+      "find_skills",
+      "get_scene_info",
+      "get_skill_context",
+      "list_skills",
+      "read_skill",
+      "save_blend_file",
+      "set_object_material"
+    ],
+    "mixed": {
+      "ok": true,
+      "owners": [
+        "blender-architecture-environment",
+        "blender-environment-assets",
+        "blender-vegetation",
+        "blender-anime-character-modeling"
+      ],
+      "emitted_chars": 49854,
+      "missing": []
+    },
+    "limits": "Names exposed in this ongoing chat; refreshing external connector discovery is not verified"
+  },
+  "integration_preserved": {
+    "original_dirty_files": 27,
+    "changed": []
+  }
+}
