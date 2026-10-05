@@ -1,0 +1,75 @@
+{
+  "release_id": 403810258,
+  "url": "https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.1.0",
+  "tag": "v4.1.0",
+  "source_commit": "a82bc45649985b0935261ef3ada9701d5a7ee94e",
+  "local_source_commit": "9852890475e85ae1ea8f8a21d3f6fb8e5021e40f",
+  "integration_commit": "d515432b9f0eb1060da6f85ec829c5d1a7c0a8a0",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "main_and_tag_match_tested_commit": true,
+  "public_archive_download": "PASS",
+  "assets": [
+    {
+      "name": "release-verification.json",
+      "size": 56928,
+      "digest": "sha256:dc7e4cf3d5667f812630f74cc3d9645b053f6d2e21ec24259ae14a1b9b64f020",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.1.0/release-verification.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 179,
+      "digest": "sha256:68d92d2602f46cb7ba1bcdb9ec35f322809e51ae213cd49868da23ac26949ba1",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.1.0/SHA256SUMS.txt"
+    },
+    {
+      "name": "Tools_C-v4.1.0.zip",
+      "size": 9345241,
+      "digest": "sha256:7e399034ca0b7935aa2e7c328a1a85f00f510c7c624ef99d82f6a81c1970639e",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.1.0/Tools_C-v4.1.0.zip"
+    }
+  ],
+  "published_at": "2026-10-05T14:29:31Z",
+  "extracted_package": {
+    "python": "3.14.2",
+    "source_bytes_after_checks": "PASS",
+    "unittest": {
+      "status": "PASS",
+      "tests": 136,
+      "seconds": 144.399,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "l1": {
+      "PASS": 41,
+      "SKIP": 3
+    },
+    "windows_launcher": {
+      "status": "PASS",
+      "foreign_cwd_and_install_path_with_spaces": true,
+      "explicit_python_override": true
+    }
+  },
+  "archive": {
+    "name": "Tools_C-v4.1.0.zip",
+    "bytes": 9345241,
+    "sha256": "7e399034ca0b7935aa2e7c328a1a85f00f510c7c624ef99d82f6a81c1970639e",
+    "committed_files": 169,
+    "all_entries_match_source_with_declared_bat_crlf": true,
+    "conversions": []
+  },
+  "verification_scope": "Fresh extracted package: structure, regression routing/provenance and Windows launcher. Prior supplied-mech exercise demonstrates bounded handoff and failed clay escalation gates, not production quality, hidden geometry or engineering certification. L2-L4 blanket acceptance is not implied.",
+  "integration_push": {
+    "status": "NOT_PUBLISHED",
+    "reason": "Configured Blender-MCP-Co remote returns Repository not found; local router commit retained"
+  },
+  "preservation": {
+    "files": {
+      "E:\\MyCreations\\Tools_C": 7,
+      "E:\\MyCreations\\Blender-MCP-Co": 28
+    },
+    "status": "PASS"
+  }
+}
