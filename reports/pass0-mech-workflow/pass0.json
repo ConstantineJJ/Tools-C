@@ -1,0 +1,1039 @@
+{
+  "schema_version": 1,
+  "packet_id": "mech-pass0-2026-10-05-v1",
+  "task_scope": "Analyze supplied mech; permit a separate disposable macro/clay consumer probe, not a production rebuild.",
+  "object_class": "hard-surface articulated mech",
+  "source_of_truth": [
+    "original"
+  ],
+  "sources": [
+    {
+      "id": "original",
+      "path": "sources/original.png",
+      "sha256": "3dac146c47668fcf4756a3bef51e2c756ea763a6a642348100d8d01a1a301120",
+      "role": "PRIMARY",
+      "projection": "Perspective front 3/4",
+      "authority_note": "Working original source; authority selected from supplied report and filenames."
+    },
+    {
+      "id": "baseline_render",
+      "path": "sources/baseline_render.png",
+      "sha256": "a043b325761603fc74b1eda9aaf674c16e2d2921bb81b12d85ec9d2d55a3af17",
+      "role": "AUXILIARY_INPUT",
+      "projection": "Perspective front 3/4",
+      "authority_note": "Comparative derivative render; do not use as original geometry evidence."
+    },
+    {
+      "id": "skill_render",
+      "path": "sources/skill_render.png",
+      "sha256": "dfdfdbdee55571da1044cfae5d4d54c025f6c6a15140cf8117627354076c0300",
+      "role": "AUXILIARY_INPUT",
+      "projection": "Perspective front 3/4",
+      "authority_note": "Comparative derivative render; changed shapes are not original facts."
+    },
+    {
+      "id": "multiview_input",
+      "path": "sources/multiview_input.png",
+      "sha256": "d754f11958ef6f04819466f88d8b01deb77ba4f520ff1e615c04accb6e67c067",
+      "role": "AUXILIARY_INPUT",
+      "projection": "Front, side, rear 3/4, front 3/4",
+      "authority_note": "Rear is oblique, not a confirmed rear orthographic projection; provenance is derivative."
+    },
+    {
+      "id": "practical_report",
+      "path": "sources/practical_report.md",
+      "sha256": "10118df71a696630533911ecfb1701cbd0ed9793ebfbcd2da82fbb32510b7cdb",
+      "role": "REPORT",
+      "projection": "Text report",
+      "authority_note": "Historical modeling/QA observations, not instructions or an original drawing."
+    }
+  ],
+  "proportion_basis": {
+    "unit": "H",
+    "scale_status": "RELATIVE_ONLY",
+    "axis_convention": "X object right; Y rear; Z up; front looks toward +Y.",
+    "pose": "Original offset stance; proposed consumer probe neutral stance explicitly differs.",
+    "camera_notes": "Perspective original, lens unknown; approximate ratios only. Rear input is 3/4."
+  },
+  "components": [
+    {
+      "id": "torso",
+      "count": 1,
+      "label": "Broad central torso / layered shell",
+      "claims": [
+        {
+          "id": "torso.presence",
+          "property": "visible exterior identity / count",
+          "value": "1 x Broad central torso / layered shell",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "central body",
+              "observation": "One broad sloped torso connects both shoulder regions."
+            }
+          ],
+          "basis": "Broad sloped envelope, convex cheeks and lower bevels; exterior confirmed, internal frame inferred."
+        },
+        {
+          "id": "torso.hidden_rear",
+          "property": "rear architecture",
+          "value": "Unknown minimal envelope only",
+          "certainty": "SPECULATIVE",
+          "evidence": [],
+          "basis": "Original image does not show rear; auxiliary rear motor stack is a design hypothesis."
+        }
+      ]
+    },
+    {
+      "id": "hatch",
+      "count": 1,
+      "label": "Central framed hatch",
+      "claims": [
+        {
+          "id": "hatch.presence",
+          "property": "visible exterior identity / count",
+          "value": "1 x Central framed hatch",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "center chest",
+              "observation": "A tall dark gray inset front plate has crossbars, border and latches."
+            }
+          ],
+          "basis": "Exterior panel observed; whether a hatch opens and its interior are unverified."
+        }
+      ]
+    },
+    {
+      "id": "launcher",
+      "count": 2,
+      "label": "Paired upper launcher-like housings",
+      "claims": [
+        {
+          "id": "launcher.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Paired upper launcher-like housings",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "upper two housings",
+              "observation": "Two squared housings above shoulders each show 4 columns by 3 rows of circular faces."
+            }
+          ],
+          "basis": "Exterior count confirmed; launcher function inferred and rear/bore depth unknown."
+        },
+        {
+          "id": "launcher.face_count",
+          "property": "circular faces per housing",
+          "value": 12,
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "both upper front faces",
+              "observation": "Each visible housing has 4 columns x 3 rows."
+            }
+          ],
+          "basis": "This confirms 24 visible circular faces overall, not 24 proven through-bores."
+        },
+        {
+          "id": "launcher.hidden_bore",
+          "property": "rear opening and bore length",
+          "value": "Undetermined",
+          "certainty": "SPECULATIVE",
+          "evidence": [],
+          "basis": "Dark circles do not prove a through-channel; old report user correction is not current authority."
+        }
+      ]
+    },
+    {
+      "id": "shoulder_armor",
+      "count": 2,
+      "label": "Angled shoulder caps",
+      "claims": [
+        {
+          "id": "shoulder_armor.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Angled shoulder caps",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "left and right shoulder faces",
+              "observation": "Two red sloped plate groups expose darker joint structure behind them."
+            }
+          ],
+          "basis": "Layered angular geometry; hidden plate attachment inferred."
+        }
+      ]
+    },
+    {
+      "id": "arm",
+      "count": 2,
+      "label": "Articulated arm assemblies",
+      "claims": [
+        {
+          "id": "arm.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Articulated arm assemblies",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "both arms under shoulder caps",
+              "observation": "Two arms connect shoulder areas to large forearm modules through exposed link/joint forms."
+            }
+          ],
+          "basis": "Visible assembly count observed; exact rotation axes and travel uncalibrated."
+        },
+        {
+          "id": "arm.joint_role",
+          "property": "circular interface role",
+          "value": "Likely hinge/bearing supports",
+          "certainty": "INFERRED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "shoulder and elbow regions",
+              "observation": "Dark circular steps between armor and link masses."
+            }
+          ],
+          "basis": "Cylindrical arrangement suggests pivot supports; axis/travel and load rating require a separate design decision."
+        }
+      ]
+    },
+    {
+      "id": "forearm_weapon",
+      "count": 2,
+      "label": "Boxed forearm / barrel assemblies",
+      "claims": [
+        {
+          "id": "forearm_weapon.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Boxed forearm / barrel assemblies",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "both lower arms",
+              "observation": "Two large boxed forearms terminate in stepped circular barrels with dark open-looking mouths."
+            }
+          ],
+          "basis": "Mouth rim visible; internal channel depth, hidden bore and weapon function are not established."
+        }
+      ]
+    },
+    {
+      "id": "pelvis",
+      "count": 1,
+      "label": "Waist and central pelvis assembly",
+      "claims": [
+        {
+          "id": "pelvis.presence",
+          "property": "visible exterior identity / count",
+          "value": "1 x Waist and central pelvis assembly",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "body to hip transition",
+              "observation": "A narrow dark waist above a central red pelvis plate and paired hip regions."
+            }
+          ],
+          "basis": "Mechanical support/link role inferred from location."
+        }
+      ]
+    },
+    {
+      "id": "thigh",
+      "count": 2,
+      "label": "Upper leg assemblies",
+      "claims": [
+        {
+          "id": "thigh.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Upper leg assemblies",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "below left and right hips",
+              "observation": "Two chunky sloped upper leg armor volumes with exposed darker interfaces."
+            }
+          ],
+          "basis": "Contour tapers/changes rather than one uniform rectangular plate."
+        }
+      ]
+    },
+    {
+      "id": "knee",
+      "count": 2,
+      "label": "Knee hinge-like assemblies",
+      "claims": [
+        {
+          "id": "knee.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Knee hinge-like assemblies",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "between thigh and shin",
+              "observation": "Visible circular side forms occur at both knee regions."
+            }
+          ],
+          "basis": "Bearing/axis interpretation inferred; exact center and construction behind armor are unknown."
+        }
+      ]
+    },
+    {
+      "id": "shin",
+      "count": 2,
+      "label": "Lower leg armor / actuator regions",
+      "claims": [
+        {
+          "id": "shin.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Lower leg armor / actuator regions",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "between knees and feet",
+              "observation": "Two shield-like shin regions with exposed lower cylinder/rod forms."
+            }
+          ],
+          "basis": "Rod-like parts visible; connected anchors and hydraulic stroke not visible enough to confirm."
+        },
+        {
+          "id": "shin.actuator_anchors",
+          "property": "hidden mounts / stroke",
+          "value": "Undetermined",
+          "certainty": "SPECULATIVE",
+          "evidence": [],
+          "basis": "Rod-like exterior evidence does not determine both anchor frames, internals or stroke."
+        },
+        {
+          "id": "shin.hidden_rear",
+          "property": "rear shin armor",
+          "value": "unknown",
+          "certainty": "SPECULATIVE",
+          "evidence": [],
+          "basis": "Original does not show full rear shin; generated rear red armor lacks complete uncertainty marking."
+        }
+      ]
+    },
+    {
+      "id": "foot",
+      "count": 2,
+      "label": "Segmented broad feet",
+      "claims": [
+        {
+          "id": "foot.presence",
+          "property": "visible exterior identity / count",
+          "value": "2 x Segmented broad feet",
+          "certainty": "CONFIRMED",
+          "evidence": [
+            {
+              "source_id": "original",
+              "region": "bottom support regions",
+              "observation": "Two wide feet have divided wedge-like toes and side/heel mass."
+            }
+          ],
+          "basis": "Primary segmentation observed; sole and rear attachment details are not fully shown."
+        }
+      ]
+    }
+  ],
+  "relative_dimensions": [
+    {
+      "id": "dimension.torso.width",
+      "property": "relative width",
+      "value": [
+        0.31,
+        0.4
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "central body",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "torso",
+      "axis": "width",
+      "min": 0.31,
+      "max": 0.4,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.torso.height",
+      "property": "relative height",
+      "value": [
+        0.23,
+        0.29
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "central body",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "torso",
+      "axis": "height",
+      "min": 0.23,
+      "max": 0.29,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.torso.depth",
+      "property": "relative depth",
+      "value": [
+        0.17,
+        0.25
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "central body",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "torso",
+      "axis": "depth",
+      "min": 0.17,
+      "max": 0.25,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.launcher.width",
+      "property": "relative width",
+      "value": [
+        0.17,
+        0.22
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "upper two housings",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "launcher",
+      "axis": "width",
+      "min": 0.17,
+      "max": 0.22,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.launcher.height",
+      "property": "relative height",
+      "value": [
+        0.14,
+        0.19
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "upper two housings",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "launcher",
+      "axis": "height",
+      "min": 0.14,
+      "max": 0.19,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.launcher.depth",
+      "property": "relative depth",
+      "value": [
+        0.17,
+        0.25
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "upper two housings",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "launcher",
+      "axis": "depth",
+      "min": 0.17,
+      "max": 0.25,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.hatch.width",
+      "property": "relative width",
+      "value": [
+        0.12,
+        0.16
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "center chest",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "hatch",
+      "axis": "width",
+      "min": 0.12,
+      "max": 0.16,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.hatch.height",
+      "property": "relative height",
+      "value": [
+        0.17,
+        0.22
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "center chest",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "hatch",
+      "axis": "height",
+      "min": 0.17,
+      "max": 0.22,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.pelvis.height",
+      "property": "relative height",
+      "value": [
+        0.08,
+        0.13
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "body to hip transition",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "pelvis",
+      "axis": "height",
+      "min": 0.08,
+      "max": 0.13,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.thigh.link_length",
+      "property": "relative link_length",
+      "value": [
+        0.16,
+        0.22
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "below left and right hips",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "thigh",
+      "axis": "link_length",
+      "min": 0.16,
+      "max": 0.22,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.shin.link_length",
+      "property": "relative link_length",
+      "value": [
+        0.21,
+        0.29
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "between knees and feet",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "shin",
+      "axis": "link_length",
+      "min": 0.21,
+      "max": 0.29,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.foot.width",
+      "property": "relative width",
+      "value": [
+        0.13,
+        0.19
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "bottom support regions",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "foot",
+      "axis": "width",
+      "min": 0.13,
+      "max": 0.19,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.foot.depth",
+      "property": "relative depth",
+      "value": [
+        0.18,
+        0.27
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "bottom support regions",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "foot",
+      "axis": "depth",
+      "min": 0.18,
+      "max": 0.27,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.arm.shoulder_to_forearm_length",
+      "property": "relative shoulder_to_forearm_length",
+      "value": [
+        0.23,
+        0.32
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "both arms under shoulder caps",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "arm",
+      "axis": "shoulder_to_forearm_length",
+      "min": 0.23,
+      "max": 0.32,
+      "unit": "H"
+    },
+    {
+      "id": "dimension.forearm_weapon.barrel_projection",
+      "property": "relative barrel_projection",
+      "value": [
+        0.08,
+        0.14
+      ],
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "both lower arms",
+          "observation": "Rough visual proportion against total posed height H."
+        }
+      ],
+      "basis": "Perspective estimate, not calibrated orthographic measurement; wide working range for blockout.",
+      "component_id": "forearm_weapon",
+      "axis": "barrel_projection",
+      "min": 0.08,
+      "max": 0.14,
+      "unit": "H"
+    }
+  ],
+  "silhouette_notes": [
+    {
+      "id": "silhouette.top_heavy",
+      "property": "macro silhouette",
+      "value": "Paired high pods, broad torso, narrower waist, separated legs, wide feet",
+      "certainty": "CONFIRMED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "whole original",
+          "observation": "Exterior outline is top-heavy with two detached high box housings."
+        }
+      ],
+      "basis": "Observed silhouette in original pose; not an orthographic width/depth solution."
+    },
+    {
+      "id": "silhouette.depth",
+      "property": "primary depth transitions",
+      "value": "Stepped/changing torso sections, deep forearms, wedge toes",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "body, arms, feet",
+          "observation": "Oblique view exposes bevels, side recesses and overlapping armor."
+        }
+      ],
+      "basis": "Depth proportions estimated from perspective; do not substitute flat slabs."
+    },
+    {
+      "id": "silhouette.gaps",
+      "property": "negative spaces",
+      "value": "Visible gaps around shoulder hubs, waist, knee and lower shin rods",
+      "certainty": "CONFIRMED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "between armor/link interfaces",
+          "observation": "Dark/exposed separations distinguish limbs and shell modules."
+        }
+      ],
+      "basis": "Visible spaces must survive clay blockout; exact hidden clearances unmeasured."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel.pod_support",
+      "property": "design / mechanical relationship",
+      "value": "Upper pods supported above lateral torso/shoulder assembly",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "upper mounting gap",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "launcher",
+      "to_component": "torso",
+      "relationship": "Upper pods supported above lateral torso/shoulder assembly"
+    },
+    {
+      "id": "rel.hatch_shell",
+      "property": "design / mechanical relationship",
+      "value": "Front cover sits inside a distinct frame on torso",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "front chest",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "hatch",
+      "to_component": "torso",
+      "relationship": "Front cover sits inside a distinct frame on torso"
+    },
+    {
+      "id": "rel.arm_support",
+      "property": "design / mechanical relationship",
+      "value": "Arms attach to shoulder pivot-like regions beside torso",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "shoulders",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "arm",
+      "to_component": "torso",
+      "relationship": "Arms attach to shoulder pivot-like regions beside torso"
+    },
+    {
+      "id": "rel.barrel_forearm",
+      "property": "design / mechanical relationship",
+      "value": "Barrel and housing aligned to forearm module",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "both forearms",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "forearm_weapon",
+      "to_component": "arm",
+      "relationship": "Barrel and housing aligned to forearm module"
+    },
+    {
+      "id": "rel.hip_link",
+      "property": "design / mechanical relationship",
+      "value": "Upper leg links begin at paired hip interface regions",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "hips",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "thigh",
+      "to_component": "pelvis",
+      "relationship": "Upper leg links begin at paired hip interface regions"
+    },
+    {
+      "id": "rel.knee_link",
+      "property": "design / mechanical relationship",
+      "value": "Lower leg attaches through knee region",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "knees",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "shin",
+      "to_component": "thigh",
+      "relationship": "Lower leg attaches through knee region"
+    },
+    {
+      "id": "rel.foot_link",
+      "property": "design / mechanical relationship",
+      "value": "Feet support lower leg via ankle interface",
+      "certainty": "INFERRED",
+      "evidence": [
+        {
+          "source_id": "original",
+          "region": "ankles",
+          "observation": "Parts are visually adjacent through visible joint/support-like forms."
+        }
+      ],
+      "basis": "Interpretation of exterior interfaces; hidden fasteners/load path not confirmed.",
+      "from_component": "foot",
+      "to_component": "shin",
+      "relationship": "Feet support lower leg via ankle interface"
+    }
+  ],
+  "ambiguity_map": [
+    {
+      "id": "A.rear",
+      "component_ids": [
+        "torso",
+        "pelvis"
+      ],
+      "question": "What is the actual rear construction?",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Do not construct a detailed rear; keep only macro depth envelope.",
+      "basis": "Rear absent from original; derivative multiview cannot establish it."
+    },
+    {
+      "id": "A.bore",
+      "component_ids": [
+        "launcher",
+        "forearm_weapon"
+      ],
+      "question": "Are circular faces recesses, caps or open through-channels?",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Preserve exterior face count; defer interior and rear openings.",
+      "basis": "No bore depth/open rear evidence; original faces look dark/capped."
+    },
+    {
+      "id": "A.mechanics",
+      "component_ids": [
+        "arm",
+        "knee",
+        "shin",
+        "foot"
+      ],
+      "question": "Exact axes, actuator anchors and working range?",
+      "severity": "NONBLOCKING",
+      "decision": "PROXY",
+      "allowed_action": "Use tagged adjustable static joint proxies for macro handoff; no functional articulation claim.",
+      "basis": "Visible circular forms suggest joints; complete axes and mount frames not recoverable."
+    },
+    {
+      "id": "A.scale",
+      "component_ids": [
+        "torso",
+        "launcher",
+        "foot"
+      ],
+      "question": "Physical size and calibrated lens?",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Use H=1 relative units; no metric or manufacturing claims.",
+      "basis": "No reliable measurement or camera metadata supplied."
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "C.panel_shape",
+      "source_ids": [
+        "original",
+        "baseline_render",
+        "skill_render"
+      ],
+      "property": "torso/shoulder/leg shape depth",
+      "description": "Comparative renders simplify convex cheeks, plate breaks and limb mass transitions; baseline is more uniform.",
+      "severity": "NONBLOCKING",
+      "status": "RESOLVED",
+      "resolution": "Original contours win; derivative panels provide comparisons only."
+    },
+    {
+      "id": "C.rear",
+      "source_ids": [
+        "original",
+        "multiview_input"
+      ],
+      "property": "rear geometry evidence coverage",
+      "description": "Auxiliary rear shows an engine/vent stack absent from original evidence; this is an unsupported addition, not an observed contradiction.",
+      "severity": "NONBLOCKING",
+      "status": "OPEN",
+      "resolution": "Defer rear; auxiliary may suggest an option but cannot establish geometry."
+    },
+    {
+      "id": "C.launcher_caps",
+      "source_ids": [
+        "original",
+        "baseline_render",
+        "skill_render"
+      ],
+      "property": "circular faces / opening appearance",
+      "description": "Dark/closed-looking faces and open-looking ring interiors differ among images; no image establishes a full through-channel.",
+      "severity": "NONBLOCKING",
+      "status": "OPEN",
+      "resolution": "Preserve 4x3 exterior count; no bore or rear decision for this macro exercise."
+    },
+    {
+      "id": "C.pose",
+      "source_ids": [
+        "original",
+        "multiview_input"
+      ],
+      "property": "pose and projection",
+      "description": "Original has offset feet/bent stance; auxiliary front is neutral and rear is 3/4, so apparent link positions differ.",
+      "severity": "NONBLOCKING",
+      "status": "RESOLVED",
+      "resolution": "Separate pose from design; use a stated neutral macro pose with source-matched 3/4 later."
+    }
+  ],
+  "auxiliary_references": [
+    {
+      "id": "generated_sheet_v1",
+      "path": "auxiliary_multiview.png",
+      "sha256": "5a9dbd1309edeb9bf9d424c5e115bc9c96682eb908e2e8c02d3ad78306f4db2b",
+      "prompt_path": "auxiliary_prompt.txt",
+      "prompt_sha256": "5b7a5dd2521a2de549653109e8eb229687a036f8a8e34e93f0f1b7fc2dd5199a",
+      "input_source_ids": [
+        "original"
+      ],
+      "generated": true,
+      "views": [
+        "front",
+        "object-right side",
+        "rear",
+        "front 3/4"
+      ],
+      "use_status": "RESTRICTED",
+      "permitted_uses": [
+        "Coarse near-orthographic silhouette/depth suggestion, checked against original source and packet ranges.",
+        "Rough view registration only; use original counts and component IDs."
+      ],
+      "forbidden_uses": [
+        "Confirming any hidden geometry.",
+        "Exact dimensions, calibrated orthographic alignment, joint axes or actuator stroke.",
+        "Detailed rear torso, limb rear armor, sole or internal bore construction.",
+        "Promoting generated cover/hinge/fastener detail to source fact."
+      ],
+      "claim_links": [
+        "launcher.face_count",
+        "torso.hidden_rear",
+        "launcher.hidden_bore",
+        "shin.hidden_rear",
+        "silhouette.top_heavy"
+      ],
+      "consistency_checks": [
+        {
+          "criterion": "identity",
+          "result": "PASS",
+          "observations": "Inspected full sheet: two high pods, broad red torso, central gray hatch, two arms/barrels, biped and wedge feet preserve recognizable source identity."
+        },
+        {
+          "criterion": "proportions",
+          "result": "WARN",
+          "observations": "Front/rear have comparable overall height and landmark levels by visual review; pod width and leg/foot envelopes vary with view. No calibrated pixel/3D solve; use packet ranges."
+        },
+        {
+          "criterion": "part_counts",
+          "result": "PASS",
+          "observations": "Visible front and 3/4 pod faces show four columns by three rows each; two pods, two arms/barrels, two legs/feet. Side occludes the far modules; rear does not repeat launcher arrays. Hidden fastener counts not certified."
+        },
+        {
+          "criterion": "construction",
+          "result": "WARN",
+          "observations": "Major assemblies remain similar, but panel seams/foot segmentation differ by view; rear torso/pod placeholders are marked, while rear limb armor has unmarked invented detail. No mechanical equivalence certification."
+        },
+        {
+          "criterion": "handedness",
+          "result": "WARN",
+          "observations": "Front/rear arrangement is compatible with bilateral symmetry; original asymmetric landmarks do not establish exact object-right handedness or hidden panel correspondence."
+        },
+        {
+          "criterion": "silhouette",
+          "result": "WARN",
+          "observations": "Macro top-heavy identity survives; neutral stance differs from offset original and lower-leg/foot contour is simplified. Useful rough guide only; source 3/4 remains authoritative."
+        }
+      ]
+    }
+  ],
+  "generation": {
+    "status": "COMPLETE",
+    "reason": "Built-in image generation, one attempt from the original source; output inspected and restricted. Top/close-ups not needed for macro-only probe; hidden mounts cannot be recovered by additional detail generation."
+  },
+  "gate": {
+    "status": "READY_WITH_LIMITS",
+    "permitted_stage": "MACRO_BLOCKOUT",
+    "limits": [
+      "Rear structure deferred.",
+      "Bore depth/open rear deferred.",
+      "Axes/actuators are editable static proxies; no motion claim.",
+      "Relative proportions are estimates; clay fidelity must be reviewed before details/materials.",
+      "Generated sheet is RESTRICTED; original silhouettes/counts win, rear limb armor and panel microdetail excluded."
+    ],
+    "reviewer": "Codex actual original/attachment/generated image review",
+    "review_notes": "PASS 0 structured handoff accepted with limits; auxiliary not fully consistent and not authoritative. Only disposable macro blockout may proceed. No original rear/mechanics recovery PASS."
+  }
+}

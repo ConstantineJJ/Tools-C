@@ -1,0 +1,471 @@
+{
+  "checks": [
+    {
+      "check": "unit_regressions",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 181.5,
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "log": "unit_regressions.log",
+      "summary": "Ran 142 tests in 181.219s"
+    },
+    {
+      "check": "tools_c_l1",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.62,
+      "command": [
+        "C:\\Python314\\python.exe",
+        "tools/check.py",
+        "--self",
+        "--json"
+      ],
+      "log": "tools_c_l1.log",
+      "result": [
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-CATALOG",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ROUTES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-SKILLS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-domain-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-polishing-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-anime-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/pass0-mechanics-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-SELF-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-DOMAIN-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-POLISHING-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-ANIME-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-JSON",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-LINKS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-GENERIC",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-PASS0-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-LEGACY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-SCULPT-COMPAT",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-SURFACES-HANDOFF",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-COMPATIBILITY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    },
+    {
+      "check": "blender_adapter_l1",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 4.0,
+      "command": [
+        "C:\\Python314\\python.exe",
+        "tools/check.py",
+        "--project",
+        "E:/MyCreations/Blender-MCP-Co",
+        "--json"
+      ],
+      "log": "blender_adapter_l1.log",
+      "result": [
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-CATALOG",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ROUTES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-SKILLS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-JSON",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-LINKS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ADAPTER",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    },
+    {
+      "check": "pass0_files_and_gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "command": [
+        "C:\\Python314\\python.exe",
+        "skills/visual-reference-reconstruction/scripts/validate_pass0.py",
+        "E:\\MyCreations\\Tools_C\\reports\\pass0-mech-workflow\\pass0.json",
+        "--verify-files"
+      ],
+      "log": "pass0_files_and_gate.log",
+      "result": {
+        "structural_status": "PASS",
+        "gate": "READY_WITH_LIMITS",
+        "visual_status": "NOT_CERTIFIED_BY_VALIDATOR",
+        "errors": []
+      }
+    }
+  ],
+  "optional_skill_creator_validator": {
+    "status": "SKIP",
+    "reason": "No PyYAML in available runtime; dependency-free Tools_C checks used"
+  },
+  "pass0": "READY_WITH_LIMITS",
+  "auxiliary": "RESTRICTED",
+  "blender_consumer": "STRUCTURAL PASS / fresh reopen PASS",
+  "clay_g1": "VISUAL FAIL; detail/material/wear escalation stopped",
+  "source_fingerprints": {
+    "tools/mcp_runtime.py": "31932fbefa9d0b762115e97cd70eda0cd006abcb64690c9644ae8dfc50ae8b6f",
+    "tools/read_blender_skill.py": "19d7619b0b2b8e2f03b05bb21da1e2cd99a44b054866a110af75281fd61449d9",
+    "skills/visual-reference-reconstruction/SKILL.md": "fb65b563acff453589e1678b378aa6cd87fe30bfa0622a86193a916482f8c229",
+    "skills/blender-robot-mechanism-modeling/SKILL.md": "898587e9fa8b4050454566d4feebca0cf9483fbc7b435c1823e91aff44988eed",
+    "reports/pass0-mech-workflow/pass0.json": "77be24b30e3f3cc7cf1adfebaa1f6b854ed572b3c867792b9c510b6c3b3e6390"
+  }
+}

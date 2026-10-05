@@ -1,11 +1,12 @@
 # Tools_C architecture 4.0.1
 
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Download Tools_C v4.0.3](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.3)
+[Download Tools_C v4.1.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.1.0)
 includes the canonical ZIP, checksums and extracted-package verification.
+See [v4.1.0 changes and compatibility](docs/release-v4.1.0.md).
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to twenty-five canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to twenty-seven canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
 semantics. Rigging/skinning, animation, GLB export validation and Godot asset
 integration now have separate owners. Nine legacy Blender names remain compatible.
@@ -17,6 +18,12 @@ handoff links; project art direction and inspected visual evidence still decide
 the finish. UV/bakes remain with surfaces, structural damage with sculpting.
 
 [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) owns anime/manga humanoid form, faces, eyes, hair and clothing, with renderer-compatible visual QA and explicit downstream handoffs.
+
+[Visual reference reconstruction](skills/visual-reference-reconstruction/SKILL.md)
+is the required PASS 0 before complex image-based modeling across asset domains.
+Its provenance-aware packet feeds [robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
+or the matching domain owner. [Implementation and real workflow evidence](reports/PASS0_AND_ROBOT_SKILLS_2026-10-05.md)
+separate structured handoff acceptance, auxiliary-image limits and clay quality.
 
 Four production skills coordinate a playable [mechanic gym](skills/production-mechanic-gym/SKILL.md),
 [parallel worktrees](skills/production-subagent-worktree/SKILL.md), a representative

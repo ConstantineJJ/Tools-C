@@ -1,0 +1,15 @@
+{
+  "reviewer": "Codex actual clay image review",
+  "scope": "Disposable macro consumer probe; G1 check, not a finished mech",
+  "reviewed_views": ["clay_front/front.png", "clay_side/side.png", "clay_back/back.png", "clay_three_quarter/three_quarter.png"],
+  "criteria": [
+    {"criterion": "Source exterior module count", "status": "PASS", "observation": "Two high pods with 4 columns x 3 rows each, two arms/barrel envelopes, two leg and foot modules are visible."},
+    {"criterion": "Deferred hidden regions", "status": "PASS", "observation": "Rear remains plain macro envelopes. No detailed engine stack, bore interior or rear openings were reconstructed."},
+    {"criterion": "G1 source silhouette / developed primary forms", "status": "FAIL", "observation": "Torso lacks sloped convex cheeks and lower narrowing; legs are uniform boxes, feet lack segmented wedge toes. Joint and support transitions remain unresolved proxies."},
+    {"criterion": "Macro width / depth usefulness", "status": "WARN", "observation": "Packet ranges produce a readable coarse assembly, but pose differs from original and exact depth/projection cannot be certified."}
+  ],
+  "next_stage": "BLOCKED_PENDING_G1_FORM_CORRECTION",
+  "details_materials_wear": "SKIP: G1 visual fidelity has not passed; no escalation",
+  "rig_animation_engineering_export": "SKIP: outside this bounded exercise",
+  "action": "STOP_AT_AUTHORIZED_PROBE_BOUNDARY; deliver honest failed G1 evidence, no production reconstruction claimed"
+}

@@ -1,0 +1,1034 @@
+[
+  {
+    "part_id": "torso.envelope",
+    "role": "macro envelope",
+    "module_id": "torso",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.001",
+    "pivot": [
+      0.0,
+      0.0,
+      0.6200000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "torso.presence"
+    ]
+  },
+  {
+    "part_id": "hatch.envelope",
+    "role": "macro envelope",
+    "module_id": "hatch",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.002",
+    "pivot": [
+      0.0,
+      -0.11699999868869781,
+      0.6100000143051147
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "hatch.presence"
+    ]
+  },
+  {
+    "part_id": "pelvis.envelope",
+    "role": "macro envelope",
+    "module_id": "pelvis",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.003",
+    "pivot": [
+      0.0,
+      0.0,
+      0.41499999165534973
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "pelvis.presence"
+    ]
+  },
+  {
+    "part_id": "waist.proxy",
+    "role": "macro envelope",
+    "module_id": "pelvis",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.004",
+    "pivot": [
+      0.0,
+      0.0,
+      0.47999998927116394
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "pelvis.presence"
+    ]
+  },
+  {
+    "part_id": "L.pod",
+    "role": "macro envelope",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.005",
+    "pivot": [
+      -0.20999999344348907,
+      0.0,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.presence"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.0.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.2745000123977661,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.0.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.23149999976158142,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.0.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.18850000202655792,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.0.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.14550000429153442,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.1.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.2745000123977661,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.1.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.23149999976158142,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.1.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.18850000202655792,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.1.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.14550000429153442,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.2.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.2745000123977661,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.2.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.23149999976158142,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.2.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.18850000202655792,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.pod.face.2.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      -0.14550000429153442,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "L.shoulder",
+    "role": "macro envelope",
+    "module_id": "shoulder_armor",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.006",
+    "pivot": [
+      -0.24500000476837158,
+      -0.004999999888241291,
+      0.6700000166893005
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shoulder_armor.presence"
+    ]
+  },
+  {
+    "part_id": "L.upper_arm",
+    "role": "macro envelope",
+    "module_id": "arm",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.007",
+    "pivot": [
+      -0.27000001072883606,
+      0.0,
+      0.5600000023841858
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "arm.presence"
+    ]
+  },
+  {
+    "part_id": "L.forearm",
+    "role": "macro envelope",
+    "module_id": "forearm_weapon",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.008",
+    "pivot": [
+      -0.2849999964237213,
+      -0.03500000014901161,
+      0.45500001311302185
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "forearm_weapon.presence"
+    ]
+  },
+  {
+    "part_id": "L.barrel.envelope",
+    "role": "visible face / joint proxy",
+    "module_id": "forearm_weapon",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder.001",
+    "pivot": [
+      -0.2849999964237213,
+      -0.15000000596046448,
+      0.45500001311302185
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "forearm_weapon.presence"
+    ]
+  },
+  {
+    "part_id": "L.thigh",
+    "role": "macro envelope",
+    "module_id": "thigh",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.009",
+    "pivot": [
+      -0.1120000034570694,
+      0.0,
+      0.33500000834465027
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "thigh.presence"
+    ]
+  },
+  {
+    "part_id": "L.knee.proxy",
+    "role": "visible face / joint proxy",
+    "module_id": "knee",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder.002",
+    "pivot": [
+      -0.1120000034570694,
+      0.0,
+      0.2370000034570694
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "knee.presence"
+    ]
+  },
+  {
+    "part_id": "L.shin",
+    "role": "macro envelope",
+    "module_id": "shin",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.010",
+    "pivot": [
+      -0.11599999666213989,
+      0.0,
+      0.1599999964237213
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shin.presence"
+    ]
+  },
+  {
+    "part_id": "L.ankle.proxy",
+    "role": "macro envelope",
+    "module_id": "shin",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.011",
+    "pivot": [
+      -0.11599999666213989,
+      0.0,
+      0.06300000101327896
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shin.presence"
+    ]
+  },
+  {
+    "part_id": "L.foot",
+    "role": "macro envelope",
+    "module_id": "foot",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.012",
+    "pivot": [
+      -0.11599999666213989,
+      -0.04500000178813934,
+      0.03099999949336052
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "foot.presence"
+    ]
+  },
+  {
+    "part_id": "R.pod",
+    "role": "macro envelope",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.013",
+    "pivot": [
+      0.20999999344348907,
+      0.0,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.presence"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.0.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.14550000429153442,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.0.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.18850000202655792,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.0.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.23149999976158142,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.0.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.2745000123977661,
+      -0.11400000005960464,
+      0.8270000219345093
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.1.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.14550000429153442,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.1.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.18850000202655792,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.1.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.23149999976158142,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.1.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.2745000123977661,
+      -0.11400000005960464,
+      0.8700000047683716
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.2.0",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.14550000429153442,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.2.1",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.18850000202655792,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.2.2",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.23149999976158142,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.pod.face.2.3",
+    "role": "visible face / joint proxy",
+    "module_id": "launcher",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder",
+    "pivot": [
+      0.2745000123977661,
+      -0.11400000005960464,
+      0.9129999876022339
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "launcher.face_count",
+      "launcher.hidden_bore"
+    ]
+  },
+  {
+    "part_id": "R.shoulder",
+    "role": "macro envelope",
+    "module_id": "shoulder_armor",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.014",
+    "pivot": [
+      0.24500000476837158,
+      -0.004999999888241291,
+      0.6700000166893005
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shoulder_armor.presence"
+    ]
+  },
+  {
+    "part_id": "R.upper_arm",
+    "role": "macro envelope",
+    "module_id": "arm",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.015",
+    "pivot": [
+      0.27000001072883606,
+      0.0,
+      0.5600000023841858
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "arm.presence"
+    ]
+  },
+  {
+    "part_id": "R.forearm",
+    "role": "macro envelope",
+    "module_id": "forearm_weapon",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.016",
+    "pivot": [
+      0.2849999964237213,
+      -0.03500000014901161,
+      0.45500001311302185
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "forearm_weapon.presence"
+    ]
+  },
+  {
+    "part_id": "R.barrel.envelope",
+    "role": "visible face / joint proxy",
+    "module_id": "forearm_weapon",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder.003",
+    "pivot": [
+      0.2849999964237213,
+      -0.15000000596046448,
+      0.45500001311302185
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "forearm_weapon.presence"
+    ]
+  },
+  {
+    "part_id": "R.thigh",
+    "role": "macro envelope",
+    "module_id": "thigh",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.017",
+    "pivot": [
+      0.1120000034570694,
+      0.0,
+      0.33500000834465027
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "thigh.presence"
+    ]
+  },
+  {
+    "part_id": "R.knee.proxy",
+    "role": "visible face / joint proxy",
+    "module_id": "knee",
+    "parent_id": null,
+    "shared_mesh_id": "Cylinder.004",
+    "pivot": [
+      0.1120000034570694,
+      0.0,
+      0.2370000034570694
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "knee.presence"
+    ]
+  },
+  {
+    "part_id": "R.shin",
+    "role": "macro envelope",
+    "module_id": "shin",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.018",
+    "pivot": [
+      0.11599999666213989,
+      0.0,
+      0.1599999964237213
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shin.presence"
+    ]
+  },
+  {
+    "part_id": "R.ankle.proxy",
+    "role": "macro envelope",
+    "module_id": "shin",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.019",
+    "pivot": [
+      0.11599999666213989,
+      0.0,
+      0.06300000101327896
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "shin.presence"
+    ]
+  },
+  {
+    "part_id": "R.foot",
+    "role": "macro envelope",
+    "module_id": "foot",
+    "parent_id": null,
+    "shared_mesh_id": "Cube.020",
+    "pivot": [
+      0.11599999666213989,
+      -0.04500000178813934,
+      0.03099999949336052
+    ],
+    "attachment_frame": "macro world frame",
+    "material_group": "clay",
+    "contact_expectations": [],
+    "protected": false,
+    "certainty": "INFERRED",
+    "editable_proxy": true,
+    "pass0_claim_ids": [
+      "foot.presence"
+    ]
+  }
+]

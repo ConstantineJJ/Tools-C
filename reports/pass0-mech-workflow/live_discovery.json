@@ -1,0 +1,49 @@
+[
+  {
+    "name": "list",
+    "ok": true,
+    "canonical_count": 27,
+    "legacy_count": 9,
+    "includes_pass0": false,
+    "includes_robot": false,
+    "new_catalog_entries": [
+      {
+        "name": "visual-reference-reconstruction",
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "description": "Analyze source images before complex reference-based modeling of characters, robots, vehicles, machinery, buildings or props. Produce a provenance-aware PASS 0 handoff and, when image generation is available, reviewed auxiliary technical views. Owns visual understanding, not Blender geometry.",
+        "title": "Visual reference reconstruction — PASS 0",
+        "aliases": [
+          "Blender_Reference_Reconstruction_SKILL"
+        ]
+      },
+      {
+        "name": "blender-robot-mechanism-modeling",
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "description": "Create or substantially revise hard-surface robot, mech, manipulator and articulated mechanism geometry in Blender. Own macro silhouette, mechanical skeleton, axes, static articulation, armor layering and assembly clearances; consume PASS 0 for image-based work. Surface-only wear, rigging, animation and export retain their existing owners.",
+        "title": "Blender robot and mechanism modeling",
+        "aliases": []
+      }
+    ]
+  },
+  {
+    "name": "read_robot",
+    "ok": true,
+    "root": "E:\\MyCreations\\Tools_C",
+    "includes_pass0": true,
+    "includes_robot": true
+  },
+  {
+    "name": "read_pass0",
+    "ok": true,
+    "root": "E:\\MyCreations\\Tools_C",
+    "includes_pass0": true,
+    "includes_robot": false
+  },
+  {
+    "name": "read_legacy",
+    "ok": true,
+    "root": "E:\\MyCreations\\Tools_C",
+    "includes_pass0": true,
+    "includes_robot": false
+  }
+]

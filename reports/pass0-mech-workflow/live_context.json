@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "owners": [
+    "visual-reference-reconstruction",
+    "blender-robot-mechanism-modeling"
+  ],
+  "missing": [],
+  "document_paths": [
+    "docs/foundation.md",
+    "docs/blender-evidence-entry.md",
+    "skills/blender-pipeline/SKILL.md",
+    "skills/visual-reference-reconstruction/SKILL.md",
+    "skills/verification/SKILL.md",
+    "skills/blender-robot-mechanism-modeling/SKILL.md",
+    "skills/blender-pipeline/references/techniques/form-development.md"
+  ],
+  "receipts": {
+    "docs/foundation.md": "780c9dffb9819c477cacea94752ea29ed59c0f7ec7c72ce8d7ade33d58f85b95",
+    "docs/blender-evidence-entry.md": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+    "skills/blender-pipeline/SKILL.md": "fff6ef3a9785b43971585789d6e095bd917d198c97b1a7c2c91240d312a1f9aa",
+    "skills/visual-reference-reconstruction/SKILL.md": "fb65b563acff453589e1678b378aa6cd87fe30bfa0622a86193a916482f8c229",
+    "skills/verification/SKILL.md": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+    "skills/blender-robot-mechanism-modeling/SKILL.md": "898587e9fa8b4050454566d4feebca0cf9483fbc7b435c1823e91aff44988eed",
+    "skills/blender-pipeline/references/techniques/form-development.md": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0"
+  }
+}

@@ -166,6 +166,18 @@
         "fixed 18-bone production naming contract",
         "res://3D/Assets/"
       ]
+    },
+    {
+      "id": "TOOLS-PASS0-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/pass0-mechanics-contracts.json"
+        ]
+      }
     }
   ]
 }

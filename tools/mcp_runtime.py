@@ -21,8 +21,11 @@ def render_context(root, owner, procedures=()):
     form='skills/blender-pipeline/references/techniques/form-development.md'
     if owner in {'blender-character-modeling','blender-anime-character-modeling',
                  'blender-architecture-environment','blender-environment-assets',
-                 'blender-props','blender-vegetation'} and f'SOURCE: {form}\n\n' not in content:
+                 'blender-props','blender-vegetation','blender-robot-mechanism-modeling'} and f'SOURCE: {form}\n\n' not in content:
         paths.append(form)
+    pass0='skills/visual-reference-reconstruction/SKILL.md'
+    if owner in {'blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {pass0}\n\n' not in content:
+        paths.append(pass0)
     finishing='skills/blender-posteffects-polishing/references/finishing-techniques.md'
     if owner == 'blender-posteffects-polishing' and f'SOURCE: {finishing}\n\n' not in content:
         # A live adapter can retain the earlier two-argument reader module.
@@ -114,9 +117,39 @@ def anime_modeling_route(query):
     return bool(create or revise or scene_creation)
 
 
-def route_task(task):
+def primary_geometry_revision(query):
+    return bool(re.search(
+        r'\b(?:revise|change|fix|repair|edit|refine|improve|remodel|rebuild)\s+'
+        r'(?:(?:the|this|existing|robot|mech|character|primary|body|major)\s+)*'
+        r'(?:geometry|silhouette|proportions?|construction|joint\s+axes|armor\s+shape)\b|'
+        r'(?:исправ|измени|поправ|улучш|передел|перестро)\w*\s+'
+        r'(?:(?:основн\w*|текущ\w*|эт\w*|робот\w*|мех\w*)\s+)*'
+        r'(?:геометр|силуэт|пропорц|конструкц|оси\s+шарнир)', query))
+
+
+def geometry_intent(query):
+    """Creation or explicit primary-shape revision, not surface finishing."""
+    return bool(re.search(
+        r'\b(?:create|build|make|model|remodel|rebuild|blockout)\b|'
+        r'(?:созда|сдела|смодел|постро|перестро|передел)\w*|блокаут', query) or primary_geometry_revision(query))
+
+
+def robot_modeling_route(query):
+    domain = re.search(r'\b(?:robots?|mechs?|manipulators?|robotic\s+arms?|articulated\s+mechanisms?)\b|'
+                       r'робот|\bмех(?:а|и|ов|у|ом)?\b|манипулятор|сочлен[её]нн\w*\s+механизм', query)
+    create = re.search(
+        r'\b(?:create|build|make|model|remodel|rebuild)\s+'
+        r'(?:(?:an?|the|existing|new|hard-surface|humanoid|biped|articulated|mechanical)\s+)*'
+        r'(?:robots?|mechs?|manipulators?|robotic\s+arms?|articulated\s+mechanisms?)\b|'
+        r'(?:созда|сдела|смодел|постро|передел|перестро)\w*\s+'
+        r'(?:(?:нов\w*|модель|механич\w*|гуманоидн\w*|сочлен[её]нн\w*)\s+)*'
+        r'(?:робот|мех\w*|манипулятор|механизм)', query)
+    return bool(domain and (create or primary_geometry_revision(query) or re.search(r'\bblockout\b|блокаут',query)))
+
+
+def _route_task(task):
     query=task.strip().lower()
-    explicit=re.findall(r'\b(?:blender-(?:anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     if explicit: return list(dict.fromkeys(explicit))
     query=action_query(query)
     reviewing=bool(re.search(r'\b(?:review|inspect|audit|diagnose)\b|проверь|проверить|осмотр',query))
@@ -132,12 +165,13 @@ def route_task(task):
     if re.search(r'export|round.trip|glb|gltf|экспорт',query): routes.append('blender-export-validation')
     if re.search(r'godot|годот',query): routes.append('godot-asset-integration')
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ|постро)\w*\s+(?:(?:нов\w*|эт\w*|текущ\w*)\s+)*(?:rig\b|риг\w*|арматур\w*|скелет\w*)',query): routes.append('blender-rigging-skinning')
-    if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
+    if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|\banimate\b|анимиру|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
     if polishing and re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|voxel\s+remesh|multires)\b|скульпт|ремеш|динтопо|мультирез', query):
         routes.append('blender-sculpting')
     # A stage-only request loads its existing procedure; asset nouns are context.
     # Explicit geometry creation may co-route with a requested UV/retopo stage.
-    if (procedures or polishing) and not re.search(
+    primary_revision = primary_geometry_revision(query)
+    if (procedures or polishing) and not primary_revision and not re.search(
         r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack))|'
         r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост))',query):
         return list(dict.fromkeys(routes))
@@ -153,11 +187,35 @@ def route_task(task):
     if re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|dynamic\s+topology|voxel\s+remesh|multires(?:olution)?|face\s+sets?|sculpt\s+mask|clay\s+brush|crease\s+brush)\b|скульпт|скульптинг|динтопо|динамич.*тополог|воксельн.*ремеш|мультирез|мультирес',query): routes.append('blender-sculpting')
     anime = anime_modeling_route(query)
     if anime: routes.append("blender-anime-character-modeling")
-    if not anime and re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
+    robot = robot_modeling_route(query)
+    if robot: routes.append('blender-robot-mechanism-modeling')
+    if not anime and not robot and re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
         return ['blender-pipeline']
     return list(dict.fromkeys(routes))
+
+
+def route_task(task):
+    """PASS 0 precedes image-based geometry; suggestions do not authorize edits."""
+    query = action_query(task)
+    visual = bool(re.search(r'\b(?:images?|references?|blueprints?|photos?|multiview|multi-view)\b|'
+                            r'референс|изображени|картинк|черт[её]ж|фотограф', query))
+    analysis = bool(re.search(r'\b(?:analy[sz]e|reconstruct|technical\s+reference\s+pack|pass\s*0)\b|'
+                              r'проанализ|разбер\w*\s+референс|восстанов\w*\s+вид|пакет\s+референс', query))
+    if visual and analysis and not geometry_intent(query):
+        return ['visual-reference-reconstruction']
+    owners = _route_task(task)
+    if visual and analysis and owners == ['blender-pipeline']:
+        return ['visual-reference-reconstruction']
+    if 'blender-robot-mechanism-modeling' in owners:
+        owners = ['blender-robot-mechanism-modeling', *[o for o in owners if o != 'blender-robot-mechanism-modeling']]
+    domain = any(o.endswith('modeling') or o in {
+        'blender-props', 'blender-architecture-environment', 'blender-environment-assets',
+        'blender-roads-infrastructure', 'blender-vegetation', 'blender-sculpting'} for o in owners)
+    if visual and geometry_intent(query) and (domain or owners == ['blender-pipeline']):
+        owners = ['visual-reference-reconstruction', *owners]
+    return list(dict.fromkeys(owners))
 
 
 def _context_documents(content):

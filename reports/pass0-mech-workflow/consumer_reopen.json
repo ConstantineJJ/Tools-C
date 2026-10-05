@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "objects": 48,
+  "blender_version": "5.2.2 LTS",
+  "file": "E:\\MyCreations\\Tools_C\\reports\\pass0-mech-workflow\\PASS0_Macro_Consumer_Probe.blend",
+  "scope": "Independent reopen with auto-run disabled; source mesh counts, world matrices and shared datablock names only."
+}
