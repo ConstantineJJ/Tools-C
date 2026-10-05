@@ -79,7 +79,9 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "skills/blender-anime-character-modeling/SKILL.md"
+        "skills/blender-anime-character-modeling/SKILL.md",
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md"
       ]
     },
     {
@@ -195,6 +197,18 @@
         "fixed 18-bone production naming contract",
         "res://3D/Assets/"
       ]
+    },
+    {
+      "id": "TOOLS-PASS0-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/pass0-mechanics-contracts.json"
+        ]
+      }
     }
   ]
 }

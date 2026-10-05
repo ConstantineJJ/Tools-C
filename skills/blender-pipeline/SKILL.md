@@ -16,17 +16,21 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 Select only the reference matching the task:
 
+Before complex image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
+Verify hashes and stage limits; BLOCKED stops construction. Reuse valid packets;
+stage-only work and read-only QA do not restart PASS 0.
+
 For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
 Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.
 
-For stage-only work, the named asset supplies context: follow the retopology,
-surfaces, polishing, rigging, animation or export owner without restarting domain modeling.
-For a read-only review, use verification. Load a domain owner alongside a stage
-only when its geometry or domain decisions are also part of the request.
+Stage-only work keeps its owner; an asset name does not restart modeling.
+Read-only review uses verification. Co-load a domain owner only when geometry
+or domain decisions are requested.
 
 | Work | Procedure |
 |---|---|
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
+| Model robots, mechs or articulated mechanisms | [robot modeling](../blender-robot-mechanism-modeling/SKILL.md) |
 | Create or substantially revise generic character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
 | Create or revise anime/manga humanoid forms, chibi proportions, faces or hair | [anime character modeling](../blender-anime-character-modeling/SKILL.md) |
 | Model animals, creatures, quadrupeds or anthropomorphic animal characters | [animal & anthropomorphic modeling](../blender-animal-anthropomorphic-modeling/SKILL.md) |
@@ -49,11 +53,10 @@ only when its geometry or domain decisions are also part of the request.
 | Validate visual or structural quality | [character QA](references/qa.md) and [verification](../verification/SKILL.md) |
 | Iterate on measured defects | [refinement](references/refinement.md) |
 
-For a full production task, use Posteffects and polishing near the end: after the
-relevant geometry/topology, UV/bake and rig/animation prerequisites, before final
-visual QA and export/delivery. Finishing can return to a diagnosed prerequisite
-owner; it does not authorize rebuilding geometry. Baseline UV/bake/PBR setup stays
-with surfaces, final surface refinement with polishing. Skip unrelated stages.
+For requested finishing, use polishing after geometry/topology, UV/bake and any
+rig/animation prerequisites, before final QA/delivery. Baseline UV/PBR stays with
+surfaces; shape defects return to their owner. Finishing does not authorize a
+rebuild. Skip unrelated stages.
 
 Blender-native and external-assisted production are both supported. Neither path implies a fixed skeleton, provider, genre or character. Read the [Tripo note](../../adapters/tripo.md) only for that source.
 

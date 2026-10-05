@@ -1,12 +1,12 @@
-# Tools_C 4.0.3
+# Tools_C 4.1.0
 
-Twenty-five reusable skills and a provider-neutral harness for Blender, Godot
+Twenty-seven reusable skills and a provider-neutral harness for Blender, Godot
 and 3D production. Browse the [skills catalog](docs/skills.md) for ownership,
 activation and handoff boundaries.
 
-[Download v4.0.3](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.0.3)
+[Download v4.1.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.1.0)
 with the portable ZIP, checksums and extracted-package verification.
-See [release notes](docs/release-v4.0.3.md) for changes and compatibility.
+See [release notes](docs/release-v4.1.0.md) for changes and compatibility.
 
 [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) adds humanoid anime/manga and chibi forms,
 face/eye/hair decisions and renderer-compatible visual QA, while preserving
@@ -17,6 +17,11 @@ adds concrete shape methods, five recipes and an editable Blender comparison
 scene with seven inspected examples. Early lookdev, compact domain entrypoints,
 whole-document context receipts and tested geometry/contact/job helpers support
 scoped corrections before detail growth.
+
+[Visual reference reconstruction](skills/visual-reference-reconstruction/SKILL.md)
+requires a provenance-aware PASS 0 packet before complex image-based modeling.
+[Robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
+consumes it through geometry and clay gates before materials and wear.
 
 Skills explain how to work. Project profiles hold local choices; declarative
 contracts protect invariants; bounded checkers report evidence. The shared

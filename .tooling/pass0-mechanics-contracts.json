@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "pass0-mechanics-registration",
+  "rules": [
+    {
+      "id": "VRM-REGISTRATION",
+      "kind": "json_subset",
+      "paths": [
+        "manifest.json"
+      ],
+      "expected": {
+        "skills": [
+          {
+            "id": "visual-reference-reconstruction",
+            "path": "skills/visual-reference-reconstruction/SKILL.md"
+          },
+          {
+            "id": "blender-robot-mechanism-modeling",
+            "path": "skills/blender-robot-mechanism-modeling/SKILL.md"
+          }
+        ]
+      }
+    },
+    {
+      "id": "VRM-PROFILE",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "skills": [
+          "visual-reference-reconstruction",
+          "blender-robot-mechanism-modeling"
+        ],
+        "contracts": [
+          ".tooling/pass0-mechanics-contracts.json"
+        ]
+      }
+    },
+    {
+      "id": "VRM-PIPELINE",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-pipeline/SKILL.md"
+      ],
+      "required_targets": [
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md"
+      ]
+    },
+    {
+      "id": "VRM-CATALOG",
+      "kind": "markdown",
+      "paths": [
+        "docs/skills.md"
+      ],
+      "required_targets": [
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md"
+      ]
+    },
+    {
+      "id": "VRM-FOUNDATION",
+      "kind": "markdown",
+      "paths": [
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md"
+      ],
+      "required_targets": [
+        "docs/foundation.md"
+      ]
+    },
+    {
+      "id": "VRM-COMPATIBILITY",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-pipeline/references/reference.md"
+      ],
+      "required_targets": [
+        "skills/visual-reference-reconstruction/SKILL.md"
+      ]
+    }
+  ]
+}

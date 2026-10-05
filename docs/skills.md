@@ -37,3 +37,13 @@ UVs, baking and base materials use the [surfaces procedure](../skills/blender-pi
 final topology uses the [retopology procedure](../skills/blender-pipeline/references/retopology.md).
 The [manifest](../manifest.json) records canonical IDs and nine legacy Blender aliases.
 The harness verifies this catalog and its actual local links.
+
+## Reference preparation and rigid mechanisms
+
+[visual-reference-reconstruction](../skills/visual-reference-reconstruction/SKILL.md)
+owns mandatory PASS 0 analysis and optional auxiliary references before complex
+image-based geometry work across domains.
+
+[blender-robot-mechanism-modeling](../skills/blender-robot-mechanism-modeling/SKILL.md)
+owns rigid robot/mech and articulated mechanism geometry from a prepared packet;
+surface, rig, animation and delivery owners retain their stages.

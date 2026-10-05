@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "4.0.3",
+  "version": "4.1.0",
   "skills": [
     {
       "id": "project-audit",
@@ -101,6 +101,14 @@
     {
       "id": "production-project-state-gates",
       "path": "skills/production-project-state-gates/SKILL.md"
+    },
+    {
+      "id": "visual-reference-reconstruction",
+      "path": "skills/visual-reference-reconstruction/SKILL.md"
+    },
+    {
+      "id": "blender-robot-mechanism-modeling",
+      "path": "skills/blender-robot-mechanism-modeling/SKILL.md"
     }
   ],
   "blender_aliases": {
@@ -110,7 +118,7 @@
       "source_version": "1.0"
     },
     "Blender_Reference_Reconstruction_SKILL": {
-      "reference": "skills/blender-pipeline/references/reference.md",
+      "reference": "skills/visual-reference-reconstruction/SKILL.md",
       "source_sha256": "5ee777a5b215e66672072b23192f391c5ebec7751fc766c495db1d4084e030c0",
       "source_version": "1.0"
     },
