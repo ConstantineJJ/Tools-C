@@ -98,7 +98,9 @@
         "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
         "skills/blender-anime-character-modeling/references/research-notes.md",
         ".tooling/blender-anime-contracts.json",
-        "tests/test_anime.py"
+        "tests/test_anime.py",
+        "tools/skill_catalog.py",
+        "tests/test_skill_catalog.py"
       ]
     },
     {
