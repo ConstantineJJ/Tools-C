@@ -1,12 +1,12 @@
 # Tools_C architecture 4.0.1
 
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Download Tools_C v4.1.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.1.0)
+[Download Tools_C v4.2.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.0)
 includes the canonical ZIP, checksums and extracted-package verification.
-See [v4.1.0 changes and compatibility](docs/release-v4.1.0.md).
+See [v4.2.0 changes and compatibility](docs/release-v4.2.0.md).
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to twenty-seven canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to twenty-eight canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
 semantics. Rigging/skinning, animation, GLB export validation and Godot asset
 integration now have separate owners. Nine legacy Blender names remain compatible.
@@ -18,6 +18,9 @@ handoff links; project art direction and inspected visual evidence still decide
 the finish. UV/bakes remain with surfaces, structural damage with sculpting.
 
 [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) owns anime/manga humanoid form, faces, eyes, hair and clothing, with renderer-compatible visual QA and explicit downstream handoffs.
+
+[Reference Surface Transfer](skills/blender-reference-surface-transfer/SKILL.md) reuses original image regions for faces/eyes,
+logos, prints and unique patterns, with bounded repair, transfer/bake and provenance QA.
 
 [Visual reference reconstruction](skills/visual-reference-reconstruction/SKILL.md)
 is the required PASS 0 before complex image-based modeling or new text-only design across asset domains.

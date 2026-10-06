@@ -53,6 +53,10 @@ def document_paths(root, alias):
         paths.append("skills/blender-animation/references/motion.md")
     elif alias == "blender-animation":
         paths.append("skills/blender-animation/references/motion.md")
+    elif alias == "blender-reference-surface-transfer":
+        paths.extend(["skills/blender-reference-surface-transfer/references/workflow.md",
+                      "skills/blender-reference-surface-transfer/references/record.md",
+                      "skills/blender-pipeline/references/surfaces.md"])
     elif alias == "blender-posteffects-polishing":
         paths.append("skills/blender-posteffects-polishing/references/finishing-techniques.md")
     elif alias == "blender-anime-character-modeling":

@@ -48,6 +48,7 @@ or domain decisions are requested.
 | Model trees, shrubs, grass, flowers, vines or vegetation families | [vegetation](../blender-vegetation/SKILL.md) |
 | Sculpt organic/hard-surface forms, use remesh/Dyntopo/Multires, or make bounded sculpt corrections | [sculpting](../blender-sculpting/SKILL.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
+| Transfer unique artwork from source reference regions onto existing surfaces | [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |
 | Finish existing materials/textures, weathering, surface damage, emission or final image effects | [Posteffects and polishing](../blender-posteffects-polishing/SKILL.md) |
 | Bones, bindings and weights | [rigging and skinning](../blender-rigging-skinning/SKILL.md) |

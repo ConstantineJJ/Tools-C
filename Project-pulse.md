@@ -1,9 +1,11 @@
 # Tools_C — Project Pulse
 
-Updated: 2026-10-05. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
-Current catalog: twenty-seven canonical skills, nine legacy Blender compatibility aliases.
+Updated: 2026-10-07. Architecture: 4.0.1. Canonical repository: `ConstantineJJ/Tools-C`.
+Current catalog: twenty-eight canonical skills, nine legacy Blender compatibility aliases.
 
 ## Done
+
+- 2026-10-06: implemented canonical Reference Surface Transfer for original face/eye graphics, logos, markings, prints and unique surface patterns. Source-first crop/preparation, masked repair only for insufficient data, projection/decal/UV handoff, bake, local seam cleanup and identity QA preserve the existing Model Contract; PBR response is reconstructed separately. Added registration contracts, strict transfer-record/file-hash checker and English/Russian focused/mixed/read-only routing; live MCP reports 28 owners and seven complete contexts match local document hashes. Both router trees regenerated. Final checks: 198 regressions PASS, self/adapter L1 50/9 PASS with no WARN/FAIL; optional creator validator SKIP for missing PyYAML. Evidence is recorded in the [implementation report](reports/REFERENCE_SURFACE_TRANSFER_2026-10-06.md). No asset/scene mutation or visual likeness acceptance; local changes only, no release. All pre-existing work preserved.
 
 - 2026-10-05: added one persistent Canonical Design Graph / Model Contract inside pass0.json schema 3; assembly_graph.json and per-view reviews pin its id/revision/hash. Hard identity/counts, proportion envelopes/ratios/anchors, soft details, hierarchy/symmetry and critical links retain certainty/source priority. Known crop fails VIEW COMPLETENESS; incomparable/hidden geometry is UNKNOWN, never new truth. Explicit revisions invalidate stale bindings; only significant checkpoints run. 186 tests PASS (27 new Contract tests), self/adapter L1 42/9 PASS, live MCP delivers Contract once with complete PASS0 → robot context, both router trees synchronized. Actual prior scout sheet rejected (front/3/4 crop FAIL, side/rear UNKNOWN); unchanged Hero supports macro-only handoff. Blender 5.2.2 evaluated-instance probe and independent saved-file reopen PASS; actual shortened/third guns FAIL as expected. Finished likeness/mechanics/materials/rig/export remain SKIP. All 35 unrelated files preserved; historical packets still parse for audit, reviewed migration is required before modeling. Local implementation, v4.1.0 unchanged. [Report](reports/MODEL_CONTRACT_2026-10-05.md).
 
@@ -139,6 +141,8 @@ Current catalog: twenty-seven canonical skills, nine legacy Blender compatibilit
 - 2026-09-28 post-reconciliation Blender router sync returned `PASS SYNC: 9 compatibility routers`.
 
 ## Current / next
+
+- Reference Surface Transfer is integrated and live-readable. Next scoped asset exercise should supply original reference pixels plus a named existing target; validate actual crop/repair containment, face or graphic identity, bake/seams, saved texture dependencies and any required movement/target appearance. These asset gates remain SKIP for the tooling pass.
 
 - Form methods and helpers are ready for the next scoped asset exercise. Compare the focal model's silhouette, continuous transitions, hair grouping and target-renderer appearance before background/detail growth. New stdio server has 17 tools; this ongoing chat still exposes 13 tool names. External connector discovery/updated parameter schema remains unverified and may require normal refresh/reconnect. Existing Python execution remains a usable helper path. The requested commits and stable v4.0.3 release are complete. The next asset exercise requires its own scope; no production diorama or character was changed during the skill/release work.
 - Final maintenance preserved the user's confirmed deletion of obsolete `TOOLS_C_V4_MIGRATION_REPORT.md`; README links current form-methods evidence and the architecture document no longer references the removed file.

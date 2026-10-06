@@ -106,6 +106,12 @@ hidden geometry, image accuracy, manufacturing feasibility or finished 3D likene
 The validator proves structural/provenance invariants only; record visual reviewer,
 observations and permitted uses separately.
 
+For source regions containing distinctive artwork, hand off source hashes, regions,
+certainty and permitted uses to [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md).
+Preserve usable original pixels for faces/eyes, labels and patterns; generated
+auxiliary views do not replace their identity. This downstream surface stage reuses
+the existing Model Contract without restarting PASS 0.
+
 For robots/mechs, hand off to [robot and mechanism modeling](../blender-robot-mechanism-modeling/SKILL.md).
 For other objects, select their [domain owner](../blender-pipeline/SKILL.md).
 

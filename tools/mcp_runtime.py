@@ -29,6 +29,12 @@ def render_context(root, owner, procedures=()):
     contract='skills/visual-reference-reconstruction/references/model-contract.md'
     if owner in {'visual-reference-reconstruction','blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {contract}\n\n' not in content:
         paths.append(contract)
+    if owner == 'blender-reference-surface-transfer':
+        for path in ['skills/blender-reference-surface-transfer/references/workflow.md',
+                     'skills/blender-reference-surface-transfer/references/record.md',
+                     'skills/blender-pipeline/references/surfaces.md']:
+            if f'SOURCE: {path}\n\n' not in content:
+                paths.append(path)
     finishing='skills/blender-posteffects-polishing/references/finishing-techniques.md'
     if owner == 'blender-posteffects-polishing' and f'SOURCE: {finishing}\n\n' not in content:
         # A live adapter can retain the earlier two-argument reader module.
@@ -64,8 +70,8 @@ def action_query(task):
     return re.sub(
         r'(?:\b(?:preserve|preserving|keeping|keep(?!\s+(?:sculpting|modeling|working)\b)|without|no|do\s+not)\b|'
         r'(?:сохрани(?:ть)?|не\s+меняя|без|не\s+(?:делай|используй|меняй|трогай)))'
-        r'[^.;\n]*?(?=[.;\n]|\b(?:but|then)\b|\band\s+(?:create|repair|edit|fix|build|rebind|model|sculpt|unwrap|bake|export|review|add|polish|refine|improve)\b|'
-        r'\b(?:а|но|затем|потом)\b|\bи\s+(?:созда|сдела|исправ|поправ|перепривяз|развер|запек|экспорт|добав|улучш)|$)',
+        r'[^.;\n]*?(?=[.;\n]|\b(?:but|then)\b|\band\s+(?:create|repair|edit|fix|build|rebind|model|sculpt|unwrap|bake|export|review|add|polish|refine|improve|transfer|project|extract|crop)\b|'
+        r'\b(?:а|но|затем|потом)\b|\bи\s+(?:созда|сдела|исправ|поправ|перепривяз|развер|запек|экспорт|добав|улучш|перенес|спроецир|выреж)|$)',
         '', task.strip().lower())
 
 
@@ -75,11 +81,23 @@ def polishing_route(query):
     clauses = re.split(r'[.;\n]|\b(?:then|and\s+(?:add|polish|refine))\b|\b(?:затем|потом|и\s+(?:добав\w*|улучш\w*))\b', query)
     if len(clauses) > 1:
         return any(polishing_route(clause) for clause in clauses if clause.strip())
+    if surface_transfer_route(query):
+        return False
     named = re.search(r'\bpost[- ]?effects?\b|\bpolishing\b|постэффект|финишн\w*\s+(?:отделк|доработ|материал)|финальн\w*\s+(?:отделк|материал)', query)
     finish = re.search(r'\b(?:weathering|grime|dirt|scuffs?|scratches?|chipped\s+paint|peeling\s+paint|rust|emission|emissive|glow|bloom)\b|гряз|пот[её]ртост|царапин|шелуш|облез|ржавчин|свечени|эмисси', query)
     surface = re.search(r'\b(?:surface\s+cracks?|texture\w*\s+cracks?|material\s+refinement|(?:refine|improve)\s+(?:(?:the|existing)\s+)*(?:materials?|textures?))\b|\bpolish\b[^.;\n]*\b(?:materials?|textures?|surface|finish)\b|поверхностн\w*\s+трещин|улучш\w*\s+(?:материал|текстур)', query)
     sculpt = re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|voxel\s+remesh|multires)\b|скульпт|ремеш|динтопо|мультирез', query)
     return bool(named or ((surface or finish) and not sculpt))
+
+
+def surface_transfer_route(query):
+    """Source artwork reuse intent; asset nouns alone do not start geometry."""
+    if re.search(r'\breference\s+surface\s+transfer\b|перенос\w*\s+(?:рисунк|график)\w*\s+с\s+референс', query):
+        return True
+    source = re.search(r'\b(?:reference|source|photo|photograph|image|crop)\b|референс|исходн|фото|изображени', query)
+    action = re.search(r'\b(?:transfer|project|reuse|extract|crop|decal)\b|перенес|перенос|спроецир|выреж|вырез|извле', query)
+    graphic = re.search(r'\b(?:face|eyes?|iris|logos?|markings?|prints?|tattoos?|panels?|scales?|graffiti|wear|patterns?|artwork|graphics?|textures?|decals?)\b|лиц|глаз|радужк|логотип|маркировк|принт|тату|панел|шкал|граффити|пот[её]ртост|узор|рисунк|рисунок|график|текстур|декал', query)
+    return bool(source and action and graphic)
 
 
 def procedure_routes(query):
@@ -88,7 +106,7 @@ def procedure_routes(query):
         procedures.append('retopology')
     foundation = re.search(r'\b(?:unwrap|uvs?)\b|\bbak(?:e|ing)\b[^.;\n]*(?:normal|ao|map|texture)|разв[её]рт|запек.*(?:нормал|карт)', query)
     material = re.search(r'\b(?:textur(?:e|es|ing)|pbr|materials?)\b|материал|текстур', query)
-    if foundation or (material and not polishing_route(query)):
+    if foundation or (material and not polishing_route(query) and not surface_transfer_route(query)):
         procedures.append('surfaces')
     return procedures
 
@@ -152,17 +170,19 @@ def robot_modeling_route(query):
 
 def _route_task(task):
     query=task.strip().lower()
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     if explicit: return list(dict.fromkeys(explicit))
     query=action_query(query)
     reviewing=bool(re.search(r'\b(?:review|inspect|audit|diagnose)\b|проверь|проверить|осмотр',query))
-    if reviewing and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш',query):
+    if reviewing and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
         return ['verification']
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
     # mentions do not grant modeling or rig-edit ownership.
     procedures=procedure_routes(query)
     polishing=polishing_route(query)
+    transfer=surface_transfer_route(query)
     routes=['verification'] if reviewing else []
+    if transfer: routes.append('blender-reference-surface-transfer')
     if procedures: routes.append('blender-pipeline')
     if polishing: routes.append('blender-posteffects-polishing')
     if re.search(r'export|round.trip|glb|gltf|экспорт',query): routes.append('blender-export-validation')
@@ -174,9 +194,9 @@ def _route_task(task):
     # A stage-only request loads its existing procedure; asset nouns are context.
     # Explicit geometry creation may co-route with a requested UV/retopo stage.
     primary_revision = primary_geometry_revision(query)
-    if (procedures or polishing) and not primary_revision and not re.search(
-        r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack))|'
-        r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост))',query):
+    if (procedures or polishing or transfer) and not primary_revision and not re.search(
+        r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack|decal|logo|graphic|pattern|reference\s+surface\s+transfer))|'
+        r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост|декал|логотип|перенос))',query):
         return list(dict.fromkeys(routes))
     if re.search(r'\b(?:building|buildings|house|houses|architecture|architectural|facade|façade|roof|modular\s+(?:building|architecture|kit|wall)|wall\s+module|floor\s+module|building\s+blockout)\b|здани|\bдом(?:ик\w*|а|у|ом|е)?\b|постройк|архитект|фасад|крыш(?:а|и|у|ей|е)\b|модульн.*(?:здани|дом|стен)',query): routes.append('blender-architecture-environment')
     if re.search(r'\b(?:environment\s+assets?|street\s+furniture|site\s+fixtures?|bench(?:es)?|street\s*lamps?|lamp\s*posts?|bollards?|hydrants?|litter\s*bins?|trash\s*bins?|bike\s*racks?|planters?|fence\s+panels?|railing\s+panels?|traffic\s+barriers?|road\s+signs?|street\s+signs?|standalone\s+signs?)\b|скамейк|скамь|\bзабор\w*|уличн.*фонар|фонарн.*столб|урн(?:а|ы|у|ой)?\b|боллард|гидрант|велопарков|заборн.*секц|секц.*забор|огражд.*секц',query): routes.append('blender-environment-assets')
@@ -206,7 +226,7 @@ def route_task(task):
                             r'референс|изображени|картинк|черт[её]ж|фотограф', query))
     analysis = bool(re.search(r'\b(?:analy[sz]e|reconstruct|technical\s+reference\s+pack|pass\s*0)\b|'
                               r'проанализ|разбер\w*\s+референс|восстанов\w*\s+вид|пакет\s+референс', query))
-    if visual and analysis and not geometry_intent(query):
+    if visual and analysis and not geometry_intent(query) and not surface_transfer_route(query):
         return ['visual-reference-reconstruction']
     owners = _route_task(task)
     if visual and analysis and owners == ['blender-pipeline']:

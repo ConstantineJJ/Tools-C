@@ -1,0 +1,373 @@
+[
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-CATALOG",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "PROJECT-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "PROJECT-ROUTES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "PROJECT-SKILLS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/blender-domain-contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/blender-polishing-contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/blender-anime-contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/pass0-mechanics-contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": ".tooling/surface-transfer-contracts.json",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-SELF-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-DOMAIN-CONTRACTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-POLISHING-CONTRACTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-ANIME-CONTRACTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-FILES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-JSON",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-LINKS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-GENERIC",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-PASS0-CONTRACTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-REGISTRATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-LEGACY",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-AGENTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-PIPELINE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-FOUNDATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BDP-SCULPT-COMPAT",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BPP-REGISTRATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BPP-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BPP-ENTRYPOINTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BPP-DEPENDENCIES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BPP-SURFACES-HANDOFF",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BAM-REGISTRATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BAM-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BAM-ENTRYPOINTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "BAM-DEPENDENCIES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-MODEL-CONTRACT-FILES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-DESCRIPTION-FILES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-REGISTRATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-PIPELINE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-AGENTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-FOUNDATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "VRM-COMPATIBILITY",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-REGISTRATION",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-PROFILE",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-ENTRYPOINTS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-DEPENDENCIES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-FILES",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L1",
+    "status": "PASS",
+    "code": "OK",
+    "rule": "RST-LINKS",
+    "message": "Declared check satisfied"
+  },
+  {
+    "level": "L2",
+    "status": "SKIP",
+    "code": "NOT_RUN",
+    "rule": "system",
+    "message": "Use tools/engine_check.py; no engine executed by L1"
+  },
+  {
+    "level": "L3",
+    "status": "SKIP",
+    "code": "NOT_RUN",
+    "rule": "system",
+    "message": "Runtime/bridge/input behavior requires an explicit task probe"
+  },
+  {
+    "level": "L4",
+    "status": "SKIP",
+    "code": "NOT_RUN",
+    "rule": "system",
+    "message": "Visual and engineering review requires recorded evidence"
+  }
+]

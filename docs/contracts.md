@@ -104,6 +104,11 @@ fixed universally; regression/live routing and inspected images remain separate.
 
 The [anime character contract](../.tooling/blender-anime-contracts.json) guards the canonical owner, self-profile activation, actual entrypoint links and prerequisites/evidence references. It leaves style ratios, facial design, shader strengths and visual acceptance project-specific.
 
+The [surface transfer contract](../.tooling/surface-transfer-contracts.json) protects canonical registration,
+activation and stage links. [Transfer records](../skills/blender-reference-surface-transfer/references/record.md)
+check crop bounds, artifact hashes and repair lineage; pixel identity, actual mask
+containment, PBR quality and Blender/target behavior require separate review.
+
 Profile adapters live in [profile_adapters.py](../tools/profile_adapters.py):
 
 - `{"kind":"godot","resources":["scenes/main.tscn"]}` requires project.godot and

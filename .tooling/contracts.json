@@ -178,6 +178,18 @@
           ".tooling/pass0-mechanics-contracts.json"
         ]
       }
+    },
+    {
+      "id": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/surface-transfer-contracts.json"
+        ]
+      }
     }
   ]
 }

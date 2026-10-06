@@ -1,0 +1,473 @@
+{
+  "date": "2026-10-06",
+  "canonical_count": 28,
+  "probes": [
+    {
+      "task": "Reference Surface Transfer",
+      "ok": true,
+      "owners": [
+        "blender-reference-surface-transfer"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+          "characters": 10197,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "c2aad6f3c8e82c88fddffdfb83bb626bdd4dce655b76110ac2f7943335bf6d6c",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Перенеси лицо и глаза с референса на аниме персонажа.",
+      "ok": true,
+      "owners": [
+        "blender-reference-surface-transfer"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+          "characters": 10197,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "c2aad6f3c8e82c88fddffdfb83bb626bdd4dce655b76110ac2f7943335bf6d6c",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Transfer the reference wear pattern onto the mech panel.",
+      "ok": true,
+      "owners": [
+        "blender-reference-surface-transfer"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+          "characters": 10197,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "c2aad6f3c8e82c88fddffdfb83bb626bdd4dce655b76110ac2f7943335bf6d6c",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Review the reference logo transfer without editing it.",
+      "ok": true,
+      "owners": [
+        "verification"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+          "characters": 10197,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "verification",
+          "sha256": "13f9c0564e50140bdd47db4f8cad9f93c70bdf9975e90c526c12f78b33e110ea",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Create a mech from the reference, then transfer the original panel markings.",
+      "ok": true,
+      "owners": [
+        "visual-reference-reconstruction",
+        "blender-robot-mechanism-modeling",
+        "blender-reference-surface-transfer"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence-entry.md",
+          "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+          "characters": 1553,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/visual-reference-reconstruction/SKILL.md",
+          "sha256": "c10df78ff3fa0fb3aac696d619f093101caad11ecb6433c299fab93ae6232717",
+          "characters": 10124,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+          "sha256": "775a603480a97417b6bb4ecbce23a9018bbb94d3c9ce62236042622b5a20c497",
+          "characters": 9848,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+          "sha256": "f0b1debc2f0ae3e4b94f0b3a1318cdd5fbd1dbfa60ef984479951a9051fb0b3a",
+          "characters": 8800,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "visual-reference-reconstruction",
+          "sha256": "6f8dbec18aecc6edb589c626b369d39affc2f55f1562b52bcbd8befe8cd9f37e",
+          "truncated": false
+        },
+        {
+          "name": "blender-robot-mechanism-modeling",
+          "sha256": "5cd1cb0611cf28de268348f239b9b9f3cd669d6da2ee4c78b651233eba831179",
+          "truncated": false
+        },
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "70a6bb02bc358437e92d81781b3aa2d5c061419d6003298b1e4922e64f58502c",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Transfer the logo from the reference, then unwrap UVs.",
+      "ok": true,
+      "owners": [
+        "blender-reference-surface-transfer",
+        "blender-pipeline"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence-entry.md",
+          "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+          "characters": 1553,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "3cf69af7232d1ec59dafccad69520faaa49042bfb73e94d4866f824fbc2c9b67",
+          "truncated": false
+        },
+        {
+          "name": "blender-pipeline",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "task": "Preserve geometry and transfer the logo from the reference.",
+      "ok": true,
+      "owners": [
+        "blender-reference-surface-transfer"
+      ],
+      "missing": [],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "5da625af662cc5cde1a0e3b745bced9276539c0ec8d1120f9e17200f9305624b",
+          "characters": 3409,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "6ba77a14863e312c89cc40bb0bf6c721b248911081b90cf95870732d93f228f3",
+          "characters": 10197,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "0c86c4f7cf72f6355e836e26e6cf5b5b89b44c15a1d5fcf53831cecd8faf31ce",
+          "characters": 6196,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "sha256": "36665a0258f5655ecec10bb0212706808d4f4663f28ed9e7e479ab350bd8d532",
+          "characters": 5378,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "f4fde52126e73913c217764999ff4f5e54dc5ce369637d9bd710b109c1184769",
+          "characters": 2640,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+          "sha256": "87f3511d5aae5e29605fe744822c26cb6524962e791b4ed79911cedeab6c113b",
+          "characters": 6305,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-reference-surface-transfer/references/record.md",
+          "sha256": "e2ff3456ae598b370aa2a2aaef336964236ec3adece9e28a22aca69c62b73a06",
+          "characters": 3614,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/references/surfaces.md",
+          "sha256": "95824c7ba102545e8dd411b71d310e016b7850fb7c026651337bad50a073ac50",
+          "characters": 3167,
+          "status": "delivered"
+        }
+      ],
+      "skills": [
+        {
+          "name": "blender-reference-surface-transfer",
+          "sha256": "c2aad6f3c8e82c88fddffdfb83bb626bdd4dce655b76110ac2f7943335bf6d6c",
+          "truncated": false
+        }
+      ]
+    }
+  ]
+}

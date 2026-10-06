@@ -1,0 +1,190 @@
+{
+  "before_pulse_update": true,
+  "files": [
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "Project-pulse.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "docs/mcp-deployment.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "reports/BLENDER_MCP_CATALOG_2026-10-05.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "reports/blender-mcp-catalog-2026-10-05.json",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "reports/blender-mcp-live-2026-10-05.json",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "reports/model-contract-workflow/macro-probe.blend1",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "tests/mcp_metadata_probe.py",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "tests/test_skill_catalog.py",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Tools_C",
+      "path": "tools/skill_catalog.py",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": ".tooling/profile.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "README.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "mcp-server/blender_mcp_server.py",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/BlenderMCPCon.csproj",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/MainForm.cs",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/ProcessRunner.cs",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/SkillStore.cs",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.dll",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.exe",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/bin/Debug/net10.0-windows/BlenderMCPCon.pdb",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/BlenderMCPCon.csproj.nuget.dgspec.json",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/BlenderMCPCon.csproj.nuget.g.props",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.AssemblyInfo.cs",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.AssemblyInfoInputs.cache",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.csproj.FileListAbsolute.txt",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.dll",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/BlenderMCPCon.pdb",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/apphost.exe",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/ref/BlenderMCPCon.dll",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/Debug/net10.0-windows/refint/BlenderMCPCon.dll",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/project.assets.json",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/obj/project.nuget.cache",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "icons.png",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "skills/README_Blender_Character_Agent_Pipeline.md",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/BlenderMCPCon.csproj.bak-20260927T210325536198Z",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/MainForm.cs.bak-20260927T210216750524Z",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/TunnelRuntime.cs",
+      "preserved": true
+    },
+    {
+      "root": "E:/MyCreations/Blender-MCP-Co",
+      "path": "src/BlenderMCPCon/TunnelRuntime.cs.bak-20260927T210159298626Z",
+      "preserved": true
+    }
+  ]
+}

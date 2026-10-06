@@ -37,6 +37,9 @@ posteffects. Adding a missing finish material is allowed within this scope.
 
 Ownership boundaries:
 
+- [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md) owns original-image
+  graphics and distinctive wear-pattern transfer; preserve that artwork before
+  adding requested finish. Generic procedural wear remains here.
 - [Surfaces](../blender-pipeline/references/surfaces.md) owns UV layout, high/low
   projection, bake settings and baseline channel/binding correctness. Hand off
   broken UVs, missing bakes or incorrect tangents before covering them with grunge.
