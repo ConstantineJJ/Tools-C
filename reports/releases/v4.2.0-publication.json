@@ -1,0 +1,120 @@
+{
+  "release_id": 405157176,
+  "url": "https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.0",
+  "tag": "v4.2.0",
+  "source_commit": "655dea315e9ca461abfee598d3bd6e48117b9b96",
+  "local_source_commit": "21e417b4512491b13428effc1df5a5bf3d638d16",
+  "integration_commit": "3b1fed4cb9e956798ba5dab60660d2a3af441682",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "main_and_tag_match_tested_commit": true,
+  "public_archive_download": "PASS",
+  "assets": [
+    {
+      "name": "release-verification.json",
+      "size": 63367,
+      "digest": "sha256:2d205dc1c22e0825032f9a2b7835142733b468f0e32eb0fa4c5db19ef7fe648e",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.2.0/release-verification.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 179,
+      "digest": "sha256:621e77270a6ab746f29cc784bf67b696b44d84c1465419605afa809b6d7aca05",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.2.0/SHA256SUMS.txt"
+    },
+    {
+      "name": "Tools_C-v4.2.0.zip",
+      "size": 9405576,
+      "digest": "sha256:e0338bf62e3266bd31393939bfb92358296526cd2bdca93f7cd0f092905f979e",
+      "download": "https://github.com/ConstantineJJ/Tools-C/releases/download/v4.2.0/Tools_C-v4.2.0.zip"
+    }
+  ],
+  "published_at": "2026-10-06T21:30:22Z",
+  "extracted_package": {
+    "python": "3.14.2",
+    "source_bytes_after_checks": "PASS",
+    "checks": {
+      "l1": {
+        "status": "PASS",
+        "seconds": 1.14,
+        "summary": {
+          "PASS": 51,
+          "SKIP": 3
+        }
+      },
+      "tests": {
+        "status": "PASS",
+        "seconds": 187.66,
+        "summary": {
+          "tests": 201,
+          "failures": 0,
+          "errors": 0,
+          "skips": 0
+        }
+      },
+      "windows-launcher": {
+        "status": "PASS",
+        "seconds": 0.84,
+        "summary": {
+          "foreign_cwd_and_install_path_with_spaces": true,
+          "explicit_python_override": true
+        }
+      }
+    },
+    "mcp_discovery_context": {
+      "status": "PASS",
+      "canonical_root": "E:\\MyCreations\\Tools_C\\.local\\releases\\v4.2.0\\fresh extracted package\\Tools_C-v4.2.0",
+      "canonical_skills": 28,
+      "aliases": 9,
+      "runtime_tools": 17,
+      "discovery": "PASS",
+      "read_skill_exact_bytes": "PASS",
+      "contexts": [
+        {
+          "task": "blender-reference-surface-transfer",
+          "owners": [
+            "blender-reference-surface-transfer"
+          ],
+          "documents": 8
+        },
+        {
+          "task": "Transfer the original logo from the reference onto the existing model.",
+          "owners": [
+            "blender-reference-surface-transfer"
+          ],
+          "documents": 8
+        },
+        {
+          "task": "Перенеси рисунок глаз из референса на существующее лицо.",
+          "owners": [
+            "blender-reference-surface-transfer"
+          ],
+          "documents": 8
+        }
+      ],
+      "server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4",
+      "scope": "Disposable stdio process using extracted canonical package; read-only discovery/context calls, no Blender scene mutation or connector restart"
+    }
+  },
+  "archive": {
+    "name": "Tools_C-v4.2.0.zip",
+    "bytes": 9405576,
+    "sha256": "e0338bf62e3266bd31393939bfb92358296526cd2bdca93f7cd0f092905f979e",
+    "committed_files": 185,
+    "all_entries_match_source_with_declared_bat_crlf": true,
+    "conversions": []
+  },
+  "verification_scope": "Structure, source provenance rejection, routing, fresh package regressions and Windows launcher. Actual texture transfer, regeneration quality, Blender bake/reopen/deformation and target-engine visuals require a scoped asset exercise; no blanket L2-L4 acceptance.",
+  "preservation": {
+    "byte_identical": true,
+    "unrelated_tools_c": 6,
+    "unrelated_integration": 28,
+    "required_discovery_files_committed_without_byte_changes": [
+      "tools/skill_catalog.py",
+      "tests/test_skill_catalog.py"
+    ],
+    "unrelated_pulse_entries_retained_unstaged": true,
+    "integration_remote": "Repository not found; router commit remains local"
+  }
+}
