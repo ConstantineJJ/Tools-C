@@ -8,6 +8,16 @@ Keep stable `part_id`, `role`, `module_id`, `parent_id`, `shared_mesh_id`, `pivo
 `editable_proxy=true`. A graph stores structural interfaces separately from editor
 grouping; collection membership/name alone does not authorize mutation.
 
+Persist this graph as `assembly_graph.json`, with one `contract_ref` (id/revision/sha256)
+to the [PASS0 Model Contract](../../visual-reference-reconstruction/references/model-contract.md).
+Add component_id, instance_id and actual object_name to each part; one physical arm
+shares an instance_id across shell/bearing/fastener meshes. Do not duplicate Contract
+rules here. Capture measured checkpoint observations and a compact verification
+receipt; check scene bindings, counts, locked proportions and critical links at G1
+(MACRO), G2 (MECHANICS), clay geometry handoff (GEOMETRY) and G7 (FINAL), when in scope.
+Crop in an auxiliary panel never changes barrel/link length; use the locked source
+and supported envelopes. A revision is explicit and invalidates stale bindings.
+
 Start with primary envelopes and changing cross-sections, then skeleton/link
 lengths, then armor. Boxes are useful blockout, not final proof of torso curvature,
 sloping shoulders, thick layered feet or stepped hubs. Exposed mechanical depth

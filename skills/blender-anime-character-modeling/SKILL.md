@@ -114,6 +114,10 @@ diagnosed stage defect to its owner. Stop at conflicting references/invariants,
 missing identity-critical data, unsafe bound-mesh edits or an unavailable required
 visual gate; explain the remaining decision or capability. No blind detail pass.
 
+For original face/eye artwork, use [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md)
+after supporting facial forms are established. Preserve graphic identity and
+expression through source pixels; a frontal texture cannot replace correct volume.
+
 ## Pitfalls / Lessons Learned
 
 ### ANIME-001

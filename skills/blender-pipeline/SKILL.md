@@ -16,9 +16,14 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 Select only the reference matching the task:
 
-Before complex image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
+Before complex new design from text or image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
 Verify hashes and stage limits; BLOCKED stops construction. Reuse valid packets;
 stage-only work and read-only QA do not restart PASS 0.
+All downstream owners consume the same [Model Contract](../visual-reference-reconstruction/references/model-contract.md)
+and its permitted visual package. Pin id/revision/hash in assembly_graph.json;
+verify counts, key proportions/anchors and critical relationships only at relevant
+blockout, mechanics, clay handoff and delivery checkpoints. Generated panels cannot
+override source/Contract; explicit revisions invalidate stale reviews and bindings.
 
 For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
 Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.
@@ -43,6 +48,7 @@ or domain decisions are requested.
 | Model trees, shrubs, grass, flowers, vines or vegetation families | [vegetation](../blender-vegetation/SKILL.md) |
 | Sculpt organic/hard-surface forms, use remesh/Dyntopo/Multires, or make bounded sculpt corrections | [sculpting](../blender-sculpting/SKILL.md) |
 | Repair edge flow or deformation | [retopology](references/retopology.md) |
+| Transfer unique artwork from source reference regions onto existing surfaces | [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md) |
 | Author UVs, bakes or PBR materials | [surfaces](references/surfaces.md) |
 | Finish existing materials/textures, weathering, surface damage, emission or final image effects | [Posteffects and polishing](../blender-posteffects-polishing/SKILL.md) |
 | Bones, bindings and weights | [rigging and skinning](../blender-rigging-skinning/SKILL.md) |

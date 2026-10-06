@@ -142,3 +142,10 @@ affected project. Avoid freezing tuning or asset identity as universal policy.
 Retire an obsolete rule by updating/removing its active definition and consumers
 together, with the reason in Git history. A replaced rule must not remain active
 in another copy. Lessons lifecycle: [contracts-lint](../skills/contracts-lint/SKILL.md).
+
+[Reference Surface Transfer](../skills/blender-reference-surface-transfer/SKILL.md)
+has [registration guards](../.tooling/surface-transfer-contracts.json) and
+[transfer records](../skills/blender-reference-surface-transfer/references/record.md)
+for crop bounds, lineage and artifact hashes. Pixel identity, actual masks
+and PBR correctness retain separate review gates. PASS 0 task schema 3 embeds
+a persistent [Model Contract](../skills/visual-reference-reconstruction/references/model-contract.md).

@@ -47,3 +47,9 @@ image-based geometry work across domains.
 [blender-robot-mechanism-modeling](../skills/blender-robot-mechanism-modeling/SKILL.md)
 owns rigid robot/mech and articulated mechanism geometry from a prepared packet;
 surface, rig, animation and delivery owners retain their stages.
+
+## Original surface graphics
+
+[blender-reference-surface-transfer](../skills/blender-reference-surface-transfer/SKILL.md)
+owns source-region preparation, bounded repair and graphic identity transfer;
+UV/bake mechanics and baseline PBR remain with surfaces.

@@ -81,7 +81,8 @@
         "skills/production-project-state-gates/SKILL.md",
         "skills/blender-anime-character-modeling/SKILL.md",
         "skills/visual-reference-reconstruction/SKILL.md",
-        "skills/blender-robot-mechanism-modeling/SKILL.md"
+        "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "skills/blender-reference-surface-transfer/SKILL.md"
       ]
     },
     {
@@ -132,7 +133,9 @@
         "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
         "skills/blender-anime-character-modeling/references/research-notes.md",
         ".tooling/blender-anime-contracts.json",
-        "tests/test_anime.py"
+        "tests/test_anime.py",
+        "tools/skill_catalog.py",
+        "tests/test_skill_catalog.py"
       ]
     },
     {
@@ -207,6 +210,18 @@
       "expected": {
         "contracts": [
           ".tooling/pass0-mechanics-contracts.json"
+        ]
+      }
+    },
+    {
+      "id": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "contracts": [
+          ".tooling/surface-transfer-contracts.json"
         ]
       }
     }

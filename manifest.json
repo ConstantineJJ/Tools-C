@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "4.1.0",
+  "version": "4.2.0",
   "skills": [
     {
       "id": "project-audit",
@@ -109,6 +109,10 @@
     {
       "id": "blender-robot-mechanism-modeling",
       "path": "skills/blender-robot-mechanism-modeling/SKILL.md"
+    },
+    {
+      "id": "blender-reference-surface-transfer",
+      "path": "skills/blender-reference-surface-transfer/SKILL.md"
     }
   ],
   "blender_aliases": {

@@ -8,6 +8,11 @@ correctness. Late material/texture refinement, localized wear, emission/glow and
 approved image effects belong to [Posteffects and polishing](../../blender-posteffects-polishing/SKILL.md).
 Pass stable maps/UVs to it near final QA; receive UV/bake defects back from it.
 
+For unique graphics extracted from a reference, use [Reference Surface Transfer](../../blender-reference-surface-transfer/SKILL.md)
+for source selection, preparation, local regeneration limits and identity QA.
+This procedure retains UV/projection/bake mechanics and baseline PBR ownership;
+RGB artwork does not directly determine roughness, metallic or normal maps.
+
 Inspect existing UVs, materials, textures, color spaces, mesh split boundaries,
 target engine and texel budget before replacing anything. Preserve authored UVs
 when the requested repair does not require a new unwrap.

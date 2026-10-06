@@ -4,6 +4,14 @@ Use [QA profiles](../../blender-pipeline/references/techniques/qa-profiles.md) a
 [verification](../../verification/SKILL.md); this reference specifies mechanical
 criteria, not a competing general evidence system.
 
+Both PASS 0 modes use the same consumer fields and one persistent Model Contract.
+At significant geometry gates, check its id/revision/hash, established physical
+counts, hard properties, key measured proportions/anchors and critical relationships.
+Use [Contract checkpoint verification](../../visual-reference-reconstruction/references/model-contract.md),
+not QA after every operation. Pin its reference in assembly_graph.json and saved
+asset metadata; copy claim IDs/labels into part records. CANONICAL is an adopted
+design, not observed hidden construction. Explicit revisions invalidate stale reviews.
+
 At macro/secondary clay gates, hide textures, decals, wear and microdetail.
 Inspect front/side/rear/3/4 with neutral light, source-matched pose/lens and a
 silhouette/landmark comparison. Mark rear review as proxy review if unseen.

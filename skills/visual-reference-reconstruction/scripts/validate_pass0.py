@@ -5,6 +5,15 @@ import json
 import math
 from pathlib import Path
 import sys
+import importlib.util
+
+_spec = importlib.util.spec_from_file_location("pass0_description", Path(__file__).with_name("description_contract.py"))
+_description = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_description)
+identity_snapshot = _description.identity_snapshot
+_spec = importlib.util.spec_from_file_location("pass0_model_contract", Path(__file__).resolve().parents[3] / "tools/model_contract.py")
+model_contract = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(model_contract)
 
 CERTAINTY = {"CONFIRMED", "INFERRED", "SPECULATIVE"}
 SOURCE_ROLES = {"PRIMARY", "SUPPORTING", "AUXILIARY_INPUT", "REPORT"}
@@ -70,18 +79,30 @@ def validate(packet, base=Path("."), verify_files=False):
     if not isinstance(packet, dict): return ["Packet must be an object"]
     finite(packet)
     require(REQUIRED <= packet.keys(), "Missing packet fields: " + ", ".join(sorted(REQUIRED - packet.keys())))
-    require(type(packet.get("schema_version")) is int and packet["schema_version"] == 1, "Unsupported schema_version")
+    version = packet.get("schema_version")
+    require(type(version) is int and version in {1, 2, 3}, "Unsupported schema_version")
+    mode = packet.get("mode", "REFERENCE" if version == 1 else None)
+    require(mode in {"REFERENCE", "DESCRIPTION"}, "Explicit mode required for schema 2/3")
+    require(version != 1 or mode == "REFERENCE", "Schema 1 supports REFERENCE only")
+    description = mode == "DESCRIPTION"
+    roles = SOURCE_ROLES | {"BRIEF", "CONCEPT_CANDIDATE", "CANONICAL_CONCEPT"} if description else SOURCE_ROLES
+    truth_roles = {"BRIEF", "CANONICAL_CONCEPT"} if description else {"PRIMARY", "SUPPORTING"}
+    if version == 3 and not description:
+        roles = roles | {"BRIEF"}; truth_roles = truth_roles | {"BRIEF"}
     for key in ["packet_id", "task_scope", "object_class"]:
         require(nonempty(packet.get(key)), "Missing " + key)
     sources = indexed(packet.get("sources"), "source")
     for source in sources.values():
-        require(source.get("role") in SOURCE_ROLES, "Invalid source role")
+        require(source.get("role") in roles, "Invalid source role")
         for key in ["projection", "authority_note"]: require(nonempty(source.get(key)), "Source needs " + key)
         file_check(source)
     truth = rows(packet.get("source_of_truth"), "source_of_truth")
     require(bool(truth) and len(set(map(str, truth))) == len(truth), "Need unique source_of_truth IDs")
-    require(all(isinstance(s, str) and s in sources and sources[s].get("role") in {"PRIMARY", "SUPPORTING"}
-                for s in truth), "Source of truth must contain original PRIMARY/SUPPORTING sources")
+    require(all(isinstance(s, str) and s in sources and sources[s].get("role") in truth_roles
+                for s in truth), "Source of truth has invalid authority for input mode")
+    if not description:
+        require(any(sources.get(s, {}).get("role") in {"PRIMARY", "SUPPORTING"} for s in truth if isinstance(s, str)),
+                "REFERENCE needs original image authority, not only text")
     basis = packet.get("proportion_basis", {})
     if not isinstance(basis, dict): basis = {}; errors.append("proportion_basis must be an object")
     for key in ["unit", "scale_status", "axis_convention", "pose", "camera_notes"]:
@@ -100,7 +121,8 @@ def validate(packet, base=Path("."), verify_files=False):
         require(nonempty(row.get("property")), "Claim needs property")
         require("value" in row, "Claim needs value")
         certainty = row.get("certainty")
-        require(certainty in CERTAINTY, "Invalid certainty: " + str(cid))
+        allowed = {"REQUIRED", "CANONICAL", "SPECULATIVE"} if description else CERTAINTY | ({"REQUIRED"} if version == 3 else set())
+        require(certainty in allowed, "Invalid certainty: " + str(cid))
         require(nonempty(row.get("basis")), "Claim needs basis: " + str(cid))
         evidence = rows(row.get("evidence"), "claim evidence")
         authoritative = False
@@ -112,11 +134,20 @@ def validate(packet, base=Path("."), verify_files=False):
                 require(nonempty(item.get(key)), "Evidence needs " + key)
             role = sources.get(sid, {}).get("role") if isinstance(sid, str) else None
             authoritative |= sid in truth and role in {"PRIMARY", "SUPPORTING"}
+            if certainty in {"REQUIRED", "CANONICAL"}:
+                expected = "BRIEF" if certainty == "REQUIRED" else "CANONICAL_CONCEPT"
+                require(sid in truth and role == expected, certainty + " has wrong provenance: " + str(cid))
             if certainty == "CONFIRMED":
                 require(sid in truth and role in {"PRIMARY", "SUPPORTING"},
                         "CONFIRMED claim cannot use derivative/report evidence: " + str(cid))
         if certainty in {"CONFIRMED", "INFERRED"}:
             require(authoritative, certainty + " needs source-of-truth evidence: " + str(cid))
+        if certainty in {"REQUIRED", "CANONICAL"}:
+            require(bool(evidence), certainty + " needs evidence: " + str(cid))
+    if description or version == 3:
+        for constraint in rows(packet.get("constraints", []), "constraints"):
+            claim(constraint)
+            if isinstance(constraint, dict): require(constraint.get("certainty") == "REQUIRED", "Constraints must be REQUIRED")
     for component in components.values():
         require(nonempty(component.get("label")), "Component needs label")
         require(type(component.get("count")) is int and component["count"] > 0, "Component count must be positive integer")
@@ -200,6 +231,12 @@ def validate(packet, base=Path("."), verify_files=False):
     gate = packet.get("gate", {})
     if not isinstance(gate, dict): gate = {}; errors.append("gate must be an object")
     status = gate.get("status")
+    if description:
+        _description.validate_description(packet, sources, claims, components, base, verify_files,
+                                          require, nonempty, rows, indexed, file_check, load_packet)
+    elif version == 3:
+        constraints = indexed(packet.get("constraints", []), "constraint")
+        _description.validate_required_bindings(constraints, claims, components, require, rows)
     require(status in {"READY", "READY_WITH_LIMITS", "BLOCKED"}, "Invalid PASS 0 gate")
     for key in ["permitted_stage", "reviewer", "review_notes"]: require(nonempty(gate.get(key)), "Gate needs " + key)
     limits = rows(gate.get("limits"), "gate limits")
@@ -207,6 +244,11 @@ def validate(packet, base=Path("."), verify_files=False):
     if limited: require(status != "READY", "Unresolved/restricted evidence needs READY_WITH_LIMITS or BLOCKED")
     if status != "READY": require(bool(limits), "Limited/blocked gate needs explicit limits")
     if status == "BLOCKED": require(gate.get("permitted_stage") == "NONE", "Blocked gate cannot permit modeling")
+    if version == 3 and (status != "BLOCKED" or packet.get("model_contract") is not None):
+        contract_errors = model_contract.validate_contract(packet)
+        errors.extend(contract_errors)
+        if not contract_errors:
+            for entry in aux.values(): errors.extend(model_contract.verify_auxiliary(packet, entry))
     return errors
 
 
@@ -215,6 +257,10 @@ def require_stage(packet, stage, base=Path("."), verify_files=True):
     if errors: raise ValueError("; ".join(errors))
     if packet["gate"]["status"] == "BLOCKED" or packet["gate"]["permitted_stage"] != stage:
         raise ValueError("PASS 0 does not permit stage " + stage)
+    if packet.get("schema_version") != 3:
+        raise ValueError("Modeling requires schema 3 and a reviewed persistent contract; historical packets are audit-only")
+    errors = model_contract.validate_contract(packet)
+    if errors: raise ValueError("; ".join(errors))
     return packet["gate"]
 
 

@@ -29,14 +29,16 @@
     "production-lookdev-gate",
     "production-project-state-gates",
     "visual-reference-reconstruction",
-    "blender-robot-mechanism-modeling"
+    "blender-robot-mechanism-modeling",
+    "blender-reference-surface-transfer"
   ],
   "contracts": [
     ".tooling/contracts.json",
     ".tooling/blender-domain-contracts.json",
     ".tooling/blender-polishing-contracts.json",
     ".tooling/blender-anime-contracts.json",
-    ".tooling/pass0-mechanics-contracts.json"
+    ".tooling/pass0-mechanics-contracts.json",
+    ".tooling/surface-transfer-contracts.json"
   ],
   "references": [
     "README.md",

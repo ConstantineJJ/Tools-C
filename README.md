@@ -1,12 +1,12 @@
-# Tools_C 4.1.0
+# Tools_C 4.2.0
 
-Twenty-seven reusable skills and a provider-neutral harness for Blender, Godot
+Twenty-eight reusable skills and a provider-neutral harness for Blender, Godot
 and 3D production. Browse the [skills catalog](docs/skills.md) for ownership,
 activation and handoff boundaries.
 
-[Download v4.1.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.1.0)
+[Download v4.2.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.0)
 with the portable ZIP, checksums and extracted-package verification.
-See [release notes](docs/release-v4.1.0.md) for changes and compatibility.
+See [release notes](docs/release-v4.2.0.md) for changes and compatibility.
 
 [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) adds humanoid anime/manga and chibi forms,
 face/eye/hair decisions and renderer-compatible visual QA, while preserving
@@ -22,6 +22,12 @@ scoped corrections before detail growth.
 requires a provenance-aware PASS 0 packet before complex image-based modeling.
 [Robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
 consumes it through geometry and clay gates before materials and wear.
+
+[Reference Surface Transfer](skills/blender-reference-surface-transfer/SKILL.md)
+preserves original face/eye graphics, logos, prints and distinctive patterns
+with source-first preparation, bounded repair and transfer/bake QA.
+PASS 0 now supports [DESCRIPTION mode](skills/visual-reference-reconstruction/references/description-mode.md)
+and one persistent [Model Contract](skills/visual-reference-reconstruction/references/model-contract.md).
 
 Skills explain how to work. Project profiles hold local choices; declarative
 contracts protect invariants; bounded checkers report evidence. The shared
