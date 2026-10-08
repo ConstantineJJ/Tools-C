@@ -51,7 +51,13 @@ USER REQUIRED > ORIGINAL REFERENCE / LOCKED HERO > MODEL CONTRACT > GENERATED MU
 2. **Analyze before generating.** Separate large masses and functional/design units;
    assign stable component/claim IDs. Record relative dimension ranges, silhouette,
    negative spaces, landmark heights, counts, symmetry, interfaces and mechanical/
-   design relationships. Distinguish visible surfaces, occluded parts and unknowns.
+   design relationships. For humanoid bodies, separate crown-of-skull/chin from
+   outer hairstyle, estimate shoulder/hip span and torso/leg/arm landmarks
+   only where the source supports them, and select the intended proportion
+   family without imposing a universal head count. Use the
+   [character proportion guide](../blender-character-modeling/references/body-proportions.md)
+   for example landmarks; geometry remains the character owner's task.
+   Distinguish visible surfaces, occluded parts and unknowns.
    Perspective measurements are estimates, not orthographic dimensions.
 3. **Classify every reconstructed claim.** `CONFIRMED` = directly visible fact in
    authoritative source evidence, with a region and observation. `INFERRED` = supported
@@ -105,6 +111,12 @@ PASS 0 acceptance means a usable, honest handoff. It does **not** certify recove
 hidden geometry, image accuracy, manufacturing feasibility or finished 3D likeness.
 The validator proves structural/provenance invariants only; record visual reviewer,
 observations and permitted uses separately.
+
+For reference characters, hand off authoritative facial sources, supported
+identity anchors and occluded regions to the [face strategy gate](../blender-character-modeling/references/workflow-gates.md).
+Optional PASS0 generation does not waive a selected downstream method requiring
+ImageGen. Check and execute that method or declare its stage BLOCKED. Reuse the
+locked identity and Model Contract.
 
 For source regions containing distinctive artwork, hand off source hashes, regions,
 certainty and permitted uses to [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md).

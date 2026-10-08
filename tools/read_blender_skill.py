@@ -69,6 +69,10 @@ def document_paths(root, alias):
                       "skills/blender-pipeline/references/techniques/form-development.md"])
     if alias in {"visual-reference-reconstruction", "Blender_Reference_Reconstruction_SKILL", "blender-robot-mechanism-modeling"}:
         paths.append("skills/visual-reference-reconstruction/references/model-contract.md")
+    if alias in {"blender-character-modeling", "blender-anime-character-modeling"} or paths[4] == canonical['blender-character-modeling']:
+        paths.append("skills/blender-character-modeling/references/workflow-gates.md")
+    if alias == 'verification':
+        paths.append('skills/verification/references/dual-verification.md')
     if alias in ROUTE_TECHNIQUES:
         paths.append("skills/blender-pipeline/references/techniques/" + ROUTE_TECHNIQUES[alias])
     return list(dict.fromkeys(paths))

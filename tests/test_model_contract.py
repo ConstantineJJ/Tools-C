@@ -71,6 +71,42 @@ class ModelContractTest(unittest.TestCase):
             p=contract_fixture(description); self.assertEqual(v.validate(p), [])
             self.assertEqual(v.require_stage(p, "MACRO_BLOCKOUT", verify_files=False)["status"], "READY")
 
+    def test_humanoid_skull_hair_and_full_height_have_separate_locks(self):
+        # Proportions are authored from reviewed source, not a universal
+        # eight-head preset. The hair envelope must not become skull height.
+        previous = contract_fixture()
+        p = copy.deepcopy(previous)
+        p['model_contract']['revision'] = 2
+        p['model_contract']['supersedes_sha256'] = previous['model_contract']['sha256']
+        p['model_contract']['change_note'] = 'Explicitly reviewed humanoid proportion definitions for this fixture'
+        prototype = p['relative_dimensions'][0]
+        measures = (
+            ('head.skull_height', .22, .26),
+            ('head.hair_height', .28, .35),
+            ('figure.full_height', 1.70, 1.90),
+        )
+        for name, lower, upper in measures:
+            dimension = copy.deepcopy(prototype)
+            dimension.update(id=name, component_id='body', min=lower,
+                             max=upper, value=[lower, upper])
+            p['relative_dimensions'].append(dimension)
+            p['model_contract']['rules'].append(
+                rule('prop.'+name, 'dimension', name, 'PROPORTION LOCK', unit=dimension['unit']))
+        p['model_contract']['rules'].append(
+            rule('ratio.skull_figure', 'ratio', 'unused', 'PROPORTION LOCK',
+                 unit='ratio', numerator_id='head.skull_height',
+                 denominator_id='figure.full_height', bounds=[.12, .15]))
+        m.seal(p, previous=previous)
+        self.assertEqual(m.validate_contract(p), [])
+        damaged=copy.deepcopy(p)
+        damaged['relative_dimensions'][-2]['max']=.70  # hairstyle drift
+        self.assertTrue(any('drift' in error for error in m.validate_contract(damaged)))
+        invalid=copy.deepcopy(p)
+        next(rule_ for rule_ in invalid['model_contract']['rules']
+             if rule_['id']=='ratio.skull_figure')['bounds']=[.90,1.10]
+        invalid['model_contract']['sha256']=m.fingerprint(invalid)
+        self.assertTrue(m.validate_contract(invalid))  # ratio not supported by source envelopes
+
     def test_pending_without_image_can_remain_blocked_without_fake_contract(self):
         p=pending_fixture(); p["schema_version"]=3
         self.assertEqual(v.validate(p), [])

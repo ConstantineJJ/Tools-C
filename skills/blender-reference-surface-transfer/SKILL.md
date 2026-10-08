@@ -27,33 +27,75 @@ priority and permitted uses. A surface-only pass does not restart modeling.
 An auxiliary generated view cannot replace usable original pixels or authorize a
 new face, logo, lettering, ornament or pattern.
 
+## Face transfer strategy (choose before editing)
+
+For an occluded or stylized face, select **one strategy per affected region**;
+mixed regions may use a composite strategy. Details and identity constraints live
+in [face transfer / seam integration](references/workflow.md#face-feature-decision-and-integration):
+
+- **DIRECT FEATURE TRANSFER**: usable eyes/brows/nose/mouth pixels and compatible
+  projection; transfer original source features with local registration.
+- **RECONSTRUCT-THEN-LAYER**: a critical feature is hidden or incomplete; after
+  checking original alternate views, explicitly authorize a bounded clean-face
+  reconstruction from the authoritative source. Preserve observed facial anchors,
+  mark occluded content INFERRED, and place intended hair/occluders back **in front
+  of** the face in geometry/material layering.
+- **HYBRID PRESERVATION**: keep every usable original feature and reconstruct
+  only genuinely missing features/zones. Prefer this to wholesale redraw when a
+  partial face is still reliable.
+
+A clean-looking generated face is **not** proof of source identity. Never claim
+that unseen pixels were recovered. Use the structured `face_strategy` in transfer-record schema v2 for new facial
+transfers; schema v1 remains valid for legacy/non-face records. Neither schema
+certifies visual likeness, seam invisibility or the truth of declared observations.
+
 ## Decision and execution
 
 1. Inspect the actual source at native resolution and the target in Blender.
    Identify the region, visibility, lighting contamination, useful pixel density,
    graphic landmarks and required viewing distance. Record a source hash and crop.
-2. Prefer a direct crop. Apply perspective correction, conservative cleanup and
-   upscale only when justified; keep recoverable intermediates. Upscale cannot
-   recover missing evidence. Inspect each result against the original.
-3. If still deficient, document the missing information and use a bounded mask for
-   targeted regeneration. Preserve valid pixels and identity anchors. Record the
-   prompt, inputs, mask and output. Mark invented detail as inferred, never observed.
-   If repair changes identity or needs unavailable source data, stop that region
-   with a stated limitation; do not regenerate the whole design as a shortcut.
-4. Choose projection, decal or UV transfer according to curvature, visibility,
-   articulation and delivery. Transfer to the named faces/material, inspect an
-   oblique view, then bake through surfaces and clean seams/padding locally.
+2. Select DIRECT, RECONSTRUCT-THEN-LAYER or HYBRID using source visibility,
+   landmark integrity, lens/projection compatibility and the intended result.
+   Prefer a direct crop where possible. Correction/upscale cannot recover
+   missing evidence; inspect all intermediates against original pixels.
+3. For any generated face feature, document missing evidence and use a bounded
+   mask, source identity anchors and controlled prompt/output lineage. A clean
+   complete face is an **intermediate under review**, not a replacement for
+   usable original regions or permission to redesign expression. Stop when
+   identity cannot be supported.
+4. Register landmarks to supporting geometry and existing UVs. Restore
+   intentional occluding hair in front of the face; preserve its silhouette.
+   Choose projection/decal/UV for articulation and delivery. Run the
+   [seam integration](references/workflow.md#seam-integration--patch-disguise)
+   sequence before accepting the result. Bake through surfaces and clean
+   seams/padding locally.
    Record a justified bake SKIP only when the delivery profile accepts the retained
    editable mapping and its movement/portability limitations have been checked.
 5. Reconstruct roughness, metallic, normal/height and other physical responses
    separately. RGB lighting is not material data. A graphic mask may locate an ink
    or coating region; it does not determine that region's PBR values.
-6. Inspect source/crop/prepared/baked comparisons, identity closeups, seams and
-   full-asset views under neutral and intended lighting. Save textures, reopen the
-   candidate and recheck bindings. Use the [transfer record](references/record.md)
-   for provenance and separate structural, visual and target acceptance.
+6. Inspect original/prepared/baked facial landmarks and their real 3D placement
+   under neutral unlit/flat evaluation, neutral lighting and intended lighting.
+   **Visible hard patch contours, rectangular/oval borders, skin-tone halos or
+   pasted-on features mean seam/identity FAIL** for that named region, even if
+   a distant beauty shot looks acceptable. Protect approved features during
+   rework. Save textures, reopen the candidate and recheck bindings. Use the
+   [transfer record](references/record.md) for provenance and separate
+   structural, visual and target acceptance.
+
+For final character acceptance, consume the shared
+[character QA matrix](../blender-pipeline/references/qa.md) and record
+`face_identity`, `seam_invisibility`, `hair_occlusion` and
+`uv_binding` as named observations. A checked transfer JSON alone
+cannot waive high_45/low_45 views or human visual review.
 
 ## Identity and handoff
+
+Use the upstream [Face Strategy Gate](../blender-character-modeling/references/workflow-gates.md)
+before constructing a final reference face, even when transfer was not explicitly
+named. Reading this skill is not execution. If generation is selected, check
+ImageGen and retain actual output lineage or report BLOCKED. QA schema 3 consumes
+the existing transfer record.
 
 Faces and eyes require geometry supporting the face while the image preserves its
 graphic identity. Preserve eye shape, iris/pupil placement, expression, asymmetry,
@@ -74,6 +116,16 @@ observations and unresolved criteria. Stop at the authorized surface outcome.
 Structural records cannot certify resemblance, mask containment or recovered PBR.
 
 ## Pitfalls / Lessons Learned
+
+### RST-002 — Occluded face and visible patch
+- Symptom: a usable eye/mouth crop is pasted onto a face with visible rectangular seams, or hidden anatomy is improvised beneath hair.
+- Cause: feature extraction, occlusion reconstruction, landmark registration and skin integration were collapsed into one unchecked paste.
+- Rule: select DIRECT/RECONSTRUCT/HYBRID per region; preserve valid source pixels, separate occluders, align to face UV/volume, integrate seams and reject visibly pasted boundaries.
+- Automated check: schema-v1 record proves lineage only; no structural field or hash proves invisible seams or identity.
+- Verification: real closeups of the baked/imported face under neutral and target conditions compared with authoritative original; visual FAIL remains open until corrected.
+- Added from / context: Agent_Red7 report, 2026-10-07, and requested improvement, 2026-10-08.
+- Version: 1.1.0, 2026-10-08.
+
 
 ### RST-001
 - Symptom: sharper texture loses the original face or exact lettering.

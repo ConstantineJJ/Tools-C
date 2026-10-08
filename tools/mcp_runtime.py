@@ -12,6 +12,13 @@ PROCEDURES = {
     'retopology': 'skills/blender-pipeline/references/retopology.md',
     'surfaces': 'skills/blender-pipeline/references/surfaces.md',
 }
+CHARACTER_OWNERS = {'blender-character-modeling', 'blender-anime-character-modeling'}
+CHARACTER_GATES = 'skills/blender-character-modeling/references/workflow-gates.md'
+DUAL_REVIEW = 'skills/verification/references/dual-verification.md'
+
+
+def artistic_review_route(task):
+    return bool(re.search(r'\bartistic[_ ]review\b|\bartistic\s+critic\b|художествен\w*\s+(?:проверк|ревью|критик)|независим\w*\s+художествен',task.lower()))
 
 
 def render_context(root, owner, procedures=()):
@@ -44,6 +51,10 @@ def render_context(root, owner, procedures=()):
                      "skills/blender-anime-character-modeling/references/face-hair-workflow.md"]:
             if f"SOURCE: {path}\n\n" not in content:
                 paths.append(path)
+    if owner in CHARACTER_OWNERS and f'SOURCE: {CHARACTER_GATES}\n\n' not in content:
+        paths.append(CHARACTER_GATES)
+    if owner == 'verification' and f'SOURCE: {DUAL_REVIEW}\n\n' not in content:
+        paths.append(DUAL_REVIEW)
     for procedure in procedures:
         if procedure not in PROCEDURES:
             raise ValueError(f'Unknown Blender procedure: {procedure}')
@@ -170,6 +181,8 @@ def robot_modeling_route(query):
 
 def _route_task(task):
     query=task.strip().lower()
+    if artistic_review_route(query):
+        return ['verification']
     explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     if explicit: return list(dict.fromkeys(explicit))
     query=action_query(query)
@@ -212,7 +225,13 @@ def _route_task(task):
     if anime: routes.append("blender-anime-character-modeling")
     robot = robot_modeling_route(query)
     if robot: routes.append('blender-robot-mechanism-modeling')
-    if not anime and not robot and re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
+    character_creation = re.search(r'\b(?:create|build|make|model|remodel)\s+'
+                                   r'(?:(?:an?|the|new|full-body|stylized|male|female|human|game|3d|realistic|low-poly|blue|red)\s+)*'
+                                   r'(?:character|humanoid|fighter|person|avatar)\b|'
+                                   r'(?:созда|сдела|смодел|передел)\w*\s+'
+                                   r'(?:(?:модель|3d|[а-яё]+(?:ого|ую|ый|ий|ой|ые|ое|ных|ный|кого))\s+)*'
+                                   r'(?:персонаж|гуманоид|боец|аватар)', query)
+    if not anime and not robot and (character_creation or re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query)): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
         return ['blender-pipeline']
@@ -264,7 +283,7 @@ def _context_documents(content):
     return result
 
 
-def context(root, task, max_chars=50000, known_documents=None, requested_documents=()):
+def context(root, task, max_chars=60000, known_documents=None, requested_documents=()):
     """Stateless atomic delivery. Receipts apply only to this caller's retained context.
 
     Clear receipts for a new agent/chat or after context loss. Missing documents
@@ -297,6 +316,17 @@ def context(root, task, max_chars=50000, known_documents=None, requested_documen
         if len(requested) > 1:
             blocks.insert(1,('docs/blender-evidence-entry.md',existing(root,'docs/blender-evidence-entry.md').read_text(encoding='utf-8')))
         owner_documents.append((name,content,blocks))
+    # Reserve entry gates before long recipes consume the transport budget. This
+    # also protects the general character owner needed by the anime specialist.
+    priority = []
+    for _, _, blocks in owner_documents:
+        priority.extend((p,b) for p,b in blocks if p == 'docs/foundation.md' or p.endswith('/SKILL.md') or p == CHARACTER_GATES)
+    if 'visual-reference-reconstruction' in requested and set(requested) & CHARACTER_OWNERS:
+        path = 'skills/blender-reference-surface-transfer/SKILL.md'
+        body = existing(root,path).read_text(encoding='utf-8')
+        conditional[path] = dict(path=path,sha256=hashlib.sha256(body.encode()).hexdigest(),
+                                 reason='Read and acquire its workflow/record before executing the selected face transfer method')
+    owner_documents[0][2][:0] = priority
     if requested_documents:
         if not isinstance(requested_documents,(list,tuple)):
             raise ValueError('requested_documents must be canonical Markdown paths')
@@ -343,6 +373,16 @@ def context(root, task, max_chars=50000, known_documents=None, requested_documen
                 receipt_scope='Caller-retained context only; reset after compaction/context loss or a new agent/chat',
                 delivery='Shared documents emitted once; SOURCE blocks remain whole. Read conditional references before their operation.',
                 routing=dict(owners=requested,procedures=procedures,limits='Routing suggestions; inspect actual ownership before edits'),
+                skill_usage=[dict(id=name,status='DISCOVERED',reason='Routed context delivery is not proof of reading or execution',
+                                  execution=[],verification=[]) for name in requested],
+                workflow_requirements=([dict(receipt='QA schema 3',stages=['FACE','DETAIL','FINAL'],
+                                              checker='tools/qa_gate.py',contract=CHARACTER_GATES)]
+                                       if set(requested) & CHARACTER_OWNERS else []),
+                verification_mode='ARTISTIC_REVIEW' if artistic_review_route(task) else 'STANDARD',
+                review_requirements=([dict(receipt='Existing QA receipt + dual_verification v1',
+                                          critic='read-only; blind objective packet; different dispatched agent or explicit SELF_REVIEW',
+                                          checker='tools/qa_gate.py',contract=DUAL_REVIEW)]
+                                     if artistic_review_route(task) else []),
                 error=None if not missing else 'Required documents omitted by budget; request missing_documents with retained receipts or increase max_chars')
 
 

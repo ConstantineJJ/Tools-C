@@ -24,8 +24,10 @@ def text(value):
 
 def validate(record, root=None):
     """Raise ValueError on invalid records; root enables contained file/hash checks."""
-    fields(record, 'schema_version source crop artifacts steps target bake seam_cleanup pbr_basis qa', 'record')
-    require(type(record['schema_version']) is int and record['schema_version'] == 1, 'schema_version must be 1')
+    version = record.get('schema_version')
+    require(type(version) is int and version in (1, 2), 'schema_version must be 1 or 2')
+    spec = 'schema_version source crop artifacts steps target bake seam_cleanup pbr_basis qa'
+    fields(record, spec + (' face_strategy' if version == 2 else ''), 'record')
     artifacts = record['artifacts']
     require(isinstance(artifacts, dict) and bool(artifacts), 'artifacts must be a nonempty object')
     paths = set()
@@ -81,6 +83,51 @@ def validate(record, root=None):
                     'repair input/output/mask/prompt must be distinct')
         outputs.add(step['output'])
         previous = step['output']
+    if version == 2:
+        strategy = record['face_strategy']
+        fields(strategy, 'mode regions occluder occlusion_mask occlusion_layer reason', 'face_strategy')
+        mode = strategy['mode']
+        require(mode in ('DIRECT', 'RECONSTRUCT_THEN_LAYER', 'HYBRID'), 'invalid face strategy mode')
+        require(text(strategy['reason']), 'face_strategy reason required')
+        require(strategy['occluder'] in ('NONE', 'HAIR', 'OTHER'), 'invalid occluder')
+        require(strategy['occlusion_layer'] in ('NONE', 'GEOMETRY', 'ALPHA'), 'invalid occlusion layer')
+        mask = strategy['occlusion_mask']
+        require(mask is None or (isinstance(mask, str) and mask in artifacts), 'invalid occlusion mask reference')
+        if strategy['occluder'] != 'NONE':
+            require(mask is not None and strategy['occlusion_layer'] != 'NONE',
+                    'occlusion requires a mask and a front layer')
+        else:
+            require(mask is None and strategy['occlusion_layer'] == 'NONE',
+                    'unoccluded face cannot claim an occluder mask/layer')
+        regions = strategy['regions']
+        require(isinstance(regions, list) and bool(regions), 'face strategy regions required')
+        seen, original, inferred = set(), 0, 0
+        for region in regions:
+            fields(region, 'name visibility source landmarks protected', 'face region')
+            name = region['name']
+            require(text(name) and name not in seen, 'duplicate or empty region')
+            seen.add(name)
+            require(region['visibility'] in ('VISIBLE', 'PARTIAL', 'OCCLUDED'), 'invalid region visibility: ' + name)
+            require(region['source'] in ('ORIGINAL', 'INFERRED'), 'invalid region provenance: ' + name)
+            require(type(region['protected']) is bool, 'invalid protected flag: ' + name)
+            require(isinstance(region['landmarks'], list) and bool(region['landmarks']) and
+                    all(text(v) for v in region['landmarks']) and
+                    len(set(region['landmarks'])) == len(region['landmarks']),
+                    'missing/duplicate landmarks: ' + name)
+            if region['source'] == 'ORIGINAL':
+                original += 1
+                require(region['visibility'] != 'OCCLUDED', 'fully obscured source cannot be original: ' + name)
+            else:
+                inferred += 1
+                require(region['visibility'] != 'VISIBLE', 'visible region must preserve original source: ' + name)
+        regenerated = any(step['operation'] == 'regenerate' for step in steps)
+        if mode == 'DIRECT':
+            require(original == len(regions) and not regenerated, 'DIRECT cannot introduce generated face detail')
+        elif mode == 'RECONSTRUCT_THEN_LAYER':
+            require(inferred >= 1 and regenerated, 'RECONSTRUCT requires inferred regions and masked regeneration')
+        else:
+            require(original >= 1 and inferred >= 1 and regenerated,
+                    'HYBRID requires both preserved and inferred regions with masked regeneration')
     target = record['target']
     fields(target, 'objects faces uv_map material method image settings', 'target')
     require(isinstance(target['objects'], list) and bool(target['objects']) and all(text(n) for n in target['objects']), 'target objects required')

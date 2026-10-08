@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-08",
+  "scope": "Character pipeline tooling audit; no asset authoring",
+  "baseline": {
+    "branch": "main",
+    "head": "f0bb426d9dec7bb63f20e80b87265e2b2493e138",
+    "tests": {
+      "run": 224,
+      "passed": 224,
+      "seconds": 155.316
+    },
+    "snapshot": "C:/Users/kosti/AppData/Local/Temp/Tools_C_character_audit_20261008"
+  },
+  "tests": {
+    "focused": {
+      "run": 34,
+      "passed": 34
+    },
+    "full_previous": {
+      "run": 257,
+      "passed": 257,
+      "seconds": 165.789
+    },
+    "full_final": {
+      "status": "PASS",
+      "run": 258,
+      "passed": 258,
+      "seconds": 164.12,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "tools_c_l1": {
+      "pass": 50,
+      "warn": 0,
+      "fail": 0
+    },
+    "blender_mcp_co_l1": {
+      "pass": 9,
+      "warn": 0,
+      "fail": 0
+    }
+  },
+  "live": {
+    "deployment": {
+      "ok": true,
+      "server_file": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+      "loaded_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "disk_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "restart_required": false,
+      "tools": [
+        "blender_operation_status",
+        "capture_viewport",
+        "create_camera",
+        "create_cube",
+        "create_light",
+        "create_uv_sphere",
+        "delete_object",
+        "deployment_info",
+        "execute_blender_python",
+        "find_skills",
+        "get_scene_info",
+        "get_skill_context",
+        "list_skills",
+        "read_skill",
+        "save_blend_file",
+        "set_object_material",
+        "start_curve_batch"
+      ]
+    },
+    "delivery": {
+      "default": {
+        "ok": false,
+        "routing": {
+          "owners": [
+            "visual-reference-reconstruction",
+            "blender-anime-character-modeling"
+          ],
+          "procedures": [],
+          "limits": "Routing suggestions; inspect actual ownership before edits"
+        },
+        "missing": [
+          "skills/visual-reference-reconstruction/references/model-contract.md",
+          "skills/blender-anime-character-modeling/references/face-hair-workflow.md"
+        ],
+        "documents": [
+          {
+            "path": "docs/foundation.md",
+            "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+            "characters": 5174,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-pipeline/SKILL.md",
+            "sha256": "f94b0a5c8b8c56470d3be68dad94d808441c33c2a25dd08986f8ed130023fdfe",
+            "characters": 6956,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/visual-reference-reconstruction/SKILL.md",
+            "sha256": "d3df011aa40d2be634df5192e99be8aa284bab240cbb8787082a288e6d862e21",
+            "characters": 10955,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/verification/SKILL.md",
+            "sha256": "ecca8994371cf21e7addc4bc73d30207fc44e196b7ca30b605b2990782e89daf",
+            "characters": 3341,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-anime-character-modeling/SKILL.md",
+            "sha256": "2bf99ee4b5d43efe583c85622860d62403a2a3baf9599d5c788e77ba3100cdf4",
+            "characters": 9588,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-character-modeling/SKILL.md",
+            "sha256": "5dea6b760c4f736dc92faa2b586205bbde5aa511c17d855e27872820fee0a246",
+            "characters": 8312,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-character-modeling/references/workflow-gates.md",
+            "sha256": "5aba40bc39b178a0ea97cb280764f96d03f6f6da05ef52d7bd9e6a654e7de211",
+            "characters": 3179,
+            "status": "delivered"
+          },
+          {
+            "path": "docs/blender-evidence-entry.md",
+            "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+            "characters": 1553,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+            "sha256": "c27730f05f6a66847765686bc8988f73db1b91ddaabc2ecd57b56aa1afa53fdf",
+            "characters": 11354,
+            "status": "pending"
+          },
+          {
+            "path": "skills/blender-pipeline/references/techniques/form-development.md",
+            "sha256": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0",
+            "characters": 5833,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+            "sha256": "6c0a08718eaae88f690332eb9bf111d372d7cb322cb476e691deb31d121586ad",
+            "characters": 5623,
+            "status": "pending"
+          }
+        ],
+        "workflow": [
+          {
+            "receipt": "QA schema 3",
+            "stages": [
+              "FACE",
+              "DETAIL",
+              "FINAL"
+            ],
+            "checker": "tools/qa_gate.py",
+            "contract": "skills/blender-character-modeling/references/workflow-gates.md"
+          }
+        ],
+        "usage": [
+          {
+            "id": "visual-reference-reconstruction",
+            "status": "DISCOVERED",
+            "reason": "Routed context delivery is not proof of reading or execution",
+            "execution": [],
+            "verification": []
+          },
+          {
+            "id": "blender-anime-character-modeling",
+            "status": "DISCOVERED",
+            "reason": "Routed context delivery is not proof of reading or execution",
+            "execution": [],
+            "verification": []
+          }
+        ]
+      },
+      "continuation": {
+        "ok": true,
+        "missing": [],
+        "documents": [
+          {
+            "path": "docs/foundation.md",
+            "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+            "characters": 5174,
+            "status": "retained"
+          },
+          {
+            "path": "skills/blender-pipeline/SKILL.md",
+            "sha256": "f94b0a5c8b8c56470d3be68dad94d808441c33c2a25dd08986f8ed130023fdfe",
+            "characters": 6956,
+            "status": "retained"
+          },
+          {
+            "path": "skills/visual-reference-reconstruction/SKILL.md",
+            "sha256": "d3df011aa40d2be634df5192e99be8aa284bab240cbb8787082a288e6d862e21",
+            "characters": 10955,
+            "status": "retained"
+          },
+          {
+            "path": "skills/verification/SKILL.md",
+            "sha256": "ecca8994371cf21e7addc4bc73d30207fc44e196b7ca30b605b2990782e89daf",
+            "characters": 3341,
+            "status": "retained"
+          },
+          {
+            "path": "skills/blender-anime-character-modeling/SKILL.md",
+            "sha256": "2bf99ee4b5d43efe583c85622860d62403a2a3baf9599d5c788e77ba3100cdf4",
+            "characters": 9588,
+            "status": "retained"
+          },
+          {
+            "path": "skills/blender-character-modeling/SKILL.md",
+            "sha256": "5dea6b760c4f736dc92faa2b586205bbde5aa511c17d855e27872820fee0a246",
+            "characters": 8312,
+            "status": "retained"
+          },
+          {
+            "path": "skills/blender-character-modeling/references/workflow-gates.md",
+            "sha256": "5aba40bc39b178a0ea97cb280764f96d03f6f6da05ef52d7bd9e6a654e7de211",
+            "characters": 3179,
+            "status": "retained"
+          },
+          {
+            "path": "docs/blender-evidence-entry.md",
+            "sha256": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+            "characters": 1553,
+            "status": "retained"
+          },
+          {
+            "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+            "sha256": "c27730f05f6a66847765686bc8988f73db1b91ddaabc2ecd57b56aa1afa53fdf",
+            "characters": 11354,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+            "sha256": "6c0a08718eaae88f690332eb9bf111d372d7cb322cb476e691deb31d121586ad",
+            "characters": 5623,
+            "status": "delivered"
+          },
+          {
+            "path": "skills/blender-pipeline/references/techniques/form-development.md",
+            "sha256": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0",
+            "characters": 5833,
+            "status": "retained"
+          }
+        ]
+      }
+    },
+    "blender_scene": {
+      "ok": false,
+      "error": "Cannot connect to Blender; no scene writes attempted"
+    }
+  },
+  "real_asset_receipts": {
+    "asset": "AgentBlue2",
+    "pass0": {
+      "structure": "PASS",
+      "gate": "READY_WITH_LIMITS",
+      "visual": "NOT_CERTIFIED_BY_VALIDATOR"
+    },
+    "qa": {
+      "structure": "PASS",
+      "gate": "OPEN",
+      "workflow": "NOT_RECORDED_LEGACY",
+      "visual": "NOT_EVALUATED",
+      "exit_code": 2
+    }
+  },
+  "own_files": [
+    ".tooling/contracts.json",
+    "Project-pulse.md",
+    "docs/qa-receipt.md",
+    "skills/blender-character-modeling/SKILL.md",
+    "skills/blender-character-modeling/references/workflow-gates.md",
+    "skills/blender-anime-character-modeling/SKILL.md",
+    "skills/blender-pipeline/SKILL.md",
+    "skills/blender-pipeline/references/qa.md",
+    "skills/visual-reference-reconstruction/SKILL.md",
+    "skills/blender-reference-surface-transfer/SKILL.md",
+    "skills/blender-reference-surface-transfer/references/record.md",
+    "tools/qa_gate.py",
+    "tools/mcp_runtime.py",
+    "tools/read_blender_skill.py",
+    "tests/test_character_workflow.py",
+    "reports/CHARACTER_PIPELINE_ROOT_CAUSE_AND_FIX_2026-10-08.md",
+    "reports/character-pipeline-audit-2026-10-08.json"
+  ],
+  "generated_integration_files": 20,
+  "preservation": {
+    "status": "PASS",
+    "central_baseline_files": 307,
+    "central_unrelated_unchanged": 294,
+    "unexpected_changes": [],
+    "unexpected_new_files": [],
+    "baseline_deletions_preserved": 76,
+    "external_baseline_files": 80,
+    "external_generated_changes": 20,
+    "external_unrelated_unchanged": 60,
+    "external_unexpected_changes": [],
+    "index_unchanged_empty": true
+  },
+  "limits": [
+    "Synthetic fixtures validate metadata and contract consumers, not art or tool invocation",
+    "Blender asset execution and artistic QA SKIP",
+    "No commit, release, publication or server restart"
+  ]
+}

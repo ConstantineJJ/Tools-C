@@ -41,6 +41,14 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Visual baseline before producing asset families | [production-lookdev-gate](skills/production-lookdev-gate/SKILL.md) |
 | Decisions, milestones, regression gates and resumable project state | [production-project-state-gates](skills/production-project-state-gates/SKILL.md) |
 
+For any final 3D humanoid asset or face-transfer acceptance, the agent
+must deliver the scoped QA receipt and checker status per
+[QA protocol](docs/qa-receipt.md), not merely a structural PASS.
+A mandatory visual SKIP or missing reviewed image blocks the final
+VISUAL PASS claim. Full character QA includes high_45/low_45 plus
+orthographic proportion views; localized iterations stay proportional
+to the changed scope.
+
 Work cycle: read applicable instructions → inspect current implementation → check
 Git status → smallest sufficient change → automatic checks → runtime/visual
 verification where applicable → anti-degradation review → inspect diff → update

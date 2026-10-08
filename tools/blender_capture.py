@@ -12,7 +12,8 @@ import bpy
 from mathutils import Vector
 
 VIEWS = {"front": (0, -1, 0), "side": (1, 0, 0), "back": (0, 1, 0),
-         "top": (0, 0, 1), "bottom": (0, 0, -1), "three_quarter": (1, -1, 0.6)}
+         "top": (0, 0, 1), "bottom": (0, 0, -1), "three_quarter": (1, -1, 0.6),
+         "high_45": (0, -1, 1), "low_45": (0, -1, -1)}
 
 
 def capture_viewport(output, view="front", target="selected", mode="solid", frame=None,

@@ -38,7 +38,7 @@ joins must be declared; they are not global collision exclusions.
 ## Universal MCP capture
 
 `capture_viewport(view, target, mode, frame, resolution, object_names, framing)`
-supports front/side/back/top/bottom/three_quarter/current, active/selected/character/scene,
+supports front/side/back/top/bottom/three_quarter/high_45/low_45/current, active/selected/character/scene,
 solid/material_preview/rendered. Character scope requires explicit object_names.
 Resolution is one integer 64–2048 for a square image. Frame may be omitted for an
 initial capture; every response records the resolved frame. Repeat that frame in
@@ -46,7 +46,12 @@ AFTER captures. Pass the BEFORE `framing` (center and span) to all AFTER views;
 automatic reframing after an edit would conceal bounds regressions.
 
 Fixed views are orthographic: front looks from -Y, side from +X, back from +Y,
-top/bottom from +/-Z; three_quarter is a fixed (1,-1,.6) direction. The same sphere
+top/bottom from +/-Z; three_quarter is a fixed (1,-1,.6) direction.
+The additional high_45/low_45 views use (0,-1,+1)/(0,-1,-1), at ±45 degrees
+from the front horizontal sightline (equivalently 45 degrees from vertical),
+with orthographic projection by default. Both have strong depth foreshortening:
+use them for volume, clearance and contacts, not isolated head/leg proportion
+judgments. Confirm proportions in reference-matched front/side orthographic views. The same sphere
 fit is used for each view. `current` derives orientation/projection from a live
 VIEW_3D; no area means SKIP. This is a viewport-oriented evidence render in a
 temporary scene, not an exact screenshot of the UI. Current uses square framing.
@@ -58,6 +63,12 @@ bounded Cycles CPU and no compositor; it is not a final production-render promis
 Source geometry/materials/selection/camera/render settings are preserved; frame is
 restored even on failure. A new output directory contains PNG and capture.json;
 MCP returns the image plus metadata. Captures never save the production .blend.
+
+When capturing an isolated head/face submesh, include all renderable
+parent mesh dependencies explicitly: an otherwise valid capture can
+reject a detached child target. This guard is not an excuse to delete
+or reparent the original character. Captured images stay unreviewed
+until opened and judged.
 
 BEFORE snapshot + capture → scoped edit → AFTER snapshot + same target/frame/
 framing/resolution/mode → inspect images and compare invariants. Repeated calls at

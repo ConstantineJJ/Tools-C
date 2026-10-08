@@ -1,0 +1,255 @@
+{
+  "date": "2026-10-05",
+  "scope": "Actual Blender_MCP connector read-only acceptance after user started MCP and refreshed plugin",
+  "status": "PASS",
+  "server_file": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+  "loaded_server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4",
+  "disk_server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4",
+  "restart_required": false,
+  "tool_schema_sha256": "1efc6e96d53f4a6c70ed74e1e2347106b0908e329ffc2521087ca544afe81f1f",
+  "tool_metadata_sha256": "5d20649ff4b69f7823a5a966f2dc151d93c82e8bc19c0991885e1c7995d9d2c5",
+  "reads": [
+    "list_skills",
+    "read_skill",
+    "find_skills",
+    "get_scene_info",
+    "get_skill_context",
+    "deployment_info"
+  ],
+  "writes": [
+    "execute_blender_python",
+    "create_cube",
+    "create_uv_sphere",
+    "delete_object",
+    "set_object_material",
+    "create_camera",
+    "create_light",
+    "save_blend_file",
+    "start_curve_batch",
+    "blender_operation_status",
+    "capture_viewport"
+  ],
+  "canonical_count": 25,
+  "legacy_alias_count": 9,
+  "canonical_names": [
+    "project-audit",
+    "godot-project",
+    "blender-pipeline",
+    "blender-character-modeling",
+    "blender-anime-character-modeling",
+    "blender-animal-anthropomorphic-modeling",
+    "blender-architecture-environment",
+    "blender-environment-assets",
+    "blender-roads-infrastructure",
+    "blender-props",
+    "blender-vehicle-modeling",
+    "blender-product-electronics-modeling",
+    "blender-vegetation",
+    "blender-sculpting",
+    "blender-posteffects-polishing",
+    "verification",
+    "contracts-lint",
+    "blender-rigging-skinning",
+    "blender-animation",
+    "blender-export-validation",
+    "godot-asset-integration",
+    "production-mechanic-gym",
+    "production-subagent-worktree",
+    "production-lookdev-gate",
+    "production-project-state-gates"
+  ],
+  "search": {
+    "ok": true,
+    "query": "vegetation",
+    "count": 1,
+    "results": [
+      {
+        "name": "blender-vegetation",
+        "score": 120,
+        "excerpt": "blender-vegetation Blender vegetation Create or revise trees, shrubs, grass, flowers and vines. Own growth hierarchy, canopy/cluster shape and vegetation representation; wind, seasonal variants and LOD are conditional on the task.",
+        "path": "skills/blender-vegetation/SKILL.md",
+        "description": "Create or revise trees, shrubs, grass, flowers and vines. Own growth hierarchy, canopy/cluster shape and vegetation representation; wind, seasonal variants and LOD are conditional on the task.",
+        "matched_in": "metadata"
+      }
+    ],
+    "total_matches": 1,
+    "catalog_scope": "canonical owners",
+    "search_scope": "metadata",
+    "limits": "Search excerpts are discovery only; read the selected owner and required documents before work."
+  },
+  "read": {
+    "status": "PASS",
+    "name": "blender-vegetation",
+    "canonical_source": true,
+    "characters": 34250
+  },
+  "context": {
+    "status": "PASS",
+    "task": "Создай арбузный домик. Создай кошкотян.",
+    "owners": [
+      "blender-architecture-environment",
+      "blender-anime-character-modeling"
+    ],
+    "missing_documents": []
+  },
+  "scene": {
+    "status": "PASS",
+    "comparison": "Equal complete get_scene_info payloads before/after discovery and instruction reads",
+    "before": {
+      "ok": true,
+      "data": {
+        "scene": "Scene",
+        "frame_current": 1,
+        "object_count": 3,
+        "objects": [
+          {
+            "name": "Cube",
+            "type": "MESH",
+            "location": [
+              0,
+              0,
+              0
+            ],
+            "rotation_euler": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Light",
+            "type": "LIGHT",
+            "location": [
+              4.076245307922363,
+              1.0054539442062378,
+              5.903861999511719
+            ],
+            "rotation_euler": [
+              0.6503279805183411,
+              0.055217113345861435,
+              1.8663908243179321
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Camera",
+            "type": "CAMERA",
+            "location": [
+              7.358891487121582,
+              -6.925790786743164,
+              4.958309173583984
+            ],
+            "rotation_euler": [
+              1.1093189716339111,
+              0,
+              0.8149281740188599
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "after": {
+      "ok": true,
+      "data": {
+        "scene": "Scene",
+        "frame_current": 1,
+        "object_count": 3,
+        "objects": [
+          {
+            "name": "Cube",
+            "type": "MESH",
+            "location": [
+              0,
+              0,
+              0
+            ],
+            "rotation_euler": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Light",
+            "type": "LIGHT",
+            "location": [
+              4.076245307922363,
+              1.0054539442062378,
+              5.903861999511719
+            ],
+            "rotation_euler": [
+              0.6503279805183411,
+              0.055217113345861435,
+              1.8663908243179321
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "Camera",
+            "type": "CAMERA",
+            "location": [
+              7.358891487121582,
+              -6.925790786743164,
+              4.958309173583984
+            ],
+            "rotation_euler": [
+              1.1093189716339111,
+              0,
+              0.8149281740188599
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "client_metadata": {
+    "status": "WARN",
+    "reason": "The tool catalog exposed to this existing chat still has the previous descriptions; updated server metadata is confirmed by deployment_info. Client UI grouping was not inspected.",
+    "previous_descriptions": [
+      {
+        "name": "mcp__codex_apps__blender_mcp_find_skills",
+        "description": "Tools for working with Blender_MCP.\n\nSearch discovered SKILL.md files and return matching excerpts. This tool is part of plugin `Blender_MCP`."
+      },
+      {
+        "name": "mcp__codex_apps__blender_mcp_get_scene_info",
+        "description": "Tools for working with Blender_MCP.\n\nRun get_scene_info in Blender_MCP. This tool is part of plugin `Blender_MCP`."
+      },
+      {
+        "name": "mcp__codex_apps__blender_mcp_get_skill_context",
+        "description": "Tools for working with Blender_MCP.\n\nAutomatically load the process skill(s) relevant to a Blender character task.\n\nCall this BEFORE character modeling/review work, and before rigging, skinning,\nanimation, deformation QA, GLB export, or Godot preparation. The user does not\nneed to explicitly ask you to use a skill.\n\nReturns current canonical Tools_C procedures for the relevant Blender skill(s). This tool is part of plugin `Blender_MCP`."
+      },
+      {
+        "name": "mcp__codex_apps__blender_mcp_list_skills",
+        "description": "Tools for working with Blender_MCP.\n\nList Blender workflow skills discovered under skills/<skill-name>/SKILL.md. This tool is part of plugin `Blender_MCP`."
+      }
+    ]
+  }
+}

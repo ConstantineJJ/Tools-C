@@ -111,6 +111,74 @@ class TransferRecordTest(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 transfer.validate(bad)
 
+    def test_v2_face_strategies_are_structural_not_visual(self):
+        base = fixture()
+        base['schema_version'] = 2
+        base['face_strategy'] = dict(
+            mode='DIRECT', regions=[
+                dict(name='left_eye', visibility='VISIBLE', source='ORIGINAL',
+                     landmarks=['inner_corner', 'iris_center'], protected=True)],
+            occluder='NONE', occlusion_mask=None, occlusion_layer='NONE',
+            reason='Original facial feature is unobstructed.')
+        self.assertEqual(transfer.validate(base)['structural'], 'PASS')
+        self.assertEqual(transfer.validate(base)['visual'], 'NOT_EVALUATED')
+
+        hybrid = copy.deepcopy(base)
+        hybrid['face_strategy'].update(
+            mode='HYBRID', occluder='HAIR', occlusion_mask='mask',
+            occlusion_layer='GEOMETRY', reason='Hair covers right eye only')
+        hybrid['face_strategy']['regions'].append(
+            dict(name='right_eye', visibility='OCCLUDED', source='INFERRED',
+                 landmarks=['eye_line', 'brow_axis'], protected=False))
+        hybrid['steps'].append(
+            dict(operation='regenerate', input='crop', output='repair',
+                 mask='mask', prompt='prompt', reason='Right eye hidden by hair',
+                 parameters='Bounded source-conditioned face patch'))
+        hybrid['target']['image'] = 'repair'
+        self.assertEqual(transfer.validate(hybrid)['structural'], 'PASS')
+        reconstruct = copy.deepcopy(hybrid)
+        reconstruct['face_strategy']['mode'] = 'RECONSTRUCT_THEN_LAYER'
+        reconstruct['face_strategy']['regions'] = reconstruct['face_strategy']['regions'][1:]
+        self.assertEqual(transfer.validate(reconstruct)['structural'], 'PASS')
+
+        invalid = [
+            lambda r:r['face_strategy'].update(mode='DIRECT'),
+            lambda r:r['face_strategy'].update(occlusion_mask=None),
+            lambda r:r['face_strategy'].update(occlusion_layer='NONE'),
+            lambda r:r['face_strategy']['regions'][0].update(source='INFERRED', visibility='VISIBLE'),
+            lambda r:r['face_strategy']['regions'][1].update(source='ORIGINAL'),
+            lambda r:r['face_strategy']['regions'][1].update(landmarks=[]),
+            lambda r:r['face_strategy']['regions'][1].update(protected='yes'),
+            lambda r:r['face_strategy']['regions'][1].update(name='left_eye'),
+            lambda r:r['face_strategy'].update(unknown='ignored'),
+            lambda r:r['steps'].pop(),
+            lambda r:r.update(schema_version=1),
+        ]
+        for mutate in invalid:
+            bad = copy.deepcopy(hybrid)
+            mutate(bad)
+            with self.subTest(record=bad['face_strategy']), self.assertRaises(ValueError):
+                transfer.validate(bad)
+
+    def test_v2_unoccluded_direct_rejects_hidden_or_generated_content(self):
+        record = fixture()
+        record['schema_version'] = 2
+        record['face_strategy'] = dict(
+            mode='DIRECT', regions=[dict(name='nose', visibility='VISIBLE',
+                source='ORIGINAL', landmarks=['nose_tip'], protected=True)],
+            occluder='NONE', occlusion_mask=None, occlusion_layer='NONE',
+            reason='Use visible original nose.')
+        for mutation in (
+            lambda r:r['face_strategy']['regions'][0].update(visibility='OCCLUDED'),
+            lambda r:r['face_strategy'].update(occluder='HAIR'),
+            lambda r:r['face_strategy'].update(mode='HYBRID'),
+            lambda r:r['face_strategy'].update(reason=''),
+            lambda r:r['face_strategy']['regions'][0].update(landmarks=['nose_tip','nose_tip']),
+        ):
+            bad=copy.deepcopy(record);mutation(bad)
+            with self.subTest(bad=bad),self.assertRaises(ValueError):
+                transfer.validate(bad)
+
     def test_invalid_records_fail_closed(self):
         mutations = [lambda p:p.update(schema_version=True),
                      lambda p:p.update(crop=[190, 0, 20, 10]),

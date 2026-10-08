@@ -54,8 +54,15 @@ authoritative. Optional external validators (including skill-creator quick_valid
 have their own dependencies; their absence does not invalidate Tools_C checks.
 Engine probes, full live MCP service dependencies and human review are separate.
 Latest Blender form/context improvements and evidence: [form-methods report](reports/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
-Historical acceptance: [V1 final report](reports/V1_FINAL.md) and [V1 report](reports/V1.md). Godot and Blender are optional for
+Historical V1/v4 evidence (September 2026) is retained in the machine-local
+`.local/archived_reports/2026-10-08/` archive rather than the current reports
+index; it is not shipped in public releases. Godot and Blender are optional for
 L1 and required only for their applicable engine/runtime checks.
+
+For final character visual acceptance use the task-local evidence packet:
+[QA receipt protocol](docs/qa-receipt.md), [separate testing playbook](docs/qa-test-playbook.md),
+and [checker](tools/qa_gate.py). The receipt is not an automatic
+judgment of image quality.
 
 From Tools_C in PowerShell:
 

@@ -1,0 +1,992 @@
+{
+  "date": "2026-10-05",
+  "scope": "Authorized proposal points 1,3,4,5; point 2 already resolved by user",
+  "unittest": {
+    "status": "PASS",
+    "count": 126
+  },
+  "focused_catalog_tests": {
+    "status": "PASS",
+    "count": 9
+  },
+  "public_catalog_fixture": "PASS",
+  "l1": {
+    "self": {
+      "PASS": 32,
+      "SKIP": 3
+    },
+    "integration": {
+      "PASS": 9,
+      "SKIP": 3
+    }
+  },
+  "mcp_metadata": {
+    "checks": [
+      {
+        "check": "all seventeen existing tool names retained",
+        "status": "PASS"
+      },
+      {
+        "check": "all existing tool input schemas retained",
+        "status": "PASS"
+      },
+      {
+        "check": "all public tools describe their actual behavior",
+        "status": "PASS"
+      },
+      {
+        "check": "all impact hints are explicit booleans",
+        "status": "PASS"
+      },
+      {
+        "check": "exact six read-only commands; writes remain conservatively annotated",
+        "status": "PASS"
+      },
+      {
+        "check": "delete, overwrite, arbitrary code and cancellation disclose destructive effects",
+        "status": "PASS"
+      },
+      {
+        "check": "saved capture artifacts and queued curve jobs are writes",
+        "status": "PASS"
+      },
+      {
+        "check": "legacy discovery fields still enumerate nine aliases",
+        "status": "PASS"
+      },
+      {
+        "check": "all twenty-five canonical owners discoverable without context bodies",
+        "status": "PASS"
+      },
+      {
+        "check": "canonical search returns one focused owner",
+        "status": "PASS"
+      },
+      {
+        "check": "search result can be read through the unchanged read_skill interface",
+        "status": "PASS"
+      },
+      {
+        "check": "legacy aliases still read canonical bytes",
+        "status": "PASS"
+      },
+      {
+        "check": "character and environment routing remains scoped",
+        "status": "PASS"
+      },
+      {
+        "check": "loaded identity reports metadata hash independently of input schemas",
+        "status": "PASS"
+      },
+      {
+        "check": "read-only scene comparison",
+        "status": "SKIP",
+        "reason": "Blender addon did not return two successful scene snapshots"
+      }
+    ],
+    "tools": [
+      {
+        "name": "list_skills",
+        "description": "List canonical Tools_C owners and separate compatibility aliases, without loading procedures.\n\ncanonical_skills is the owner catalog; skills/count retain legacy router discovery.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {},
+          "title": "list_skillsArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "read_skill",
+        "description": "Read canonical procedures by owner ID or legacy alias; scene and files remain unchanged.\n\nFor selective whole-document delivery and continuation, use get_skill_context.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "title": "read_skillArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "find_skills",
+        "description": "Find canonical owners by ID, alias, title or purpose; fall back to owner entrypoint text.\n\nReturns one result per owner. Excerpts are discovery, not complete instructions.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "title": "Query",
+              "type": "string"
+            },
+            "max_results": {
+              "default": 10,
+              "title": "Max Results",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "title": "find_skillsArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_scene_info",
+        "description": "Read current Blender scene/object information without creating, editing or saving objects.",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {},
+          "title": "get_scene_infoArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "execute_blender_python",
+        "description": "Execute Blender Python after syntax preflight and existing bridge checks.\n\nCode may change/delete scene data, overwrite files or access external resources.\nUse for scoped operations; managed captures can also return verified PNG content.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "properties": {
+            "code": {
+              "title": "Code",
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ],
+          "title": "execute_blender_pythonArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_cube",
+        "description": "Add Blender's default cube with object scale for blockout or an intentional box shape.\n\nFor developed forms, revise the silhouette and transitions; bevel/shading alone\ndoes not replace shape construction. Object scale remains unapplied.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "default": "MCP Cube",
+              "title": "Name",
+              "type": "string"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Location"
+            },
+            "scale": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Scale"
+            }
+          },
+          "title": "create_cubeArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_uv_sphere",
+        "description": "Add a UV sphere for initial blockout or an intentional spherical shape.\n\nDevelop organic masses with profiles, bends and taper; smooth shading alone\ndoes not turn a sphere into anatomy, hair or a natural canopy.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "default": "MCP Sphere",
+              "title": "Name",
+              "type": "string"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Location"
+            },
+            "radius": {
+              "default": 1.0,
+              "title": "Radius",
+              "type": "number"
+            }
+          },
+          "title": "create_uv_sphereArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "delete_object",
+        "description": "Delete the named Blender object from every collection; a missing name is a no-op.",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "title": "delete_objectArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "set_object_material",
+        "description": "Replace all material slots on the named object with one material and set its diffuse color.\n\nReusing a material name also changes that shared material for its other users.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "object_name": {
+              "title": "Object Name",
+              "type": "string"
+            },
+            "material_name": {
+              "default": "MCP Material",
+              "title": "Material Name",
+              "type": "string"
+            },
+            "color": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Color"
+            }
+          },
+          "required": [
+            "object_name"
+          ],
+          "title": "set_object_materialArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_camera",
+        "description": "Add a camera and replace the scene's active camera; Euler rotation is in radians.",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "default": "MCP Camera",
+              "title": "Name",
+              "type": "string"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Location"
+            },
+            "rotation": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Rotation"
+            }
+          },
+          "title": "create_cameraArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "create_light",
+        "description": "Add a Blender light of the specified type, position and energy; existing lights remain.",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "default": "MCP Light",
+              "title": "Name",
+              "type": "string"
+            },
+            "light_type": {
+              "default": "AREA",
+              "title": "Light Type",
+              "type": "string"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Location"
+            },
+            "energy": {
+              "default": 500.0,
+              "title": "Energy",
+              "type": "number"
+            }
+          },
+          "title": "create_lightArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "save_blend_file",
+        "description": "Save the current Blender document to filepath; an existing file can be overwritten.\n\nThis may change the document's active save path and saved/dirty state.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "properties": {
+            "filepath": {
+              "title": "Filepath",
+              "type": "string"
+            }
+          },
+          "required": [
+            "filepath"
+          ],
+          "title": "save_blend_fileArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "get_skill_context",
+        "description": "\nLoad scoped canonical instructions for Blender modeling, review and delivery.\n\nCovers characters, environment, props, vegetation and specialist stages.\nShared documents are deduplicated. Continue missing_documents with receipts\nand requested_documents; fetch conditional references before their operation.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "task": {
+              "title": "Task",
+              "type": "string"
+            },
+            "max_chars": {
+              "default": 50000,
+              "title": "Max Chars",
+              "type": "integer"
+            },
+            "known_documents": {
+              "anyOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Known Documents"
+            },
+            "requested_documents": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Requested Documents"
+            }
+          },
+          "required": [
+            "task"
+          ],
+          "title": "get_skill_contextArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "start_curve_batch",
+        "description": "Start typed editable curve batches; inspect the same ID after a timeout.\n\nCreates only a new named collection/objects. No arbitrary code, replacement,\nsource deletion or implicit replay. Existing bridge safety checks still apply.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "operation_id": {
+              "title": "Operation Id",
+              "type": "string"
+            },
+            "collection_name": {
+              "title": "Collection Name",
+              "type": "string"
+            },
+            "batches": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "title": "Batches",
+              "type": "array"
+            },
+            "batches_per_tick": {
+              "default": 1,
+              "title": "Batches Per Tick",
+              "type": "integer"
+            },
+            "radius": {
+              "default": 0.01,
+              "title": "Radius",
+              "type": "number"
+            },
+            "material_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Material Name"
+            }
+          },
+          "required": [
+            "operation_id",
+            "collection_name",
+            "batches"
+          ],
+          "title": "start_curve_batchArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "blender_operation_status",
+        "description": "Read curve-job progress; optional cancellation preserves partial output.\n\nA receipt-only result is historical evidence after process loss, not proof\nthat the current scene still contains its output. Do not replay an unknown job.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "operation_id": {
+              "title": "Operation Id",
+              "type": "string"
+            },
+            "cancel": {
+              "default": false,
+              "title": "Cancel",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "operation_id"
+          ],
+          "title": "blender_operation_statusArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "deployment_info",
+        "description": "Read loaded/disk server identity and canonical context hashes; no restart or secrets.",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {},
+          "title": "deployment_infoArguments",
+          "type": "object"
+        }
+      },
+      {
+        "name": "capture_viewport",
+        "description": "Capture bounded Blender visual evidence and return PNG plus metadata.\n\nview: front|side|back|top|bottom|three_quarter|current.\ntarget: active|selected|character|scene; character requires object_names.\nmode: solid|material_preview|rendered. resolution: 64..2048 square pixels.\nUse explicit frame and the BEFORE framing for reproducible AFTER comparisons.\nCurrent derives the live viewport orientation; no viewport means SKIP.\nA capture is VISUAL REVIEW REQUIRED, never automatic visual acceptance.\n",
+        "annotations": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "properties": {
+            "view": {
+              "default": "front",
+              "title": "View",
+              "type": "string"
+            },
+            "target": {
+              "default": "selected",
+              "title": "Target",
+              "type": "string"
+            },
+            "mode": {
+              "default": "solid",
+              "title": "Mode",
+              "type": "string"
+            },
+            "frame": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Frame"
+            },
+            "resolution": {
+              "default": 512,
+              "title": "Resolution",
+              "type": "integer"
+            },
+            "object_names": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Object Names"
+            },
+            "framing": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Framing"
+            }
+          },
+          "title": "capture_viewportArguments",
+          "type": "object"
+        }
+      }
+    ],
+    "deployment": {
+      "ok": true,
+      "server_file": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+      "loaded_server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4",
+      "disk_server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4",
+      "restart_required": false,
+      "skills_dir": "E:\\MyCreations\\Blender-MCP-Co\\skills",
+      "tool_schema_sha256": "1efc6e96d53f4a6c70ed74e1e2347106b0908e329ffc2521087ca544afe81f1f",
+      "tools": [
+        "blender_operation_status",
+        "capture_viewport",
+        "create_camera",
+        "create_cube",
+        "create_light",
+        "create_uv_sphere",
+        "delete_object",
+        "deployment_info",
+        "execute_blender_python",
+        "find_skills",
+        "get_scene_info",
+        "get_skill_context",
+        "list_skills",
+        "read_skill",
+        "save_blend_file",
+        "set_object_material",
+        "start_curve_batch"
+      ],
+      "tool_metadata_sha256": "5d20649ff4b69f7823a5a966f2dc151d93c82e8bc19c0991885e1c7995d9d2c5",
+      "tool_annotations": {
+        "list_skills": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "read_skill": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "find_skills": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "get_scene_info": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "execute_blender_python": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "create_cube": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "create_uv_sphere": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "delete_object": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "set_object_material": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "create_camera": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "create_light": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "save_blend_file": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "get_skill_context": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "start_curve_batch": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "blender_operation_status": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "deployment_info": {
+          "title": null,
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "capture_viewport": {
+          "title": null,
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        }
+      },
+      "architecture": "4.0.1",
+      "canonical_root": "E:\\MyCreations\\Tools_C",
+      "contexts": {
+        "Blender_Character_Pipeline_Core": "c232569655d4421a2f50e16300acb14030b396f1414f75845f999bbaa0967c12",
+        "Blender_Reference_Reconstruction_SKILL": "b31860bb1a57a0344120280b4a746774c275c713bd6e39bdf8c6135c9ece46dd",
+        "Blender_Character_Modeling_SKILL": "65fb9dbeecb9c3556ff3d1ee4e106cfc3d8874d8dac6856fe0affb2e44ed0465",
+        "Blender_Animal_Anthropomorphic_Modeling_SKILL": "df21cf1072ff309e3acfcaf3ae013d0b75fbab70d4c23089c01178be08a48301",
+        "Blender_Organic_Sculpting_SKILL": "837a3eb00490c3b1917785c99ef5aba28aad55bd0f9e1353de46fb06c658d726",
+        "Blender_Retopology_Deformation_SKILL": "b080da029d8fec07339b49a49b6c20a0a52b74056e5cf02f9f0dd04247737b79",
+        "Blender_Character_QA_SKILL": "d40cffb44af71c496751946657dfa3fd62e464a547f1667c51f03b06bc6bfb00",
+        "Blender_Iterative_Refinement_SKILL": "a476e602383125c02cd1da034ff9f9adcc547eee19662fa7e2005960ae261909",
+        "Blender_Character_Rigging_Animation_Godot_SKILL": "d6b11435cf3dfae2c50ae0a001a9cbfb6e6dd9086f4b0b1c0df4d803ee4d4980"
+      },
+      "context_digest": "e9b5bc64fbda3b39a0d2c50786f815d168cf186718ee662c549ed540ea46cf8a"
+    },
+    "legacy_count": 9,
+    "canonical_count": 25,
+    "read_count": 6,
+    "write_count": 11,
+    "scope": "Disposable stdio MCP process, current Blender addon; external connector metadata separate"
+  },
+  "benchmark": {
+    "rows": [
+      {
+        "query": "anime",
+        "before_seconds": 1.7405,
+        "after_seconds": 0.2003,
+        "expanded_contexts_before": 9,
+        "expanded_context_chars_before": 281128,
+        "expanded_contexts_after": 0,
+        "before_names": [
+          "Blender_Character_Modeling_SKILL",
+          "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+          "Blender_Character_Pipeline_Core",
+          "Blender_Character_QA_SKILL",
+          "Blender_Character_Rigging_Animation_Godot_SKILL",
+          "Blender_Iterative_Refinement_SKILL",
+          "Blender_Organic_Sculpting_SKILL",
+          "Blender_Reference_Reconstruction_SKILL",
+          "Blender_Retopology_Deformation_SKILL"
+        ],
+        "after_names": [
+          "blender-anime-character-modeling"
+        ],
+        "before_output_chars": 9447,
+        "after_output_chars": 1085
+      },
+      {
+        "query": "vegetation",
+        "before_seconds": 1.8792,
+        "after_seconds": 0.2268,
+        "expanded_contexts_before": 9,
+        "expanded_context_chars_before": 281128,
+        "expanded_contexts_after": 0,
+        "before_names": [
+          "Blender_Organic_Sculpting_SKILL",
+          "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+          "Blender_Character_Modeling_SKILL",
+          "Blender_Character_Pipeline_Core",
+          "Blender_Character_QA_SKILL",
+          "Blender_Character_Rigging_Animation_Godot_SKILL",
+          "Blender_Iterative_Refinement_SKILL",
+          "Blender_Reference_Reconstruction_SKILL",
+          "Blender_Retopology_Deformation_SKILL"
+        ],
+        "after_names": [
+          "blender-vegetation"
+        ],
+        "before_output_chars": 9461,
+        "after_output_chars": 828
+      },
+      {
+        "query": "Face Sets",
+        "before_seconds": 2.2268,
+        "after_seconds": 0.2499,
+        "expanded_contexts_before": 9,
+        "expanded_context_chars_before": 281128,
+        "expanded_contexts_after": 0,
+        "before_names": [
+          "Blender_Organic_Sculpting_SKILL",
+          "Blender_Character_Modeling_SKILL",
+          "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+          "Blender_Character_Rigging_Animation_Godot_SKILL",
+          "Blender_Reference_Reconstruction_SKILL",
+          "Blender_Character_QA_SKILL",
+          "Blender_Iterative_Refinement_SKILL",
+          "Blender_Retopology_Deformation_SKILL",
+          "Blender_Character_Pipeline_Core"
+        ],
+        "after_names": [
+          "blender-sculpting"
+        ],
+        "before_output_chars": 9523,
+        "after_output_chars": 1561
+      }
+    ],
+    "scope": "Sequential local sample, same canonical checkout; not a latency guarantee",
+    "preserved_unrelated_files": 27
+  },
+  "preservation": {
+    "unrelated_integration_files": 27,
+    "changed": [],
+    "existing_names_and_input_schemas": "PASS",
+    "canonical_blend_and_seven_png_hashes": "PASS",
+    "scene_comparison": "SKIP: Blender addon unavailable"
+  },
+  "deployment": {
+    "local_source": "PASS",
+    "disposable_stdio": "PASS",
+    "running_tunnel": "SKIP: loopback listener absent",
+    "external_metadata_and_ui": "SKIP: Hub and tunnel not running; next launch/metadata refresh needed"
+  },
+  "source_hashes": {
+    "tools/skill_catalog.py": "2ddf91f45421807426f7d91e5dee7424987c5cbd7d5397140a29dcd3619773be",
+    "tests/test_skill_catalog.py": "934d36c478b08ac50689789e371eae5d78d7589cef3e56c4cb2ac2a4b0a42559",
+    "tests/mcp_metadata_probe.py": "3fa82801e68d01f028a67bbd01a9896083e30f142353f0fd757c4956bfc43bb6",
+    "docs/mcp-deployment.md": "57bd65d7530b5fc789c03d2c233735916996a3ced08329bafd95a95c32b66164"
+  },
+  "integration_server_sha256": "a0a9f199028afc0917eb75a3b02bed0d12c91adae8da2fc377fbc43eaa9654d4"
+}

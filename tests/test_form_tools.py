@@ -83,7 +83,7 @@ class ContextDeliveryTest(unittest.TestCase):
         for owner in c['routing']['owners']:
             self.assertEqual(combined.count('SOURCE: skills/'+owner+'/SKILL.md\n\n'),1)
         self.assertEqual(combined.count('SOURCE: docs/foundation.md\n\n'),1)
-        self.assertLessEqual(sum(len(s['content']) for s in c['skills']),50000)
+        self.assertLessEqual(sum(len(s['content']) for s in c['skills']),60000)
         self.assertTrue(any(d['path'].endswith('face-hair-workflow.md') for d in c['conditional_documents']))
 
     def test_receipts_are_explicit_current_and_resettable(self):

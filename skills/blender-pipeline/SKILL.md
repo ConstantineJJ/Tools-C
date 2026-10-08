@@ -26,9 +26,19 @@ blockout, mechanics, clay handoff and delivery checkpoints. Generated panels can
 override source/Contract; explicit revisions invalidate stale reviews and bindings.
 
 For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
-Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.
+Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration
+and final checks. For **final full humanoid acceptance**, the final stage
+is *not complete* until [character QA](references/qa.md) has inspected
+the required fixed/oblique views, protected zones and relevant closeups,
+and the [QA receipt](../../tools/qa_gate.py) reports the scoped gate.
+A missing, SKIP or REVIEW_REQUIRED mandatory criterion must be declared OPEN,
+not silently converted to a visually accepted model. This is distinct from
+PASS 0 design constraints or routine narrow corrective edits.
 
 Stage-only work keeps its owner; an asset name does not restart modeling.
+Reference-character creation consumes [face/primary-form stage gates](../blender-character-modeling/references/workflow-gates.md)
+in the existing QA receipt. PASS0 is design handoff, followed by actual procedure
+execution; reading Skills is not a completed production stage.
 Read-only review uses verification. Co-load a domain owner only when geometry
 or domain decisions are requested.
 

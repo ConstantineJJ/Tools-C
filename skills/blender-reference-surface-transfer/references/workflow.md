@@ -34,6 +34,92 @@ outside it. Limit retries to two per defect by default, then defer/report the
 region. Never guess unreadable required markings or redraw an entire face to fill
 one eye highlight. Generated repairs remain inferred and independently reviewable.
 
+## Face feature decision and integration
+
+The source image controls **visible identity**; its covered portions remain
+unknown. Inspect all authorized original views before inventing missing pixels.
+Classify each facial region (left/right eye, brow, nose, mouth, jaw/hairline)
+independently:
+
+| Strategy | Use when | Required action / limitation |
+|---|---|---|
+| DIRECT FEATURE TRANSFER | Landmarks and usable original pixels are visible; pose/projection can be registered | Crop with context, mask out hair, solve landmark positions, transfer valid pixels without redrawing the expression |
+| RECONSTRUCT-THEN-LAYER | Occlusion removes a critical contiguous face region and partial patches cannot align convincingly; reconstruction is authorized | Generate a **provisional clean face** constrained by surviving source landmarks/approved expression; all unseen detail stays INFERRED; layer intended hair/occluder in front of the reconstructed face |
+| HYBRID PRESERVATION | Some original features are reliable, others are obscured or damaged | Preserve reliable source features unchanged in identity, reconstruct only missing regions, then color/geometry-register and blend the resulting local patches |
+
+Selection procedure:
+
+1. Make a **visibility and identity map**: eye corners and iris/eyelid shapes,
+   eye line/interocular spacing, brow arches, nose axis/tip, lip corners and
+   expression, jaw/chin and hairline. Distinguish reliably observed, partially
+   visible and fully unknown features. Record occlusion masks separately from
+   skin masks; never treat a fringe's pixels as face color.
+2. Select the lowest-invention strategy sufficient for the approved target.
+   Avoid whole-face redraw if an isolated source eye, lip or nose is usable.
+   A clean-face reconstruction is allowed only after recording why a complete
+   local patch is insufficient and which original views constrain it.
+3. If reconstructing, use original crops and approved proportions as conditioning
+   input, keep hairstyle **out of the underlying facial albedo**, and generate
+   only within an explicitly bounded face region. Do not invent exact covered
+   eyelashes, eye color, expression or asymmetry as observed truth. Compare
+   more than one candidate if needed, but cap targeted retries as specified
+   above and stop rather than accept changed identity.
+4. Register approved feature locations to actual face geometry/UV, not just to
+   a flat pasted image. Validate outer/inner eye corners, pupil centers, nose,
+   mouth corners and chin against the reference using the matched camera.
+   Preserve asymmetry and the approved eye-to-mouth relationship. Distinguish
+   `skull size`, `hair-shell size` and `face artwork scale`: do not enlarge
+   or shrink one to hide a mismatch in another.
+5. Composite skin/features **behind** the intended 3D hair cards/clumps (or
+   an explicitly managed alpha/occlusion layer with the same depth semantics).
+   Reintroduce hair cast shadows through lighting, not by copying dark hair
+   pixels into skin color. Test visibility at front, three-quarter, side and
+   the intended movement where applicable.
+6. Separate the result into named approved-source features, inferred patches,
+   occlusion layer and supporting geometry. An approved feature is a
+   **protected zone** in later passes: change it only on explicit authorization
+   or when a stated dependent geometry transform requires registration.
+
+A reconstructed clean face must not be called an exact extraction. Missing source
+or insufficient identity anchors can leave the face region BLOCKED rather than
+forcing a visually plausible but unrelated person.
+
+## Seam Integration / Patch Disguise
+
+Patch integration is an explicit operation before texture acceptance, not an
+optional finishing flourish. It applies to DIRECT, HYBRID and generated skin:
+
+1. Establish **registration first**: source/target landmark correspondence,
+   perspective/UV distortion and skin/geometry fit. Misplaced eyes cannot be
+   fixed by blurring the patch boundary.
+2. Prepare separate feather/alpha masks with a sufficiently broad **skin-only**
+   transition band. Exclude hair, lashes, eye whites, pupil, brows, lips and
+   intentional makeup edges from skin diffusion. Never soften expression-defining
+   strokes to disguise an incorrect cut.
+3. Match low-frequency color, exposure, saturation, local gradients and apparent
+   skin texture at the receiving boundary using unaffected **adjacent valid skin**.
+   Remove inherited photo lighting only where justified. Work in the appropriate
+   color space for blending; avoid performing naive arithmetic on gamma-encoded
+   sRGB when precision matters. Preserve deliberate blush/shadow/graphic styles.
+4. Use controlled alpha, multiband or gradient-domain blending where suitable,
+   with local clone/paint corrections as needed. Do not leave a uniform flat oval
+   over a curved cheek/forehead. Repeat inspection after UV bake and mip/filter
+   behavior, not only in the editable projection view.
+5. Inspect the unlit base-color image, neutral lit frontal/three-quarter
+   closeups, side view and requested target renderer; compare with original
+   identity anchors at both native texel zoom and intended on-screen size.
+   Note intended hair occlusion separately from texture artifacts.
+6. **FAIL** the named face/skin region if a rectangular/oval insert perimeter,
+   brightness/saturation ring, double facial feature, abrupt normal/shading
+   mismatch or obviously floating pasted artwork remains visible on neutral
+   review. A flattering beauty shot does not close this gate. Correct and
+   recapture, or report the limitation explicitly (not a visual PASS).
+
+For each relevant region, retain source, raw crop, mask, provisional
+reconstruction (if any), prepared/baked textures, target-UV identification and
+comparative closeups. Preserve user-approved eye/mouth geometry and material
+features across later skull/hair proportion edits.
+
 ## Map, bake and clean
 
 | Method | Appropriate use | Main failure to inspect |

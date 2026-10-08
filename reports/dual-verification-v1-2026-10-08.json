@@ -1,0 +1,233 @@
+{
+  "date": "2026-10-08",
+  "live": {
+    "context": {
+      "ok": true,
+      "mode": "ARTISTIC_REVIEW",
+      "owners": [
+        "verification"
+      ],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+          "characters": 5174,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/blender-pipeline/SKILL.md",
+          "sha256": "f94b0a5c8b8c56470d3be68dad94d808441c33c2a25dd08986f8ed130023fdfe",
+          "characters": 6956,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/SKILL.md",
+          "sha256": "c0986bc5931bf6d49181299e2e58b48724b132e013491afa8f44e4a1510b5e3a",
+          "characters": 3757,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/blender-evidence.md",
+          "sha256": "dad4092e4ec87c1b487ae4d3754f3651134d0d865696343207a150894b254219",
+          "characters": 10907,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/verification/references/dual-verification.md",
+          "sha256": "b6fdcfb234905e2a79e79cfb996d39d28cc7ad64d4ccaff6786e955c53bf03bb",
+          "characters": 11748,
+          "status": "delivered"
+        }
+      ],
+      "missing_documents": []
+    },
+    "deployment": {
+      "ok": true,
+      "loaded_server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "disk_server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "restart_required": false,
+      "tool_count": 17,
+      "canonical_root": "E:\\MyCreations\\Tools_C"
+    },
+    "scene": {
+      "ok": true,
+      "scene": "Scene",
+      "frame": 1,
+      "objects": [
+        "Camera",
+        "Light"
+      ],
+      "mode": "READ_ONLY",
+      "artistic_experiment": "NOT_RUN"
+    }
+  },
+  "regressions": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests": 325,
+    "seconds": 185.012,
+    "result": "PASS",
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "focused_freshness": 17,
+    "focused_dual": 50
+  },
+  "checks": {
+    "self": {
+      "exit_code": 0,
+      "L1": {
+        "PASS": 50
+      },
+      "higher_levels": [
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    },
+    "integration": {
+      "exit_code": 0,
+      "L1": {
+        "PASS": 9
+      },
+      "higher_levels": [
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    }
+  },
+  "performance": {
+    "fixture": "6 real 512x512 noninterlaced RGBA PNGs with uniform pixels; 4 synthetic region rows; no real scene/vision/render time",
+    "legacy_file_gate": {
+      "median_ms": 2.331,
+      "max_ms": 2.678,
+      "runs": 20
+    },
+    "freshness": {
+      "median_ms": 5.778,
+      "max_ms": 7.332,
+      "runs": 20
+    },
+    "dual_file_gate": {
+      "median_ms": 9.608,
+      "max_ms": 10.757,
+      "runs": 20
+    }
+  },
+  "independent_technical_review": {
+    "agent": "/root/dual_review",
+    "status": "COMPLETE",
+    "remaining_blockers": 0,
+    "scoped_tests": 148,
+    "artistic_review": "NOT_RUN"
+  },
+  "preservation": {
+    "central_baseline": 387,
+    "central_modified": 7,
+    "central_new": 8,
+    "unrelated_baseline_unchanged": 380,
+    "missing_files_preserved": 76,
+    "external_baseline": 80,
+    "external_generated_changed": 20,
+    "external_unrelated_unchanged": 60,
+    "indices_unchanged": true
+  },
+  "owned_files": [
+    ".tooling/contracts.json",
+    "Project-pulse.md",
+    "docs/dual-verification-blind-review.md",
+    "docs/qa-receipt.md",
+    "reports/DUAL_VERIFICATION_V1_2026-10-08.md",
+    "reports/dual-verification-v1-2026-10-08.json",
+    "skills/verification/SKILL.md",
+    "skills/verification/references/dual-verification.md",
+    "tests/test_qa_artistic.py",
+    "tests/test_qa_freshness.py",
+    "tools/mcp_runtime.py",
+    "tools/qa_artistic.py",
+    "tools/qa_freshness.py",
+    "tools/qa_gate.py",
+    "tools/read_blender_skill.py"
+  ],
+  "source_sha256": {
+    ".tooling/contracts.json": "de2cecce56cc6d5efdfd75a52abe27db8868f602f6ad9416cd447179a253d696",
+    "Project-pulse.md": "7ca1eb9fd1240dd6dac0c14b88e70d9419b4184224cea0fbdbf4d8cb65f15f47",
+    "docs/dual-verification-blind-review.md": "33e08553eefb26c84dcad8452050bec1a30f4f1761ecada2513340974feab7a3",
+    "docs/qa-receipt.md": "761bd3538b4fa38e6c80f782905029de1d62ee2299698b56e48572d2681aabec",
+    "reports/DUAL_VERIFICATION_V1_2026-10-08.md": "e5595c2ae7ed07cf94c294ee33c924663d09b445e834bec531a09c0bbc762fc1",
+    "skills/verification/SKILL.md": "c0986bc5931bf6d49181299e2e58b48724b132e013491afa8f44e4a1510b5e3a",
+    "skills/verification/references/dual-verification.md": "b6fdcfb234905e2a79e79cfb996d39d28cc7ad64d4ccaff6786e955c53bf03bb",
+    "tests/test_qa_artistic.py": "b4d0fc37e29ff18711e65e186c10975e53f4456f738ce74b0687546c87cc7a25",
+    "tests/test_qa_freshness.py": "c2363236cf28a264b9b78ad18b4b2952909038e842615df8271e6d5e81b7dd71",
+    "tools/mcp_runtime.py": "811da89a7260555ed30ccce6e1dd1e5ff94452ee33617281011c0acb433a5913",
+    "tools/qa_artistic.py": "0ce4cd5470a7ebf0a809482d14345d208e7fe70e1a779505f4d9ff4f2e4ae366",
+    "tools/qa_freshness.py": "26e34bb7105c057e53bacbae76082bc707ffa371b0ebb6ae9eaa447183ca4a35",
+    "tools/qa_gate.py": "6a89af2356d330d6ea33d34c3e71f3a906c2f8fe796a6c0f4df087a207f0d7b4",
+    "tools/read_blender_skill.py": "4c8d6dfc1b08687fb63474d98b056033caafa9399fa2f1b2b562c7d9c49c83da"
+  },
+  "generated_files": [
+    "skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+    "mcp-server/skills/PIPELINE_MANIFEST.json",
+    "skills/Blender_Character_QA_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Character_QA_SKILL/SKILL.md",
+    "skills/PIPELINE_MANIFEST.json",
+    "skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Character_Modeling_SKILL/SKILL.md",
+    "skills/Blender_Character_Pipeline_Core/SKILL.md",
+    "mcp-server/skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+    "skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Character_Pipeline_Core/SKILL.md",
+    "skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+    "skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+    "skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+    "skills/Blender_Character_Modeling_SKILL/SKILL.md",
+    "mcp-server/skills/Blender_Iterative_Refinement_SKILL/SKILL.md"
+  ],
+  "legacy_agentblue2_receipt": {
+    "schema": 2,
+    "gate": "OPEN",
+    "workflow": "NOT_RECORDED_LEGACY",
+    "visual": "NOT_EVALUATED"
+  },
+  "practical_blind_review": "PLANNED_NOT_RUN"
+}

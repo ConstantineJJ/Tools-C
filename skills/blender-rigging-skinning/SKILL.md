@@ -9,6 +9,16 @@ Read the required [foundation](../../docs/foundation.md). Preserve approved geom
 materials, bone identities/rest pose and baseline Actions except the named rig/skin
 scope. Skeleton roles and deformation requirements come from the current profile.
 
+Pre-rig intake: consume the character-modeling owner's
+[proportion/form handoff](../blender-character-modeling/references/body-proportions.md)
+and applicable Model Contract. Require an explicit ACCEPTED, OPEN, or
+NOT_EVALUATED disposition for primary silhouette/head/body/joint clearance.
+If proportions are demonstrably wrong or the required proportion review is
+missing, report the named blocker and request modeling review before a new rig.
+Do not silently "fix" head/torso/hip scale through armature/rest-pose edits;
+project stylization remains authoritative. Scoped repair of an existing rig
+does not restart unrelated modeling.
+
 Inspect bindings, hierarchy, bone roll/rest matrices, groups, constraints and
 modifiers. Diagnose a bad bend as weights, pivot/rest pose, topology, or animation
 before editing; route topology changes through the pipeline. Test neutral and

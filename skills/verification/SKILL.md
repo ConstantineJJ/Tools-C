@@ -26,6 +26,27 @@ For Blender, use [snapshot/capture/export tools](../../docs/blender-evidence.md)
 STRUCTURAL PASS is separate from VISUAL SKIP, VISUAL REVIEW REQUIRED and VISUAL PASS.
 A PNG must be inspected for the named criterion before visual acceptance.
 
+## Final QA acceptance receipt
+
+For full character final acceptance, use the existing
+[Blender character QA matrix](../blender-pipeline/references/qa.md)
+and the task-local [QA receipt checker](../../tools/qa_gate.py).
+A visual review requires opened images, reviewer observations and comparable
+source evidence. Declared PASS is not independently proven by a metadata
+checker. The final completeness gate blocks missing high_45/low_45 views,
+orthographic proportions, relevant closeups, user-marked red flags,
+protected-zone regressions or pending inspection. Explicitly separate
+STATIC_VISUAL / EXPORT / RIG_READY / DEFORMATION_READY / GAME_READY,
+including valid SKIP/NOT_APPLICABLE explanations.
+
+## Dual verification / ARTISTIC_REVIEW
+
+Read the [dual verification protocol](references/dual-verification.md) before
+ARTISTIC_REVIEW, freshness or corrections in existing receipts. Report technical
+and artistic results separately. Use a blind read-only independent critic when
+available, otherwise explicit SELF_REVIEW. Preserve locked design and accepted
+regions. Metadata PASS cannot establish artistic quality.
+
 ## Anti-degradation and stop
 
 For Blender, select [local/final QA profiles](../blender-pipeline/references/techniques/qa-profiles.md)
