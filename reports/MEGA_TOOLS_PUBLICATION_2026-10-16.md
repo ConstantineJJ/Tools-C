@@ -58,12 +58,23 @@ GitHub `Repository not found` для настроенного ConstantineJJ/Blen
 Поэтому **router commit local-only**; удалённая публикация не заявляется.
 Remote/config/credentials не заменялись. Runtime не рестартовал.
 
-## История статусов
+## Фактическая публикация и B preparation
 
-На момент создания этого документа A candidate проверен, центральный commit/push
-ещё предстоит. Их фактические SHA/remote verification будут записаны последующим
-B preparation documentation checkpoint в Pulse/этом отчёте. Это не release/tag
-и не автоматический merge в main.
+Tools_C A commit: `be926e45be927b61f0acc446898fe56f660af852`.
+`git push --set-upstream origin codex/mega-tools-a` завершился exit 0;
+`git ls-remote origin refs/heads/codex/mega-tools-a` вернул тот же SHA.
+Это публикация topic branch, не release/tag и не merge в main.
+
+Следующий documentation-only checkpoint подготавливает B1–B10 в существующих
+`tasks/plan.md` и `tasks/todo.md`, обновляет Pulse и этот отчёт. Scope — ровно эти
+четыре Markdown-файла. Runtime, schemas, Skills, test logic и assets не меняются.
+R0 OPEN; реализация B NOT_STARTED. Предварительно проверена доступность пяти
+исходных файлов Spec Kit на commit `f6e72bc8523de8ec8368129cbdea78d45f27cef8`;
+полный source/architecture review остаётся B1. Код внешнего проекта не копировался.
+
+Полезный start baseline B — A commit выше плюс documentation preparation
+checkpoint; текущий hash получать из Git, а не из старых отчётов. Все оставшиеся
+dirty/untracked изменения перечисляются/хэшируются заново перед B1.
 
 ## Явный allowlist A
 

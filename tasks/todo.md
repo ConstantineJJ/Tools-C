@@ -24,6 +24,29 @@
 - [x] A16 — Discovery/diagnostics PASS; два реальных agent attempts выполнены, но fixture reads заблокированы policy → behavioral SKIP; manual protocol готов.
 - [x] A17 — Полная регрессия, отчёт G1–G8, Pulse и scope review.
 
-**B1, B2, B3… зарезервированы для второго патча.** Документ B прочитан информативно; реализация B не начата.
+Пользователь подтвердил визуальное улучшение обычного чата после A и разрешил
+commit/push A, подготовку B. Controlled causal G5 остаётся SKIP; дополнительный
+расход модельной квоты для этой передачи не требуется.
 
-[Результаты и границы](../reports/MEGA_TOOLS_IMPLEMENTATION_2026-10-16.md): 367 tests PASS, L1 50/9 PASS, live context PASS; code review SELF_REVIEW, art/model improvement не подтверждены.
+[Результаты и границы](../reports/MEGA_TOOLS_IMPLEMENTATION_2026-10-16.md): working tree
+367 tests PASS; отдельно проверенный A publication candidate — **355 tests PASS**,
+L1 50/9 PASS. [Scope публикации](../reports/MEGA_TOOLS_PUBLICATION_2026-10-16.md).
+
+## Патч B — подготовлен, реализация не начата
+
+Детальные критерии/owners/dependencies — в [плане](plan.md). R0 пока OPEN.
+
+- [ ] B1 — Актуальный audit, source review и Gate R0 по пяти функциям.
+- [ ] B2 — Минимальный совместимый traceability contract и устойчивые IDs.
+- [ ] B3 — Один воспроизводимый сквозной offline slice.
+- [ ] Checkpoint B-I — Vertical slice и сохранение совместимости.
+- [ ] B4 — Read-only Cross-Artifact Analysis с evidence.
+- [ ] B5 — Convergence, четыре gap types и идемпотентные corrective tasks.
+- [ ] Checkpoint B-II — Нет дубликатов/потери истории/ложного PASS.
+- [ ] B6 — Resume/Ledger reuse или обоснованный DEFER.
+- [ ] B7 — Sync Impact: direct/possible/unknown и уровни проверок.
+- [ ] Checkpoint B-III — State/impact без второго source of truth.
+- [ ] B8 — Интеграция в действующих owners с legacy compatibility.
+- [ ] B9 — Изолированный доменный кейс, regression и preservation review.
+- [ ] B10 — Инженерный отчёт R0 + K1–K10, Pulse и передача.
+- [ ] Checkpoint B-IV — Проверяемая финальная приёмка B.

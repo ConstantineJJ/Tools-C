@@ -1,4 +1,4 @@
-# Mega tools — план разработки первого патча
+# Tools_C — план патчей A и B
 
 Дата: 2026-10-16. Статус: **A1–A17 выполнены технически; behavioral G5 SKIP**. Подготовительный аудит завершён: [отчёт](../reports/MEGA_TOOLS_AUDIT_2026-10-16.md), [evidence](../reports/MEGA_TOOLS_AUDIT_2026-10-16.json). [A1 проверен](../reports/MEGA_TOOLS_A1_2026-10-16.md). Задачи отслеживаются только в [todo.md](todo.md); этот документ содержит их спецификацию.
 
@@ -11,6 +11,10 @@ technical implementation и незавершённую model-валидацию.
 bounded attempts/manual protocol: оба реальных дочерних harness read заблокированы
 execution policy, поэтому G5 SKIP, улучшение поведения не заявляется.
 Ниже сохранены исходные спецификации задач; фактический статус — в todo/Pulse.
+
+**Решение пользователя 2026-10-16:** визуальное улучшение обычного чата после A
+подтверждено лично; A принят для commit/push. Причинный controlled G5 остаётся
+SKIP. Подготовка B разрешена, реализация B в этой передаче не выполняется.
 
 ## Цель и инварианты
 
@@ -225,7 +229,145 @@ Delivery tests green; behavioral protocol воспроизводим; налич
 
 ## Второй патч: B1, B2, B3…
 
-Зарезервирован отдельный namespace **B**. Документ B получен и прочитан только для пересечений. Его реализации/детального backlog пользователь сейчас не запрашивал; convergence/traceability/cross-artifact/Ledger/impact остаются за пределами A. После A17 зафиксировать accepted/open interfaces и новый baseline; новый документ B должен ссылаться на этот результат и сохранять открытые проверки. Текущие задачи A не переименовывать и не перенумеровывать задним числом.
+Подготовлен по `Kit_Codex.md`; **implementation NOT_STARTED, R0 OPEN**.
+Сохраняем A1–A17 и их историю. Точка старта B — опубликованный A commit,
+свежий status/hash map и отдельный учёт оставшегося dirty state.
+
+Внешний источник: [github/spec-kit](https://github.com/github/spec-kit),
+подготовительный snapshot `f6e72bc8523de8ec8368129cbdea78d45f27cef8`.
+README, LICENSE, analyze/converge/constitution доступны и сохранены локально;
+это проверка доступности, **не завершённое архитектурное ревью R0**.
+В B1 проверить актуальность ref и оставшиеся source templates/workflow docs.
+Spec Kit не устанавливается и не становится runtime dependency Tools_C.
+
+### Существующие точки опоры для B1
+
+| Область | Что подтверждено до B | Решение ещё требуется |
+|---|---|---|
+| Правила/IDs | foundation, contracts rule IDs, canonical owners, A1–A17, QA gate IDs | Связи требований проекта с tasks/artifacts/evidence |
+| Проверки | `tools/check.py`, PASS0/Model Contract, QA/freshness и L1–L4 | Cross-artifact coverage и детерминированные gaps |
+| Состояние | Pulse, plan/todo, доменные checkpoints | Нужен ли вообще отдельный task-state record |
+| Evidence A | behavioral manifests, bounded session diagnostics, source hashes | Reuse без превращения логов в истину требований |
+| Изменение правил | contracts-lint, lifecycle, managed router sync | Direct/possible/unknown impact map |
+
+Это предварительная карта, не вывод об отсутствии функций. Владельцы по
+умолчанию: project-audit (intake), contracts-lint (IDs/contracts/validation),
+verification (convergence/evidence), production-project-state-gates (handoff).
+Нет нового Skill, второго foundation/Pulse или заранее навязанной схемы Ledger.
+
+### B1 — ревью и Gate R0
+
+Установить actual A commit/tree, dirty exclusions, текущие baseline checks,
+source commit/license; прочитать реальные consumers и оценить пять функций B.
+Для каждой: existing/partial/missing/unknown, варианты и решение
+ADAPT/ALREADY COVERED/DEFER/BLOCKED с обоснованием. Проверить A interfaces,
+не считать прежние 367 tests тестами чистого A (публикационный кандидат: 355).
+
+**Приёмка/проверка:** review artifact с path:line, source-of-truth map,
+рисками, точными owners/API boundaries и R0 decision; никаких production edits
+до этого решения. **Зависимости:** опубликованный A. **Размер:** M, отчёт/план.
+
+### B2 — минимальный контракт traceability
+
+После R0 выбрать минимальное хранение requirement ID/scope/source/acceptance и
+связей requirement → decision/task → artifact → check/evidence. Переиспользовать
+существующие ID и namespaces, сохранять историю изменений, допускаются группы
+и N/A. Не вводить вторую базу требований ради формата внешнего образца.
+
+**Приёмка/проверка:** совместимость старых packets/contracts; positive/negative
+tests на duplicate IDs, dangling links, scope/path escape, stale evidence и
+непроверенный статус. **Зависимости:** B1 ADAPT. **Размер:** M, owning contract,
+минимальный helper при доказанной необходимости и focused tests.
+
+### B3 — первый сквозной offline slice
+
+На маленькой изолированной fixture пройти requirement ID → task → artifact →
+test/evidence → один cross-artifact finding → convergence outcome. Лишь после
+его воспроизводимости расширять функциональность.
+
+**Приёмка/проверка:** повторяемый pass и подтверждённый gap, точные source lines,
+unknown не становится missing/PASS. **Зависимости:** B2. **Размер:** S/M.
+**Checkpoint B-I:** рабочая вертикаль, совместимость и scoped diff.
+
+### B4 — Cross-Artifact Analysis
+
+Read-only анализ явно выбранных артефактов: конфликт правил, дубликат,
+coverage gap, неоднозначный acceptance и orphan task. Отделять доказанные
+структурные нарушения от семантических подозрений; не исполнять текст входов.
+
+**Приёмка/проверка:** true/false conflict cases, orphan/duplicate/broken link,
+path containment, стабильные findings с requirement IDs и evidence. Источники
+автоматически не переписываются. **Зависимости:** B3. **Размер:** M.
+
+### B5 — Convergence и идемпотентные corrective tasks
+
+Классифицировать missing/partial/contradicts/unrequested только по наблюдаемым
+данным; сохранить not_checked/blocked/unknown/review_required. Запись задач в
+existing plan отделена от read-only анализа; только actionable gaps дают задачи,
+без удаления «лишнего» кода или автоматического implementation pass.
+
+**Приёмка/проверка:** все четыре gap types, no-gap → no tasks, два одинаковых
+запуска → no duplicates; новые evidence/status не стирают прежнюю историю.
+**Зависимости:** B4. **Размер:** M. **Checkpoint B-II:** bounded convergence.
+
+### B6 — решение о resume/Ledger
+
+Переиспользовать доменные checkpoints и task state, если достаточны. Новый
+минимальный record допустим только по решению R0 и реальной потребности
+Convergence; иначе документировать DEFER и extension interface.
+
+**Приёмка/проверка:** при подключённом resume — interruption, stale checkpoint,
+не тот plan/commit, отсутствие повторной дорогой работы и ложного PASS.
+При DEFER — обоснование без фиктивной реализации. **Зависимости:** B1, B5.
+**Размер:** S/M условно; без workflow DSL/scheduler/subagent orchestrator.
+
+### B7 — точечный Sync Impact
+
+По изменённому global rule перечислять подтверждённые direct dependencies,
+possible и unknown: Skills, profiles, aliases/routers, tests, gates, CLI/MCP,
+docs. Разделять рекомендуемые L1–L4 проверки и реально выполненные; отмечать
+schema migration только при фактическом изменении совместимости.
+
+**Приёмка/проверка:** зависимый и независимый rule fixtures, known и unknown
+edges; отсутствие auto edits/deploy/restart. **Зависимости:** B1, B2.
+**Размер:** M. **Checkpoint B-III:** state/impact без новых authorities.
+
+### B8 — интеграция в существующих owners
+
+Встроить принятые функции в project-audit/contracts-lint/verification/state
+routes; зафиксировать реальные CLI/API только после R0. Progressive disclosure,
+provider-neutral stdlib-first реализация, сохранение 28 canonical IDs/9 aliases,
+schemas/receipts, warm MCP behavior и A diagnostics bounds.
+
+**Приёмка/проверка:** legacy input regressions, discovery/context/read smoke,
+negative scopes; compatibility migration лишь по подтверждённой необходимости.
+**Зависимости:** B5, B6 decision, B7. **Размер:** M.
+
+### B9 — доменная демонстрация и регрессии
+
+Изолированный Blender/Godot metadata case: структурный PASS при отсутствии
+просмотренных кадров не даёт visual PASS. Использовать ошибки автомобильного
+испытания как входные кейсы, сохраняя пользовательскую оценку улучшения A.
+Production scenes не изменять, дорогие model/3D генерации не запускать.
+
+**Приёмка/проверка:** focused tests, затем полный scoped suite и self/integration
+L1; live read-only при доступности, иначе точный SKIP. Untouched bytes/status
+сверяются с новым B baseline. **Зависимости:** B8. **Размер:** M.
+
+### B10 — инженерный QA и передача
+
+Отчёт по existing convention: исходный baseline, source ref/attribution,
+что reused/adapted/rejected, maintenance cost, изменённые paths, команды/exit
+codes и примеры convergence/conflict. Таблица R0 + K1–K10 со ссылками на evidence,
+а не автоматическое «всё выполнено». Обновить этот plan/todo и один Pulse.
+
+**Приёмка/проверка:** diff/allowlist/anti-degradation review, все открытые gates
+явно сохранены, unrelated state защищён. **Зависимости:** B9.
+**Размер:** S/M. **Checkpoint B-IV:** финальная проверяемая передача.
+
+Порядок: B1 → B2 → B3 → B4 → B5; B6 после решения R0/B5, B7 после B2;
+затем B8 → B9 → B10. Выполнение B требует отдельного начала реализации.
+Подготовка этого backlog не закрывает R0 и не меняет runtime/contracts.
 
 ## Риски и границы
 
