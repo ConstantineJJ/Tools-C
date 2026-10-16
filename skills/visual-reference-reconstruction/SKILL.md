@@ -1,6 +1,6 @@
 ---
 name: visual-reference-reconstruction
-description: Prepare a PASS 0 visual plan for complex 3D modeling from supplied images or a text-only design brief. Analyze references, or select and lock a canonical concept before deriving auxiliary views. Owns constraints, visual identity and certainty, not Blender geometry.
+description: Use before complex 3D creation or substantial reconstruction from supplied images or a text-only design brief, when source authority, hidden forms, proportions or canonical visual identity need resolution. Stage-only repairs and read-only QA retain their existing owners.
 ---
 
 # Visual reference reconstruction — PASS 0

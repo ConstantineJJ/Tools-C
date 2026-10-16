@@ -1,0 +1,4446 @@
+{
+  "schema_version": 1,
+  "kind": "audit_evidence_not_runtime_catalog",
+  "date": "2026-10-16",
+  "scope": "audit and development plan only; implementation not started",
+  "baseline": {
+    "date": "2026-10-16",
+    "head": "becd57ba0caa05baa8c729bc24c2f19b17052f43",
+    "branch": "main",
+    "status": [
+      "M .tooling/contracts.json",
+      " M Project-pulse.md",
+      " M docs/mcp-deployment.md",
+      " M docs/qa-receipt.md",
+      " D reports/V1.md",
+      " D reports/V1_FINAL.md",
+      " D reports/engine-evidence.json",
+      " D reports/final-evidence.json",
+      " D reports/final-preflight.json",
+      " D reports/final-preservation.json",
+      " D reports/preflight.json",
+      " D reports/preservation.json",
+      " D reports/v4/baseline.json",
+      " D reports/v4/blender-capture.log",
+      " D reports/v4/blender-export.log",
+      " D reports/v4/blender-import.log",
+      " D reports/v4/changes.json",
+      " D reports/v4/connector-calls.json",
+      " D reports/v4/connector-tools.json",
+      " D reports/v4/deployment.json",
+      " D reports/v4/deployment.log",
+      " D reports/v4/export-fractional-fps-negative.json",
+      " D reports/v4/export-validation.json",
+      " D reports/v4/fixture/active/capture.json",
+      " D reports/v4/fixture/active/front.png",
+      " D reports/v4/fixture/after_edit/capture.json",
+      " D reports/v4/fixture/after_edit/front.png",
+      " D reports/v4/fixture/back/back.png",
+      " D reports/v4/fixture/back/capture.json",
+      " D reports/v4/fixture/bottom/bottom.png",
+      " D reports/v4/fixture/bottom/capture.json",
+      " D reports/v4/fixture/capture-results.json",
+      " D reports/v4/fixture/front/capture.json",
+      " D reports/v4/fixture/front/front.png",
+      " D reports/v4/fixture/material_preview/capture.json",
+      " D reports/v4/fixture/material_preview/three_quarter.png",
+      " D reports/v4/fixture/rendered/capture.json",
+      " D reports/v4/fixture/rendered/three_quarter.png",
+      " D reports/v4/fixture/repeat/capture.json",
+      " D reports/v4/fixture/repeat/front.png",
+      " D reports/v4/fixture/selected/capture.json",
+      " D reports/v4/fixture/selected/front.png",
+      " D reports/v4/fixture/side/capture.json",
+      " D reports/v4/fixture/side/side.png",
+      " D reports/v4/fixture/snapshot.json",
+      " D reports/v4/fixture/subframe/capture.json",
+      " D reports/v4/fixture/subframe/front.png",
+      " D reports/v4/fixture/three_quarter/capture.json",
+      " D reports/v4/fixture/three_quarter/three_quarter.png",
+      " D reports/v4/fixture/top/capture.json",
+      " D reports/v4/fixture/top/top.png",
+      " D reports/v4/glb.json",
+      " D reports/v4/l1-godot-regression.txt",
+      " D reports/v4/l1-integration.txt",
+      " D reports/v4/l1-tools.txt",
+      " D reports/v4/live-capture.log",
+      " D reports/v4/live-capture/after.json",
+      " D reports/v4/live-capture/back.json",
+      " D reports/v4/live-capture/back.png",
+      " D reports/v4/live-capture/before.json",
+      " D reports/v4/live-capture/current.json",
+      " D reports/v4/live-capture/current.png",
+      " D reports/v4/live-capture/front.json",
+      " D reports/v4/live-capture/front.png",
+      " D reports/v4/live-capture/result.json",
+      " D reports/v4/live-capture/side.json",
+      " D reports/v4/live-capture/side.png",
+      " D reports/v4/live-capture/three_quarter.json",
+      " D reports/v4/live-capture/three_quarter.png",
+      " D reports/v4/mcp-stdio.json",
+      " D reports/v4/mcp-stdio.log",
+      " D reports/v4/preservation.json",
+      " D reports/v4/restart.json",
+      " D reports/v4/roundtrip/import/result.json",
+      " D reports/v4/roundtrip/import/snapshot.json",
+      " D reports/v4/roundtrip/source/result.json",
+      " D reports/v4/roundtrip/source/snapshot.json",
+      " D reports/v4/skill-validation.json",
+      " D reports/v4/tests.log",
+      " D reports/v4/visual-review.json",
+      " M skills/blender-character-modeling/references/workflow-gates.md",
+      " M skills/blender-vehicle-modeling/SKILL.md",
+      " M skills/blender-vehicle-modeling/references/research-notes.md",
+      " M tools/mcp_runtime.py",
+      " M tools/qa_gate.py",
+      "?? reports/REFERENCE_CHARACTER_FLOW_2026-10-09.md",
+      "?? skills/blender-vehicle-modeling/references/vehicle-qa.md",
+      "?? skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+      "?? tests/test_workflow_flow.py"
+    ],
+    "paths": {
+      ".gitattributes": "3126216695b062ce83a20a119c6856b9d86691e5515a93b1d69b283033faaeea",
+      ".gitignore": "4587d040ecf2b9d683b1020a32fec919fa8da2d37d86710bfca77aab24c0dd64",
+      ".tooling/blender-anime-contracts.json": "a51a9a57732967a5b894749466cfcb9de260ef31a0dce40953487a6197f3670d",
+      ".tooling/blender-domain-contracts.json": "636214aa7cb65c75b453b992f9a61626bac287b33058de29408249a0f23dd59a",
+      ".tooling/blender-polishing-contracts.json": "febca6e2e06d65dc8e085d44c139aaa83a9fa746b340054818adde913df395c6",
+      ".tooling/config.json": "a31f9ee63641a04a0cbcfaf51c395c7bddae4b2352cab5d79faf1017244e8f82",
+      ".tooling/contracts.json": "3192f13c72e6c7852a40031eb0f492a1e117057e160a745a82bd11dc0e76d0b1",
+      ".tooling/pass0-mechanics-contracts.json": "9c6dab9a3a4957d5cd3346beee4fc6a1059c5a12449520a13ead591be3383054",
+      ".tooling/profile.json": "bbf21e5547d03c6e07a927c0a56bda62a6afc1a0d045905f5f132e62482c308b",
+      ".tooling/profile.md": "b2b8257996ee9a6bd735f56e0302cf3c8dfd893b8127d351e361a3c37cb1e763",
+      ".tooling/surface-transfer-contracts.json": "4762e06c9a435fbb9c71e3e1605781aa7b004e6d5eae0c7bb1545d13d94eeea0",
+      "AGENTS.md": "b3c3dc7571a6222db3e29f4077a332afc14c018ef45007a82e3e266371341bba",
+      "Project-pulse.md": "305201aab94d9b941af7e1980ad527fb1ef8ee0c7390d17393f7e70f20329ab3",
+      "README.md": "6c3a27facf05b24af7cd31727604cc0720b9c4fd6043b5d0a1926e205f0df9eb",
+      "adapters/tripo.md": "6d8c3c05234fb68b8cccbd3879bc1df04e76281b00dd230f9604f96a1f4505d1",
+      "bootstrap.bat": "08232c180f45393c8f7ed65b2025f7453a0af0f2547319ae5a0aa5e8b0d94543",
+      "check.bat": "0a6fb03b91c130ca6d984799563158c95b2c1f48eb6236b884097e581faedfce",
+      "docs/architecture-v4.md": "919336e49db147a94a8d02e165a7ddd6fc1c694bf80a895d46bd6ae52f8677b7",
+      "docs/blender-domain-skill-pack.md": "05965bcd77096204382ee77bf21ec14261430968a7e3fa85e031224a82bbec6c",
+      "docs/blender-evidence-entry.md": "97486b12f44f3f7cf10f97d478f29fc40f4c4719ae7e02e47c1f06fb95c71945",
+      "docs/blender-evidence.md": "dad4092e4ec87c1b487ae4d3754f3651134d0d865696343207a150894b254219",
+      "docs/contracts.md": "35b22531517dcb39f4d4518e2c4366f21c67ccd4409d156f951fffb09cdec08e",
+      "docs/dual-verification-blind-review.md": "33e08553eefb26c84dcad8452050bec1a30f4f1761ecada2513340974feab7a3",
+      "docs/engines.md": "34ecaba42622a6a1cf53334c89c374f56e6ca7c20e0255dd27f7c4e55da3d064",
+      "docs/foundation.md": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+      "docs/mcp-deployment.md": "a7ee60acc0f3973666e466b1b23cd06449ca9e09a21a25ed947c1c38a54cba0c",
+      "docs/qa-receipt.md": "37c3853bb3721f50069955c8cfecdca4111a1c0d5b8d6c2307a63b6adab20dae",
+      "docs/qa-test-playbook.md": "684b19fa2b93ab6d8fd005e2b9fb5227a760f2919e8be414407bd0679980390c",
+      "docs/release-v4.0.3.md": "f2d5fbbb2474cd4bb9b0cabe5ad3ff5e0e35298ba7e8b38cb397561577c420c4",
+      "docs/release-v4.1.0.md": "5265e42b73c36f0b7c964840f4c3e88f658f091c61c8f0b2403e2e8046888233",
+      "docs/release-v4.2.0.md": "22c4e1c833ffede8bcc8de3cd78924af181133b3aa1a1e4f42b80af0cbbd39f6",
+      "docs/releases/v4.0.1.md": "4627b39fe5cff80506646ae34dd6c7932ad611bd608ea81666d69a2f3c1abae4",
+      "manifest.json": "d5866ede4c88ef800f0cbd9d32eab6ddf7c531915eb030be9e2658df348d66d1",
+      "reports/BLENDER_DOMAIN_CONTRACTS_2026-10-03.md": "7e41ca5d2a11e420f2dd1925bfa5493b84225bc43a62fe6cf141470d115fcbcb",
+      "reports/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md": "e750857fdec2a373092a7001246d8d744c6e82f2813f028cd816fb64fe119f54",
+      "reports/BLENDER_MCP_CATALOG_2026-10-05.md": "39f231d68cc28132f73a6bb71428227d13da99b10f6c9e16db49f001498abc3a",
+      "reports/BLENDER_POSTEFFECTS_POLISHING_2026-10-03.md": "28ced595db2ac55bfd9fed3c27ee38d40810d5c9c2138e2fc59d7a16b4e59c8a",
+      "reports/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md": "0c1cf3173a3c798f3718af14782dba8b7677963c60b9e77431dfba5e9f9ad566",
+      "reports/BLENDER_VISUAL_QA_2026-10-03.md": "d30835dc9eb7b4ca6eb67a29da4c9e34dfdb1888261431cd810abb222c66bea3",
+      "reports/CHARACTER_PIPELINE_ROOT_CAUSE_AND_FIX_2026-10-08.md": "32396d2cf42596cb6ddb8a047871b6bdd7b40257a4f218c6df691b6f6827fb6a",
+      "reports/CHARACTER_QA_PASS3_2026-10-08.md": "08ae1926238668ac0212cf465e432b38d849371ce09a108e9f494596c2e8a273",
+      "reports/CHARACTER_SURFACE_SKILLS_PASS_2026-10-08.md": "051ada296e495e514163b3ff6e7d9db9a47bbff972923c1d979466c6c15ca0cf",
+      "reports/DUAL_VERIFICATION_V1_2026-10-08.md": "e5595c2ae7ed07cf94c294ee33c924663d09b445e834bec531a09c0bbc762fc1",
+      "reports/HARNESS_BRIDGE_PASS2_2026-10-08.md": "c8294456e8580e10f8ae70d26a36963156d2d96160ef4aaf1d379502d7bdeec3",
+      "reports/MODEL_CONTRACT_2026-10-05.md": "077185c5b37f5d18d441736ec32efaeec069f7f30f6702d77ca8a9498d58a33f",
+      "reports/PASS0_AND_ROBOT_SKILLS_2026-10-05.md": "0cfd72253cd34c996b2dc42a988f25f58174ce5f636b10a215c344f8b03eb64e",
+      "reports/PASS0_DESCRIPTION_MODE_2026-10-05.md": "8d87a87d992e57ca88ed9ea8d944205003af71497a5446dcd802466ee3930ee0",
+      "reports/REFERENCE_CHARACTER_FLOW_2026-10-09.md": "54366951d4b4b8c0c75be039fcfe5d67410992c544a12bcfa7dfe455751c6354",
+      "reports/REFERENCE_SURFACE_TRANSFER_2026-10-06.md": "152023b981b4aecc0ececca575d5131ffacf4485e46929232e11126ca37212ec",
+      "reports/V1.md": null,
+      "reports/V1_FINAL.md": null,
+      "reports/blender-form-methods-2026-10-05.json": "5ea3561d384684981c5f137224bcc1c94d1553b8f154229a3318ef5c15fd12de",
+      "reports/blender-mcp-catalog-2026-10-05.json": "8e528fd49004145cbb3d6c42680ba385c8de17d7b5532be4e55864d77c14544a",
+      "reports/blender-mcp-live-2026-10-05.json": "0cbe3af44994c6758570e9a2213feeb14278f1cbc38eb608c170fc3628ce0f42",
+      "reports/character-pipeline-audit-2026-10-08.json": "fee10da91cfbf597b9cb721b6b0baf116eb8464af8010cc0fb8a8fca2fc9c0e8",
+      "reports/domain-contracts-2026-10-03/baseline-gaps.json": "34689c52564ce5db79ed0fa82e70307a707ec571fa3d1b4d1263b21fc6144d7f",
+      "reports/domain-contracts-2026-10-03/l1-integration.json": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+      "reports/domain-contracts-2026-10-03/l1-tools-c.json": "7bae2b7fcdc79c320563d087dedc6a385cdd78e65d78fe878cc43ce24b62dca1",
+      "reports/domain-contracts-2026-10-03/live-routing.json": "a0d99f8cc49b9d6eb7f2fb3452ed1f2b6e3899f24930b07a4c8fd87f3c8178f2",
+      "reports/domain-contracts-2026-10-03/negative-results.json": "a7c2a4b48b3f2363faae5d10d05e27df4c84a9b557eec052adb05fdc132de31d",
+      "reports/domain-contracts-2026-10-03/summary.json": "b420f9c005edad21bcfdfe24c4a4e2b9682bc33abeba35d866aede79ba89d00c",
+      "reports/dual-verification-v1-2026-10-08.json": "178fa569c477835374d9c32d1bd6e66dc046e01f242adb145f1e27574f37b2db",
+      "reports/engine-evidence.json": null,
+      "reports/final-evidence.json": null,
+      "reports/final-preflight.json": null,
+      "reports/final-preservation.json": null,
+      "reports/model-contract-workflow/assembly_graph.json": "3a97eb3091e3922003bb3a8b0cd51d41fa30bddf62060fe92d465b3cd6b95831",
+      "reports/model-contract-workflow/auxiliary-multiview.png": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+      "reports/model-contract-workflow/brief.txt": "076b4262239d6540328b0dc27829831de9bc87371ef6ee7b0d628a6e5d1191f9",
+      "reports/model-contract-workflow/canonical-hero.png": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+      "reports/model-contract-workflow/central-l1.json": "777382d7f16760e13b5cb04aa447b977f30a30e95547b6925471483902962092",
+      "reports/model-contract-workflow/concept_prompt.txt": "d0acd8684fbd279e1ee9cd50dd96c8d31a2e64d05eea85d6c028dfa44aad9595",
+      "reports/model-contract-workflow/extra-gun-negative.json": "7254b07944f40bef3162ae7e9a46f311a7b43cf677a3e69fb309e900b6e137ea",
+      "reports/model-contract-workflow/integration-l1.json": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+      "reports/model-contract-workflow/live-context.json": "0bfcbbea49b4b0796aa1d0798c620008814108a02f4fcad027ced33485b5dbc7",
+      "reports/model-contract-workflow/macro-clay.png": "71fbad12a91dd5dc0af755219705c4bff72a3ebc41dd10c92d4e16e06a6ed2cc",
+      "reports/model-contract-workflow/macro-probe.blend": "edd765e59a902038a46f9a9475bdb8863244c461326d717ebd7168601fb657a7",
+      "reports/model-contract-workflow/multiview_prompt.txt": "68d7b8c29877b0888d797c5d9d331926c2dfa6f8d5d9d4fb586f028f822cc09d",
+      "reports/model-contract-workflow/pass0.json": "2c57be0bea58842a359f8063b417bac0336c805a81006c1994445e083c669302",
+      "reports/model-contract-workflow/saved-reopen.json": "b4ae6d23526c62626e81c39a781e6f6089f3711f1e38b9839a19ca1181f6be92",
+      "reports/model-contract-workflow/shortened-gun-negative.json": "6d98864c6254e65dc4b5886e4a19f4d29beb1d5d1819c5ced07441215058489f",
+      "reports/model-contract-workflow/unit-regressions.log": "9ac080d42ab58662881e3e5a24cf23c98562b211ce75b3ce1427d4a4c618c27e",
+      "reports/model-contract-workflow/validation.json": "f1babf1540d242710be4ae9ad3456d689a8a77d7f30ae3de8c52d29548ff51fc",
+      "reports/model-contract-workflow/view-checkpoints.json": "14463cdd60c857abdfa6f6b4d0b376b6ac2133b044a64694fa3c2636da800449",
+      "reports/pass0-description-workflow/PASS0_analysis.md": "a50dee7bfd20630116d66dd85355bade25796f6d7caa2660ca3f88b79b614492",
+      "reports/pass0-description-workflow/auxiliary-multiview.png": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+      "reports/pass0-description-workflow/brief.txt": "076b4262239d6540328b0dc27829831de9bc87371ef6ee7b0d628a6e5d1191f9",
+      "reports/pass0-description-workflow/canonical-hero.png": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+      "reports/pass0-description-workflow/concept_prompt.txt": "d0acd8684fbd279e1ee9cd50dd96c8d31a2e64d05eea85d6c028dfa44aad9595",
+      "reports/pass0-description-workflow/identity-lock.json": "39dd94539c2c887ee01b204e7128ddee87b92b9afb0ffdfc8aead731df46de2b",
+      "reports/pass0-description-workflow/live-context.json": "c939470e61062657bdefe9e54e909b2382737fab98e461018b6e587437d49a76",
+      "reports/pass0-description-workflow/multiview_prompt.txt": "68d7b8c29877b0888d797c5d9d331926c2dfa6f8d5d9d4fb586f028f822cc09d",
+      "reports/pass0-description-workflow/pass0-before-multiview.json": "1653dc6f347952270519a42ce4a05c84e51c5d6ba45c9de9bca1b868218889cc",
+      "reports/pass0-description-workflow/pass0.json": "eb01ae9743d5b2a8631ded45ef43d3f5e7e3c700ef06224d839f914c76ad2fd9",
+      "reports/pass0-description-workflow/unit-regressions.log": "6773d45cd7086ec999efd138054e61e417bbb7b9e4fed12849ae1082158b5842",
+      "reports/pass0-description-workflow/validation.json": "7747f9232dfa36395d872ef448e410b8113f86f27aa5d6e215cb3b450dca85b1",
+      "reports/pass0-description-workflow/visual-review.json": "2481769e65ac7a116ab46326544ea40214c0462c2de012eea8f6e52f1e260a51",
+      "reports/pass0-mech-workflow/PASS0_Macro_Consumer_Probe.blend": "9a18a9467a40dd11618caccd8a3402af47d96722c9814e41bf3c87c1a970d9ee",
+      "reports/pass0-mech-workflow/PASS0_analysis.md": "12bea9b3f998b3305c379610d4a1b34acdf7e2aec002b2110d8b277b7a17d93a",
+      "reports/pass0-mech-workflow/auxiliary_multiview.png": "5a9dbd1309edeb9bf9d424c5e115bc9c96682eb908e2e8c02d3ad78306f4db2b",
+      "reports/pass0-mech-workflow/auxiliary_prompt.txt": "5b7a5dd2521a2de549653109e8eb229687a036f8a8e34e93f0f1b7fc2dd5199a",
+      "reports/pass0-mech-workflow/blender_adapter_l1.log": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+      "reports/pass0-mech-workflow/clay_back/back.png": "b9c1f40f6f398d20b128dab1d44c80f93e377797708fe454daf9c27b830c3713",
+      "reports/pass0-mech-workflow/clay_back/capture.json": "b2dddf3447208cd34ca25154fdf04742fd2168e6f1f1f479028a520641056f9d",
+      "reports/pass0-mech-workflow/clay_front/capture.json": "5783b57b9e09fd679a0a6be15bd280fbf78123d101500d56595181920f8eefa1",
+      "reports/pass0-mech-workflow/clay_front/front.png": "b065f50f7cfde38c61fc57a1f70a95c021b7adccb90e5c63768541ebf97d0b1e",
+      "reports/pass0-mech-workflow/clay_side/capture.json": "d8131efe1d2fdc632f549d5f61c478f5793d2890638524dc8a9f36d461043608",
+      "reports/pass0-mech-workflow/clay_side/side.png": "fb9c223a671bd147ce735e1e89b1bd26056d844b5cb3c22461380642ee8b51e3",
+      "reports/pass0-mech-workflow/clay_three_quarter/capture.json": "baa53cdb9738603011319c3982d9dc0f5c3c565545922aea42f379a7fd27e403",
+      "reports/pass0-mech-workflow/clay_three_quarter/three_quarter.png": "e73be6da30f5fa06cd3dbc1b1320f4b030b5c7b18c0284591dc9a7c59b25543f",
+      "reports/pass0-mech-workflow/consumer_registry.json": "befc8c888521e0aaea6c839bad8e01ca07e6224937fafa07aeb44be471f08f04",
+      "reports/pass0-mech-workflow/consumer_reopen.json": "c3122b3618990c62f0c70795a1b4214461ebb164cf6121b67899a437b7fd0711",
+      "reports/pass0-mech-workflow/consumer_result.json": "8bd656f6b47567b4bb3d3533ee56fbbdba7dc3fea1c252eb927b23e9734ca19d",
+      "reports/pass0-mech-workflow/consumer_state.json": "7a51f24e8b27efb34ebaa84d344b6d0d762a356e07ec162a274595782632ea64",
+      "reports/pass0-mech-workflow/consumer_visual_review.json": "cc1ac5ebe5e9df4e38b71d22192c0191fd7200a33f02b74b62c5818c336333cf",
+      "reports/pass0-mech-workflow/live_context.json": "1fb6c487e15f6aac47c32ca2622a2ecdfe32f82b2fc0480493093c1b7b29a132",
+      "reports/pass0-mech-workflow/live_discovery.json": "f7ea376f1357aac4c398d1528ebccb312997cef7944b22a98823dda52e1f7130",
+      "reports/pass0-mech-workflow/pass0.json": "77be24b30e3f3cc7cf1adfebaa1f6b854ed572b3c867792b9c510b6c3b3e6390",
+      "reports/pass0-mech-workflow/pass0_files_and_gate.log": "21e09aab37c196d1f6fa4439d9d4fbd92fdf8a86b38fa39445c26890572f0a53",
+      "reports/pass0-mech-workflow/sources/baseline_render.png": "a043b325761603fc74b1eda9aaf674c16e2d2921bb81b12d85ec9d2d55a3af17",
+      "reports/pass0-mech-workflow/sources/multiview_input.png": "d754f11958ef6f04819466f88d8b01deb77ba4f520ff1e615c04accb6e67c067",
+      "reports/pass0-mech-workflow/sources/original.png": "3dac146c47668fcf4756a3bef51e2c756ea763a6a642348100d8d01a1a301120",
+      "reports/pass0-mech-workflow/sources/practical_report.md": "10118df71a696630533911ecfb1701cbd0ed9793ebfbcd2da82fbb32510b7cdb",
+      "reports/pass0-mech-workflow/sources/skill_render.png": "dfdfdbdee55571da1044cfae5d4d54c025f6c6a15140cf8117627354076c0300",
+      "reports/pass0-mech-workflow/tools_c_l1.log": "80782de4c0b1ae7b70d9391e232ecd87473f348a70d9f3faf88d56e697c203f4",
+      "reports/pass0-mech-workflow/unit_regressions.log": "4f8f122047c65ee2dfaea950e9e2c867c7bc4a30374c7f4ad0e2a77b858a267a",
+      "reports/pass0-mech-workflow/validation.json": "6c6a1128de560224ea33f2a6f5c1bdbded93da7ce028c57ddd2661b479dff4d1",
+      "reports/posteffects-polishing-2026-10-03/deployment.json": "a9299e38c05839bd1350b9b5391c21720e5cda4e11e6ec00417f715424caf28f",
+      "reports/posteffects-polishing-2026-10-03/l1-integration.json": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+      "reports/posteffects-polishing-2026-10-03/l1-tools-c.json": "529910fae4599cd5edc7826f093bb08e4464766035cba1d74f02ff6e8cc91ef8",
+      "reports/posteffects-polishing-2026-10-03/live-routing.json": "a98df23f02034b02a426789952e8403df6217e5a17e1495792e1cd53bceca959",
+      "reports/posteffects-polishing-2026-10-03/negative-cases.json": "4093452df202008ee6cab24a68aaaea2cd3c37decea997e1b77e68b49a0e5fb6",
+      "reports/posteffects-polishing-2026-10-03/summary.json": "01d459b48d6b05a7a2cc6f2434158cc85b0daada6ebd76aa33380701a7a2537b",
+      "reports/preflight.json": null,
+      "reports/preservation.json": null,
+      "reports/releases/v4.0.1-publication.json": "92504c5ad0eddab7f37146d5d87b9cbbd3e6bf24c10fed20791c5a1445bbf934",
+      "reports/releases/v4.0.3-publication.json": "43788656c21ef632f12798650f68b47cd7f6cd32edca4294ba493f3acc808023",
+      "reports/releases/v4.1.0-publication.json": "6232947f4740b838aa45a70efbee1fc1c801c24ded19ba5b4736de129a4f37ec",
+      "reports/releases/v4.2.0-publication.json": "d83a0c2f599646be7f84cca21cf253a489d9be91ea9a84e9c47fa49ec8c2bbc2",
+      "reports/surface-transfer-2026-10-06/integration-check.json": "592947d9c71ee971e9e4aba71b3af66858a2a0d3d8bb5cdedda200221599347d",
+      "reports/surface-transfer-2026-10-06/live-routing.json": "cdebbc395538ca5a6f940955f235e1c7e55073302d9fd7262378febf2b85868b",
+      "reports/surface-transfer-2026-10-06/preservation.json": "f2bfde196811501008abceb41fdb2b6dc9d4351a5fe0a194be46a9f5dbedd33b",
+      "reports/surface-transfer-2026-10-06/regressions.txt": "d1ddc22d173a58f0afcfab923725d9c28695901af1cd077656c9cad63aef9bc2",
+      "reports/surface-transfer-2026-10-06/self-check.json": "4093100c00d136dff68e7aa9ebf036387cd98afa5b5033d2a34b5ff4947f24f7",
+      "reports/v4/baseline.json": null,
+      "reports/v4/blender-capture.log": null,
+      "reports/v4/blender-export.log": null,
+      "reports/v4/blender-import.log": null,
+      "reports/v4/changes.json": null,
+      "reports/v4/connector-calls.json": null,
+      "reports/v4/connector-tools.json": null,
+      "reports/v4/deployment.json": null,
+      "reports/v4/deployment.log": null,
+      "reports/v4/export-fractional-fps-negative.json": null,
+      "reports/v4/export-validation.json": null,
+      "reports/v4/fixture/active/capture.json": null,
+      "reports/v4/fixture/active/front.png": null,
+      "reports/v4/fixture/after_edit/capture.json": null,
+      "reports/v4/fixture/after_edit/front.png": null,
+      "reports/v4/fixture/back/back.png": null,
+      "reports/v4/fixture/back/capture.json": null,
+      "reports/v4/fixture/bottom/bottom.png": null,
+      "reports/v4/fixture/bottom/capture.json": null,
+      "reports/v4/fixture/capture-results.json": null,
+      "reports/v4/fixture/front/capture.json": null,
+      "reports/v4/fixture/front/front.png": null,
+      "reports/v4/fixture/material_preview/capture.json": null,
+      "reports/v4/fixture/material_preview/three_quarter.png": null,
+      "reports/v4/fixture/rendered/capture.json": null,
+      "reports/v4/fixture/rendered/three_quarter.png": null,
+      "reports/v4/fixture/repeat/capture.json": null,
+      "reports/v4/fixture/repeat/front.png": null,
+      "reports/v4/fixture/selected/capture.json": null,
+      "reports/v4/fixture/selected/front.png": null,
+      "reports/v4/fixture/side/capture.json": null,
+      "reports/v4/fixture/side/side.png": null,
+      "reports/v4/fixture/snapshot.json": null,
+      "reports/v4/fixture/subframe/capture.json": null,
+      "reports/v4/fixture/subframe/front.png": null,
+      "reports/v4/fixture/three_quarter/capture.json": null,
+      "reports/v4/fixture/three_quarter/three_quarter.png": null,
+      "reports/v4/fixture/top/capture.json": null,
+      "reports/v4/fixture/top/top.png": null,
+      "reports/v4/glb.json": null,
+      "reports/v4/l1-godot-regression.txt": null,
+      "reports/v4/l1-integration.txt": null,
+      "reports/v4/l1-tools.txt": null,
+      "reports/v4/live-capture.log": null,
+      "reports/v4/live-capture/after.json": null,
+      "reports/v4/live-capture/back.json": null,
+      "reports/v4/live-capture/back.png": null,
+      "reports/v4/live-capture/before.json": null,
+      "reports/v4/live-capture/current.json": null,
+      "reports/v4/live-capture/current.png": null,
+      "reports/v4/live-capture/front.json": null,
+      "reports/v4/live-capture/front.png": null,
+      "reports/v4/live-capture/result.json": null,
+      "reports/v4/live-capture/side.json": null,
+      "reports/v4/live-capture/side.png": null,
+      "reports/v4/live-capture/three_quarter.json": null,
+      "reports/v4/live-capture/three_quarter.png": null,
+      "reports/v4/mcp-stdio.json": null,
+      "reports/v4/mcp-stdio.log": null,
+      "reports/v4/preservation.json": null,
+      "reports/v4/restart.json": null,
+      "reports/v4/roundtrip/import/result.json": null,
+      "reports/v4/roundtrip/import/snapshot.json": null,
+      "reports/v4/roundtrip/source/result.json": null,
+      "reports/v4/roundtrip/source/snapshot.json": null,
+      "reports/v4/skill-validation.json": null,
+      "reports/v4/tests.log": null,
+      "reports/v4/visual-review.json": null,
+      "reports/visual-qa-2026-10-03/after-front.png": "34cb70063707a54f19728e59b676c038212ae427661313537fc91f45e56b244a",
+      "reports/visual-qa-2026-10-03/after-side.png": "1294defa80f9e34a68ea6a95905e578bd12b17733591b0fa5a1c2958088447b1",
+      "reports/visual-qa-2026-10-03/before-front.png": "15dcb4979e9386d4cff3d1b28873c7ac30c2b84ad24fb6227c4010fca146c8dc",
+      "reports/visual-qa-2026-10-03/before-side.png": "cda1f6c5ee480170feb1711d15517c78dd01b4f1ba2d40bc50382971772f89bf",
+      "reports/visual-qa-2026-10-03/live-capture.json": "3037ae4c45fad36f32d705f9f017443b218b7e27e48f56b43b0f7e57e8475696",
+      "reports/visual-qa-2026-10-03/live-direct-back.png": "32c97dd63e6f11cdf096b662043d5493a24a903631bf9541b6be72456a4cc171",
+      "reports/visual-qa-2026-10-03/live-direct-current.png": "3253b388593d2e5838c6585283f14e1fcced58887dedf9096ed8740eae075fc3",
+      "reports/visual-qa-2026-10-03/live-direct-front.png": "3a7a8f19d624a47d4ecba1884b6c49b7f381a91fa5a2beda80967865dfa3b50e",
+      "reports/visual-qa-2026-10-03/live-direct-side.png": "3a7a8f19d624a47d4ecba1884b6c49b7f381a91fa5a2beda80967865dfa3b50e",
+      "reports/visual-qa-2026-10-03/live-direct-three_quarter.png": "c2a0f2ddd5b22f27c54244da28aa1bf8c732dab5a9c1b47e8013d3ac63ddf653",
+      "reports/visual-qa-2026-10-03/live-python-fallback.png": "c2a0f2ddd5b22f27c54244da28aa1bf8c732dab5a9c1b47e8013d3ac63ddf653",
+      "reports/visual-qa-2026-10-03/live-routing.json": "134e919011add5ca9b5a2e44d49d719f7740e60f0b8ca04597b099c15de7d5bd",
+      "reports/visual-qa-2026-10-03/review.json": "1eae7b503289ee782fa5e8dbb1ae996561274394a41445b83740cb2a03fb67f3",
+      "reports/visual-qa-2026-10-03/routing.json": "6c16616b60d594a33935ce0d3edf1641d3318c633cf42c1f614634d6320a822d",
+      "skills/blender-animal-anthropomorphic-modeling/SKILL.md": "158c831131f7bb01a114ef8144014ae808f4828937e79a9246064d7320adbb37",
+      "skills/blender-animal-anthropomorphic-modeling/references/body-plans.md": "e7aad1c297c1b6d90031733f5a209ac2c4163ba877fdf20e5b109607c8d26584",
+      "skills/blender-animal-anthropomorphic-modeling/references/research-notes.md": "246bc1ff878737d0c43c648af32e53d7877f21aaefbb171bb1541716bdfdb184",
+      "skills/blender-animal-anthropomorphic-modeling/references/topology-deformation.md": "62b968f271705d42a81deb3cc0eaf7263c7f616ebf554b4dc5ea263be083d740",
+      "skills/blender-animation/SKILL.md": "b525bde0c4abb6ab9685eabacfab8f429165682ddd533816d950c97f4dd932ba",
+      "skills/blender-animation/references/motion.md": "1feb0317dd750f0caa32b456818fd42ca05e92cb5e029e5b55bc855f8aab0f2e",
+      "skills/blender-anime-character-modeling/SKILL.md": "2bf99ee4b5d43efe583c85622860d62403a2a3baf9599d5c788e77ba3100cdf4",
+      "skills/blender-anime-character-modeling/references/face-hair-workflow.md": "6c0a08718eaae88f690332eb9bf111d372d7cb322cb476e691deb31d121586ad",
+      "skills/blender-anime-character-modeling/references/research-notes.md": "4c1a947a2b0c57d47a948147f3c109b0d31937c4dc393f2e9eb1e93b972eddef",
+      "skills/blender-architecture-environment/SKILL.md": "b7efa2eab6c173335495bfca5ce1a74b0b605e1d783ec00442163624eb11db19",
+      "skills/blender-architecture-environment/references/construction.md": "00cdc98a79ecf48977f5a0cae1c4c54067cc203eef87db6bf1bc67e9fdc8945f",
+      "skills/blender-architecture-environment/references/planning.md": "b5cba5247561a1acefaf43b15c229dd952f6229efc6d9a58fae2cec7cc1d0db4",
+      "skills/blender-architecture-environment/references/production-options.md": "5c6dfed36311d5b34a63da2ef73dd4606c6d538a6806a05dd278a199ecfb20e1",
+      "skills/blender-architecture-environment/references/research-notes.md": "b4ae999cdcf67574d1c4411a7d1e3c1b17b97dfb9b28feca65fd0ed2cc07c9de",
+      "skills/blender-architecture-environment/references/validation-and-handoff.md": "fcbcecd127b94ed7a0671f171258c439c136a5bbc94eb401ded510cde7a8c8df",
+      "skills/blender-character-modeling/SKILL.md": "5dea6b760c4f736dc92faa2b586205bbde5aa511c17d855e27872820fee0a246",
+      "skills/blender-character-modeling/references/body-proportions.md": "e9d9cab4782bb16caa9bf0db8b7d2c0f78519299a8b6d571f219036917459485",
+      "skills/blender-character-modeling/references/geometry-decisions.md": "b2cd1130921acbd97ab86898848b3a3b24922712108a0f3f5b8710a8f12fcd08",
+      "skills/blender-character-modeling/references/modifiers-transforms.md": "b7cedc0ae58c5aee20b8baada7eb7d88a00cfcfa6637b1109ebf5037fd7c7c4e",
+      "skills/blender-character-modeling/references/workflow-gates.md": "032d9b5aaf016cf7b34447da8e044a7ed88b48fb868f97d27ec344c5cf0def34",
+      "skills/blender-environment-assets/SKILL.md": "d05a929bc99316944476c84ed0a84913f99c08d2d73ab8f147ebd566beffa1d3",
+      "skills/blender-environment-assets/references/construction.md": "bddcf084fce896b5656cd8f1c060072f425afe81a02fa9a28e8a7982dbd19339",
+      "skills/blender-environment-assets/references/planning.md": "d0d7da8151aff6faf3cc809dfe0d18aee45b531f974474acf0f7e345540e4ed6",
+      "skills/blender-environment-assets/references/production-options.md": "7cdd1ea87b4a5a20a9ea551991dd42075022b4f5c60eb899918fb9d61236d2c6",
+      "skills/blender-environment-assets/references/research-notes.md": "5f918290df6f491c3a2996a92748af77bc8bc834d42613b837e9aec149396acc",
+      "skills/blender-environment-assets/references/validation-and-handoff.md": "7c6dff76dca1dd180f0789e0a8385cfcd0dc4c7227a989a295a46d51e2547c5b",
+      "skills/blender-export-validation/SKILL.md": "b9b74bbd8a504d6465af7c6b25f42a68a06d5c7ffaf2065a6effb7aab484887a",
+      "skills/blender-pipeline/SKILL.md": "f94b0a5c8b8c56470d3be68dad94d808441c33c2a25dd08986f8ed130023fdfe",
+      "skills/blender-pipeline/assets/form-examples/Form_Examples.blend": "c00a892d9be5fc63fda6db201375e6099debb71917ed9b04026048c6f2e01344",
+      "skills/blender-pipeline/assets/form-examples/canopy.png": "cd5ff84d75774a4329d541af00475d75274f1cb1f973e97de03d2d256cac180f",
+      "skills/blender-pipeline/assets/form-examples/fur.png": "7765a94256134ca6f795a44010837ff1fafa1af105510954358f73c5980e1763",
+      "skills/blender-pipeline/assets/form-examples/hair.png": "81ee658bb9ec10de8a0c1cc8e3ab950a191c74162dc3ccbecd30963184368dd4",
+      "skills/blender-pipeline/assets/form-examples/hair_threequarter.png": "6ef813ed54b7fa7e62e9c9462ee9960c67c2af9c5f40c21a3b1180fcb2bc3fb8",
+      "skills/blender-pipeline/assets/form-examples/limb.png": "319b822cd1b40bb4789e87919eef8c43de7ebf3dee6f64533ef8bbf2922d2632",
+      "skills/blender-pipeline/assets/form-examples/limb_threequarter.png": "c1eba07ff45f1fb3c55b76cc6ed36c227a9d247405b251677364b9d1874cdfe2",
+      "skills/blender-pipeline/assets/form-examples/manifest.json": "45645c16e49eeb0b782f6a31c9fb27e11507283220aebaa1835d29103fc1b7fd",
+      "skills/blender-pipeline/assets/form-examples/ribbon.png": "aaa3cad18a303aba7f408297eff085e90abcfb6cf13a4f3ac871f7bca36ba9ba",
+      "skills/blender-pipeline/references/core.md": "4644cddadca073e300463ca05d4a6b921f081536d85386a269d61185776476b2",
+      "skills/blender-pipeline/references/external-import.md": "d5520ef8d7ac0eea37babe5876248ce16e7a2484ae29b06d4eef9ed867825985",
+      "skills/blender-pipeline/references/modeling.md": "e6da75972624a0ce66a3115ea7f86b35d940ddf840e4f34274dc28b0a8ef23bf",
+      "skills/blender-pipeline/references/qa.md": "3932c70fbee3704736ea3b3c14e258b90186df93c115aa6d6643bcb6ee3ffaa8",
+      "skills/blender-pipeline/references/reference.md": "5086bf5a5ebc08fcfd8eeb6f4f6e58bf10049fba3604353569f1f1e8d60deca1",
+      "skills/blender-pipeline/references/refinement.md": "b4807b33d7705b68da74cbfe496bc44969c1d7dd46bd1b35f653ea263920c207",
+      "skills/blender-pipeline/references/retopology.md": "c6804bc23b4f8466e123a4a6027d8192fab5a5ea6318c6a155f67263317b7656",
+      "skills/blender-pipeline/references/rigging.md": "85c38cf70f8316c8e35ffa43a91f5b67c1c1e7eb2dc268b50398450d568affff",
+      "skills/blender-pipeline/references/sculpting.md": "b88480f1b486100968158238e8af7dc054c5532a8295f1723b901df9007636f9",
+      "skills/blender-pipeline/references/surfaces.md": "bfec8fcf3a4df0b0180d239a2aacaa6672d9f0f252ecf070d2821f59691ae1b5",
+      "skills/blender-pipeline/references/techniques/animation-export.md": "e4c962da4480695a69309ba61c0edf4d0addc538866b6752c0552b8b757099ff",
+      "skills/blender-pipeline/references/techniques/clean-stylized-surfaces.md": "ae47fb65aeedf0bb50f9f37b0e5c714844bdb1b111bc60e730a6c8d4ee3bde68",
+      "skills/blender-pipeline/references/techniques/deformation-checks.md": "ec66b7d7c679684ff4eb10cc08221a3fee881541254f5e8e449c604b09e64400",
+      "skills/blender-pipeline/references/techniques/form-development.md": "243cc76acf23c3b790fab0e1c7ded3a164a72a41baba3c63de02264aa97001e0",
+      "skills/blender-pipeline/references/techniques/form-recipes.md": "5bf35edd861ba108b935f8946364ab4d2f701f44d3c6e0c8b4fe21830c3615c8",
+      "skills/blender-pipeline/references/techniques/qa-evidence.md": "ef6e912be02d59b5c8f58e306f9532810f68b3e8d9f7c58cbdaeb31b3a05eb73",
+      "skills/blender-pipeline/references/techniques/qa-profiles.md": "cccb41455ec9d3231e3c25fb369e0de8b7fdab39e82e16f8bfaf27f168c909c7",
+      "skills/blender-pipeline/references/techniques/reference-registration.md": "cf0cf84bb0ab19ea5d49aaaf1599629de4dbfcfe7b7d596f121cde24f6747063",
+      "skills/blender-pipeline/references/techniques/refinement-diagnostics.md": "d256c6230664279d3629023075d79f6396a673a6e2dcf2274375dfd00589d6cb",
+      "skills/blender-pipeline/references/techniques/sculpt-operations.md": "46b4b5806070b0cf2685679fb519a905a53b0263a63026f59d028dccd2652402",
+      "skills/blender-posteffects-polishing/SKILL.md": "5dce0023c83fb68035cc41ee4ffc498c629a12c4a3bb55700b1b4d1b0b6c2222",
+      "skills/blender-posteffects-polishing/references/finishing-techniques.md": "1e4b57b6898358944e440744b117e8b2f0906810e41806218bb59001b68f8d90",
+      "skills/blender-posteffects-polishing/references/research-notes.md": "58eea10b8758388401ee5fe2eda30b87bbdacfc78d3ad25fef2584ba8dc537b4",
+      "skills/blender-product-electronics-modeling/SKILL.md": "eea2ef620d739c39a96d9d5370155f484e1524883672ec81d9071a2bfe476745",
+      "skills/blender-product-electronics-modeling/references/research-notes.md": "c084cbaa7cfb6ac7d57d663f41480d78d5c61038073ff742a8529c002a03790f",
+      "skills/blender-props/SKILL.md": "06defee621960b61e75227a13595e3330473d51afda4e8fa6fbd2296b246db66",
+      "skills/blender-props/references/construction.md": "c527e95ec35b45b79199447d5e1e1e6dd2dbd934df569e8bde66d6ad7d895b2c",
+      "skills/blender-props/references/planning.md": "d60f93668547ce7eb5bcd7783155441a2400ff7602b16300573401c48487747a",
+      "skills/blender-props/references/production-options.md": "72d2a82d5719224230a5beb776615a27c668ab3e767d9bcf1d0c1b9c32614567",
+      "skills/blender-props/references/research-notes.md": "c564c16cd335e02bf22d1958f318918b309db8a87230b04ee53a776df6f32359",
+      "skills/blender-props/references/validation-and-handoff.md": "0c95a8054b7df8594fd905e1fa2247cfe92db04d0ff8ed09852c24cea7c1369c",
+      "skills/blender-reference-surface-transfer/SKILL.md": "fc57ed61bf8754b8ba5ec3053610aa4a98a2a25865c8a880f1326411317babf6",
+      "skills/blender-reference-surface-transfer/references/record.md": "5411b8868952a755c415b9ca34a0eeb7744811603f4cdea73f86d95d64a3176e",
+      "skills/blender-reference-surface-transfer/references/workflow.md": "1ba22e0a85899d5c7c0ab7e28416137d800fafd5355ac302ee49c22f0750b019",
+      "skills/blender-rigging-skinning/SKILL.md": "26ab340f0c721362428b7fdb4042d2f046418ae7f5c04d391c38c1ac2343d5e6",
+      "skills/blender-roads-infrastructure/SKILL.md": "33b4589f56a05bf394fc87a3f14bbae6102f114f15d6b82b679fd5e9657d295f",
+      "skills/blender-roads-infrastructure/references/research-notes.md": "dc2a075a66960e50842ac4fdc8e7202a6fe398131374b23e67b29bc847a9b6d2",
+      "skills/blender-robot-mechanism-modeling/SKILL.md": "f0b1debc2f0ae3e4b94f0b3a1318cdd5fbd1dbfa60ef984479951a9051fb0b3a",
+      "skills/blender-robot-mechanism-modeling/references/assembly-and-mechanics.md": "793a296fb06d54a2aec11b3e9cb535407786e50ea495a8f882acb9f0c1665682",
+      "skills/blender-robot-mechanism-modeling/references/qa-and-handoff.md": "a294f5cd313d5534fdedd6e07f6f5872d7ae75abfff6e9830dc7d4bba6d132de",
+      "skills/blender-robot-mechanism-modeling/references/report-lessons.md": "92772ba72ed7d901dfd8c24612ad67ce0a81340c946ac2534142a110b7d739b5",
+      "skills/blender-robot-mechanism-modeling/references/rigid-transforms.md": "67e1cee0db3d96086be6ead2e6a20bb63ae1e841731eb4f0dac9785d957ee1eb",
+      "skills/blender-sculpting/SKILL.md": "bb56b8305f91592cbab2009551b9086bb087e91b7ef012d88614b81a7f31dcfa",
+      "skills/blender-sculpting/references/research-notes.md": "b38bb0d75e048aa012472d0f75cf3ac6179e4d47bb138644897faefa035b5c07",
+      "skills/blender-vegetation/SKILL.md": "3ee5b0b07714370ffacb6cc7cdc26f13b153df0bba0a18501cd65a29eeb487c6",
+      "skills/blender-vegetation/references/construction.md": "15bf616ae3135279497e89fbb34872652667b7a6255f530217cc66924fdb9a16",
+      "skills/blender-vegetation/references/planning.md": "b6db910b6dcbc99d912fff13a40d13d5766ef1e8f3bc574a79743b11527ff7f3",
+      "skills/blender-vegetation/references/production-options.md": "2207d211580793044f0512b189e0054e2327ac4d4644d56cdd2cd1a4b27050d1",
+      "skills/blender-vegetation/references/research-notes.md": "841406193d7bb7687f24d600f5513cab5f6735cc73356082963cdbbff0d8b311",
+      "skills/blender-vegetation/references/validation-and-handoff.md": "7b03ea6b9e9d2b9916a76232b343da6ceb333db3185328d1cd630ab39c753422",
+      "skills/blender-vehicle-modeling/SKILL.md": "ddadebad39aedb0905af6544e8f2ec55c8bf57967f141aa99b78e535d7cd2ce5",
+      "skills/blender-vehicle-modeling/references/research-notes.md": "076e09f39f01fcaab9b460a4bb02c69f842cc3264503fd4931d156b5c3c4b48b",
+      "skills/blender-vehicle-modeling/references/vehicle-qa.md": "13b392d2921424d03bca729b4542a00177d3d739d98ad99726abe05be672d8d7",
+      "skills/blender-vehicle-modeling/references/vehicle-recipes.md": "4a5a34f57b445085c2cdaaff3ddf7628df82771ac7f83a3dea881ccf5ef9e298",
+      "skills/contracts-lint/SKILL.md": "679ce70c0b440ded4e84920336e1ef2f7d27a4e37f644154c6f08a76ef4f9275",
+      "skills/contracts-lint/references/rule-lifecycle.md": "168a3cba6f2bcb5f035158b1d9a200f87502ac3e39f53b511d014e500df0b15c",
+      "skills/godot-asset-integration/SKILL.md": "c329771ad8165346dcdfdb5d267b67b166bbe57987c1d66de14b899aeb7e9813",
+      "skills/godot-project/SKILL.md": "ab8e6e6bf56351a44f7d986298a6f71a5ed9f05d367027db9105505006c9ec42",
+      "skills/godot-project/references/scene-ownership.md": "bca7cdd228c3a635adfa06c27ad1b5e850502d5249e7fbe22516b084e5f251ff",
+      "skills/production-lookdev-gate/SKILL.md": "5b1b576b93021f80427af7530054bdca47079ce35573894f3218f77acbe70806",
+      "skills/production-mechanic-gym/SKILL.md": "026fdac49e4f291cb1895440ccee0206400332ce0bb25377e64cfcf1362c5c81",
+      "skills/production-project-state-gates/SKILL.md": "f5542ff1caedd478fe4e3b9312d1d90e8fb0f97a9b923a21c099b2f5cb007f72",
+      "skills/production-subagent-worktree/SKILL.md": "0b918b9b07530728003c863a69fffac77a5bd4a213cc595a0a5f9d5dc1bd07c1",
+      "skills/project-audit/SKILL.md": "8cd480a4c834e7b5f4de5a0b6617ab32a548133b0ebf87ce7b0751d0c1520b2f",
+      "skills/project-audit/references/integration.md": "1264cdeb73aaf7deb509974bd20770a4ee77064a87e8ea4d5b5f8c21a8ef3111",
+      "skills/verification/SKILL.md": "c0986bc5931bf6d49181299e2e58b48724b132e013491afa8f44e4a1510b5e3a",
+      "skills/verification/references/dual-verification.md": "b6fdcfb234905e2a79e79cfb996d39d28cc7ad64d4ccaff6786e955c53bf03bb",
+      "skills/verification/references/evidence.md": "01d50ebfa6f997e1ab07248e3256fb24706b90e543ecd42204c9371e3e1c3b54",
+      "skills/visual-reference-reconstruction/SKILL.md": "d3df011aa40d2be634df5192e99be8aa284bab240cbb8787082a288e6d862e21",
+      "skills/visual-reference-reconstruction/references/description-mode.md": "eeaace76e82e1014784d1de56d28dfe4d18096d3ceaaf26779ad39d6e515e765",
+      "skills/visual-reference-reconstruction/references/generation-and-consistency.md": "7ed46e83f3e4bb06240a4a483c7c6f0d87fb4fd1e1fdecf08638883598d385c1",
+      "skills/visual-reference-reconstruction/references/model-contract.md": "c27730f05f6a66847765686bc8988f73db1b91ddaabc2ecd57b56aa1afa53fdf",
+      "skills/visual-reference-reconstruction/references/pass0-contract.md": "8e4f4837f5db29eeed06561ceb5484deffe869eb5b825bb24ee4288dc9e7d6c7",
+      "skills/visual-reference-reconstruction/scripts/description_contract.py": "4fe49e26f8d6158d181efb82ab66417aa1310aa3405eb45c35b1ea1490609756",
+      "skills/visual-reference-reconstruction/scripts/validate_pass0.py": "edf21be363de47e7d753237adbfdcd4f711cceb20c227e463fb070a6e3a09dd0",
+      "tests/blender_activation_cases.json": "424d02ed794eebe59757c2da58e83873464c0be7ccb627b0453c8fa7f981c34a",
+      "tests/blender_form_runtime_probe.py": "bc6908e88ce5941fc070845cda8bd22e3f6729da62aed2bdcff6fc0a72631f29",
+      "tests/blender_model_contract_probe.py": "51dbe9c70ae86c326b6ed6573a08fcab3ba84e50b45454e36afb72264a174654",
+      "tests/blender_v4_probe.py": "d8e5be9c8f4d670ceaea61a0a695eb88dadeda5b88b4849b3aceaf6ffa0a10b8",
+      "tests/blender_visual_feedback_probe.py": "f4cb1f6e817a85cd80f2f807befd4324d11ddc65c9589a13d9bd99dcaf45b59f",
+      "tests/core_activation_cases.json": "b8e904dc9256cc3c110234e3e788edecebf6c579b1267f01b1effb25fdac0c86",
+      "tests/live_mcp_v4_probe.py": "ed6c2c56ab559ed7e502c0461ed39418ef888fc9fa473f8ba3d06b8f25c2d29b",
+      "tests/mcp_capture_adapter_probe.py": "eb8a9a9a8a1e773416b837abac26c09076c73c3c3883419ad2103d154a7a093d",
+      "tests/mcp_form_probe.py": "307db5211e8a30c97060a4f5d34fb43bd3f402b5219dbeaf431712c139958168",
+      "tests/mcp_metadata_probe.py": "3fa82801e68d01f028a67bbd01a9896083e30f142353f0fd757c4956bfc43bb6",
+      "tests/pass0_blender_consumer_probe.py": "982eb3d3e55ff577a747506c2bae71d8335199efc05cd9fefd93ab689337c6ea",
+      "tests/pass0_blender_reopen_probe.py": "9da34e045847e0206f313efb28ea22b4a59e2b230e093a648ec549db2db14709",
+      "tests/test_anime.py": "cd7ebf8744b2630e5b75cb39e9fa9a3fa13294b99feb302800d3e4dab0a1e0fd",
+      "tests/test_blender_bridge_health.py": "7a308518befee4613a33dcd250d765265ed26f38529c3dcbe8e624b4fae75906",
+      "tests/test_capture_file.py": "2467cf8649130ab4749ce3bf279fee0923fa643dabbf5e0ad5561f73a7b4d17c",
+      "tests/test_character_workflow.py": "1468336e2f273e7cdb224d6e672cfbf48901d171303145c07c5da35be1611783",
+      "tests/test_check.py": "16c43d26a16ca8228b35a1d0d89f5027d9297b23957f3b11a184ef3b83818dbd",
+      "tests/test_domain_contracts.py": "14345cef0819d54ad12b672f359e093e91bde70abe3aa4b296eadbc5846d6629",
+      "tests/test_engine_check.py": "549e2aefab10db8254f22865e53c5811bbb67af664696ee3a06f7556873b7d6b",
+      "tests/test_form_tools.py": "1bb5b17bab0a5cf94a9142f570d75fa7f48fc209315f88ba2161e6e0b531eb7d",
+      "tests/test_model_contract.py": "264c7278e4e2181a2d3f98d341aba2980cecb4814b8432aa44fe6e2999a84c93",
+      "tests/test_pass0_description.py": "19782c265f1a59d97ceba3812c32ffc64291301fc0a0de7bd0872960302d074f",
+      "tests/test_pass0_mechanics.py": "03259cd98c6c1565bed4c144dc06ec600c0a4ded5f3128b91c2bbcdd2eb6a8f1",
+      "tests/test_polishing.py": "c27d9e59da889ce53fcb52d3fc8a04da47a8965789e5926e85aaf4b03c8d4db7",
+      "tests/test_qa_artistic.py": "b4d0fc37e29ff18711e65e186c10975e53f4456f738ce74b0687546c87cc7a25",
+      "tests/test_qa_freshness.py": "c2363236cf28a264b9b78ad18b4b2952909038e842615df8271e6d5e81b7dd71",
+      "tests/test_qa_gate.py": "7fd4bd241d7b425bd26c1e7c4fc034f25d201a813a71103eb75f2c69d5e7f4e0",
+      "tests/test_skill_catalog.py": "934d36c478b08ac50689789e371eae5d78d7589cef3e56c4cb2ac2a4b0a42559",
+      "tests/test_surface_transfer.py": "8b62d3ad394f8a2aad25afbb57a1e5d9df3386b58025ea0d1a56891a55095c50",
+      "tests/test_v4.py": "301dada932f982ac881150b40b29787842677978638c44b0ed61307a43df5847",
+      "tests/test_workflow_flow.py": "1932a36ae204a49b9d6ec1706b28807a2d145a2640b2d67f405a368d950d36a4",
+      "tools/blender_bridge_health.py": "0e83ab2d2a3f764fadf4e1b0fcaaafba5be1c7f059dfd58f06a84bd54847c355",
+      "tools/blender_capture.py": "b9bd8c25e32462af42cb52de02166df2f364b57bb56c957fb879b60aab0e52d8",
+      "tools/blender_capture_file.py": "9b6dc16ed4615be1e8f602fdb4c415c974626a7e23548b97addd3f40e97f833a",
+      "tools/blender_contacts.py": "46dd9c71db5691317fa92cb80418dcf4ed33b5783102dadba6c717a9278ef909",
+      "tools/blender_export_probe.py": "0e508c22fbb5f05eb72561ee8bd774d1d540ef4362a557ae42dd34a76aa36a60",
+      "tools/blender_form_examples.py": "a0336734dda7b09dda92180c1f1dd9d188d1b4d9c963de5d352572078bc5faff",
+      "tools/blender_forms.py": "b464ae659dea646418c8bf2a7e21985d35ad54f733c5ff3ea1215e733a0f92dc",
+      "tools/blender_jobs.py": "691400503f5efe7045a7c48dbc94e1ecf0dca95ca02c356fd9ce8e541e8eb352",
+      "tools/blender_snapshot.py": "ad3992ea6f2f7d110601477abce886700673dc709af43cdb63737be64ea91702",
+      "tools/bootstrap.py": "de814712c5d237fff14784ec0470c1904306c09cc8ad9e1e2f2e4cc5ae17e279",
+      "tools/check.py": "2d2544bd63ef04bd08bd3a1e20ca59b8ba20869c61abc2e8a774184e56354878",
+      "tools/engine_check.py": "8005abd34bd6fed236d12a32d2c20d7f2d8dc87f6b14e24a9b186a92832e02e4",
+      "tools/export_validate.py": "25ca46add52ff89023c35d9305992156cd1eca978ea754bfcaaf05cc75e1ea93",
+      "tools/glb_inspect.py": "c96ef5220cfa8a8e1bfbc7385357330491a7ef7f88a7e9da49db9ae209c7616e",
+      "tools/handoff_snapshot.py": "14a35d8a51598967f5979e689ecf44c01d5f9ebad9253eb2887b5e329bcbd06b",
+      "tools/mcp_capture_response.py": "92996d855097eb977acaaf9ff2a0bc647a6acc23f67fda70e71c38add134704d",
+      "tools/mcp_deployment.py": "c1b8df9f559e9aeff963323efc65888f6b286c4d1aac12e6c38b4a9df35aa5df",
+      "tools/mcp_runtime.py": "43f37f9429ed16396dc54123aefaa0ba1f3bc99362d5e479af8c8e9afc29deeb",
+      "tools/model_contract.py": "c4901ad5f4ad2c28d51dfedf9dd68a3d3f2b55620eaf7c3cc95802286675ffec",
+      "tools/probes/blender_import.py": "e832493b96ee0af4865094a51f5229d415a4e27ef162fbb63b07b31a1ea2380a",
+      "tools/probes/godot_load.gd": "b59be113b98a9615a0394ff292ad046f4a2d41f072d9d6495f3425d588d57b70",
+      "tools/profile_adapters.py": "69b426549a532cb58c964fa75f91de95749c7e87884cf4658fc194e15240b08c",
+      "tools/python_preflight.py": "5c0f7a5779d277c87e4ca47d4b171152657561fc26510f5f17c965d76e7c8a5d",
+      "tools/qa_artistic.py": "0ce4cd5470a7ebf0a809482d14345d208e7fe70e1a779505f4d9ff4f2e4ae366",
+      "tools/qa_freshness.py": "26e34bb7105c057e53bacbae76082bc707ffa371b0ebb6ae9eaa447183ca4a35",
+      "tools/qa_gate.py": "2e661014e4c46ea7cea5c84752aa6090f7daefb7dbfb5822753940d70f20c276",
+      "tools/read_blender_skill.py": "4c8d6dfc1b08687fb63474d98b056033caafa9399fa2f1b2b562c7d9c49c83da",
+      "tools/skill_catalog.py": "2ddf91f45421807426f7d91e5dee7424987c5cbd7d5397140a29dcd3619773be",
+      "tools/surface_transfer.py": "e4613080f9068face914bf2a3ba9b3ad9031a431cc34868d681cfa49727b0121",
+      "tools/sync_blender.py": "5bbf17ad3ab671113403bc585466c126da0212bc9279ba143d1c44023a890250"
+    },
+    "prompt_sha256": "5b1dfd51918f9dc9213ba149886263a86fc7e0f602e67f623c0a916510dd83e2"
+  },
+  "test_suite": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 1,
+    "run": 337,
+    "passed": 333,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 213.136,
+    "failure_labels": [
+      "test_valid_self_profile_with_replaceable_art_choices_passes (test_anime.AnimeContractsTest.test_valid_self_profile_with_replaceable_art_choices_passes)",
+      "test_json_subset_warn_stays_advisory_and_scalar_types_are_exact (test_domain_contracts.DomainContractsTest.test_json_subset_warn_stays_advisory_and_scalar_types_are_exact)",
+      "test_legacy_migration_provenance_is_not_a_current_content_lock (test_domain_contracts.DomainContractsTest.test_legacy_migration_provenance_is_not_a_current_content_lock)",
+      "test_valid_pack_and_additive_project_choices_pass_without_mutation (test_domain_contracts.DomainContractsTest.test_valid_pack_and_additive_project_choices_pass_without_mutation)"
+    ],
+    "log_sha256": "b95890fd891c89a72d45701ff87c46fe3317ed205914dcdd90de1c4d54b5b8c7"
+  },
+  "checks": {
+    "l1-self": {
+      "command": "python tools/check.py --self --json",
+      "exit_code": 1,
+      "results": [
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-CATALOG",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ROUTES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-SKILLS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-domain-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-polishing-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-anime-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/pass0-mechanics-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/surface-transfer-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-SELF-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-DOMAIN-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-POLISHING-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-ANIME-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-JSON",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "FAIL",
+          "code": "E_PATH",
+          "rule": "TOOLS-LINKS",
+          "message": "E:\\MyCreations\\Tools_C\\Project-pulse.md: unsupported or absolute local link C:/Users/kosti/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an/outputs/Research_Complex/Project_Pulse.md"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-GENERIC",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-PASS0-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-LEGACY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-SCULPT-COMPAT",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-SURFACES-HANDOFF",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-MODEL-CONTRACT-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-DESCRIPTION-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-COMPATIBILITY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-LINKS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    },
+    "l1-blender-integration": {
+      "command": "python tools/check.py --project E:/MyCreations/Blender-MCP-Co --json",
+      "exit_code": 0,
+      "results": [
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-CATALOG",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ROUTES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-SKILLS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-JSON",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BMCP-LINKS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ADAPTER",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    },
+    "deployment_disk": {
+      "disk": "PASS",
+      "project": "E:\\MyCreations\\Blender-MCP-Co",
+      "server": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+      "wrapper": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\run_blender_mcp_server.cmd",
+      "server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "source_tools": [
+        "blender_operation_status",
+        "capture_viewport",
+        "create_camera",
+        "create_cube",
+        "create_light",
+        "create_uv_sphere",
+        "delete_object",
+        "deployment_info",
+        "execute_blender_python",
+        "find_skills",
+        "get_scene_info",
+        "get_skill_context",
+        "list_skills",
+        "read_skill",
+        "save_blend_file",
+        "set_object_material",
+        "start_curve_batch"
+      ],
+      "architecture": "4.0.1",
+      "canonical_root": "E:\\MyCreations\\Tools_C",
+      "contexts": {
+        "Blender_Character_Pipeline_Core": "22d091ad688cab15f9046ef8017a1c31c360e3fceb57ab4c3239c6c20f06b381",
+        "Blender_Reference_Reconstruction_SKILL": "cf338e4fd59839a3e9923747f278e2fe41d9ce03446c8e93ce24d361bfe4c1e7",
+        "Blender_Character_Modeling_SKILL": "2d6d5a1f2a6036447a298c17d964734262568361302a60d52e675cc0dbf6f725",
+        "Blender_Animal_Anthropomorphic_Modeling_SKILL": "8da11ce63813a598f7a2ff86b6d636c0a9fef96ed66b602a4563b1e979b11d9e",
+        "Blender_Organic_Sculpting_SKILL": "b45ca44de1ab1b5604b6c0a9b0e4cce26883721d699c225276bcd3039366520b",
+        "Blender_Retopology_Deformation_SKILL": "2f7b53868c61140c21f4daf4830572aad2136d86d32c3db6a2b322bb7c5ed37f",
+        "Blender_Character_QA_SKILL": "53b65ec164c646a9b4ba000398cf38622bb96adc429e320e7bbc9ee4d0398e56",
+        "Blender_Iterative_Refinement_SKILL": "91c3ecea09284362313e40394e94a24c01230121c3cea7e5e5768afbf8d867d1",
+        "Blender_Character_Rigging_Animation_Godot_SKILL": "d988fa35a7f63d62c46712e87ef1ede8a52bf21f37535b8e24000bde25f9b9e9"
+      },
+      "context_digest": "11390d80c84652ad6e010314cd874652463800376886b72cc6f3bda765374550",
+      "live": "SKIP",
+      "tunnel": "SKIP",
+      "connector": "SKIP"
+    },
+    "git_diff_check": {
+      "exit_code": 0,
+      "note": "Pre-existing CRLF conversion warnings in docs; no whitespace failures"
+    },
+    "l1_self_after_docs": {
+      "exit_code": 1,
+      "diagnostics_match_baseline": true,
+      "results": [
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-CATALOG",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-ROUTES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "PROJECT-SKILLS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-domain-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-polishing-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/blender-anime-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/pass0-mechanics-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": ".tooling/surface-transfer-contracts.json",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-SELF-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-DOMAIN-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-POLISHING-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-ANIME-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-JSON",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "FAIL",
+          "code": "E_PATH",
+          "rule": "TOOLS-LINKS",
+          "message": "E:\\MyCreations\\Tools_C\\Project-pulse.md: unsupported or absolute local link C:/Users/kosti/Documents/Codex/2026-10-11/referenced-chatgpt-conversation-this-is-an/outputs/Research_Complex/Project_Pulse.md"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-GENERIC",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-PASS0-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-LEGACY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BDP-SCULPT-COMPAT",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BPP-SURFACES-HANDOFF",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "BAM-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-MODEL-CONTRACT-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-DESCRIPTION-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-PIPELINE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-AGENTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-FOUNDATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "VRM-COMPATIBILITY",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-REGISTRATION",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-PROFILE",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-ENTRYPOINTS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-DEPENDENCIES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-FILES",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L1",
+          "status": "PASS",
+          "code": "OK",
+          "rule": "RST-LINKS",
+          "message": "Declared check satisfied"
+        },
+        {
+          "level": "L2",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Use tools/engine_check.py; no engine executed by L1"
+        },
+        {
+          "level": "L3",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Runtime/bridge/input behavior requires an explicit task probe"
+        },
+        {
+          "level": "L4",
+          "status": "SKIP",
+          "code": "NOT_RUN",
+          "rule": "system",
+          "message": "Visual and engineering review requires recorded evidence"
+        }
+      ]
+    }
+  },
+  "one_variable_diagnostic_control": {
+    "mode": "in-memory diagnostic control only; repository bytes untouched",
+    "only_variable": "absolute C:/ Markdown links in Project-pulse.md interpreted as code paths",
+    "l1_counts": {
+      "PASS": 50,
+      "WARN": 0,
+      "FAIL": 0
+    },
+    "tests_run": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "discovery": {
+    "catalog": {
+      "canonical_count": 28,
+      "canonical_skills": [
+        {
+          "name": "project-audit",
+          "path": "skills/project-audit/SKILL.md",
+          "description": "Audit or scope work in a local project, or connect it to Tools_C while preserving instructions and worktree changes. Use for project orientation and integration, not asset authoring.",
+          "title": "Project audit",
+          "aliases": []
+        },
+        {
+          "name": "godot-project",
+          "path": "skills/godot-project/SKILL.md",
+          "description": "Edit or validate Godot scenes, resources and imported assets using the project's actual engine version, ownership rules and runtime evidence. Use for Godot project work, not Blender authoring alone.",
+          "title": "Godot projects",
+          "aliases": []
+        },
+        {
+          "name": "blender-pipeline",
+          "path": "skills/blender-pipeline/SKILL.md",
+          "description": "Route multi-stage Blender asset work and specialist sculpting, topology, surface, finishing, rigging, import and QA tasks. Use the matching character or domain specialist for focused geometry work.",
+          "title": "Blender pipeline",
+          "aliases": [
+            "Blender_Character_Pipeline_Core",
+            "Blender_Character_QA_SKILL",
+            "Blender_Character_Rigging_Animation_Godot_SKILL",
+            "Blender_Iterative_Refinement_SKILL",
+            "Blender_Retopology_Deformation_SKILL"
+          ]
+        },
+        {
+          "name": "blender-character-modeling",
+          "path": "skills/blender-character-modeling/SKILL.md",
+          "description": "Create or substantially revise character geometry in Blender. Use for blockout, proportions, silhouette, body forms, clothing, accessories and geometry revisions; route sculpt-only, final-retopology-only, rig, weights, animation and export tasks elsewhere.",
+          "title": "Blender character modeling",
+          "aliases": [
+            "Blender_Character_Modeling_SKILL"
+          ]
+        },
+        {
+          "name": "blender-anime-character-modeling",
+          "path": "skills/blender-anime-character-modeling/SKILL.md",
+          "description": "Create or revise anime and manga humanoid character geometry in Blender, including chibi proportions, stylized faces, eyes, hair masses and clothing. Use for anime character form and reference fidelity; stage-only sculpt, topology, materials, rigging, animation and export keep their own owners.",
+          "title": "Blender anime character modeling",
+          "aliases": []
+        },
+        {
+          "name": "blender-animal-anthropomorphic-modeling",
+          "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+          "description": "Create or substantially revise animals, creatures, quadrupeds, stylized pets and anthropomorphic animal characters in Blender. Use when species/body-plan anatomy, animal-to-human feature blending, silhouette, locomotion-aware proportions, paws/hooves/wings/tails/ears/muzzles or deformation-ready creature forms are central; route generic character work, sculpt-only, final retopology, rigging, animation and export to their specialist owners.",
+          "title": "Blender animal & anthropomorphic modeling",
+          "aliases": [
+            "Blender_Animal_Anthropomorphic_Modeling_SKILL"
+          ]
+        },
+        {
+          "name": "blender-architecture-environment",
+          "path": "skills/blender-architecture-environment/SKILL.md",
+          "description": "Create or revise buildings, architectural shells and modular structure kits. Own building proportions, openings and assembly; route standalone fixtures and roads to their owners.",
+          "title": "Blender architecture & large structures",
+          "aliases": []
+        },
+        {
+          "name": "blender-environment-assets",
+          "path": "skills/blender-environment-assets/SKILL.md",
+          "description": "Create or revise standalone site fixtures such as benches, lamps, fences and bollards. Own construction, mounting, placement and fixture families; route building-integrated parts and roads elsewhere.",
+          "title": "Blender environment assets",
+          "aliases": []
+        },
+        {
+          "name": "blender-roads-infrastructure",
+          "path": "skills/blender-roads-infrastructure/SKILL.md",
+          "description": "Create or substantially revise roads, sidewalks, curbs, gutters, paths, trails, medians, crossings, ramps, shoulders and other connected linear/network ground infrastructure in Blender. Use when network topology, centerlines/splines, cross-sections, junctions, terrain fit, repeated roadside structure, longitudinal UV/material flow or route continuity are central; route buildings, standalone street furniture, props, vehicles, vegetation, sculpt-only work and final export to their specialist owners.",
+          "title": "Blender roads & infrastructure",
+          "aliases": []
+        },
+        {
+          "name": "blender-props",
+          "path": "skills/blender-props/SKILL.md",
+          "description": "Create or revise portable/interior furniture, containers, tools, hand-held objects and decor. Own prop form, construction and interaction; route street fixtures and specialized devices to their owners.",
+          "title": "Blender props",
+          "aliases": []
+        },
+        {
+          "name": "blender-vehicle-modeling",
+          "path": "skills/blender-vehicle-modeling/SKILL.md",
+          "description": "Create or substantially revise cars, trucks, vans, buses, motorcycles, trailers, carts and other wheeled vehicles in Blender. Use when vehicle proportion/reference alignment, wheelbase/track, body-surface continuity, panels, wheels/tires, suspension-visible geometry, repeated/symmetric assemblies, articulation, underbody/interior visibility, game-ready representation or vehicle-specific QA are central; route generic props, street fixtures, electronics/products, vegetation, character rigging, final animation and export to their specialist owners.",
+          "title": "Blender vehicle modeling",
+          "aliases": []
+        },
+        {
+          "name": "blender-product-electronics-modeling",
+          "path": "skills/blender-product-electronics-modeling/SKILL.md",
+          "description": "Create or substantially revise household appliances, consumer electronics, computers, monitors, TVs, consoles, audio devices, kitchen equipment and other engineered product-design assets in Blender. Use when enclosure construction, manufactured panel gaps, buttons/knobs, vents/grilles, connectors/ports, display surfaces, cable interfaces, repeated controls, material separation or product-family consistency are central; route generic props, vehicles, architecture, street fixtures, vegetation, sculpt-only work and final export to their specialist owners.",
+          "title": "Blender product & electronics modeling",
+          "aliases": []
+        },
+        {
+          "name": "blender-vegetation",
+          "path": "skills/blender-vegetation/SKILL.md",
+          "description": "Create or revise trees, shrubs, grass, flowers and vines. Own growth hierarchy, canopy/cluster shape and vegetation representation; wind, seasonal variants and LOD are conditional on the task.",
+          "title": "Blender vegetation",
+          "aliases": []
+        },
+        {
+          "name": "blender-sculpting",
+          "path": "skills/blender-sculpting/SKILL.md",
+          "description": "Sculpt or substantially revise organic and hard-surface forms in Blender when primary/secondary/tertiary form hierarchy, bounded regional correction, Dyntopo/voxel-remesh/Multires choice, masks/Face Sets, surface cleanup, folds, damage/weathering sculpt, topology-loss safeguards or retopology handoff are central. Use for disposable concept sculpts, high-poly form development and controlled sculpt corrections; route reference registration, final deformation topology, rigging/weights, animation, product/vehicle/vegetation ownership and final export to their specialist owners.",
+          "title": "Blender sculpting",
+          "aliases": [
+            "Blender_Organic_Sculpting_SKILL"
+          ]
+        },
+        {
+          "name": "blender-posteffects-polishing",
+          "path": "skills/blender-posteffects-polishing/SKILL.md",
+          "description": "Finish an existing Blender asset with refined materials/textures, localized dirt, scratches, chipped or peeling paint, surface cracks and motivated emission/glow. Use for late surface finishing and posteffects; route UV layout/baking, structural sculpt damage, rigging and export to their owners.",
+          "title": "Posteffects and polishing",
+          "aliases": []
+        },
+        {
+          "name": "verification",
+          "path": "skills/verification/SKILL.md",
+          "description": "Validate a scoped change with static, engine, runtime and visual evidence, including regressions and unrun checks. Use for QA or acceptance, not as permission to edit the asset.",
+          "title": "Verification",
+          "aliases": []
+        },
+        {
+          "name": "contracts-lint",
+          "path": "skills/contracts-lint/SKILL.md",
+          "description": "Maintain Tools_C contracts, checker rules and reusable lessons when a repeatable invariant or skill rule needs to change. Use for tooling maintenance, not ordinary project QA.",
+          "title": "Contracts and lessons",
+          "aliases": []
+        },
+        {
+          "name": "blender-rigging-skinning",
+          "path": "skills/blender-rigging-skinning/SKILL.md",
+          "description": "Create or repair Blender armatures, bindings and weights, and validate required deformation poses. Use for diagnosed rig or skin defects; clip authoring and export have separate owners.",
+          "title": "Blender rigging and skinning",
+          "aliases": []
+        },
+        {
+          "name": "blender-animation",
+          "path": "skills/blender-animation/SKILL.md",
+          "description": "Author or correct Blender Actions, timing, loops, root motion and baked secondary motion on an existing rig. Use for motion edits; armature, weights and export validation remain separate.",
+          "title": "Blender animation",
+          "aliases": []
+        },
+        {
+          "name": "blender-export-validation",
+          "path": "skills/blender-export-validation/SKILL.md",
+          "description": "Preflight and export scoped Blender assets to GLB, inspect skeletons, skins, materials and animations, then validate a fresh import against source evidence. Use for delivery and export regressions, not source remodeling or engine scene setup.",
+          "title": "Blender export validation",
+          "aliases": []
+        },
+        {
+          "name": "godot-asset-integration",
+          "path": "skills/godot-asset-integration/SKILL.md",
+          "description": "Integrate delivered 3D assets into Godot and validate import settings, skeletons, materials and animation playback in the target scene. Use for asset handoff; general gameplay code and Blender authoring have separate owners.",
+          "title": "Godot asset integration",
+          "aliases": []
+        },
+        {
+          "name": "production-mechanic-gym",
+          "path": "skills/production-mechanic-gym/SKILL.md",
+          "description": "Build and tune one gameplay mechanic in an isolated playable gym. Use for new mechanics, combat or movement feel, timing, interaction, regression reproduction, and runtime playtest evidence.",
+          "title": "Production Mechanic Gym",
+          "aliases": []
+        },
+        {
+          "name": "production-subagent-worktree",
+          "path": "skills/production-subagent-worktree/SKILL.md",
+          "description": "Coordinate explicitly requested parallel agent work using isolated Git worktrees, file ownership, review before merge, and sequential runtime validation. Use when delegating independent edits or sharing a live editor.",
+          "title": "Production Subagent Worktree",
+          "aliases": []
+        },
+        {
+          "name": "production-lookdev-gate",
+          "path": "skills/production-lookdev-gate/SKILL.md",
+          "description": "Establish a representative visual slice and evaluate it before mass asset production. Use before building environments, buildings, vehicles, vegetation, props, UI, lighting, or effects at scale, and after art direction changes.",
+          "title": "Production Lookdev Gate",
+          "aliases": []
+        },
+        {
+          "name": "production-project-state-gates",
+          "path": "skills/production-project-state-gates/SKILL.md",
+          "description": "Maintain lightweight project decisions, gates, regression evidence, and session handoffs. Use for multi-session work or milestones where context loss could cause repeated work or regression.",
+          "title": "Production Project State Gates",
+          "aliases": []
+        },
+        {
+          "name": "visual-reference-reconstruction",
+          "path": "skills/visual-reference-reconstruction/SKILL.md",
+          "description": "Prepare a PASS 0 visual plan for complex 3D modeling from supplied images or a text-only design brief. Analyze references, or select and lock a canonical concept before deriving auxiliary views. Owns constraints, visual identity and certainty, not Blender geometry.",
+          "title": "Visual reference reconstruction — PASS 0",
+          "aliases": [
+            "Blender_Reference_Reconstruction_SKILL"
+          ]
+        },
+        {
+          "name": "blender-robot-mechanism-modeling",
+          "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+          "description": "Create or substantially revise hard-surface robot, mech, manipulator and articulated mechanism geometry in Blender. Own macro silhouette, mechanical skeleton, axes, static articulation, armor layering and assembly clearances; consume PASS 0 for image-based work. Surface-only wear, rigging, animation and export retain their existing owners.",
+          "title": "Blender robot and mechanism modeling",
+          "aliases": []
+        },
+        {
+          "name": "blender-reference-surface-transfer",
+          "path": "skills/blender-reference-surface-transfer/SKILL.md",
+          "description": "Transfer distinctive graphics from source reference regions onto existing Blender surfaces, preserving faces/eyes, logos, markings, prints and patterns through crop, local repair, projection/decal/UV transfer and bake. Use for source image reuse, not new geometry or generic PBR authoring.",
+          "title": "Reference Surface Transfer",
+          "aliases": []
+        }
+      ],
+      "compatibility_aliases": [
+        {
+          "name": "Blender_Character_Pipeline_Core",
+          "reference": "skills/blender-pipeline/references/core.md",
+          "canonical_owner": "blender-pipeline"
+        },
+        {
+          "name": "Blender_Reference_Reconstruction_SKILL",
+          "reference": "skills/visual-reference-reconstruction/SKILL.md",
+          "canonical_owner": "visual-reference-reconstruction"
+        },
+        {
+          "name": "Blender_Character_Modeling_SKILL",
+          "reference": "skills/blender-character-modeling/SKILL.md",
+          "canonical_owner": "blender-character-modeling"
+        },
+        {
+          "name": "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+          "reference": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+          "canonical_owner": "blender-animal-anthropomorphic-modeling"
+        },
+        {
+          "name": "Blender_Organic_Sculpting_SKILL",
+          "reference": "skills/blender-sculpting/SKILL.md",
+          "canonical_owner": "blender-sculpting"
+        },
+        {
+          "name": "Blender_Retopology_Deformation_SKILL",
+          "reference": "skills/blender-pipeline/references/retopology.md",
+          "canonical_owner": "blender-pipeline"
+        },
+        {
+          "name": "Blender_Character_QA_SKILL",
+          "reference": "skills/blender-pipeline/references/qa.md",
+          "canonical_owner": "blender-pipeline"
+        },
+        {
+          "name": "Blender_Iterative_Refinement_SKILL",
+          "reference": "skills/blender-pipeline/references/refinement.md",
+          "canonical_owner": "blender-pipeline"
+        },
+        {
+          "name": "Blender_Character_Rigging_Animation_Godot_SKILL",
+          "reference": "skills/blender-pipeline/references/rigging.md",
+          "canonical_owner": "blender-pipeline"
+        }
+      ]
+    },
+    "metrics": {
+      "seconds": 0.311493,
+      "index_json_utf8_bytes": 13767,
+      "read_calls": 287,
+      "read_utf8_bytes": 1824068,
+      "unique_paths": 103,
+      "skill_md_read_calls": 112,
+      "canonical_body_utf8_bytes": 240490
+    },
+    "listing_reads": [
+      {
+        "path": "manifest.json",
+        "bytes": 5354
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 2725
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 3192
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 6956
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 8336
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 9588
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 12331
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 5059
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 5276
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 22202
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 5710
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 28402
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 24429
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 5596
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 24310
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 9846
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 3757
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 2675
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 2479
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 1923
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 2980
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 2142
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 5843
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 5307
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4939
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 5180
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 10969
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 8824
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 8800
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 5897
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 12331
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 12331
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 1923
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 1923
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 9588
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 9588
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 5059
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 5059
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 8336
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 8336
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 5276
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 5276
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 2980
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 2980
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 6956
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 6956
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 9846
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 9846
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 24429
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 24429
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 5710
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 5710
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 8800
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 8800
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 2479
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 2479
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 22202
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 22202
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 8824
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 8824
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 24310
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 24310
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 5596
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 5596
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 28402
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 28402
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 2675
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 2675
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 2142
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 2142
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 3192
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 3192
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4939
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4939
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 5843
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 5843
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 5180
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 5180
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 5307
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 5307
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 2725
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 2725
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 3757
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 3757
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 10969
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 10969
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/description-mode.md",
+        "bytes": 6937
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/description-mode.md",
+        "bytes": 6937
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/generation-and-consistency.md",
+        "bytes": 4734
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/generation-and-consistency.md",
+        "bytes": 4734
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+        "bytes": 11356
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/model-contract.md",
+        "bytes": 11356
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/pass0-contract.md",
+        "bytes": 8137
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/references/pass0-contract.md",
+        "bytes": 8137
+      },
+      {
+        "path": "skills/verification/references/dual-verification.md",
+        "bytes": 11756
+      },
+      {
+        "path": "skills/verification/references/dual-verification.md",
+        "bytes": 11756
+      },
+      {
+        "path": "skills/verification/references/evidence.md",
+        "bytes": 1973
+      },
+      {
+        "path": "skills/verification/references/evidence.md",
+        "bytes": 1973
+      },
+      {
+        "path": "skills/project-audit/references/integration.md",
+        "bytes": 1184
+      },
+      {
+        "path": "skills/project-audit/references/integration.md",
+        "bytes": 1184
+      },
+      {
+        "path": "skills/godot-project/references/scene-ownership.md",
+        "bytes": 1338
+      },
+      {
+        "path": "skills/godot-project/references/scene-ownership.md",
+        "bytes": 1338
+      },
+      {
+        "path": "skills/contracts-lint/references/rule-lifecycle.md",
+        "bytes": 1591
+      },
+      {
+        "path": "skills/contracts-lint/references/rule-lifecycle.md",
+        "bytes": 1591
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/research-notes.md",
+        "bytes": 16223
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/research-notes.md",
+        "bytes": 16223
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/vehicle-qa.md",
+        "bytes": 10146
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/vehicle-qa.md",
+        "bytes": 10146
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+        "bytes": 9553
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+        "bytes": 9553
+      },
+      {
+        "path": "skills/blender-vegetation/references/construction.md",
+        "bytes": 4944
+      },
+      {
+        "path": "skills/blender-vegetation/references/construction.md",
+        "bytes": 4944
+      },
+      {
+        "path": "skills/blender-vegetation/references/planning.md",
+        "bytes": 2584
+      },
+      {
+        "path": "skills/blender-vegetation/references/planning.md",
+        "bytes": 2584
+      },
+      {
+        "path": "skills/blender-vegetation/references/production-options.md",
+        "bytes": 5492
+      },
+      {
+        "path": "skills/blender-vegetation/references/production-options.md",
+        "bytes": 5492
+      },
+      {
+        "path": "skills/blender-vegetation/references/research-notes.md",
+        "bytes": 8850
+      },
+      {
+        "path": "skills/blender-vegetation/references/research-notes.md",
+        "bytes": 8850
+      },
+      {
+        "path": "skills/blender-vegetation/references/validation-and-handoff.md",
+        "bytes": 8627
+      },
+      {
+        "path": "skills/blender-vegetation/references/validation-and-handoff.md",
+        "bytes": 8627
+      },
+      {
+        "path": "skills/blender-sculpting/references/research-notes.md",
+        "bytes": 11301
+      },
+      {
+        "path": "skills/blender-sculpting/references/research-notes.md",
+        "bytes": 11301
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/assembly-and-mechanics.md",
+        "bytes": 3969
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/assembly-and-mechanics.md",
+        "bytes": 3969
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/qa-and-handoff.md",
+        "bytes": 2886
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/qa-and-handoff.md",
+        "bytes": 2886
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/report-lessons.md",
+        "bytes": 2034
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/report-lessons.md",
+        "bytes": 2034
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/rigid-transforms.md",
+        "bytes": 2141
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/references/rigid-transforms.md",
+        "bytes": 2141
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/references/research-notes.md",
+        "bytes": 8397
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/references/research-notes.md",
+        "bytes": 8397
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/references/record.md",
+        "bytes": 7571
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/references/record.md",
+        "bytes": 7571
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+        "bytes": 12266
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/references/workflow.md",
+        "bytes": 12266
+      },
+      {
+        "path": "skills/blender-props/references/construction.md",
+        "bytes": 3448
+      },
+      {
+        "path": "skills/blender-props/references/construction.md",
+        "bytes": 3448
+      },
+      {
+        "path": "skills/blender-props/references/planning.md",
+        "bytes": 2544
+      },
+      {
+        "path": "skills/blender-props/references/planning.md",
+        "bytes": 2544
+      },
+      {
+        "path": "skills/blender-props/references/production-options.md",
+        "bytes": 5560
+      },
+      {
+        "path": "skills/blender-props/references/production-options.md",
+        "bytes": 5560
+      },
+      {
+        "path": "skills/blender-props/references/research-notes.md",
+        "bytes": 10884
+      },
+      {
+        "path": "skills/blender-props/references/research-notes.md",
+        "bytes": 10884
+      },
+      {
+        "path": "skills/blender-props/references/validation-and-handoff.md",
+        "bytes": 8381
+      },
+      {
+        "path": "skills/blender-props/references/validation-and-handoff.md",
+        "bytes": 8381
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/references/research-notes.md",
+        "bytes": 10264
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/references/research-notes.md",
+        "bytes": 10264
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/references/finishing-techniques.md",
+        "bytes": 5531
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/references/finishing-techniques.md",
+        "bytes": 5531
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/references/research-notes.md",
+        "bytes": 4670
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/references/research-notes.md",
+        "bytes": 4670
+      },
+      {
+        "path": "skills/blender-pipeline/references/core.md",
+        "bytes": 1495
+      },
+      {
+        "path": "skills/blender-pipeline/references/core.md",
+        "bytes": 1495
+      },
+      {
+        "path": "skills/blender-pipeline/references/external-import.md",
+        "bytes": 2107
+      },
+      {
+        "path": "skills/blender-pipeline/references/external-import.md",
+        "bytes": 2107
+      },
+      {
+        "path": "skills/blender-pipeline/references/modeling.md",
+        "bytes": 250
+      },
+      {
+        "path": "skills/blender-pipeline/references/modeling.md",
+        "bytes": 250
+      },
+      {
+        "path": "skills/blender-pipeline/references/qa.md",
+        "bytes": 5409
+      },
+      {
+        "path": "skills/blender-pipeline/references/qa.md",
+        "bytes": 5409
+      },
+      {
+        "path": "skills/blender-pipeline/references/reference.md",
+        "bytes": 698
+      },
+      {
+        "path": "skills/blender-pipeline/references/reference.md",
+        "bytes": 698
+      },
+      {
+        "path": "skills/blender-pipeline/references/refinement.md",
+        "bytes": 2023
+      },
+      {
+        "path": "skills/blender-pipeline/references/refinement.md",
+        "bytes": 2023
+      },
+      {
+        "path": "skills/blender-pipeline/references/retopology.md",
+        "bytes": 1998
+      },
+      {
+        "path": "skills/blender-pipeline/references/retopology.md",
+        "bytes": 1998
+      },
+      {
+        "path": "skills/blender-pipeline/references/rigging.md",
+        "bytes": 617
+      },
+      {
+        "path": "skills/blender-pipeline/references/rigging.md",
+        "bytes": 617
+      },
+      {
+        "path": "skills/blender-pipeline/references/sculpting.md",
+        "bytes": 507
+      },
+      {
+        "path": "skills/blender-pipeline/references/sculpting.md",
+        "bytes": 507
+      },
+      {
+        "path": "skills/blender-pipeline/references/surfaces.md",
+        "bytes": 3185
+      },
+      {
+        "path": "skills/blender-pipeline/references/surfaces.md",
+        "bytes": 3185
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/animation-export.md",
+        "bytes": 216
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/animation-export.md",
+        "bytes": 216
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/clean-stylized-surfaces.md",
+        "bytes": 1058
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/clean-stylized-surfaces.md",
+        "bytes": 1058
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/deformation-checks.md",
+        "bytes": 1144
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/deformation-checks.md",
+        "bytes": 1144
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/form-development.md",
+        "bytes": 5833
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/form-development.md",
+        "bytes": 5833
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/form-recipes.md",
+        "bytes": 5061
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/form-recipes.md",
+        "bytes": 5061
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/qa-evidence.md",
+        "bytes": 2216
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/qa-evidence.md",
+        "bytes": 2216
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/qa-profiles.md",
+        "bytes": 4865
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/qa-profiles.md",
+        "bytes": 4865
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/reference-registration.md",
+        "bytes": 1480
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/reference-registration.md",
+        "bytes": 1480
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/refinement-diagnostics.md",
+        "bytes": 1020
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/refinement-diagnostics.md",
+        "bytes": 1020
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/sculpt-operations.md",
+        "bytes": 1359
+      },
+      {
+        "path": "skills/blender-pipeline/references/techniques/sculpt-operations.md",
+        "bytes": 1359
+      },
+      {
+        "path": "skills/blender-environment-assets/references/construction.md",
+        "bytes": 4503
+      },
+      {
+        "path": "skills/blender-environment-assets/references/construction.md",
+        "bytes": 4503
+      },
+      {
+        "path": "skills/blender-environment-assets/references/planning.md",
+        "bytes": 2283
+      },
+      {
+        "path": "skills/blender-environment-assets/references/planning.md",
+        "bytes": 2283
+      },
+      {
+        "path": "skills/blender-environment-assets/references/production-options.md",
+        "bytes": 3262
+      },
+      {
+        "path": "skills/blender-environment-assets/references/production-options.md",
+        "bytes": 3262
+      },
+      {
+        "path": "skills/blender-environment-assets/references/research-notes.md",
+        "bytes": 8965
+      },
+      {
+        "path": "skills/blender-environment-assets/references/research-notes.md",
+        "bytes": 8965
+      },
+      {
+        "path": "skills/blender-environment-assets/references/validation-and-handoff.md",
+        "bytes": 8012
+      },
+      {
+        "path": "skills/blender-environment-assets/references/validation-and-handoff.md",
+        "bytes": 8012
+      },
+      {
+        "path": "skills/blender-character-modeling/references/body-proportions.md",
+        "bytes": 5358
+      },
+      {
+        "path": "skills/blender-character-modeling/references/body-proportions.md",
+        "bytes": 5358
+      },
+      {
+        "path": "skills/blender-character-modeling/references/geometry-decisions.md",
+        "bytes": 1811
+      },
+      {
+        "path": "skills/blender-character-modeling/references/geometry-decisions.md",
+        "bytes": 1811
+      },
+      {
+        "path": "skills/blender-character-modeling/references/modifiers-transforms.md",
+        "bytes": 1510
+      },
+      {
+        "path": "skills/blender-character-modeling/references/modifiers-transforms.md",
+        "bytes": 1510
+      },
+      {
+        "path": "skills/blender-character-modeling/references/workflow-gates.md",
+        "bytes": 3338
+      },
+      {
+        "path": "skills/blender-character-modeling/references/workflow-gates.md",
+        "bytes": 3338
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/construction.md",
+        "bytes": 4924
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/construction.md",
+        "bytes": 4924
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/planning.md",
+        "bytes": 2535
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/planning.md",
+        "bytes": 2535
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/production-options.md",
+        "bytes": 2482
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/production-options.md",
+        "bytes": 2482
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/research-notes.md",
+        "bytes": 10866
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/research-notes.md",
+        "bytes": 10866
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/validation-and-handoff.md",
+        "bytes": 7602
+      },
+      {
+        "path": "skills/blender-architecture-environment/references/validation-and-handoff.md",
+        "bytes": 7602
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+        "bytes": 5623
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+        "bytes": 5623
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/references/research-notes.md",
+        "bytes": 3717
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/references/research-notes.md",
+        "bytes": 3717
+      },
+      {
+        "path": "skills/blender-animation/references/motion.md",
+        "bytes": 1183
+      },
+      {
+        "path": "skills/blender-animation/references/motion.md",
+        "bytes": 1183
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/body-plans.md",
+        "bytes": 2702
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/body-plans.md",
+        "bytes": 2702
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/research-notes.md",
+        "bytes": 4490
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/research-notes.md",
+        "bytes": 4490
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/topology-deformation.md",
+        "bytes": 2268
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/references/topology-deformation.md",
+        "bytes": 2268
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 2725
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 3192
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 6956
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 8336
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 9588
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 12331
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 5059
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 5276
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 22202
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 5710
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 28402
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 24429
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 5596
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 24310
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 9846
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 3757
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 2675
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 2479
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 1923
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 2980
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 2142
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 5843
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 5307
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4939
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 5180
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 10969
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 8824
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 8800
+      }
+    ],
+    "cases": [
+      {
+        "id": "head_ru",
+        "query": "Смоделировать голову по референсам",
+        "owners": [
+          "visual-reference-reconstruction",
+          "blender-character-modeling"
+        ],
+        "search_results": [],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 57768,
+        "context_characters": 57703,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED",
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "weights_ru",
+        "query": "Исправить веса плеча, существующие анимации сохранить",
+        "owners": [
+          "blender-rigging-skinning",
+          "blender-animation"
+        ],
+        "search_results": [],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 23332,
+        "context_characters": 23331,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED",
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "animation_ru",
+        "query": "Создать анимацию на готовом риге, не менять геометрию",
+        "owners": [
+          "blender-animation"
+        ],
+        "search_results": [],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 30160,
+        "context_characters": 30150,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "export_ru",
+        "query": "Проверить экспорт GLB и импорт в Godot",
+        "owners": [
+          "verification",
+          "blender-export-validation",
+          "godot-asset-integration"
+        ],
+        "search_results": [
+          "godot-asset-integration",
+          "godot-project",
+          "blender-export-validation"
+        ],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 34640,
+        "context_characters": 34631,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED",
+          "DISCOVERED",
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "unclear_ru",
+        "query": "Анимация выглядит плохо, причина неясна",
+        "owners": [
+          "blender-pipeline"
+        ],
+        "search_results": [],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 26952,
+        "context_characters": 26942,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "head_en",
+        "query": "Model a human head from reference",
+        "owners": [
+          "visual-reference-reconstruction",
+          "blender-character-modeling"
+        ],
+        "search_results": [
+          "blender-animal-anthropomorphic-modeling"
+        ],
+        "search_scope": "entrypoint",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 57768,
+        "context_characters": 57703,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED",
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "weights_en",
+        "query": "Fix shoulder weights; preserve existing Actions",
+        "owners": [
+          "blender-rigging-skinning"
+        ],
+        "search_results": [
+          "blender-character-modeling"
+        ],
+        "search_scope": "entrypoint",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 29483,
+        "context_characters": 29473,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "animation_en",
+        "query": "Create animation on an existing rig; do not change geometry",
+        "owners": [
+          "blender-animation"
+        ],
+        "search_results": [
+          "blender-anime-character-modeling",
+          "blender-vehicle-modeling",
+          "visual-reference-reconstruction",
+          "blender-product-electronics-modeling",
+          "blender-sculpting"
+        ],
+        "search_scope": "entrypoint",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 30160,
+        "context_characters": 30150,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "unknown",
+        "query": "Make coffee for lunch",
+        "owners": [
+          "blender-pipeline"
+        ],
+        "search_results": [
+          "blender-animation",
+          "blender-anime-character-modeling",
+          "blender-character-modeling",
+          "blender-export-validation",
+          "blender-pipeline",
+          "blender-posteffects-polishing",
+          "blender-reference-surface-transfer",
+          "blender-rigging-skinning",
+          "blender-robot-mechanism-modeling",
+          "blender-sculpting"
+        ],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 26952,
+        "context_characters": 26942,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "typo",
+        "query": "blender-animtion",
+        "owners": [
+          "blender-pipeline"
+        ],
+        "search_results": [
+          "blender-animal-anthropomorphic-modeling",
+          "blender-animation",
+          "blender-anime-character-modeling",
+          "blender-architecture-environment",
+          "blender-character-modeling",
+          "blender-environment-assets",
+          "blender-export-validation",
+          "blender-pipeline",
+          "blender-posteffects-polishing",
+          "blender-product-electronics-modeling"
+        ],
+        "search_scope": "partial_metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 26952,
+        "context_characters": 26942,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "id",
+        "query": "blender-animation",
+        "owners": [
+          "blender-animation"
+        ],
+        "search_results": [
+          "blender-animation"
+        ],
+        "search_scope": "metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 30160,
+        "context_characters": 30150,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "alias",
+        "query": "Blender_Character_Modeling_SKILL",
+        "owners": [
+          "blender-pipeline"
+        ],
+        "search_results": [
+          "blender-character-modeling"
+        ],
+        "search_scope": "metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 26952,
+        "context_characters": 26942,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "mixed",
+        "query": "Model a car and a roadside barrier from references",
+        "owners": [
+          "visual-reference-reconstruction",
+          "blender-vehicle-modeling"
+        ],
+        "search_results": [
+          "visual-reference-reconstruction",
+          "blender-export-validation",
+          "blender-reference-surface-transfer",
+          "blender-roads-infrastructure",
+          "contracts-lint",
+          "production-lookdev-gate",
+          "production-subagent-worktree",
+          "project-audit",
+          "verification",
+          "blender-animal-anthropomorphic-modeling"
+        ],
+        "search_scope": "partial_metadata",
+        "context_ok": false,
+        "missing_documents": [
+          "skills/visual-reference-reconstruction/references/model-contract.md"
+        ],
+        "context_utf8_bytes": 57077,
+        "context_characters": 57004,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED",
+          "DISCOVERED"
+        ]
+      },
+      {
+        "id": "audit",
+        "query": "project-audit",
+        "owners": [
+          "verification"
+        ],
+        "search_results": [
+          "project-audit"
+        ],
+        "search_scope": "metadata",
+        "context_ok": true,
+        "missing_documents": [],
+        "context_utf8_bytes": 38771,
+        "context_characters": 38753,
+        "duplicate_documents": 0,
+        "skill_usage_statuses": [
+          "DISCOVERED"
+        ]
+      }
+    ],
+    "aliases": [
+      {
+        "alias": "Blender_Character_Pipeline_Core",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Reference_Reconstruction_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Character_Modeling_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Organic_Sculpting_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Retopology_Deformation_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Character_QA_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Iterative_Refinement_SKILL",
+        "read_ok": true
+      },
+      {
+        "alias": "Blender_Character_Rigging_Animation_Godot_SKILL",
+        "read_ok": true
+      }
+    ]
+  },
+  "explicit_ids_and_continuation": {
+    "canonical": [
+      {
+        "id": "project-audit",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "verification"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "godot-project",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "godot-asset-integration"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "blender-pipeline",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-character-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-character-modeling"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-anime-character-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-anime-character-modeling"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-animal-anthropomorphic-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "blender-architecture-environment",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-architecture-environment"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-environment-assets",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-environment-assets"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-roads-infrastructure",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-roads-infrastructure"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-props",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-props"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-vehicle-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-vehicle-modeling"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-product-electronics-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-product-electronics-modeling"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-vegetation",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-vegetation"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-sculpting",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-sculpting"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-posteffects-polishing",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-posteffects-polishing"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "verification",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "contracts-lint",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "blender-rigging-skinning",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-rigging-skinning"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-animation",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-animation"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-export-validation",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-export-validation"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "godot-asset-integration",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "godot-asset-integration"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "production-mechanic-gym",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "production-subagent-worktree",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "production-lookdev-gate",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "production-project-state-gates",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-pipeline"
+        ],
+        "route_matches_exact": false
+      },
+      {
+        "id": "visual-reference-reconstruction",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "visual-reference-reconstruction"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-robot-mechanism-modeling",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-robot-mechanism-modeling"
+        ],
+        "route_matches_exact": true
+      },
+      {
+        "id": "blender-reference-surface-transfer",
+        "search_exact_top": true,
+        "read_nonempty": true,
+        "route": [
+          "blender-reference-surface-transfer"
+        ],
+        "route_matches_exact": true
+      }
+    ],
+    "continuation": {
+      "case": "Model a car and a roadside barrier from references",
+      "first_ok": false,
+      "first_missing": [
+        "skills/visual-reference-reconstruction/references/model-contract.md"
+      ],
+      "second_ok": true,
+      "second_missing": [],
+      "conditional_documents": 2
+    }
+  },
+  "inventory": {
+    "skills": [
+      {
+        "id": "project-audit",
+        "path": "skills/project-audit/SKILL.md",
+        "sha256": "8cd480a4c834e7b5f4de5a0b6617ab32a548133b0ebf87ce7b0751d0c1520b2f",
+        "utf8_bytes": 2764,
+        "description_characters": 182,
+        "headings": [
+          "## Instruction Priority",
+          "## Domain constraints",
+          "## Workflow",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "godot-project",
+        "path": "skills/godot-project/SKILL.md",
+        "sha256": "ab8e6e6bf56351a44f7d986298a6f71a5ed9f05d367027db9105505006c9ec42",
+        "utf8_bytes": 3236,
+        "description_characters": 198,
+        "headings": [
+          "## Instruction Priority",
+          "## Domain constraints",
+          "## Workflow",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-pipeline",
+        "path": "skills/blender-pipeline/SKILL.md",
+        "sha256": "f94b0a5c8b8c56470d3be68dad94d808441c33c2a25dd08986f8ed130023fdfe",
+        "utf8_bytes": 6956,
+        "description_characters": 197,
+        "headings": [
+          "## Instruction Priority and task contract",
+          "## Activation routing",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-character-modeling",
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "sha256": "5dea6b760c4f736dc92faa2b586205bbde5aa511c17d855e27872820fee0a246",
+        "utf8_bytes": 8336,
+        "description_characters": 256,
+        "headings": [
+          "## Instruction Priority",
+          "## Scope",
+          "## Domain constraints",
+          "## Preflight",
+          "## Proportion ownership and body/head anchors",
+          "## Workflow and decisions",
+          "## Modeling priorities and routing",
+          "## Anti-degradation and validation",
+          "## Handoff, completion and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-anime-character-modeling",
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "sha256": "2bf99ee4b5d43efe583c85622860d62403a2a3baf9599d5c788e77ba3100cdf4",
+        "utf8_bytes": 9588,
+        "description_characters": 295,
+        "headings": [
+          "## Instruction Priority and task contract",
+          "## Activation and ownership",
+          "## Preflight",
+          "## Workflow",
+          "## Visual feedback and acceptance",
+          "## Handoff and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-animal-anthropomorphic-modeling",
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "sha256": "158c831131f7bb01a114ef8144014ae808f4828937e79a9246064d7320adbb37",
+        "utf8_bytes": 12331,
+        "description_characters": 443,
+        "headings": [
+          "## Instruction priority",
+          "## Scope",
+          "## Preflight: define the creature before touching geometry",
+          "## Reference stack",
+          "## Modeling order",
+          "## Deformation-aware topology guidance",
+          "## Stylization rules",
+          "## Validation",
+          "## Pitfalls / Lessons Learned",
+          "## Handoff",
+          "## Completion / stop",
+          "## Research basis"
+        ]
+      },
+      {
+        "id": "blender-architecture-environment",
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "sha256": "b7efa2eab6c173335495bfca5ce1a74b0b605e1d783ec00442163624eb11db19",
+        "utf8_bytes": 5138,
+        "description_characters": 178,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Domain constraints",
+          "## Workflow and conditional reading",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-environment-assets",
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "sha256": "d05a929bc99316944476c84ed0a84913f99c08d2d73ab8f147ebd566beffa1d3",
+        "utf8_bytes": 5355,
+        "description_characters": 199,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Domain constraints",
+          "## Workflow and conditional reading",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-roads-infrastructure",
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "sha256": "33b4589f56a05bf394fc87a3f14bbae6102f114f15d6b82b679fd5e9657d295f",
+        "utf8_bytes": 22202,
+        "description_characters": 502,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Preflight: define the network before modeling",
+          "## Reference and layout strategy",
+          "## Workflow",
+          "## Performance and procedural guidance",
+          "## Validation",
+          "## Safeguards",
+          "## Pitfalls / Lessons Learned",
+          "## Handoff",
+          "## Completion / stop",
+          "## Research basis"
+        ]
+      },
+      {
+        "id": "blender-props",
+        "path": "skills/blender-props/SKILL.md",
+        "sha256": "06defee621960b61e75227a13595e3330473d51afda4e8fa6fbd2296b246db66",
+        "utf8_bytes": 5792,
+        "description_characters": 201,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Domain constraints",
+          "## Workflow and conditional reading",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-vehicle-modeling",
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "sha256": "ddadebad39aedb0905af6544e8f2ec55c8bf57967f141aa99b78e535d7cd2ce5",
+        "utf8_bytes": 28402,
+        "description_characters": 551,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Preflight: define the vehicle before modeling",
+          "## Reference and measurement strategy",
+          "## Workflow",
+          "## Performance and LOD guidance",
+          "## Validation",
+          "## Safeguards",
+          "## Pitfalls / Lessons Learned",
+          "## Handoff",
+          "## Completion / stop",
+          "## Research basis"
+        ]
+      },
+      {
+        "id": "blender-product-electronics-modeling",
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "sha256": "eea2ef620d739c39a96d9d5370155f484e1524883672ec81d9071a2bfe476745",
+        "utf8_bytes": 24429,
+        "description_characters": 558,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Preflight: define the product before modeling",
+          "## Reference strategy",
+          "## Workflow",
+          "## Performance and LOD guidance",
+          "## Validation",
+          "## Safeguards",
+          "## Pitfalls / Lessons Learned",
+          "## Handoff",
+          "## Completion / stop",
+          "## Research basis"
+        ]
+      },
+      {
+        "id": "blender-vegetation",
+        "path": "skills/blender-vegetation/SKILL.md",
+        "sha256": "3ee5b0b07714370ffacb6cc7cdc26f13b153df0bba0a18501cd65a29eeb487c6",
+        "utf8_bytes": 5676,
+        "description_characters": 192,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Domain constraints",
+          "## Workflow and conditional reading",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-sculpting",
+        "path": "skills/blender-sculpting/SKILL.md",
+        "sha256": "bb56b8305f91592cbab2009551b9086bb087e91b7ef012d88614b81a7f31dcfa",
+        "utf8_bytes": 24310,
+        "description_characters": 580,
+        "headings": [
+          "## Instruction priority",
+          "## Scope and ownership",
+          "## Preflight: choose the sculpt regime before the first stroke",
+          "## Choose the topology/resolution strategy",
+          "## Form hierarchy: big before small",
+          "## Bounded regional correction",
+          "## Masks, Face Sets and isolation",
+          "## Symmetry and intentional asymmetry",
+          "## Organic/anatomical sculpting",
+          "## Cloth and fold sculpting",
+          "## Hard-surface sculpting and planar forms",
+          "## Damage, cracks and weathering sculpt",
+          "## Surface cleanup without killing form",
+          "## Detail and brush discipline",
+          "## Resolution escalation rule",
+          "## Retopology and bake handoff",
+          "## Validation",
+          "## Safeguards",
+          "## Pitfalls / Lessons Learned",
+          "## Handoff",
+          "## Completion / stop",
+          "## Research basis"
+        ]
+      },
+      {
+        "id": "blender-posteffects-polishing",
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "sha256": "5dce0023c83fb68035cc41ee4ffc498c629a12c4a3bb55700b1b4d1b0b6c2222",
+        "utf8_bytes": 10002,
+        "description_characters": 296,
+        "headings": [
+          "## Instruction Priority",
+          "## Task contract and ownership",
+          "## Preflight and finishing workflow",
+          "## Visual QA and bounded correction",
+          "## Safeguards, handoff and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "verification",
+        "path": "skills/verification/SKILL.md",
+        "sha256": "c0986bc5931bf6d49181299e2e58b48724b132e013491afa8f44e4a1510b5e3a",
+        "utf8_bytes": 3757,
+        "description_characters": 177,
+        "headings": [
+          "## Instruction Priority",
+          "## Domain constraints",
+          "## Evidence levels",
+          "## Final QA acceptance receipt",
+          "## Dual verification / ARTISTIC_REVIEW",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "contracts-lint",
+        "path": "skills/contracts-lint/SKILL.md",
+        "sha256": "679ce70c0b440ded4e84920336e1ef2f7d27a4e37f644154c6f08a76ef4f9275",
+        "utf8_bytes": 2714,
+        "description_characters": 175,
+        "headings": [
+          "## Instruction Priority",
+          "## Domain constraints",
+          "## Workflow",
+          "## Anti-degradation and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-rigging-skinning",
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "sha256": "26ab340f0c721362428b7fdb4042d2f046418ae7f5c04d391c38c1ac2343d5e6",
+        "utf8_bytes": 2479,
+        "description_characters": 185,
+        "headings": [
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-animation",
+        "path": "skills/blender-animation/SKILL.md",
+        "sha256": "b525bde0c4abb6ab9685eabacfab8f429165682ddd533816d950c97f4dd932ba",
+        "utf8_bytes": 1956,
+        "description_characters": 187,
+        "headings": [
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-export-validation",
+        "path": "skills/blender-export-validation/SKILL.md",
+        "sha256": "b9b74bbd8a504d6465af7c6b25f42a68a06d5c7ffaf2065a6effb7aab484887a",
+        "utf8_bytes": 3025,
+        "description_characters": 242,
+        "headings": [
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "godot-asset-integration",
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "sha256": "c329771ad8165346dcdfdb5d267b67b166bbe57987c1d66de14b899aeb7e9813",
+        "utf8_bytes": 2180,
+        "description_characters": 224,
+        "headings": [
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "production-mechanic-gym",
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "sha256": "026fdac49e4f291cb1895440ccee0206400332ce0bb25377e64cfcf1362c5c81",
+        "utf8_bytes": 5843,
+        "description_characters": 190,
+        "headings": [
+          "## 0. Purpose",
+          "## 1. Authority",
+          "## 2. Scope contract",
+          "## 3. When a gym is required",
+          "## 4. Gym structure",
+          "## 5. Tunable parameters",
+          "## 6. Live tuning",
+          "## 7. Evidence loop",
+          "## 8. Playtest contract",
+          "## 9. Lock gate",
+          "## 10. Regression rule",
+          "## 11. Stop conditions",
+          "## 12. Handoff",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "production-subagent-worktree",
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "sha256": "0b918b9b07530728003c863a69fffac77a5bd4a213cc595a0a5f9d5dc1bd07c1",
+        "utf8_bytes": 5307,
+        "description_characters": 217,
+        "headings": [
+          "## 0. Purpose",
+          "## 1. Core rule",
+          "## 2. Shared live-tool rule",
+          "## 3. Pre-delegation contract",
+          "## 4. Worktree rule",
+          "## 5. Ignored/generated data",
+          "## 6. Review-before-merge gate",
+          "## 7. Sequential merge rule",
+          "## 8. Conflict rule",
+          "## 9. Read-only agents",
+          "## 10. Fresh-eyes review",
+          "## 11. Return contract",
+          "## 12. Safety",
+          "## 13. Stop conditions",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "production-lookdev-gate",
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "sha256": "5b1b576b93021f80427af7530054bdca47079ce35573894f3218f77acbe70806",
+        "utf8_bytes": 4939,
+        "description_characters": 227,
+        "headings": [
+          "## 0. Purpose",
+          "## 1. Inputs",
+          "## 2. Representative slice",
+          "## 3. Quality questions",
+          "## 4. Evidence",
+          "## 5. Gate result",
+          "## 6. Production lock",
+          "## 7. Reopen triggers",
+          "## 8. Anti-regression",
+          "## 9. Handoff to production",
+          "## 10. Stop conditions",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "production-project-state-gates",
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "sha256": "f5542ff1caedd478fe4e3b9312d1d90e8fb0f97a9b923a21c099b2f5cb007f72",
+        "utf8_bytes": 5180,
+        "description_characters": 190,
+        "headings": [
+          "## 0. Purpose",
+          "## 1. Source-of-truth model",
+          "## 2. Session start",
+          "## 3. Session scope",
+          "## 4. Decision record",
+          "## 5. Gates",
+          "## 6. Gate states",
+          "## 7. Evidence record",
+          "## 8. Regression gates",
+          "## 9. Project Pulse update",
+          "## 10. Handoff",
+          "## 11. Anti-bureaucracy rule",
+          "## 12. Conflict handling",
+          "## 13. Integration with specialist skills",
+          "## 14. Stop conditions",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "visual-reference-reconstruction",
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "sha256": "d3df011aa40d2be634df5192e99be8aa284bab240cbb8787082a288e6d862e21",
+        "utf8_bytes": 10969,
+        "description_characters": 265,
+        "headings": [
+          "## Required entry gate and ownership",
+          "## Workflow",
+          "## Gate and handoff",
+          "## Safeguards and stop conditions",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-robot-mechanism-modeling",
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "sha256": "f0b1debc2f0ae3e4b94f0b3a1318cdd5fbd1dbfa60ef984479951a9051fb0b3a",
+        "utf8_bytes": 8824,
+        "description_characters": 341,
+        "headings": [
+          "## Ownership and input gate",
+          "## Staged construction and QA gates",
+          "## Surface and downstream routes",
+          "## Safeguards and stop",
+          "## Pitfalls / Lessons Learned"
+        ]
+      },
+      {
+        "id": "blender-reference-surface-transfer",
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "sha256": "fc57ed61bf8754b8ba5ec3053610aa4a98a2a25865c8a880f1326411317babf6",
+        "utf8_bytes": 8800,
+        "description_characters": 289,
+        "headings": [
+          "## Ownership and priority",
+          "## Face transfer strategy (choose before editing)",
+          "## Decision and execution",
+          "## Identity and handoff",
+          "## Pitfalls / Lessons Learned"
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "path": "tools/blender_bridge_health.py",
+        "entrypoints": [
+          "_same_file",
+          "probe"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/blender_capture.py",
+        "entrypoints": [
+          "capture_viewport"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/blender_capture_file.py",
+        "entrypoints": [
+          "digest",
+          "verify_artifact",
+          "capture_file",
+          "blender_probe",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/blender_contacts.py",
+        "entrypoints": [
+          "_surface",
+          "_inside",
+          "diagnose_pairs"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/blender_export_probe.py",
+        "entrypoints": [
+          "bounds",
+          "run"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/blender_form_examples.py",
+        "entrypoints": [
+          "sampled",
+          "material",
+          "move_to",
+          "ellipsoid",
+          "sweep",
+          "label",
+          "build"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/blender_forms.py",
+        "entrypoints": [
+          "add",
+          "sub",
+          "mul",
+          "dot",
+          "cross",
+          "unit",
+          "points3",
+          "transported_frames",
+          "sweep_geometry",
+          "create_sweep",
+          "create_curve_batch",
+          "parent_keep_world"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/blender_jobs.py",
+        "entrypoints": [
+          "_id",
+          "_states",
+          "_receipt",
+          "_public",
+          "_save",
+          "operation_status",
+          "start_curve_batch"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/blender_snapshot.py",
+        "entrypoints": [
+          "_digest",
+          "_value",
+          "_properties",
+          "_graph",
+          "data_fingerprints",
+          "snapshot"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/bootstrap.py",
+        "entrypoints": [
+          "block",
+          "merge_agents",
+          "install"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/check.py",
+        "entrypoints": [
+          "Violation",
+          "require",
+          "fields",
+          "strings",
+          "identifier",
+          "read_json",
+          "inside",
+          "local_path",
+          "existing",
+          "Report",
+          "markdown_links",
+          "json_subset",
+          "catalog",
+          "validate_contract",
+          "check_rule",
+          "load_profile",
+          "run",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/engine_check.py",
+        "entrypoints": [
+          "windows_blender_candidates",
+          "resolve_engine",
+          "engine_identity",
+          "evaluate",
+          "probe",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/export_validate.py",
+        "entrypoints": [
+          "compare",
+          "run"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/glb_inspect.py",
+        "entrypoints": [
+          "need",
+          "index",
+          "parse",
+          "accessor",
+          "inspect"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/handoff_snapshot.py",
+        "entrypoints": [
+          "number",
+          "names",
+          "validate",
+          "canonical_bytes",
+          "compare"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/mcp_capture_response.py",
+        "entrypoints": [
+          "capture_image"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/mcp_deployment.py",
+        "entrypoints": [
+          "compare_catalog",
+          "tunnel_probe",
+          "tool_names",
+          "disk_audit",
+          "unwrap",
+          "stdio_probe"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/mcp_runtime.py",
+        "entrypoints": [
+          "artistic_review_route",
+          "render_context",
+          "resolve_root",
+          "action_query",
+          "polishing_route",
+          "surface_transfer_route",
+          "procedure_routes",
+          "anime_modeling_route",
+          "primary_geometry_revision",
+          "geometry_intent",
+          "robot_modeling_route",
+          "_route_task",
+          "human_form_creation",
+          "route_task",
+          "_context_documents",
+          "context",
+          "fingerprints"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/model_contract.py",
+        "entrypoints": [
+          "digest",
+          "claims",
+          "identity",
+          "fingerprint",
+          "reference",
+          "expected",
+          "validate_contract",
+          "seal",
+          "verify_observations",
+          "verify_auxiliary",
+          "verify_assembly",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/probes/blender_import.py",
+        "entrypoints": [],
+        "cli": false
+      },
+      {
+        "path": "tools/profile_adapters.py",
+        "entrypoints": [
+          "check_adapter"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/python_preflight.py",
+        "entrypoints": [
+          "preflight"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/qa_artistic.py",
+        "entrypoints": [
+          "require",
+          "exact",
+          "strings",
+          "gates",
+          "critic_packet",
+          "checkpoint_from_receipt",
+          "correction_decision",
+          "evaluate"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/qa_freshness.py",
+        "entrypoints": [
+          "require",
+          "exact",
+          "digest",
+          "png_integrity",
+          "snapshot_regions",
+          "assess",
+          "sufficient"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/qa_gate.py",
+        "entrypoints": [
+          "require",
+          "exact",
+          "nonempty",
+          "verify_artifact",
+          "review",
+          "capture_setup",
+          "setup_from_capture_metadata",
+          "_numeric_equal",
+          "capture_setup_v2",
+          "compatible_setup",
+          "workflow_gate",
+          "validate",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/read_blender_skill.py",
+        "entrypoints": [
+          "document_paths",
+          "render",
+          "router"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/skill_catalog.py",
+        "entrypoints": [
+          "_records",
+          "listing",
+          "_words",
+          "_excerpt",
+          "search"
+        ],
+        "cli": false
+      },
+      {
+        "path": "tools/surface_transfer.py",
+        "entrypoints": [
+          "require",
+          "fields",
+          "text",
+          "validate",
+          "main"
+        ],
+        "cli": true
+      },
+      {
+        "path": "tools/sync_blender.py",
+        "entrypoints": [
+          "generate"
+        ],
+        "cli": true
+      }
+    ]
+  },
+  "upstream": {
+    "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+    "commit_date": "2026-10-10T00:28:04Z",
+    "fetched_on": "2026-10-16",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/obra/superpowers/bb92a77741419a4ab5f06e711a283343f1ada0c3/README.md",
+        "lines": 400
+      },
+      {
+        "url": "https://raw.githubusercontent.com/obra/superpowers/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/writing-skills/SKILL.md",
+        "lines": 681
+      },
+      {
+        "url": "https://raw.githubusercontent.com/obra/superpowers/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/using-superpowers/SKILL.md",
+        "lines": 65
+      },
+      {
+        "url": "https://raw.githubusercontent.com/obra/superpowers/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/diagnosing-superpowers/SKILL.md",
+        "lines": 120
+      },
+      {
+        "url": "https://raw.githubusercontent.com/obra/superpowers/bb92a77741419a4ab5f06e711a283343f1ada0c3/LICENSE",
+        "lines": 21
+      }
+    ]
+  },
+  "connector": {
+    "deployment_info": {
+      "status": "SKIP",
+      "availability": "UNAVAILABLE",
+      "http_status": 429
+    },
+    "list_skills": {
+      "status": "SKIP",
+      "availability": "UNAVAILABLE",
+      "http_status": 429
+    },
+    "restart_performed": false,
+    "private_endpoint_redacted": true
+  },
+  "behavioral_pair": {
+    "status": "SKIP",
+    "reason": "Audit-only; no new rule/harness trial run"
+  },
+  "session_diagnostics": {
+    "status": "NOT_IMPLEMENTED",
+    "format_observed": "Codex JSONL",
+    "only_envelope_schema_inspected": true,
+    "private_content_in_report": false
+  },
+  "engine_asset_levels": {
+    "L2": "SKIP: not in audit scope",
+    "L3": "SKIP: live connector unavailable; no asset runtime experiment",
+    "L4": "SKIP: no production visual review"
+  },
+  "implementation_tasks": "A1-A17 PLANNED",
+  "second_patch": "B1 onward RESERVED; specification not provided",
+  "final_preservation": {
+    "baseline_paths_checked": 399,
+    "changed_baseline_paths": [
+      "Project-pulse.md"
+    ],
+    "pulse_change": "only date + one audit entry; all prior bytes preserved",
+    "integration_tracked_paths_checked": 72,
+    "integration_changes": [],
+    "new_own_files": [
+      "reports/MEGA_TOOLS_AUDIT_2026-10-16.md",
+      "reports/MEGA_TOOLS_AUDIT_2026-10-16.json",
+      "tasks/plan.md",
+      "tasks/todo.md"
+    ],
+    "final_git_status": [
+      " M .tooling/contracts.json",
+      " M Project-pulse.md",
+      " M docs/mcp-deployment.md",
+      " M docs/qa-receipt.md",
+      " D reports/V1.md",
+      " D reports/V1_FINAL.md",
+      " D reports/engine-evidence.json",
+      " D reports/final-evidence.json",
+      " D reports/final-preflight.json",
+      " D reports/final-preservation.json",
+      " D reports/preflight.json",
+      " D reports/preservation.json",
+      " D reports/v4/baseline.json",
+      " D reports/v4/blender-capture.log",
+      " D reports/v4/blender-export.log",
+      " D reports/v4/blender-import.log",
+      " D reports/v4/changes.json",
+      " D reports/v4/connector-calls.json",
+      " D reports/v4/connector-tools.json",
+      " D reports/v4/deployment.json",
+      " D reports/v4/deployment.log",
+      " D reports/v4/export-fractional-fps-negative.json",
+      " D reports/v4/export-validation.json",
+      " D reports/v4/fixture/active/capture.json",
+      " D reports/v4/fixture/active/front.png",
+      " D reports/v4/fixture/after_edit/capture.json",
+      " D reports/v4/fixture/after_edit/front.png",
+      " D reports/v4/fixture/back/back.png",
+      " D reports/v4/fixture/back/capture.json",
+      " D reports/v4/fixture/bottom/bottom.png",
+      " D reports/v4/fixture/bottom/capture.json",
+      " D reports/v4/fixture/capture-results.json",
+      " D reports/v4/fixture/front/capture.json",
+      " D reports/v4/fixture/front/front.png",
+      " D reports/v4/fixture/material_preview/capture.json",
+      " D reports/v4/fixture/material_preview/three_quarter.png",
+      " D reports/v4/fixture/rendered/capture.json",
+      " D reports/v4/fixture/rendered/three_quarter.png",
+      " D reports/v4/fixture/repeat/capture.json",
+      " D reports/v4/fixture/repeat/front.png",
+      " D reports/v4/fixture/selected/capture.json",
+      " D reports/v4/fixture/selected/front.png",
+      " D reports/v4/fixture/side/capture.json",
+      " D reports/v4/fixture/side/side.png",
+      " D reports/v4/fixture/snapshot.json",
+      " D reports/v4/fixture/subframe/capture.json",
+      " D reports/v4/fixture/subframe/front.png",
+      " D reports/v4/fixture/three_quarter/capture.json",
+      " D reports/v4/fixture/three_quarter/three_quarter.png",
+      " D reports/v4/fixture/top/capture.json",
+      " D reports/v4/fixture/top/top.png",
+      " D reports/v4/glb.json",
+      " D reports/v4/l1-godot-regression.txt",
+      " D reports/v4/l1-integration.txt",
+      " D reports/v4/l1-tools.txt",
+      " D reports/v4/live-capture.log",
+      " D reports/v4/live-capture/after.json",
+      " D reports/v4/live-capture/back.json",
+      " D reports/v4/live-capture/back.png",
+      " D reports/v4/live-capture/before.json",
+      " D reports/v4/live-capture/current.json",
+      " D reports/v4/live-capture/current.png",
+      " D reports/v4/live-capture/front.json",
+      " D reports/v4/live-capture/front.png",
+      " D reports/v4/live-capture/result.json",
+      " D reports/v4/live-capture/side.json",
+      " D reports/v4/live-capture/side.png",
+      " D reports/v4/live-capture/three_quarter.json",
+      " D reports/v4/live-capture/three_quarter.png",
+      " D reports/v4/mcp-stdio.json",
+      " D reports/v4/mcp-stdio.log",
+      " D reports/v4/preservation.json",
+      " D reports/v4/restart.json",
+      " D reports/v4/roundtrip/import/result.json",
+      " D reports/v4/roundtrip/import/snapshot.json",
+      " D reports/v4/roundtrip/source/result.json",
+      " D reports/v4/roundtrip/source/snapshot.json",
+      " D reports/v4/skill-validation.json",
+      " D reports/v4/tests.log",
+      " D reports/v4/visual-review.json",
+      " M skills/blender-character-modeling/references/workflow-gates.md",
+      " M skills/blender-vehicle-modeling/SKILL.md",
+      " M skills/blender-vehicle-modeling/references/research-notes.md",
+      " M tools/mcp_runtime.py",
+      " M tools/qa_gate.py",
+      "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.json",
+      "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.md",
+      "?? reports/REFERENCE_CHARACTER_FLOW_2026-10-09.md",
+      "?? skills/blender-vehicle-modeling/references/vehicle-qa.md",
+      "?? skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+      "?? tasks/plan.md",
+      "?? tasks/todo.md",
+      "?? tests/test_workflow_flow.py"
+    ],
+    "current_branch": "main",
+    "current_head": "becd57ba0caa05baa8c729bc24c2f19b17052f43",
+    "documentation_checks": "PASS",
+    "implementation_started": false
+  }
+}

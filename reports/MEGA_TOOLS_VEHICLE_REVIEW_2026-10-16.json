@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-16",
+  "scope": "read-only comparison of supplied vehicle experiments",
+  "sources": [
+    {
+      "path": "D:\\Desktop\\My Labarotory\\References\\Cars\\Main_ref.png",
+      "sha256": "eb855b49453d1bb7030331d74e0f4bfac67f33412abce6060e9940453220d4d3",
+      "bytes": 2534149
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Luna6_high_A patch 34.png",
+      "sha256": "05a4572030666194110be39c4203655d5d67586908c5f1f7cd775b2aee06e578",
+      "bytes": 1267171
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Luna6_high_A patch_back.png",
+      "sha256": "3d049f4135ef16c472015a222a6e831037e902bc422f4982d28ea6e3328eb17b",
+      "bytes": 259169
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Luna6_high_A patch_front.png",
+      "sha256": "52a476138f1d5c5d31f17c63f2e4679230658c142ae7f359ee2473906b1342d2",
+      "bytes": 249634
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Luna6_high_A patch_side.png",
+      "sha256": "99f8565bd2cd28caa0507ad7b88077f240685383fc2599fea1d16b9e13eecf3a",
+      "bytes": 372240
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Usual ChatGPT Pass1 before A patch_34.png",
+      "sha256": "f6cd6a327f6a51ed08d729ce75f92f1a7caef792166d19c6f2267f177b8739b6",
+      "bytes": 560794
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Usual ChatGPT Pass1 before A patch_back.png",
+      "sha256": "5a3d3de97c6c232eae7887953cc4d5ea8e53cd494e7dcfd38f6f729bc04da02f",
+      "bytes": 436645
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Usual ChatGPT Pass1 before A patch_Front.png",
+      "sha256": "f5baf151c9c4b090487d1ef6edb3a42dc85b880da6492d407443bfd284a8d4cd",
+      "bytes": 436996
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Usual ChatGPT Pass1 before A patch_Sidet.png",
+      "sha256": "f89e991d6f26b7951c91b4acb06e84b8f78b12ef6dd6b4b695ef6226313b8cad",
+      "bytes": 470059
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Just chat6 patch A 34.png",
+      "sha256": "5cc3ab4b65cebfa4f980892a48a0401d2f882cf4a87b89c12b2e075b45ad28d1",
+      "bytes": 797239
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Just chat6 patch A back.png",
+      "sha256": "ea44f0be08958daa25fb44984681248c600b0ec2d9f4a4f3d0d11d81ae82ba4d",
+      "bytes": 252333
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Just chat6 patch A front.png",
+      "sha256": "e07b65e0a449edeb95d6ec2798b4ac454cb21448e1276353e334cef86870c675",
+      "bytes": 327135
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\Just chat6 patch A side.png",
+      "sha256": "2452b003f30eb19c97cf251a1fbd3bad25107304d959318146cf1a54ca93138c",
+      "bytes": 497630
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\assembly_graph.json",
+      "sha256": "73a85ab5417eda015dc58a2e07f8697ab55b3165d61b46a347c69e5db94d2b10",
+      "bytes": 4445
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\pass0.json",
+      "sha256": "de32d11864464dc4c548b4467f356bf990561e5e99f3a541d2f354f0b1c3bb9f",
+      "bytes": 18060
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\README.md",
+      "sha256": "a39372d9867caad4ee75ccf4a87473b251f415fdf2635b65aff466fecacb8f54",
+      "bytes": 3425
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\MainRef_ArmoredVehicle_QA.md",
+      "sha256": "b1f04df3368d2077428f3b5de446ff8a3ded62d606b552618b4b5bfc19d9ef46",
+      "bytes": 3272
+    },
+    {
+      "path": "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\blender_assets.cats.txt",
+      "sha256": "c3d2a24e8e0ab07f2f198920a95110b3f2f932ee5298db8ac5c9174ecbca7df7",
+      "bytes": 520
+    },
+    {
+      "path": "E:\\MyCreations\\MainRef_ArmoredVehicle_QA.md",
+      "sha256": "b1f04df3368d2077428f3b5de446ff8a3ded62d606b552618b4b5bfc19d9ef46",
+      "bytes": 3272
+    },
+    {
+      "path": "E:\\MyCreations\\blender_assets.cats.txt",
+      "sha256": "c3d2a24e8e0ab07f2f198920a95110b3f2f932ee5298db8ac5c9174ecbca7df7",
+      "bytes": 520
+    },
+    {
+      "path": "E:\\MyCreations\\Just chat6 patch A_34.png",
+      "sha256": "fb70df2e2cf4da16fda7ad865ef1ddab6f91b6705686343509046d130d329721",
+      "bytes": 1835251
+    },
+    {
+      "path": "D:\\Desktop\\Screen_cuts\\Screenshot 2026-10-16 075413.png",
+      "sha256": "f9f82ccf55070134c7817204f304a512c91509e9f5c6e2011587742a710aa103",
+      "bytes": 318385
+    },
+    {
+      "path": "D:\\Desktop\\Screen_cuts\\Screenshot 2026-10-16 072835.png",
+      "sha256": "744341ee04ea7c84a779bc57bb0ce5f4531bb9d91d938a269d22d332b6eeddad",
+      "bytes": 193440
+    },
+    {
+      "path": "D:\\Desktop\\Screen_cuts\\Screenshot 2026-10-16 080006.png",
+      "sha256": "6c446ac642d24289cbc22fbc6d92c5449042ccf2208ccdafa5765991c5b19fb9",
+      "bytes": 1977447
+    }
+  ],
+  "trials": [
+    {
+      "id": "X",
+      "condition": "after A",
+      "environment_user_reported": "GPT 6 Luna high",
+      "visual_verdict": "REVISION_REQUIRED",
+      "process": "PASS0 and FINAL assembly declarations structurally PASS; execution order/source-scene binding not established"
+    },
+    {
+      "id": "Y",
+      "condition": "before A",
+      "environment_user_reported": "ordinary chat; exact model/settings unknown",
+      "visual_verdict": "REVISION_REQUIRED",
+      "process": "screenshots only; not independently established"
+    },
+    {
+      "id": "Z",
+      "condition": "after A",
+      "environment_user_reported": "ordinary chat; exact model/settings unknown",
+      "visual_verdict": "REVISION_REQUIRED",
+      "process": "QA states formal PASS0 validation/source hash check OPEN, internal Blender analysis only"
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "python",
+        "skills/visual-reference-reconstruction/scripts/validate_pass0.py",
+        "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\pass0.json",
+        "--verify-files"
+      ],
+      "exit_code": 0,
+      "result": {
+        "structural_status": "PASS",
+        "gate": "READY_WITH_LIMITS",
+        "visual_status": "NOT_CERTIFIED_BY_VALIDATOR",
+        "errors": []
+      }
+    },
+    {
+      "command": [
+        "python",
+        "tools/model_contract.py",
+        "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\pass0.json",
+        "--assembly",
+        "D:\\Desktop\\My Labarotory\\TESTS\\Tools_C\\reports\\assembly_graph.json",
+        "--checkpoint",
+        "FINAL"
+      ],
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "errors": [],
+        "checks": [
+          {
+            "rule_id": "rule.dim.body_length",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.dim.wheelbase",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.dim.tire_diameter",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.dim.cabin_height",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.dim.plow_width",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.rel.plow_ahead",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.count.body",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.count.cabin",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.count.wheels",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.count.plow",
+            "result": "PASS",
+            "reason": "within locked design"
+          },
+          {
+            "rule_id": "rule.count.spoiler",
+            "result": "PASS",
+            "reason": "within locked design"
+          }
+        ],
+        "contract_ref": {
+          "id": "main_ref_armored_vehicle_contract",
+          "revision": 1,
+          "sha256": "85bb337fe693159ebebde6d848dfa9a0e215789678d1e6282b5e44c39b61e171"
+        },
+        "checkpoint": "FINAL",
+        "observations_sha256": "2358de2b27ab5843b245402a399bbd6c7c38cceb0aa185c66c71ddf6bfa12bdf"
+      }
+    }
+  ],
+  "critic": {
+    "agent_task": "/root/vehicle_visual_review",
+    "invoked": true,
+    "history": "none",
+    "read_only": true,
+    "implementer_qa_narratives_supplied": false,
+    "fully_blind": false,
+    "limitation": "filenames reveal conditions; formal checker critic packet absent",
+    "images_inspected": 13,
+    "verdicts": {
+      "X": "REVISION_REQUIRED",
+      "Y": "REVISION_REQUIRED",
+      "Z": "REVISION_REQUIRED"
+    },
+    "conclusion": "Y stronger overall silhouette; Z stronger front protection; X most divergent primary forms; no overall Y/Z winner"
+  },
+  "comparison": {
+    "causal_effect": "NOT_ESTABLISHED",
+    "G5": "SKIP",
+    "limits": [
+      "one run per condition",
+      "exact ordinary-chat models/settings unknown",
+      "no complete tool transcripts",
+      "cameras/lighting/framing/budgets differ or unknown",
+      "candidate artifact-to-scene lineage not independently verified"
+    ],
+    "likeness_percentages": null
+  },
+  "provenance": {
+    "local_reference_sha256": "eb855b49453d1bb7030331d74e0f4bfac67f33412abce6060e9940453220d4d3",
+    "luna_source_hash_matches_local": true,
+    "chat_QA_reference_sha256": "e8f3dd0c016ba6cf4d0ed8cc4475ee76ee5262aceb8f97fd23f01ec09db9e3f4",
+    "chat_QA_hash_matches_local": false,
+    "note": "Chat QA labels conversation attachment; original attachment bytes not supplied for independent hash reconciliation. Different hash does not prove different visual reference."
+  },
+  "preservation": {
+    "assets_modified": false,
+    "services_restarted": false,
+    "runtime_scene_accessed": false,
+    "B_implemented": false,
+    "commit": false,
+    "staging": false
+  },
+  "user_decision": {
+    "date": "2026-10-16",
+    "visual_improvement_ordinary_chat": "CONFIRMED_BY_USER",
+    "A_handoff": "ACCEPTED",
+    "commit_and_push": "AUTHORIZED",
+    "B": "PREPARATION_ONLY",
+    "Luna_cause": "user hypothesis, not established",
+    "controlled_causal_effect": "NOT_ESTABLISHED"
+  }
+}

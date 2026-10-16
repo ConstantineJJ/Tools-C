@@ -25,6 +25,12 @@ For an integration request, follow [project integration](references/integration.
 
 ## Anti-degradation and stop
 
+For an explicitly requested session analysis, use the bounded read-only
+`tools/session_diagnostics.py LOG --root ALLOWED_ROOT`; see
+[Mega tools interfaces](../../docs/mega-tools.md). Choose only the supplied
+transcript, not every chat. Opaque/missing records do not prove unused Skills.
+Findings carry source lines and limits, omit raw private payloads and perform no fixes.
+
 Before edits, record the affected paths and preserve user-owned bytes. Afterward inspect diff, status and project checks; stage only requested own files if a commit was authorized. Stop when the requested inventory or integration is evidenced, with open unknowns distinguished from verified facts. Do not silently expand an audit into an implementation.
 
 ## Pitfalls / Lessons Learned

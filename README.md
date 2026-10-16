@@ -53,6 +53,11 @@ library; no third-party packages to install. Its own contracts/checkers are
 authoritative. Optional external validators (including skill-creator quick_validate)
 have their own dependencies; their absence does not invalidate Tools_C checks.
 Engine probes, full live MCP service dependencies and human review are separate.
+Mega tools adds bounded metadata discovery, [behavioral trial evidence and
+read-only session diagnostics](docs/mega-tools.md). `python tools/skill_behavior.py
+--help` lists prepare/review/compare; `python tools/session_diagnostics.py LOG
+--root ALLOWED_ROOT` analyzes only the selected transcript. Neither command
+launches agents, engines or repairs. Actual trial/visual acceptance stays separate.
 Latest Blender form/context improvements and evidence: [form-methods report](reports/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
 Historical V1/v4 evidence (September 2026) is retained in the machine-local
 `.local/archived_reports/2026-10-08/` archive rather than the current reports

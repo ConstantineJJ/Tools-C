@@ -1,0 +1,2195 @@
+{
+  "schema_version": 1,
+  "scope": "Mega tools patch A; B information only",
+  "date": "2026-10-16",
+  "head": "becd57ba0caa05baa8c729bc24c2f19b17052f43",
+  "branch": "main",
+  "initial_git_status": [
+    " M .tooling/contracts.json",
+    " M Project-pulse.md",
+    " M docs/mcp-deployment.md",
+    " M docs/qa-receipt.md",
+    " D reports/V1.md",
+    " D reports/V1_FINAL.md",
+    " D reports/engine-evidence.json",
+    " D reports/final-evidence.json",
+    " D reports/final-preflight.json",
+    " D reports/final-preservation.json",
+    " D reports/preflight.json",
+    " D reports/preservation.json",
+    " D reports/v4/baseline.json",
+    " D reports/v4/blender-capture.log",
+    " D reports/v4/blender-export.log",
+    " D reports/v4/blender-import.log",
+    " D reports/v4/changes.json",
+    " D reports/v4/connector-calls.json",
+    " D reports/v4/connector-tools.json",
+    " D reports/v4/deployment.json",
+    " D reports/v4/deployment.log",
+    " D reports/v4/export-fractional-fps-negative.json",
+    " D reports/v4/export-validation.json",
+    " D reports/v4/fixture/active/capture.json",
+    " D reports/v4/fixture/active/front.png",
+    " D reports/v4/fixture/after_edit/capture.json",
+    " D reports/v4/fixture/after_edit/front.png",
+    " D reports/v4/fixture/back/back.png",
+    " D reports/v4/fixture/back/capture.json",
+    " D reports/v4/fixture/bottom/bottom.png",
+    " D reports/v4/fixture/bottom/capture.json",
+    " D reports/v4/fixture/capture-results.json",
+    " D reports/v4/fixture/front/capture.json",
+    " D reports/v4/fixture/front/front.png",
+    " D reports/v4/fixture/material_preview/capture.json",
+    " D reports/v4/fixture/material_preview/three_quarter.png",
+    " D reports/v4/fixture/rendered/capture.json",
+    " D reports/v4/fixture/rendered/three_quarter.png",
+    " D reports/v4/fixture/repeat/capture.json",
+    " D reports/v4/fixture/repeat/front.png",
+    " D reports/v4/fixture/selected/capture.json",
+    " D reports/v4/fixture/selected/front.png",
+    " D reports/v4/fixture/side/capture.json",
+    " D reports/v4/fixture/side/side.png",
+    " D reports/v4/fixture/snapshot.json",
+    " D reports/v4/fixture/subframe/capture.json",
+    " D reports/v4/fixture/subframe/front.png",
+    " D reports/v4/fixture/three_quarter/capture.json",
+    " D reports/v4/fixture/three_quarter/three_quarter.png",
+    " D reports/v4/fixture/top/capture.json",
+    " D reports/v4/fixture/top/top.png",
+    " D reports/v4/glb.json",
+    " D reports/v4/l1-godot-regression.txt",
+    " D reports/v4/l1-integration.txt",
+    " D reports/v4/l1-tools.txt",
+    " D reports/v4/live-capture.log",
+    " D reports/v4/live-capture/after.json",
+    " D reports/v4/live-capture/back.json",
+    " D reports/v4/live-capture/back.png",
+    " D reports/v4/live-capture/before.json",
+    " D reports/v4/live-capture/current.json",
+    " D reports/v4/live-capture/current.png",
+    " D reports/v4/live-capture/front.json",
+    " D reports/v4/live-capture/front.png",
+    " D reports/v4/live-capture/result.json",
+    " D reports/v4/live-capture/side.json",
+    " D reports/v4/live-capture/side.png",
+    " D reports/v4/live-capture/three_quarter.json",
+    " D reports/v4/live-capture/three_quarter.png",
+    " D reports/v4/mcp-stdio.json",
+    " D reports/v4/mcp-stdio.log",
+    " D reports/v4/preservation.json",
+    " D reports/v4/restart.json",
+    " D reports/v4/roundtrip/import/result.json",
+    " D reports/v4/roundtrip/import/snapshot.json",
+    " D reports/v4/roundtrip/source/result.json",
+    " D reports/v4/roundtrip/source/snapshot.json",
+    " D reports/v4/skill-validation.json",
+    " D reports/v4/tests.log",
+    " D reports/v4/visual-review.json",
+    " M skills/blender-character-modeling/references/workflow-gates.md",
+    " M skills/blender-vehicle-modeling/SKILL.md",
+    " M skills/blender-vehicle-modeling/references/research-notes.md",
+    " M tools/mcp_runtime.py",
+    " M tools/qa_gate.py",
+    "?? reports/MEGA_TOOLS_A1_2026-10-16.json",
+    "?? reports/MEGA_TOOLS_A1_2026-10-16.md",
+    "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.json",
+    "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.md",
+    "?? reports/REFERENCE_CHARACTER_FLOW_2026-10-09.md",
+    "?? reports/archive/Project-pulse_2026-10-16_before-A1.zip",
+    "?? skills/blender-vehicle-modeling/references/vehicle-qa.md",
+    "?? skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+    "?? tasks/plan.md",
+    "?? tasks/todo.md",
+    "?? tests/test_workflow_flow.py"
+  ],
+  "staging_empty": true,
+  "commit_performed": false,
+  "baseline_paths_checked": 406,
+  "changed_existing_paths": [
+    ".tooling/contracts.json",
+    "Project-pulse.md",
+    "README.md",
+    "docs/architecture-v4.md",
+    "docs/mcp-deployment.md",
+    "skills/blender-reference-surface-transfer/SKILL.md",
+    "skills/contracts-lint/SKILL.md",
+    "skills/project-audit/SKILL.md",
+    "skills/verification/SKILL.md",
+    "skills/visual-reference-reconstruction/SKILL.md",
+    "tasks/plan.md",
+    "tasks/todo.md",
+    "tests/test_skill_catalog.py",
+    "tools/check.py",
+    "tools/mcp_runtime.py",
+    "tools/read_blender_skill.py",
+    "tools/skill_catalog.py"
+  ],
+  "new_own_paths": [
+    "docs/mega-tools.md",
+    "skills/verification/references/behavioral-tests.md",
+    "tests/skill_behavior_cases.json",
+    "tests/fixtures/session_diagnostics.jsonl",
+    "tests/test_skill_behavior.py",
+    "tests/test_session_diagnostics.py",
+    "tools/skill_behavior.py",
+    "tools/session_diagnostics.py",
+    "reports/MEGA_TOOLS_IMPLEMENTATION_2026-10-16.md",
+    "reports/MEGA_TOOLS_IMPLEMENTATION_2026-10-16.json"
+  ],
+  "preserved_baseline_paths": 389,
+  "untouched_initial_dirty_paths": [
+    " M docs/qa-receipt.md",
+    " D reports/V1.md",
+    " D reports/V1_FINAL.md",
+    " D reports/engine-evidence.json",
+    " D reports/final-evidence.json",
+    " D reports/final-preflight.json",
+    " D reports/final-preservation.json",
+    " D reports/preflight.json",
+    " D reports/preservation.json",
+    " D reports/v4/baseline.json",
+    " D reports/v4/blender-capture.log",
+    " D reports/v4/blender-export.log",
+    " D reports/v4/blender-import.log",
+    " D reports/v4/changes.json",
+    " D reports/v4/connector-calls.json",
+    " D reports/v4/connector-tools.json",
+    " D reports/v4/deployment.json",
+    " D reports/v4/deployment.log",
+    " D reports/v4/export-fractional-fps-negative.json",
+    " D reports/v4/export-validation.json",
+    " D reports/v4/fixture/active/capture.json",
+    " D reports/v4/fixture/active/front.png",
+    " D reports/v4/fixture/after_edit/capture.json",
+    " D reports/v4/fixture/after_edit/front.png",
+    " D reports/v4/fixture/back/back.png",
+    " D reports/v4/fixture/back/capture.json",
+    " D reports/v4/fixture/bottom/bottom.png",
+    " D reports/v4/fixture/bottom/capture.json",
+    " D reports/v4/fixture/capture-results.json",
+    " D reports/v4/fixture/front/capture.json",
+    " D reports/v4/fixture/front/front.png",
+    " D reports/v4/fixture/material_preview/capture.json",
+    " D reports/v4/fixture/material_preview/three_quarter.png",
+    " D reports/v4/fixture/rendered/capture.json",
+    " D reports/v4/fixture/rendered/three_quarter.png",
+    " D reports/v4/fixture/repeat/capture.json",
+    " D reports/v4/fixture/repeat/front.png",
+    " D reports/v4/fixture/selected/capture.json",
+    " D reports/v4/fixture/selected/front.png",
+    " D reports/v4/fixture/side/capture.json",
+    " D reports/v4/fixture/side/side.png",
+    " D reports/v4/fixture/snapshot.json",
+    " D reports/v4/fixture/subframe/capture.json",
+    " D reports/v4/fixture/subframe/front.png",
+    " D reports/v4/fixture/three_quarter/capture.json",
+    " D reports/v4/fixture/three_quarter/three_quarter.png",
+    " D reports/v4/fixture/top/capture.json",
+    " D reports/v4/fixture/top/top.png",
+    " D reports/v4/glb.json",
+    " D reports/v4/l1-godot-regression.txt",
+    " D reports/v4/l1-integration.txt",
+    " D reports/v4/l1-tools.txt",
+    " D reports/v4/live-capture.log",
+    " D reports/v4/live-capture/after.json",
+    " D reports/v4/live-capture/back.json",
+    " D reports/v4/live-capture/back.png",
+    " D reports/v4/live-capture/before.json",
+    " D reports/v4/live-capture/current.json",
+    " D reports/v4/live-capture/current.png",
+    " D reports/v4/live-capture/front.json",
+    " D reports/v4/live-capture/front.png",
+    " D reports/v4/live-capture/result.json",
+    " D reports/v4/live-capture/side.json",
+    " D reports/v4/live-capture/side.png",
+    " D reports/v4/live-capture/three_quarter.json",
+    " D reports/v4/live-capture/three_quarter.png",
+    " D reports/v4/mcp-stdio.json",
+    " D reports/v4/mcp-stdio.log",
+    " D reports/v4/preservation.json",
+    " D reports/v4/restart.json",
+    " D reports/v4/roundtrip/import/result.json",
+    " D reports/v4/roundtrip/import/snapshot.json",
+    " D reports/v4/roundtrip/source/result.json",
+    " D reports/v4/roundtrip/source/snapshot.json",
+    " D reports/v4/skill-validation.json",
+    " D reports/v4/tests.log",
+    " D reports/v4/visual-review.json",
+    " M skills/blender-character-modeling/references/workflow-gates.md",
+    " M skills/blender-vehicle-modeling/SKILL.md",
+    " M skills/blender-vehicle-modeling/references/research-notes.md",
+    " M tools/qa_gate.py",
+    "?? reports/MEGA_TOOLS_A1_2026-10-16.json",
+    "?? reports/MEGA_TOOLS_A1_2026-10-16.md",
+    "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.json",
+    "?? reports/MEGA_TOOLS_AUDIT_2026-10-16.md",
+    "?? reports/REFERENCE_CHARACTER_FLOW_2026-10-09.md",
+    "?? reports/archive/Project-pulse_2026-10-16_before-A1.zip",
+    "?? skills/blender-vehicle-modeling/references/vehicle-qa.md",
+    "?? skills/blender-vehicle-modeling/references/vehicle-recipes.md",
+    "?? tests/test_workflow_flow.py"
+  ],
+  "ownership_note": "Some allowed files contain pre-existing dirty hunks; path scope is not authority for whole-file staging. A1 documents remain uncommitted too. Tests apply to current working tree.",
+  "integration": {
+    "root": "E:\\MyCreations\\Blender-MCP-Co",
+    "changed_generated_paths": [
+      "mcp-server/skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Modeling_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Pipeline_Core/SKILL.md",
+      "mcp-server/skills/Blender_Character_QA_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+      "mcp-server/skills/PIPELINE_MANIFEST.json",
+      "skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+      "skills/Blender_Character_Modeling_SKILL/SKILL.md",
+      "skills/Blender_Character_Pipeline_Core/SKILL.md",
+      "skills/Blender_Character_QA_SKILL/SKILL.md",
+      "skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+      "skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+      "skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+      "skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+      "skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+      "skills/PIPELINE_MANIFEST.json"
+    ],
+    "preserved_paths": 60,
+    "no_server_launcher_addon_changes": true
+  },
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "run": 367,
+    "passed": 367,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 231.588,
+    "log_sha256": "60fb6094c8f6556423ebcd4c857fd47d247126e014431d2c88a28a4ed13fbc14"
+  },
+  "self_l1": [
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-CATALOG",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-ROUTES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-SKILLS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/blender-domain-contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/blender-polishing-contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/blender-anime-contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/pass0-mechanics-contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/surface-transfer-contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-SELF-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-DOMAIN-CONTRACTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-POLISHING-CONTRACTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-ANIME-CONTRACTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-FILES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-JSON",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-LINKS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-GENERIC",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-PASS0-CONTRACTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-SURFACE-TRANSFER-CONTRACTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-REGISTRATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-LEGACY",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-AGENTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-PIPELINE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-FOUNDATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BDP-SCULPT-COMPAT",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BPP-REGISTRATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BPP-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BPP-ENTRYPOINTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BPP-DEPENDENCIES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BPP-SURFACES-HANDOFF",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BAM-REGISTRATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BAM-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BAM-ENTRYPOINTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BAM-DEPENDENCIES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-MODEL-CONTRACT-FILES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-DESCRIPTION-FILES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-REGISTRATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-PIPELINE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-AGENTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-FOUNDATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "VRM-COMPATIBILITY",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-REGISTRATION",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-ENTRYPOINTS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-DEPENDENCIES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-FILES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "RST-LINKS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L2",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Use tools/engine_check.py; no engine executed by L1"
+    },
+    {
+      "level": "L3",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Runtime/bridge/input behavior requires an explicit task probe"
+    },
+    {
+      "level": "L4",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Visual and engineering review requires recorded evidence"
+    }
+  ],
+  "integration_l1": [
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "TOOLS-CATALOG",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-PROFILE",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-ROUTES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-SKILLS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": ".tooling/contracts.json",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BMCP-FILES",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BMCP-JSON",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "BMCP-LINKS",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L1",
+      "status": "PASS",
+      "code": "OK",
+      "rule": "PROJECT-ADAPTER",
+      "message": "Declared check satisfied"
+    },
+    {
+      "level": "L2",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Use tools/engine_check.py; no engine executed by L1"
+    },
+    {
+      "level": "L3",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Runtime/bridge/input behavior requires an explicit task probe"
+    },
+    {
+      "level": "L4",
+      "status": "SKIP",
+      "code": "NOT_RUN",
+      "rule": "system",
+      "message": "Visual and engineering review requires recorded evidence"
+    }
+  ],
+  "deployment_disk": {
+    "disk": "PASS",
+    "project": "E:\\MyCreations\\Blender-MCP-Co",
+    "server": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\blender_mcp_server.py",
+    "wrapper": "E:\\MyCreations\\Blender-MCP-Co\\mcp-server\\run_blender_mcp_server.cmd",
+    "server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+    "source_tools": [
+      "blender_operation_status",
+      "capture_viewport",
+      "create_camera",
+      "create_cube",
+      "create_light",
+      "create_uv_sphere",
+      "delete_object",
+      "deployment_info",
+      "execute_blender_python",
+      "find_skills",
+      "get_scene_info",
+      "get_skill_context",
+      "list_skills",
+      "read_skill",
+      "save_blend_file",
+      "set_object_material",
+      "start_curve_batch"
+    ],
+    "architecture": "4.0.1",
+    "canonical_root": "E:\\MyCreations\\Tools_C",
+    "contexts": {
+      "Blender_Character_Pipeline_Core": "6b9a7cec31e8574dd23febd8f62d947f76de5e3f5481ad8da65d8e667fd1d7ee",
+      "Blender_Reference_Reconstruction_SKILL": "c0467a91b65ace47998dc3f9092a0a8433d62123ade1bbdb7b28345341f2d868",
+      "Blender_Character_Modeling_SKILL": "ffdc613f571ddf37f5919ef89c533cf7d300e1a392ca06ac22318b8fa993735f",
+      "Blender_Animal_Anthropomorphic_Modeling_SKILL": "afb807ee7dba3dc5a464cf471e17bff394a37e5f48d042580c555a7b070d66c9",
+      "Blender_Organic_Sculpting_SKILL": "3b81307d98df55cc7e644a65e97105dfd06412f482aa049cc4ad39f15a6188ee",
+      "Blender_Retopology_Deformation_SKILL": "9ca47dc0b10b0d7f14707a019bda6bce8dee98745c445cb2313e1bfdae2a4309",
+      "Blender_Character_QA_SKILL": "fb06281f07d00790fd352ac751c2df88190b08911ccef7d07b58ace48ed8aa54",
+      "Blender_Iterative_Refinement_SKILL": "c05ad59f666fe9d59acc44420dacb148ab6d62c9d5fc0938df35d6b873e3d68d",
+      "Blender_Character_Rigging_Animation_Godot_SKILL": "8b5a16a869b00138c51b543bc09cc7c6900cd808a7c6a42c2411e32d2f39d015"
+    },
+    "context_digest": "7d08dede23852660b3729a83921460d1fae57e4fbc12470c36cff43a2ec12ba4",
+    "live": "SKIP",
+    "tunnel": "SKIP",
+    "connector": "SKIP"
+  },
+  "live": {
+    "identity": {
+      "ok": true,
+      "loaded_server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "disk_server_sha256": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+      "restart_required": false,
+      "tool_schema_sha256": "2c45b6df56b665e736d501126fb774a1ac4096751969118ee71da44fadf5e8fc",
+      "context_digest": "7d08dede23852660b3729a83921460d1fae57e4fbc12470c36cff43a2ec12ba4",
+      "tools": [
+        "blender_operation_status",
+        "capture_viewport",
+        "create_camera",
+        "create_cube",
+        "create_light",
+        "create_uv_sphere",
+        "delete_object",
+        "deployment_info",
+        "execute_blender_python",
+        "find_skills",
+        "get_scene_info",
+        "get_skill_context",
+        "list_skills",
+        "read_skill",
+        "save_blend_file",
+        "set_object_material",
+        "start_curve_batch"
+      ]
+    },
+    "search": {
+      "ok": true,
+      "owners": [
+        "blender-rigging-skinning"
+      ]
+    },
+    "context": {
+      "ok": true,
+      "owners": [
+        "project-audit"
+      ],
+      "skills": [
+        {
+          "name": "project-audit",
+          "sha256": "7c328feebc9259defc4503208aad1caa6533f4e0c355127e08e88b2446520c7b",
+          "chars": 8344
+        }
+      ],
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+          "characters": 5174,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/project-audit/SKILL.md",
+          "sha256": "f4552a5277416b1fc17c5fe82a2cc4700d3b3f1bfcdd793385a45a30b177f0d5",
+          "characters": 3101,
+          "status": "delivered"
+        }
+      ]
+    }
+  },
+  "live_sequence": {
+    "ok": true,
+    "routing": {
+      "owners": [
+        "blender-character-modeling",
+        "blender-rigging-skinning",
+        "blender-animation",
+        "blender-export-validation"
+      ],
+      "active_owners": [
+        "blender-character-modeling"
+      ],
+      "deferred_owners": [
+        "blender-rigging-skinning",
+        "blender-animation",
+        "blender-export-validation"
+      ],
+      "sequence": [
+        [
+          "blender-character-modeling"
+        ],
+        [
+          "blender-rigging-skinning"
+        ],
+        [
+          "blender-animation"
+        ],
+        [
+          "blender-export-validation"
+        ]
+      ],
+      "procedures": [],
+      "limits": "ok covers active context only. Load each deferred owner after actual upstream evidence; these suggestions do not execute stages"
+    },
+    "loaded": [
+      {
+        "name": "blender-character-modeling",
+        "sha256": "19013d84d040ac33ee28b910ec15fe16f4d3c6c0865b53a3c641065889bcb3c0"
+      }
+    ]
+  },
+  "canonical_reads": [
+    {
+      "id": "project-audit",
+      "ok": true,
+      "context_sha256": [
+        "7c328feebc9259defc4503208aad1caa6533f4e0c355127e08e88b2446520c7b"
+      ]
+    },
+    {
+      "id": "godot-project",
+      "ok": true,
+      "context_sha256": [
+        "e43a6537c8f37d16b1325692812cbbb17eb18ea2728c067438b7d60fa7e1923c"
+      ]
+    },
+    {
+      "id": "blender-pipeline",
+      "ok": true,
+      "context_sha256": [
+        "4afc5aff74d1f5ed3377bf0c99a86384041deba3a27728aa554e087e1fb3f755"
+      ]
+    },
+    {
+      "id": "blender-character-modeling",
+      "ok": true,
+      "context_sha256": [
+        "19013d84d040ac33ee28b910ec15fe16f4d3c6c0865b53a3c641065889bcb3c0"
+      ]
+    },
+    {
+      "id": "blender-anime-character-modeling",
+      "ok": true,
+      "context_sha256": [
+        "4a1a22524ee4f084d01b1ae06b7444ca6cd493ae9abc21507892bb109fcc431a"
+      ]
+    },
+    {
+      "id": "blender-animal-anthropomorphic-modeling",
+      "ok": true,
+      "context_sha256": [
+        "4a1f801d5567c5b1b28769bb1c16819588014442b328019c9edd98c6e744b567"
+      ]
+    },
+    {
+      "id": "blender-architecture-environment",
+      "ok": true,
+      "context_sha256": [
+        "c284955a90c26fa899c4fb53a881fa4a99c51ad68f0ab8c1ae9ff6fd3f410a1a"
+      ]
+    },
+    {
+      "id": "blender-environment-assets",
+      "ok": true,
+      "context_sha256": [
+        "9e0c0c2a759192c11dcda1283091fb3eaf7049e9ae4ffea22cf2eb2c179f9e7c"
+      ]
+    },
+    {
+      "id": "blender-roads-infrastructure",
+      "ok": true,
+      "context_sha256": [
+        "17a37793e3a8e3101cf952d5632d72985d94710b952b597097b0a4529d51bb2f"
+      ]
+    },
+    {
+      "id": "blender-props",
+      "ok": true,
+      "context_sha256": [
+        "4ece0c54342edbeacc1eb59d1e828898b909f08dd14af735a1951fd9542f8096"
+      ]
+    },
+    {
+      "id": "blender-vehicle-modeling",
+      "ok": true,
+      "context_sha256": [
+        "43fec508dc2e1a82eb3bf664c0e60202b2cd9abfce600bc6bae5fc9fbae837c6"
+      ]
+    },
+    {
+      "id": "blender-product-electronics-modeling",
+      "ok": true,
+      "context_sha256": [
+        "f63b974a1fda2d01f0d23aa48ac00473080a16d63fe292b75da10da0c600243e"
+      ]
+    },
+    {
+      "id": "blender-vegetation",
+      "ok": true,
+      "context_sha256": [
+        "38114214709a1e7cda5b2bb7e2ed398251e71134e74467d3d1952796aa8a1c1d"
+      ]
+    },
+    {
+      "id": "blender-sculpting",
+      "ok": true,
+      "context_sha256": [
+        "4fcb8486e88ab36161d6e060fd15cce269c7b562d980776d46628f836a0fb453"
+      ]
+    },
+    {
+      "id": "blender-posteffects-polishing",
+      "ok": true,
+      "context_sha256": [
+        "f1369dad93f96e45fa9d1445dbb57d019a20156d658169a98cc885a5501fecc3"
+      ]
+    },
+    {
+      "id": "verification",
+      "ok": true,
+      "context_sha256": [
+        "07107f2b633afb8c29bf114e8e81c02566904fd171ea83b2599319f4350b1a45"
+      ]
+    },
+    {
+      "id": "contracts-lint",
+      "ok": true,
+      "context_sha256": [
+        "fbfb015f4854a8c87a39135f4a1e0de0f577ee6770f6492573d7930345ead771"
+      ]
+    },
+    {
+      "id": "blender-rigging-skinning",
+      "ok": true,
+      "context_sha256": [
+        "ba4e351f58bd4e4eb31b96622521955b75ae2170511a473eb1463fda646c08df"
+      ]
+    },
+    {
+      "id": "blender-animation",
+      "ok": true,
+      "context_sha256": [
+        "884c0b7150787856dec65df08118f8a20fe393e0ec421fb2ead07e3e818c81a9"
+      ]
+    },
+    {
+      "id": "blender-export-validation",
+      "ok": true,
+      "context_sha256": [
+        "e91cd0d4b915cb9c298a0655fc4601db431a7e31fd8ae1bf63988ebd30b70675"
+      ]
+    },
+    {
+      "id": "godot-asset-integration",
+      "ok": true,
+      "context_sha256": [
+        "8e954685f62a116c4a00e787a9f7b3dfc5e066338e3f0207bf5eeadec49bb0cd"
+      ]
+    },
+    {
+      "id": "production-mechanic-gym",
+      "ok": true,
+      "context_sha256": [
+        "9b0653ff782c6149c21862918deed4c31b0179ead7e553bb4f62555d9b690b8d"
+      ]
+    },
+    {
+      "id": "production-subagent-worktree",
+      "ok": true,
+      "context_sha256": [
+        "3f83ac227e5543ddf2c9e05a5f135e19ced7ff7a748b709f8af7390f6d46436f"
+      ]
+    },
+    {
+      "id": "production-lookdev-gate",
+      "ok": true,
+      "context_sha256": [
+        "8c787e7995cd21c7dbbd8589ad43c512c3b792bc5feda3b4b6f607fdff4f0e6c"
+      ]
+    },
+    {
+      "id": "production-project-state-gates",
+      "ok": true,
+      "context_sha256": [
+        "455d4000c30ccf04a53e8a0d4ea676616fc5a487dd64480a661242e63f3c74de"
+      ]
+    },
+    {
+      "id": "visual-reference-reconstruction",
+      "ok": true,
+      "context_sha256": [
+        "1ba6c25eeb453b976084834ed6487638ece482fec773971faddb32b9c3c84baa"
+      ]
+    },
+    {
+      "id": "blender-robot-mechanism-modeling",
+      "ok": true,
+      "context_sha256": [
+        "788af2aa0561992b2852cc0a43f12e7f1e061c4c05071c2f6c1e1fcc62ee9367"
+      ]
+    },
+    {
+      "id": "blender-reference-surface-transfer",
+      "ok": true,
+      "context_sha256": [
+        "51ff8f60ccad3d48242fc1296d6696cd8cb27d0abe676379b255cfbbb71ce463"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "scenario_id": "head-ru",
+      "query": "Смоделировать голову по референсам",
+      "owners": [
+        "visual-reference-reconstruction",
+        "blender-character-modeling"
+      ],
+      "search": [
+        "visual-reference-reconstruction",
+        "blender-character-modeling"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 57811
+    },
+    {
+      "scenario_id": "weights-ru",
+      "query": "Исправить веса плеча, существующие анимации сохранить",
+      "owners": [
+        "blender-rigging-skinning"
+      ],
+      "search": [
+        "blender-rigging-skinning"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 29520
+    },
+    {
+      "scenario_id": "animation-ru",
+      "query": "Создать анимацию на готовом риге, не менять геометрию",
+      "owners": [
+        "blender-animation"
+      ],
+      "search": [
+        "blender-animation"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 30197
+    },
+    {
+      "scenario_id": "export-ru",
+      "query": "Проверить экспорт GLB и импорт в Godot",
+      "owners": [
+        "verification",
+        "blender-export-validation",
+        "godot-asset-integration"
+      ],
+      "search": [
+        "verification",
+        "blender-export-validation",
+        "godot-asset-integration"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 34677
+    },
+    {
+      "scenario_id": "unclear-ru",
+      "query": "Анимация выглядит плохо, причина неясна",
+      "owners": [
+        "verification"
+      ],
+      "search": [
+        "verification"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 38808
+    },
+    {
+      "scenario_id": "head-en",
+      "query": "Model a human head from reference",
+      "owners": [
+        "visual-reference-reconstruction",
+        "blender-character-modeling"
+      ],
+      "search": [
+        "visual-reference-reconstruction",
+        "blender-character-modeling"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 57811
+    },
+    {
+      "scenario_id": "weights-en",
+      "query": "Fix shoulder weights; preserve existing Actions",
+      "owners": [
+        "blender-rigging-skinning"
+      ],
+      "search": [
+        "blender-rigging-skinning"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 29520
+    },
+    {
+      "scenario_id": "animation-en",
+      "query": "Create animation on an existing rig; do not change geometry",
+      "owners": [
+        "blender-animation"
+      ],
+      "search": [
+        "blender-animation"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 30197
+    },
+    {
+      "scenario_id": "unknown",
+      "query": "Make coffee for lunch",
+      "owners": [],
+      "search": [],
+      "context_ok": false,
+      "missing_documents": [],
+      "utf8_bytes": 0
+    },
+    {
+      "scenario_id": "typo",
+      "query": "blender-animtion",
+      "owners": [],
+      "search": [],
+      "context_ok": false,
+      "missing_documents": [],
+      "utf8_bytes": 0
+    },
+    {
+      "scenario_id": "id",
+      "query": "blender-animation",
+      "owners": [
+        "blender-animation"
+      ],
+      "search": [
+        "blender-animation"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 30197
+    },
+    {
+      "scenario_id": "alias",
+      "query": "Blender_Character_Modeling_SKILL",
+      "owners": [
+        "Blender_Character_Modeling_SKILL"
+      ],
+      "search": [
+        "blender-character-modeling"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 44701
+    },
+    {
+      "scenario_id": "mixed",
+      "query": "Model a car and a roadside barrier from references",
+      "owners": [
+        "visual-reference-reconstruction",
+        "blender-environment-assets",
+        "blender-vehicle-modeling"
+      ],
+      "search": [
+        "visual-reference-reconstruction",
+        "blender-environment-assets",
+        "blender-vehicle-modeling"
+      ],
+      "context_ok": false,
+      "missing_documents": [
+        "skills/blender-vehicle-modeling/SKILL.md"
+      ],
+      "utf8_bytes": 45431
+    },
+    {
+      "scenario_id": "audit",
+      "query": "project-audit",
+      "owners": [
+        "project-audit"
+      ],
+      "search": [
+        "project-audit"
+      ],
+      "context_ok": true,
+      "missing_documents": [],
+      "utf8_bytes": 8345
+    },
+    {
+      "scenario_id": "explicit-stage-chain",
+      "query": "Create a character, then create a rig, then create animation, then export GLB.",
+      "routing": {
+        "owners": [
+          "blender-character-modeling",
+          "blender-rigging-skinning",
+          "blender-animation",
+          "blender-export-validation"
+        ],
+        "active_owners": [
+          "blender-character-modeling"
+        ],
+        "deferred_owners": [
+          "blender-rigging-skinning",
+          "blender-animation",
+          "blender-export-validation"
+        ],
+        "sequence": [
+          [
+            "blender-character-modeling"
+          ],
+          [
+            "blender-rigging-skinning"
+          ],
+          [
+            "blender-animation"
+          ],
+          [
+            "blender-export-validation"
+          ]
+        ],
+        "procedures": [],
+        "limits": "ok covers active context only. Load each deferred owner after actual upstream evidence; these suggestions do not execute stages"
+      },
+      "loaded": [
+        "blender-character-modeling"
+      ],
+      "context_ok": true
+    }
+  ],
+  "discovery_measurement": {
+    "seconds": 0.040586,
+    "index_json_utf8_bytes": 13717,
+    "read_calls": 169,
+    "read_utf8_bytes": 15349,
+    "unique_paths": 29,
+    "listing_reads": [
+      {
+        "path": "manifest.json",
+        "bytes": 5354
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 20
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 196
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/project-audit/SKILL.md",
+        "bytes": 16
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 20
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 212
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/godot-project/SKILL.md",
+        "bytes": 17
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 23
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 211
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-pipeline/SKILL.md",
+        "bytes": 19
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 33
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 270
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-character-modeling/SKILL.md",
+        "bytes": 29
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 39
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 309
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-anime-character-modeling/SKILL.md",
+        "bytes": 35
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 46
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 457
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "bytes": 44
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 39
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 192
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-architecture-environment/SKILL.md",
+        "bytes": 42
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 33
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 213
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-environment-assets/SKILL.md",
+        "bytes": 29
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 35
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 516
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-roads-infrastructure/SKILL.md",
+        "bytes": 33
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 20
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 215
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-props/SKILL.md",
+        "bytes": 16
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 31
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 565
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-vehicle-modeling/SKILL.md",
+        "bytes": 27
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 43
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 572
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-product-electronics-modeling/SKILL.md",
+        "bytes": 41
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 25
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 206
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-vegetation/SKILL.md",
+        "bytes": 21
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 24
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 594
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-sculpting/SKILL.md",
+        "bytes": 20
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 36
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 310
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-posteffects-polishing/SKILL.md",
+        "bytes": 28
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 19
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 191
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/verification/SKILL.md",
+        "bytes": 15
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 21
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 189
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/contracts-lint/SKILL.md",
+        "bytes": 24
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 31
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 199
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-rigging-skinning/SKILL.md",
+        "bytes": 31
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 24
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 201
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-animation/SKILL.md",
+        "bytes": 20
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 32
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 256
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-export-validation/SKILL.md",
+        "bytes": 28
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 30
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 238
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/godot-asset-integration/SKILL.md",
+        "bytes": 26
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 30
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 204
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/production-mechanic-gym/SKILL.md",
+        "bytes": 26
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 35
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 231
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/production-subagent-worktree/SKILL.md",
+        "bytes": 31
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 30
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 241
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/production-lookdev-gate/SKILL.md",
+        "bytes": 26
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 37
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 204
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/production-project-state-gates/SKILL.md",
+        "bytes": 33
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 38
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 285
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/visual-reference-reconstruction/SKILL.md",
+        "bytes": 45
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 39
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 355
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "bytes": 39
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 41
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 247
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 4
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 1
+      },
+      {
+        "path": "skills/blender-reference-surface-transfer/SKILL.md",
+        "bytes": 29
+      }
+    ]
+  },
+  "diagnostic_demo": {
+    "status": "WARN",
+    "compliance": "NOT_ESTABLISHED",
+    "source": {
+      "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+      "bytes_read": 758,
+      "sha256": "f1875ec8ecae7d0c88148817e4d68e080ea2375622ccd855f24c938e9421b171",
+      "prefix_sha256": "f1875ec8ecae7d0c88148817e4d68e080ea2375622ccd855f24c938e9421b171",
+      "stable_during_read": true
+    },
+    "format": "normalized",
+    "coverage": {
+      "skills": true,
+      "checks": true,
+      "truncated": false
+    },
+    "summary": {
+      "lines": 14,
+      "events": 14,
+      "tool_calls": 3,
+      "ignored": 0,
+      "invalid": 0
+    },
+    "findings": [
+      {
+        "finding_id": "SD-b7c5a8a38bc6",
+        "code": "OUTSIDE_DECLARED_SCOPE",
+        "severity": "P1",
+        "observed": "Mutation targets an object outside the declared target set",
+        "expected": "Preserve scope or explicitly revise it before mutation",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 5,
+          "related_lines": []
+        },
+        "effect": "Declared target boundary crossed",
+        "limits": "Uses only explicit normalized scope; no semantic scope inference",
+        "remediation": "Inspect the action and restore only authorized own changes"
+      },
+      {
+        "finding_id": "SD-1e1945330b5a",
+        "code": "FAILED_GATE_ACTION",
+        "severity": "P1",
+        "observed": "Action declares dependency on a non-passing gate",
+        "expected": "Resolve the dependent gate first",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 5,
+          "related_lines": [
+            3
+          ]
+        },
+        "effect": "Recorded action followed unresolved gate",
+        "limits": "Only explicitly declared dependency is assessed",
+        "remediation": "Stop dependent work and inspect the gate evidence"
+      },
+      {
+        "finding_id": "SD-7be635f4ce4b",
+        "code": "INCOMPLETE_HANDOFF",
+        "severity": "P2",
+        "observed": "Logger explicitly marks handoff incomplete",
+        "expected": "Supply the required scoped handoff evidence",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 6,
+          "related_lines": []
+        },
+        "effect": "Incomplete handoff is reported",
+        "limits": "No missing task or requirement is inferred",
+        "remediation": "Review source handoff and name the remaining owner"
+      },
+      {
+        "finding_id": "SD-96f785b7a609",
+        "code": "REPEATED_TOOL_FAILURE",
+        "severity": "P2",
+        "observed": "Three consecutive results report failure for the same tool",
+        "expected": "Inspect the failure before another attempt",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 12,
+          "related_lines": [
+            8,
+            10
+          ]
+        },
+        "effect": "Three reported failures observed",
+        "limits": "Root cause, identical arguments and wasted work are not inferred",
+        "remediation": "Inspect cited results in the original source"
+      },
+      {
+        "finding_id": "SD-c54d3ca5a1f0",
+        "code": "UNREAD_SKILL",
+        "severity": "P1",
+        "observed": "Selected skill has no prior read event",
+        "expected": "Read the selected full Skill before its action",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 5,
+          "related_lines": [
+            2
+          ]
+        },
+        "effect": "Action follows selection without recorded reading",
+        "limits": "Requires explicit complete skill coverage; not pixel or behavior quality proof",
+        "remediation": "Acquire full current Skill and review the trace"
+      },
+      {
+        "finding_id": "SD-a3a9ca4ad98a",
+        "code": "UNCHECKED_CHANGE",
+        "severity": "P1",
+        "observed": "Mutation lacks a subsequent recorded check",
+        "expected": "Verify changed scope after its latest mutation",
+        "evidence": {
+          "path": "E:\\MyCreations\\Tools_C\\tests\\fixtures\\session_diagnostics.jsonl",
+          "line": 5,
+          "related_lines": []
+        },
+        "effect": "No later matching check in complete declared coverage",
+        "limits": "Only the normalized logger's declared scope is assessed",
+        "remediation": "Verify the current affected artifact"
+      }
+    ],
+    "findings_omitted": 0,
+    "usage": {
+      "max_observed_total_tokens": 123,
+      "aggregation": "maximum observed record total; counters can be cumulative or per-turn; never sum duplicate envelopes",
+      "observed_span_seconds": null,
+      "monetary_cost": null
+    },
+    "limits": "Analysis of observable records only. Raw payloads are omitted; wrappers and encrypted reasoning are opaque. No absence proof without explicit complete coverage. No fixes or uploads performed."
+  },
+  "behavioral_pair": {
+    "status": "SKIP",
+    "comparable": false,
+    "baseline": {
+      "evidence_status": "SKIP",
+      "behavioral_status": "SKIP",
+      "scenario_id": "unreviewed-image",
+      "condition": "baseline",
+      "reason": "Real comparable run, complete trace or review unavailable",
+      "limits": "File/line bindings validate reviewer attestations; no agent was run by this utility and reviewer truth is not inferred from strings."
+    },
+    "with_rule": {
+      "evidence_status": "SKIP",
+      "behavioral_status": "SKIP",
+      "scenario_id": "unreviewed-image",
+      "condition": "with-rule",
+      "reason": "Real comparable run, complete trace or review unavailable",
+      "limits": "File/line bindings validate reviewer attestations; no agent was run by this utility and reviewer truth is not inferred from strings."
+    },
+    "improvement_observed": false,
+    "limits": "A pair is an observed trial, not a statistical reliability claim; protected-condition fingerprints are declared by the coordinator.",
+    "reason": "Both real CLI invocations completed, but execution policy blocked reading rule.md/case.json; no rule consumption or comparable behavior was observed. No policy bypass or retry.",
+    "attempts": [
+      {
+        "condition": "baseline",
+        "exit_code": 0,
+        "seconds": 12.374
+      },
+      {
+        "condition": "with-rule",
+        "exit_code": 0,
+        "seconds": 13.083
+      }
+    ]
+  },
+  "behavioral_cli": {
+    "status": "SKIP",
+    "comparable": false,
+    "baseline": {
+      "evidence_status": "SKIP",
+      "behavioral_status": "SKIP",
+      "scenario_id": "unreviewed-image",
+      "condition": "baseline",
+      "reason": "Real comparable run, complete trace or review unavailable",
+      "limits": "File/line bindings validate reviewer attestations; no agent was run by this utility and reviewer truth is not inferred from strings."
+    },
+    "with_rule": {
+      "evidence_status": "SKIP",
+      "behavioral_status": "SKIP",
+      "scenario_id": "unreviewed-image",
+      "condition": "with-rule",
+      "reason": "Real comparable run, complete trace or review unavailable",
+      "limits": "File/line bindings validate reviewer attestations; no agent was run by this utility and reviewer truth is not inferred from strings."
+    },
+    "improvement_observed": false,
+    "limits": "A pair is an observed trial, not a statistical reliability claim; protected-condition fingerprints are declared by the coordinator."
+  },
+  "review": "SELF_REVIEW; fixed regression/edge cases retained as tests",
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "SKIP",
+    "G6": "PASS",
+    "G7": "PASS",
+    "G8": "PASS"
+  },
+  "engine_visual": "SKIP: software-only; no production asset or visual acceptance",
+  "patch_B": {
+    "status": "INFORMATION_ONLY_NOT_IMPLEMENTED",
+    "source": "D:/Desktop/My Labarotory/Tools_C_docs/Next_patches/Kit_Codex.md",
+    "sha256": "e4a1a47070ed400309b5a45352643a113717ad3259ed4183e3cdb5a039b27f1a"
+  },
+  "attribution": "Ideas only; no third-party source code copied; source snapshot in initial audit"
+}

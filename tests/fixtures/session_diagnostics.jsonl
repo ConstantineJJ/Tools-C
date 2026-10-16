@@ -1,0 +1,14 @@
+{"type":"coverage","skills":true,"checks":true}
+{"type":"skill_selected","skill":"verification"}
+{"type":"gate","id":"face","status":"FAIL"}
+{"type":"scope","targets":["approved-fixture"]}
+{"type":"action","skill":"verification","target":"other-fixture","mutation":true,"requires_gate":"face"}
+{"type":"handoff","complete":false}
+{"type":"tool_call","call_id":"a","name":"fixture_probe"}
+{"type":"tool_result","call_id":"a","ok":false,"private":"FAKE_SECRET_FOR_TEST_ONLY"}
+{"type":"tool_call","call_id":"b","name":"fixture_probe"}
+{"type":"tool_result","call_id":"b","ok":false}
+{"type":"tool_call","call_id":"c","name":"fixture_probe"}
+{"type":"tool_result","call_id":"c","ok":false}
+{"type":"usage","total_tokens":123}
+{"type":"usage","total_tokens":123}

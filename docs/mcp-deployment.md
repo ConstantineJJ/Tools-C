@@ -30,6 +30,12 @@ Shared/dependency contexts are not expanded or ranked as owner-specific content.
 Excerpts are discovery only. The provider-neutral
 [catalog helper](../tools/skill_catalog.py) keeps this logic in Tools_C.
 
+Metadata listing reads bounded current Skill headers; full structural/link checks
+remain in L1. Natural-language search reuses the existing task intent before lexical
+fallback; precise single-term recipe fallback can read entrypoints, never expanded
+dependencies. Typo suggestions do not select/load a procedure. Explicit canonical
+IDs and legacy aliases resolve from the manifest, including in a warm MCP process.
+
 `deployment_info` retains the input-schema digest and separately adds a metadata
 digest covering descriptions and annotations, plus `tool_annotations`.
 After a server update, verify its loaded identity and refresh client metadata to
@@ -39,7 +45,7 @@ external UI. The explicit read-only
 schemas against a saved stdio baseline and exercises discovery/read/context calls.
 An absent Blender addon makes its scene comparison SKIP; no process starts implicitly.
 
-`get_skill_context(task, max_chars=50000, known_documents={}, requested_documents=[])`
+`get_skill_context(task, max_chars=60000, known_documents={}, requested_documents=[])`
 delivers whole canonical Markdown documents once across mixed owners. Each document
 has a SHA-256 receipt. `ok=false` and `missing_documents` require a continuation
 before the affected edit; pass delivered `receipts` and request the named missing
@@ -48,6 +54,14 @@ them after context loss/compaction, for a new chat or agent. Stale hashes cause
 redelivery. Conditional references are identified separately and must be fetched
 before the corresponding operation. A successful short entry does not mean every
 optional procedure has been read. Budget limits never clip a rule mid-document.
+
+For explicit long stage chains, `routing.owners` retains all owners in declared
+order; `active_owners`/`deferred_owners` and `sequence` identify the current delivery
+scope. `skills` and `ok` cover only the first phase. Ask for the next owner by ID
+after actual upstream evidence. Short mixed-domain contexts retain co-owner loading;
+no stages are executed or marked complete by context delivery. Project-audit,
+contracts-lint, godot-project and production reads avoid Blender-only scaffolding;
+Verification keeps its existing QA envelope. See [Mega tools](mega-tools.md).
 
 `start_curve_batch(operation_id, collection_name, batches, batches_per_tick=1,
 radius=0.01, material_name=None)` creates editable named curve objects in a new

@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import check
@@ -95,6 +96,75 @@ class SkillCatalogTests(unittest.TestCase):
         for owner in ['blender-anime-character-modeling','blender-vegetation','blender-props']:
             self.assertEqual(skill_catalog.search(check.ROOT,owner)['results'][0]['name'],owner)
         self.assertEqual([r['name'] for r in skill_catalog.search(check.ROOT,'vegetation')['results']],['blender-vegetation'])
+
+    def test_listing_does_not_read_complete_skills_or_supporting_references(self):
+        original = Path.read_text
+        def guarded(path, *args, **kwargs):
+            if path.name != 'manifest.json':
+                raise AssertionError('Metadata listing read a full document: '+str(path))
+            return original(path, *args, **kwargs)
+        with patch.object(Path, 'read_text', guarded):
+            self.assertEqual(skill_catalog.listing(self.root)['canonical_count'], 2)
+
+    def test_equal_size_timestamp_metadata_edit_is_not_cached(self):
+        import os
+        path = self.root/'skills/hair-model/SKILL.md'
+        skill_catalog.listing(self.root)
+        stamp = path.stat()
+        path.write_text(path.read_text().replace('Develop', 'Prepare'), encoding='utf-8')
+        os.utime(path, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
+        self.assertTrue(skill_catalog.listing(self.root)['canonical_skills'][0]['description'].startswith('Prepare'))
+
+    def test_audit_discovery_matrix_and_all_explicit_names(self):
+        import mcp_runtime as runtime
+        matrix = check.read_json(check.ROOT/'tests/skill_behavior_cases.json')
+        for case in matrix['discovery']:
+            with self.subTest(case=case['id']):
+                self.assertEqual(runtime.route_task(case['query']), case['owners'])
+                found = skill_catalog.search(check.ROOT, case['query'])
+                self.assertEqual([r['name'] for r in found['results']], case.get('search_owners', case['owners']))
+        for row in skill_catalog.listing(check.ROOT)['canonical_skills']:
+            self.assertEqual(runtime.route_task(row['name']), [row['name']])
+
+    def test_duplicate_manifest_ids_and_header_names_fail_closed(self):
+        self.manifest['skills'].append(self.manifest['skills'][0].copy())
+        self.write_manifest()
+        with self.assertRaises(check.Violation): skill_catalog.listing(self.root)
+        self.manifest['skills'].pop(); self.write_manifest()
+        path=self.root/'skills/hair-model/SKILL.md'
+        path.write_text(path.read_text().replace('name: hair-model','name: other'))
+        with self.assertRaises(check.Violation): skill_catalog.listing(self.root)
+
+    def test_preservation_does_not_swallow_authorized_neighboring_action(self):
+        import mcp_runtime as runtime
+        self.assertEqual(runtime.route_task('Проверь модель, исправь веса, существующие анимации сохранить'),
+                         ['verification','blender-rigging-skinning'])
+        self.assertEqual(runtime.route_task('Animation looks wrong; fix shoulder weights.'),
+                         ['verification','blender-rigging-skinning'])
+
+    def test_warm_process_uses_current_resolver_without_restarting_mcp(self):
+        import mcp_runtime as runtime
+        with patch.object(check, 'catalog_manifest', None), patch.object(runtime, 'route_task', side_effect=AssertionError('cached router used')):
+            self.assertEqual([r['name'] for r in skill_catalog.search(check.ROOT,'Model a human head from reference')['results']],
+                             ['visual-reference-reconstruction','blender-character-modeling'])
+
+    def test_generic_context_does_not_inherit_blender_wrapper(self):
+        import mcp_runtime as runtime
+        result=runtime.context(check.ROOT,'project-audit')
+        self.assertTrue(result['ok'])
+        self.assertNotIn('SOURCE: docs/blender-evidence.md',result['skills'][0]['content'])
+
+    def test_explicit_long_stage_sequence_loads_only_current_phase(self):
+        import mcp_runtime as runtime
+        q='Create a character, then create a rig, then create animation, then export GLB.'
+        expected=['blender-character-modeling','blender-rigging-skinning','blender-animation','blender-export-validation']
+        self.assertEqual(runtime.route_task(q),expected)
+        result=runtime.context(check.ROOT,q)
+        self.assertTrue(result['ok'])
+        self.assertEqual([r['name'] for r in result['skills']],expected[:1])
+        self.assertEqual(result['routing']['deferred_owners'],expected[1:])
+        self.assertNotIn('SOURCE: skills/blender-animation/SKILL.md',result['skills'][0]['content'])
+        self.assertTrue(all(row['status']=='DISCOVERED' for row in result['skill_usage']))
 
 
 if __name__=='__main__': unittest.main()

@@ -25,6 +25,12 @@ For a rule change, update the active definition and affected tests/consumers tog
 
 ## Anti-degradation and stop
 
+Skill discovery uses the canonical manifest for identities and canonical
+frontmatter for descriptions. Follow [Mega tools boundaries](../../docs/mega-tools.md):
+metadata listing is not full catalog validation. Keep full L1 and negative cases;
+measure header reads and use [behavioral trials](../verification/references/behavioral-tests.md)
+before claiming a wording change improves actual agent behavior.
+
 Compare diagnostics, exit behavior, unaffected rules and each affected project profile before and after. Stop when the scoped invariant and negative case are demonstrated, no unintended rule drift remains, and any unrun engine/runtime level is reported as SKIP. Do not claim a textual check proves gameplay, asset quality or user intent.
 
 ## Pitfalls / Lessons Learned

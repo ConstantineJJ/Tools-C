@@ -114,7 +114,14 @@
         ".tooling/blender-anime-contracts.json",
         "tests/test_anime.py",
         "tools/skill_catalog.py",
-        "tests/test_skill_catalog.py"
+        "tests/test_skill_catalog.py",
+        "tools/skill_behavior.py",
+        "tools/session_diagnostics.py",
+        "tests/test_skill_behavior.py",
+        "tests/test_session_diagnostics.py",
+        "tests/skill_behavior_cases.json",
+        "skills/verification/references/behavioral-tests.md",
+        "docs/mega-tools.md"
       ]
     },
     {

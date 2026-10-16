@@ -170,7 +170,8 @@ def json_subset(actual, expected, location='$'):
         require(actual == expected, f"{location}: expected {expected!r}, got {actual!r}", "E_JSON_VALUE")
 
 
-def catalog(root):
+def catalog_manifest(root):
+    """Validate identities/paths without loading procedure bodies or references."""
     manifest = read_json(existing(root, "manifest.json"))
     fields(manifest, ["schema_version", "version", "skills", "blender_aliases"])
     require(type(manifest["schema_version"]) is int and manifest["schema_version"] == 1, "Unknown catalog version")
@@ -185,6 +186,24 @@ def catalog(root):
         path = existing(root, item["path"])
         require(path not in paths, f"Two canonical aliases for {path}", "E_ID")
         paths.add(path)
+    actual = {p.resolve() for p in (root / "skills").rglob("SKILL.md")}
+    require(actual == paths, "Unlisted or duplicated canonical SKILL.md in skills tree", "E_CATALOG")
+    require(isinstance(manifest["blender_aliases"], dict), "Invalid Blender aliases")
+    for alias, item in manifest["blender_aliases"].items():
+        identifier(alias)
+        require(alias not in seen, "Alias collides with canonical ID", "E_ID")
+        fields(item, ["reference", "source_sha256", "source_version"])
+        reference = existing(root, item["reference"])
+        require(any(reference.is_relative_to(p.parent) for p in paths), "Alias has no canonical owner", "E_CATALOG")
+        require(re.fullmatch(r"[0-9a-f]{64}", str(item["source_sha256"])), "Invalid source hash")
+        require(isinstance(item["source_version"], str), "Invalid source version")
+    return manifest
+
+
+def catalog(root):
+    manifest = catalog_manifest(root)
+    for item in manifest["skills"]:
+        path = existing(root, item["path"])
         text = path.read_text(encoding="utf-8")
         require(text.startswith("---\n"), f"Missing frontmatter: {path}")
         front = text.split("---", 2)[1]
@@ -195,15 +214,6 @@ def catalog(root):
             require("../../docs/foundation.md" in text, f"Missing shared foundation reference: {path}", "E_CATALOG")
             existing(root, "docs/foundation.md")
         require(item["path"] in (root / "AGENTS.md").read_text(encoding="utf-8"), f"Unrouted skill: {path}")
-    actual = {p.resolve() for p in (root / "skills").rglob("SKILL.md")}
-    require(actual == paths, "Unlisted or duplicated canonical SKILL.md in skills tree", "E_CATALOG")
-    require(isinstance(manifest["blender_aliases"], dict), "Invalid Blender aliases")
-    for alias, item in manifest["blender_aliases"].items():
-        identifier(alias)
-        fields(item, ["reference", "source_sha256", "source_version"])
-        existing(root, item["reference"])
-        require(re.fullmatch(r"[0-9a-f]{64}", str(item["source_sha256"])), "Invalid source hash")
-        require(isinstance(item["source_version"], str), "Invalid source version")
     lessons = set()
     for path in (root / "skills").rglob("*.md"):
         require(inside(root, path), f"Escaped skill: {path}", "E_PATH")

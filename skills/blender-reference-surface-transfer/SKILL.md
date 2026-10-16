@@ -1,6 +1,6 @@
 ---
 name: blender-reference-surface-transfer
-description: Transfer distinctive graphics from source reference regions onto existing Blender surfaces, preserving faces/eyes, logos, markings, prints and patterns through crop, local repair, projection/decal/UV transfer and bake. Use for source image reuse, not new geometry or generic PBR authoring.
+description: Use when distinctive faces/eyes, logos, markings, prints or patterns from source images must be preserved on existing Blender surfaces. New geometry, generic PBR authoring and read-only likeness review retain their respective owners.
 ---
 
 # Reference Surface Transfer
