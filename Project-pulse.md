@@ -9,7 +9,7 @@ Catalog: 28 canonical Skills / 9 legacy aliases. A baseline HEAD `becd57b`; publ
 
 **User decision, 2026-10-16:** visual improvement in ordinary-chat after A versus ordinary-chat before A is personally confirmed and accepted for closing A. User authorized commit/push and preparation for B; no further model experiments are required for this handoff. Exact reference replication and controlled causal G5 measurement remain separate open scopes.
 
-**Published A:** `be926e45be927b61f0acc446898fe56f660af852` in `origin/codex/mega-tools-a`; remote SHA verified. Main was not rewritten. B1–B10 preparation is documented below/in the existing plan; R0 OPEN, B implementation NOT_STARTED.
+**Published A:** `be926e45be927b61f0acc446898fe56f660af852` in `origin/codex/mega-tools-a`; remote SHA verified. Preparation commit `3e86428` is also published. Main was not rewritten. **B1/R0 PASS; B2–B7 DONE / B-III PASS**; B8+ open. B branch `codex/development-control-b`; the B1–B7 checkpoint uses a reviewed 17-path allowlist, without push. Commit identity is recorded in Git; B8–B10 follow separately. [R0](reports/PATCH_B_R0_2026-10-16.md), [B2/B3](reports/PATCH_B_B2_B3_2026-10-16.md), [B4/B5](reports/PATCH_B_B4_B5_2026-10-16.md), [B6/B7](reports/PATCH_B_B6_B7_2026-10-16.md).
 
 Implemented lightweight current header discovery, exact IDs/aliases and bounded RU/EN intent fixes, generic context boundaries, deferred delivery for explicit long stage chains, a passive behavioral evidence utility and read-only bounded session diagnostics. Existing project-audit / verification / contracts-lint remain owners; schemas, 28 IDs/9 aliases and public MCP input schemas remain stable. No new Ledger or workflow engine.
 
@@ -17,6 +17,11 @@ Implemented lightweight current header discovery, exact IDs/aliases and bounded 
 
 - Full regression: **367/367 PASS**, 231.588 s, 0 failures/errors/skips. Self L1 **50/0/0**; Blender-MCP-Co L1 **9/0/0**. Actual source/router disk audit PASS with 17 tools.
 - Exact A commit candidate, excluding unrelated dirty work: **355/355 PASS**, 228.208 s, 0 failures/errors/skips; self/integration L1 **50/9 PASS**. The additional 12 working-tree tests belong to the pre-existing workflow stream and were not committed. Documentation-only B preparation uses link/L1/diff checks.
+- Fresh B1 review checks: self/integration L1 **50/9 PASS**, Model Contract **28 tests PASS**, freshness **17 tests PASS**; expected strict-v1 unknown-field rejection confirmed in memory. Full suite is prior baseline evidence, not rerun in R0. No B runtime implementation or model/engine trials.
+- B2/B3 fresh final regression: **385/385 PASS**, 228.879 s, including **18 new tests**; self/integration L1 **50/9 PASS**. Actual isolated CLI chain observed PASS/present, FAIL/missing, OPEN/manual; no source/task writes or engine/model trials. [Schema and limits](docs/project-review.md).
+- B4/B5 final working-tree regression: **406/406 PASS**, 244.511 s, 0 failures/errors/skips; focused **39/39 PASS** (21 added), self/integration L1 **50/9 PASS**, 0 WARN/FAIL with normal L2/L3/L4 SKIP. Actual final CLI: 13 expected steps, all four observed gap types, repeat NO-OP and linked closed recurrence; stale target refused. 421 outside-scope baseline paths preserved. This is not a clean B commit-candidate validation. [B-II report](reports/PATCH_B_B4_B5_2026-10-16.md).
+- B6/B7 final working-tree regression: **427/427 PASS**, 221.601 s, 0 failures/errors/skips; review **60 PASS**, freshness **17 PASS**, state/compatibility **16 PASS**, self/integration L1 **50/9 PASS** with normal L2–L4 SKIP. Actual read-only CLI: 3 synthetic cases + foundation impact over 12 real sources (4 direct / 7 possible; unknown omissions explicit). 425 outside-scope paths preserved. Separate Ledger/resume remains DEFER; B-III boundary/impact complete. [Report](reports/PATCH_B_B6_B7_2026-10-16.md).
+- B1–B7 exact checkpoint candidate: **415/415 PASS**, 222.482 s, 0 failures/errors/skips; HEAD export + 17 allowlisted paths, excluding unrelated work and 12 workflow tests. Staged/runtime bytes and final L1 checked before commit.
 - Live connector: loaded/disk server SHA match, restart_required=false; RU weights search selects only rigging, generic project-audit context matches local SHA, long character → rig → animation → export chain loads first phase only. No restart or scene mutation performed.
 - Behavioral pair: two real read-only ephemeral Codex CLI invocations completed, but their execution policy blocked rule/case file reads. **G5 SKIP**, no comparable Skill consumption or behavioral improvement established. Manual protocol and pressure scenarios are ready; policy was not bypassed.
 - User manual checks: **3/3 visible responses PASS** across ordinary chat / GPT 6 Luna high / GPT 6 Sol High (settings user-reported). Correct rigging owner, withheld unreviewed VISUAL PASS and rejected Action deletion. [Screenshot review](reports/MEGA_TOOLS_MANUAL_REVIEW_2026-10-16.md). Full tool traces and before/after controls are absent; G5 effect comparison remains SKIP.
@@ -34,7 +39,37 @@ Router commit `317a9690fc77c023cb3008f3e92c82930c7320d7` exists locally in Blend
 
 ## Next / patch B boundary
 
-Preparation for B is complete; implementation remains unstarted. [B1–B10](tasks/plan.md) and [checklist](tasks/todo.md) cover R0, traceability, one vertical slice, cross-artifact analysis, idempotent convergence, conditional resume, sync impact, integration and QA. `Kit_Codex.md` remains the input specification; A evidence is reused without a second Pulse/governance store. Spec Kit availability snapshot is recorded in the plan; full R0 review must still occur before B production changes.
+B1/R0 complete at `3e86428` plus preserved dirty baseline. [Review/evidence](reports/PATCH_B_R0_2026-10-16.md) selects ADAPT for traceability, cross-artifact analysis, convergence and read-only impact; separate Ledger/workflow engine DEFER. Existing state/QA/freshness and canonical owners remain authoritative. Nine external source files reviewed at pinned Spec Kit ref; no external code/install/dependency introduced.
+
+Initial B2/B3 slice added optional project-local review packet + stdlib `tools/project_review.py` with `validate` and a narrow predicate-based `converge`. Bound IDs/sources/hash/line/task/artifact/check refs, bounded regular-file reads, manual/higher-level OPEN and stable findings. Legacy contracts/manifest/Skills/MCP unchanged. A task-local demo lives under ignored `.local/`; no mandatory review.json added to Tools_C itself.
+
+Implemented B4/B5: read-only `analyze`, predicate-based conflicts/duplicates and
+coverage; `converge --previous` preserves bounded finding history; separate
+`apply-tasks` verifies fresh input/engine and writes only a marked section of an
+explicit existing todo. Repeat state is NO-OP; closed history stays checked and
+new evidence creates a linked occurrence. Unknown/manual/unmapped state does
+not produce corrective implementation tasks. Formal conflicts/truncation refuse
+apply. A sibling lock, old-hash rechecks and atomic replace require cooperating
+writers and explicit exclusive ownership; no claim of OS compare-and-swap.
+
+B-II PASS: focused 39, final full 406 tests and L1 50/9 PASS; final code hashes
+match the frozen runtime/tests; 421 outside-scope paths/deletions preserved.
+B6 boundary review preserves Pulse/plan/todo + reports and domain snapshot/freshness;
+separate Ledger/resume engine stays DEFER. Freshness 17 and state/compatibility 16
+tests PASS; old PASS never supplies current manual/L4 acceptance.
+
+B7 adds read-only `impact` over selected hash-bound sources: Markdown/contract/
+profile/manifest/alias declarations, possible AST imports/path literals and
+transitive chains, explicit unknown/unselected consumers. Actual CLI covered
+synthetic cases and 12 Tools_C sources; formal file links do not prove exact-rule
+or runtime use. Schema migration UNKNOWN without compatibility delta; recommended
+L1–L4 NOT_RUN separately from executed L1. B-III PASS: review 60, final full
+427 and L1 50/9 PASS; 425 outside-scope paths/deletions preserved.
+
+B6/B7 scope: core entrypoint, one impact module/test, interface doc, two reports,
+plan/todo/Pulse. B1–B7 form the scoped checkpoint; B8–B10 follow as separate work. Historical evidence and unrelated
+bytes/deletions preserved; no owner/Skill/MCP/router integration, new Ledger,
+services or assets. After B-III: B8–B10. Router remote access remains separate.
 
 Optional A evidence remains: a controlled paired experiment with fixed model/settings/budget and actual Skill consumption. User acceptance closes the requested A handoff without spending more model quota; do not convert the previous blocked experiment into PASS.
 

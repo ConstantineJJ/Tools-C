@@ -14,7 +14,8 @@ execution policy, поэтому G5 SKIP, улучшение поведения 
 
 **Решение пользователя 2026-10-16:** визуальное улучшение обычного чата после A
 подтверждено лично; A принят для commit/push. Причинный controlled G5 остаётся
-SKIP. Подготовка B разрешена, реализация B в этой передаче не выполняется.
+SKIP. После публикации A пользователь отдельно разрешил реализацию B. Текущий
+scope — B4/B5 до checkpoint B-II; B6–B10 остаются следующими этапами.
 
 ## Цель и инварианты
 
@@ -229,16 +230,29 @@ Delivery tests green; behavioral protocol воспроизводим; налич
 
 ## Второй патч: B1, B2, B3…
 
-Подготовлен по `Kit_Codex.md`; **implementation NOT_STARTED, R0 OPEN**.
+Подготовлен по `Kit_Codex.md`; **B2/B3 DONE, R0 PASS; B4+ NOT_STARTED**.
+[Ревью и blueprint](../reports/PATCH_B_R0_2026-10-16.md) завершены 2026-10-16
+на HEAD `3e86428`. [B2/B3 implementation](../reports/PATCH_B_B2_B3_2026-10-16.md)
+выполнен в `codex/development-control-b`: 385 tests PASS, L1 50/9 PASS.
+Следующий шаг — B4 после обновления status/hash baseline.
 Сохраняем A1–A17 и их историю. Точка старта B — опубликованный A commit,
 свежий status/hash map и отдельный учёт оставшегося dirty state.
 
 Внешний источник: [github/spec-kit](https://github.com/github/spec-kit),
 подготовительный snapshot `f6e72bc8523de8ec8368129cbdea78d45f27cef8`.
-README, LICENSE, analyze/converge/constitution доступны и сохранены локально;
-это проверка доступности, **не завершённое архитектурное ревью R0**.
-В B1 проверить актуальность ref и оставшиеся source templates/workflow docs.
+В R0 проверена актуальность ref и просмотрены девять source files: README,
+LICENSE, spec-driven, spec/tasks templates, analyze/converge/constitution и
+workflow docs. Source hashes/локальные code anchors сохранены в evidence ревью.
 Spec Kit не устанавливается и не становится runtime dependency Tools_C.
+
+**Решение R0:** ADAPT traceability/cross-artifact/convergence/impact в одной
+optional stdlib утилите `tools/project_review.py`; общий Ledger/workflow engine
+DEFER. Optional `tasks/review.json` связывает утверждённые sources и existing
+task IDs, не дублируя todo status. Existing contract/profile v1 не расширяются
+и legacy projects не обязаны иметь packet. Owners и 28 IDs/9 aliases сохранены.
+Analysis operations read-only; применение corrective tasks — отдельная explicit
+операция с old-hash guard/idempotency. Полные proposed interfaces, limits,
+gap semantics, source scopes и tests определены в R0, а не созданы в коде.
 
 ### Существующие точки опоры для B1
 
@@ -257,6 +271,10 @@ verification (convergence/evidence), production-project-state-gates (handoff).
 
 ### B1 — ревью и Gate R0
 
+**Выполнено:** [R0 PASS](../reports/PATCH_B_R0_2026-10-16.md). SELF_REVIEW;
+свежие self/integration L1 50/9 и 28 Model Contract + 17 freshness tests PASS.
+Полный suite не повторялся; implementation/agent/engine trials не выполнялись.
+
 Установить actual A commit/tree, dirty exclusions, текущие baseline checks,
 source commit/license; прочитать реальные consumers и оценить пять функций B.
 Для каждой: existing/partial/missing/unknown, варианты и решение
@@ -269,17 +287,28 @@ ADAPT/ALREADY COVERED/DEFER/BLOCKED с обоснованием. Провери�
 
 ### B2 — минимальный контракт traceability
 
-После R0 выбрать минимальное хранение requirement ID/scope/source/acceptance и
+**DONE:** `tools/project_review.py`, `tests/test_project_review.py` и
+[формат/CLI](../docs/project-review.md). Источники bound по raw SHA/physical line;
+task refs не дублируют checkbox state. Bounds/negative tests и read-only CLI PASS.
+
+Реализовать выбранное в R0 optional packet хранение requirement ID/scope/source/acceptance и
 связей requirement → decision/task → artifact → check/evidence. Переиспользовать
 существующие ID и namespaces, сохранять историю изменений, допускаются группы
 и N/A. Не вводить вторую базу требований ради формата внешнего образца.
 
 **Приёмка/проверка:** совместимость старых packets/contracts; positive/negative
 tests на duplicate IDs, dangling links, scope/path escape, stale evidence и
-непроверенный статус. **Зависимости:** B1 ADAPT. **Размер:** M, owning contract,
-минимальный helper при доказанной необходимости и focused tests.
+непроверенный статус. Закрепить strict packet fields и CLI/report/exit contract
+из R0 до первого сквозного примера. **Зависимости:** B1 ADAPT. **Размер:** M;
+`tools/project_review.py`, `tests/test_project_review.py`, `docs/project-review.md`,
+при полезности одна небольшая fixture. Изменения old contract schema не нужны.
 
 ### B3 — первый сквозной offline slice
+
+**DONE / Checkpoint B-I PASS:** actual CLI и temporary fixtures дают цепочку
+CORE-001 → B2 → result → C1. Present PASS, missing FAIL, manual/L4 OPEN;
+repeat finding identity сохраняется при смене revision. Full 385 и focused 18 PASS.
+Это узкий predicate-based converge, не реализация общего B4/B5.
 
 На маленькой изолированной fixture пройти requirement ID → task → artifact →
 test/evidence → один cross-artifact finding → convergence outcome. Лишь после
@@ -291,6 +320,11 @@ unknown не становится missing/PASS. **Зависимости:** B2. 
 
 ### B4 — Cross-Artifact Analysis
 
+**DONE, 2026-10-16:** read-only `analyze`, explicit graph coverage и formal
+file predicate conflicts с обеими source refs. Duplicate acceptance, orphan,
+unmapped и manual ambiguity требуют review. Prose не исполняется и не становится
+semantic oracle. Dangling/duplicate IDs по-прежнему invalid input.
+
 Read-only анализ явно выбранных артефактов: конфликт правил, дубликат,
 coverage gap, неоднозначный acceptance и orphan task. Отделять доказанные
 структурные нарушения от семантических подозрений; не исполнять текст входов.
@@ -300,6 +334,13 @@ path containment, стабильные findings с requirement IDs и evidence. 
 автоматически не переписываются. **Зависимости:** B3. **Размер:** M.
 
 ### B5 — Convergence и идемпотентные corrective tasks
+
+**DONE / Checkpoint B-II PASS, 2026-10-16:** четыре observed gap types, bounded previous
+report history и отдельный `apply-tasks`. Fresh input/engine/report checks,
+existing Markdown target/old SHA/exclusive ownership, marked upsert, stable IDs,
+closed occurrence history, CRLF/prefix/suffix и concurrency/error cleanup покрыты.
+39 focused tests PASS; actual isolated CLI repeat NO-OP и linked recurrence PASS.
+Финальная регрессия 406 PASS, L1 50/9 PASS, 421 outside-scope paths preserved; [отчёт](../reports/PATCH_B_B4_B5_2026-10-16.md).
 
 Классифицировать missing/partial/contradicts/unrequested только по наблюдаемым
 данным; сохранить not_checked/blocked/unknown/review_required. Запись задач в
@@ -312,6 +353,16 @@ existing plan отделена от read-only анализа; только actio
 
 ### B6 — решение о resume/Ledger
 
+**DONE boundary review, 2026-10-16; separate runtime remains DEFER.** Existing
+Pulse/plan/todo, immutable reports, snapshot/freshness owners сохранены. Freshness
+17 и state/compatibility 16 tests PASS; прежний PASS + новый manual/L4 остаётся
+OPEN. `--previous` не выполняет и не пропускает engine work. Extension boundary
+описана в [interfaces](../docs/project-review.md); никакого фиктивного resume PASS.
+
+**R0 decision: DEFER отдельный Ledger/engine.** Существующий plan/todo и
+immutable reports сохраняют состояние; domain freshness/checkpoints используются
+по своему контракту. B6 проверяет эту границу при интеграции, не вводит новый runtime.
+
 Переиспользовать доменные checkpoints и task state, если достаточны. Новый
 минимальный record допустим только по решению R0 и реальной потребности
 Convergence; иначе документировать DEFER и extension interface.
@@ -322,6 +373,14 @@ Convergence; иначе документировать DEFER и extension interf
 **Размер:** S/M условно; без workflow DSL/scheduler/subagent orchestrator.
 
 ### B7 — точечный Sync Impact
+
+**DONE / Checkpoint B-III PASS, 2026-10-16:** read-only `impact` с
+`--changed-source` или `--changed-rule`. Selected Markdown/JSON/AST mappings,
+direct/possible/unknown, stable chain evidence и bounds; recommended NOT_RUN
+отдельно от executed L1. В CLI проверены synthetic cases и 12 actual Tools_C
+sources. Focused review 60 PASS (21 новых), full 427 PASS, L1 50/9 PASS;
+425 outside-scope paths preserved.
+[Отчёт B6/B7](../reports/PATCH_B_B6_B7_2026-10-16.md).
 
 По изменённому global rule перечислять подтверждённые direct dependencies,
 possible и unknown: Skills, profiles, aliases/routers, tests, gates, CLI/MCP,
@@ -366,8 +425,9 @@ codes и примеры convergence/conflict. Таблица R0 + K1–K10 со 
 **Размер:** S/M. **Checkpoint B-IV:** финальная проверяемая передача.
 
 Порядок: B1 → B2 → B3 → B4 → B5; B6 после решения R0/B5, B7 после B2;
-затем B8 → B9 → B10. Выполнение B требует отдельного начала реализации.
-Подготовка этого backlog не закрывает R0 и не меняет runtime/contracts.
+затем B8 → B9 → B10. B6/B7 реализованы в принятой границе; после B-III — B8–B10.
+Ревью R0 закрыто; runtime/contracts в B1 не менялись. В B2/B3 добавлен optional
+helper, существующие contracts/Skills/manifest/MCP schemas не менялись.
 
 ## Риски и границы
 
@@ -380,4 +440,4 @@ codes и примеры convergence/conflict. Таблица R0 + K1–K10 со 
 | Offline tests объявляются доказательством поведения | Separate offline/agent/visual verdicts и raw observed checkpoints |
 | Logs неполны или содержат инструкции/секреты | Bounded parsing, explicit coverage, no execution, minimal redacted evidence |
 | Runtime отличается от диска, connector 429 | Раздельные disk/stdio/live/connector gates без автоматического restart |
-| Второй патч заставит переделывать схемы | Малые additive interfaces; B определяется только после получения задания |
+| Второй патч заставит переделывать схемы | R0 выбрал optional packet вне существующих v1 contracts; preserve legacy tests |

@@ -32,20 +32,26 @@ commit/push A, подготовку B. Controlled causal G5 остаётся SKI
 367 tests PASS; отдельно проверенный A publication candidate — **355 tests PASS**,
 L1 50/9 PASS. [Scope публикации](../reports/MEGA_TOOLS_PUBLICATION_2026-10-16.md).
 
-## Патч B — подготовлен, реализация не начата
+## Патч B — поэтапная реализация
 
-Детальные критерии/owners/dependencies — в [плане](plan.md). R0 пока OPEN.
+Детальные критерии/owners/dependencies — в [плане](plan.md).
+[Ревью R0](../reports/PATCH_B_R0_2026-10-16.md) завершено. B2/B3 реализованы;
+[отчёт](../reports/PATCH_B_B2_B3_2026-10-16.md): full regression 385 PASS, 18 новых
+focused tests PASS, self/integration L1 50/9 PASS. B4/B5 implementation завершена;
+[новый отчёт](../reports/PATCH_B_B4_B5_2026-10-16.md), 39 focused tests PASS,
+checkpoint B-II PASS: full 406, L1 50/9; 421 outside-scope paths preserved.
+B6 boundary review и B7 DONE: focused 60, full 427, L1 50/9 PASS; [B-III отчёт](../reports/PATCH_B_B6_B7_2026-10-16.md), checkpoint B-III PASS, 425 outside-scope paths preserved. B8+ остаются открытыми.
 
-- [ ] B1 — Актуальный audit, source review и Gate R0 по пяти функциям.
-- [ ] B2 — Минимальный совместимый traceability contract и устойчивые IDs.
-- [ ] B3 — Один воспроизводимый сквозной offline slice.
-- [ ] Checkpoint B-I — Vertical slice и сохранение совместимости.
-- [ ] B4 — Read-only Cross-Artifact Analysis с evidence.
-- [ ] B5 — Convergence, четыре gap types и идемпотентные corrective tasks.
-- [ ] Checkpoint B-II — Нет дубликатов/потери истории/ложного PASS.
-- [ ] B6 — Resume/Ledger reuse или обоснованный DEFER.
-- [ ] B7 — Sync Impact: direct/possible/unknown и уровни проверок.
-- [ ] Checkpoint B-III — State/impact без второго source of truth.
+- [x] B1 — Актуальный audit, 9 external source files, owners/options review и Gate R0 PASS по пяти функциям. Свежие L1 50/9, Model Contract 28 и freshness 17 tests PASS.
+- [x] B2 — Optional bounded review packet v1, строгие ID/source/hash/line/ref проверки; legacy schema не менялась.
+- [x] B3 — CORE-001 → B2 → result → C1: CLI PASS, actual missing FAIL, manual/L4 OPEN; reproducible temporary fixtures.
+- [x] Checkpoint B-I — 385 full tests PASS, 18 focused PASS, L1 50/9 PASS; only validate/narrow converge доступны, task writes отсутствуют.
+- [x] B4 — Read-only Cross-Artifact Analysis: formal conflicts/duplicates, orphan/unmapped/coverage; semantic review отдельно.
+- [x] B5 — Четыре observed gap types, bounded history и explicit task upsert; repeated state NO-OP, closed history сохранена.
+- [x] Checkpoint B-II — Full 406, focused 39 PASS; повтор NO-OP, history/closed occurrence и stale/concurrent refusal подтверждены.
+- [x] B6 — Boundary review: existing state/freshness сохранены; separate Ledger/resume DEFER, ложного reuse/manual PASS нет.
+- [x] B7 — Read-only Sync Impact: direct/possible/unknown, selected source/hash/line/pointer chains; recommended/executed checks отдельно.
+- [x] Checkpoint B-III — Full 427, focused review 60, freshness 17, state 16 и L1 50/9 PASS; no new state authority.
 - [ ] B8 — Интеграция в действующих owners с legacy compatibility.
 - [ ] B9 — Изолированный доменный кейс, regression и preservation review.
 - [ ] B10 — Инженерный отчёт R0 + K1–K10, Pulse и передача.
