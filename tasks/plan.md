@@ -15,7 +15,7 @@ execution policy, поэтому G5 SKIP, улучшение поведения 
 **Решение пользователя 2026-10-16:** визуальное улучшение обычного чата после A
 подтверждено лично; A принят для commit/push. Причинный controlled G5 остаётся
 SKIP. После публикации A пользователь отдельно разрешил реализацию B. Текущий
-scope — B4/B5 до checkpoint B-II; B6–B10 остаются следующими этапами.
+scope — B завершён до checkpoint B-IV; отдельный Ledger остаётся DEFER по R0.
 
 ## Цель и инварианты
 
@@ -393,6 +393,12 @@ edges; отсутствие auto edits/deploy/restart. **Зависимости:
 
 ### B8 — интеграция в существующих owners
 
+**DONE, 2026-10-16:** четыре существующих owner Skills, progressive disclosure
+через действующие requested_documents/receipts, metadata discovery и L1 route rule.
+Warm MCP подтвердил 9 aliases без изменения 17 public tools/schemas и restart.
+Регрессия бюджета anime-контекста исправлена сокращением нового текста;
+лимит и обязательные документы сохранены. [Final QA](../reports/PATCH_B_FINAL_2026-10-16.md).
+
 Встроить принятые функции в project-audit/contracts-lint/verification/state
 routes; зафиксировать реальные CLI/API только после R0. Progressive disclosure,
 provider-neutral stdlib-first реализация, сохранение 28 canonical IDs/9 aliases,
@@ -403,6 +409,11 @@ negative scopes; compatibility migration лишь по подтверждённ�
 **Зависимости:** B5, B6 decision, B7. **Размер:** M.
 
 ### B9 — доменная демонстрация и регрессии
+
+**DONE, 2026-10-16:** four-file metadata vehicle fixture + 6 integration tests;
+CLI: metadata PASS, likeness/formal PASS0 OPEN, visual NOT_EVALUATED. Existing
+ASSET_FINAL receipt blocks uninspected views. Full working tree **433 PASS**,
+clean candidate **421 PASS**; L1 self/integration **51/9 PASS**. No scene changes.
 
 Изолированный Blender/Godot metadata case: структурный PASS при отсутствии
 просмотренных кадров не даёт visual PASS. Использовать ошибки автомобильного
@@ -415,6 +426,11 @@ L1; live read-only при доступности, иначе точный SKIP. 
 
 ### B10 — инженерный QA и передача
 
+**DONE / Checkpoint B-IV PASS, 2026-10-16:** [report](../reports/PATCH_B_FINAL_2026-10-16.md)
+и [evidence](../reports/PATCH_B_FINAL_2026-10-16.json) содержат R0/K1–K10,
+команды/границы/ошибку и исправление, scope и preservation. 423 central
+outside-scope paths и 60 integration paths сохранены; generated routers local-only.
+
 Отчёт по existing convention: исходный baseline, source ref/attribution,
 что reused/adapted/rejected, maintenance cost, изменённые paths, команды/exit
 codes и примеры convergence/conflict. Таблица R0 + K1–K10 со ссылками на evidence,
@@ -425,7 +441,7 @@ codes и примеры convergence/conflict. Таблица R0 + K1–K10 со 
 **Размер:** S/M. **Checkpoint B-IV:** финальная проверяемая передача.
 
 Порядок: B1 → B2 → B3 → B4 → B5; B6 после решения R0/B5, B7 после B2;
-затем B8 → B9 → B10. B6/B7 реализованы в принятой границе; после B-III — B8–B10.
+затем B8 → B9 → B10. B1–B10 завершены в принятой R0 границе; B-IV PASS.
 Ревью R0 закрыто; runtime/contracts в B1 не менялись. В B2/B3 добавлен optional
 helper, существующие contracts/Skills/manifest/MCP schemas не менялись.
 

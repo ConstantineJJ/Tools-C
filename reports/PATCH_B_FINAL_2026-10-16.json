@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "B8-B10",
+  "status": "PASS",
+  "checkpoint": "B-IV",
+  "review_mode": "SELF_REVIEW",
+  "branch": "codex/development-control-b",
+  "baseline_head": "f878b0adaefb4b3c558e44181841b7833c66d728",
+  "checkpoint_commit": "f878b0adaefb4b3c558e44181841b7833c66d728",
+  "final_commit": "Recorded in Git; this evidence does not self-bind its containing commit",
+  "source": {
+    "document": "Kit_Codex.md",
+    "external_basis": "github/spec-kit",
+    "ref": "f6e72bc8523de8ec8368129cbdea78d45f27cef8",
+    "license": "MIT",
+    "external_code_copied": false
+  },
+  "reuse": [
+    "Existing manifest/canonical Skills",
+    "Existing public MCP requested_documents and receipts",
+    "Existing QA receipt/freshness/state owners",
+    "stdlib bounded readers"
+  ],
+  "adapted": [
+    "Scoped traceability",
+    "Formal cross-artifact analysis",
+    "Observed convergence and guarded task upsert",
+    "Read-only dependency impact"
+  ],
+  "deferred": [
+    "Separate Ledger/workflow executor",
+    "Generic semantic/visual attestation",
+    "Automatic engine execution"
+  ],
+  "maintenance": "Three focused runtime modules, existing four owners, one small metadata fixture; no dependency or new state authority",
+  "changed_paths": [
+    ".tooling/contracts.json",
+    "skills/project-audit/SKILL.md",
+    "skills/contracts-lint/SKILL.md",
+    "skills/verification/SKILL.md",
+    "skills/production-project-state-gates/SKILL.md",
+    "README.md",
+    "docs/contracts.md",
+    "docs/project-review.md",
+    "tests/test_project_review_integration.py",
+    "Project-pulse.md",
+    "tasks/plan.md",
+    "tasks/todo.md",
+    "reports/PATCH_B_FINAL_2026-10-16.md",
+    "reports/PATCH_B_FINAL_2026-10-16.json",
+    "tests/fixtures/project_review_vehicle/spec.md",
+    "tests/fixtures/project_review_vehicle/todo.md",
+    "tests/fixtures/project_review_vehicle/vehicle.json",
+    "tests/fixtures/project_review_vehicle/review.json"
+  ],
+  "checks": {
+    "working": {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests": 433,
+      "unittest_seconds": 272.013,
+      "elapsed_seconds": 272.355,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "clean_candidate": {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests": 421,
+      "unittest_seconds": 271.47,
+      "elapsed_seconds": 271.813,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "candidate_definition": "HEAD export + 18 allowlisted paths, own-only mixed contract; excludes 12 unrelated workflow tests",
+    "included_review_tests": 66,
+    "new_integration_tests": 6,
+    "l1": [
+      {
+        "scope": "self",
+        "command": [
+          "python",
+          "tools/check.py",
+          "--self",
+          "--json"
+        ],
+        "exit_code": 0,
+        "counts": {
+          "PASS": 51,
+          "WARN": 0,
+          "FAIL": 0,
+          "SKIP": 3
+        },
+        "skipped_levels": [
+          "L2",
+          "L3",
+          "L4"
+        ]
+      },
+      {
+        "scope": "candidate-self",
+        "command": [
+          "python",
+          "tools/check.py",
+          "--self",
+          "--json"
+        ],
+        "exit_code": 0,
+        "counts": {
+          "PASS": 51,
+          "WARN": 0,
+          "FAIL": 0,
+          "SKIP": 3
+        },
+        "skipped_levels": [
+          "L2",
+          "L3",
+          "L4"
+        ]
+      },
+      {
+        "scope": "integration",
+        "command": [
+          "python",
+          "tools/check.py",
+          "--project",
+          "E:/MyCreations/Blender-MCP-Co",
+          "--json"
+        ],
+        "exit_code": 0,
+        "counts": {
+          "PASS": 9,
+          "WARN": 0,
+          "FAIL": 0,
+          "SKIP": 3
+        },
+        "skipped_levels": [
+          "L2",
+          "L3",
+          "L4"
+        ]
+      }
+    ]
+  },
+  "regression": {
+    "initial_status": "FAIL",
+    "both_trees": true,
+    "test": "test_anime.AnimeRoutingTest.test_default_context_delivers_geometry_and_conditional_techniques_without_truncation",
+    "cause": "New Verification wording exceeded existing 60000 context budget",
+    "fix": "Shorten only new B8 wording and description",
+    "weakened_checks": false,
+    "budget_changed": false,
+    "anime_module_tests": 11,
+    "final_status": "PASS"
+  },
+  "frozen_full_run_hashes": {
+    "skills/project-audit/SKILL.md": "493df0398ac7a229c6a99d1efb4e0fcff85ab8b43e64060ff81f90e33d037488",
+    "skills/contracts-lint/SKILL.md": "ad40dd4b843f71bf805d5484a5604572a185384fd7e98be452ba408e901d3a2e",
+    "skills/verification/SKILL.md": "9fc99eb436b15d17aabdfa793946e42b109481a9fe7742376bdb472fe350f90a",
+    "skills/production-project-state-gates/SKILL.md": "2c3f8ccf7ec56f0aacaccb42985aa6aae7d2a7626fe92a1400a1d2c2b1cc9f6c",
+    "tests/test_project_review_integration.py": "b44822a0275215b94833e659b0ee1c2853e039bd55a07a496b6486351d469cf8",
+    "tests/fixtures/project_review_vehicle/spec.md": "472d09c5ad18636428f282f3e89e0574f8d55346a0ab67e80722d471434d8249",
+    "tests/fixtures/project_review_vehicle/todo.md": "0e753ed70af09784dc420d5167d18b91234ea649f1774c6b2d5139c781141efe",
+    "tests/fixtures/project_review_vehicle/vehicle.json": "36c021a7120de89038ad9c4d8bc78a9b1301b3a8bf31c37588ee670c9d5280de",
+    "tests/fixtures/project_review_vehicle/review.json": "e3b06b6c11f180c48c127d6bcfb78aaf7764ce8b1a91deed6bd4c4a6b12f6941",
+    "tools/project_review.py": "50311bd2f8cb8ca31dbc782fa9ab6eebbe03c7063d85fa0ace84899d5a3726da",
+    "tools/project_review_tasks.py": "152d0074831e860f312a9e1141ac108b5c6924fdb5259b3a6cdacd12499f48f2",
+    "tools/project_review_impact.py": "9cd6f672112b0f1a1e95c266b4a71cd6ef042edd476f2c6b5c2decd72b5b08fd"
+  },
+  "live_connector": {
+    "aliases": [
+      {
+        "name": "Blender_Character_Pipeline_Core",
+        "sha256": "151b38bb954bf91792dc2c0b0afce808ef90db1d826661832ec00df169b77cc5",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Reference_Reconstruction_SKILL",
+        "sha256": "a0992480578e8ec45e3796f8abd2b0d45edb8cd5981e367f221e240c4e0ba050",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Character_Modeling_SKILL",
+        "sha256": "a115e6f1031feeac9bb6f17fc527583ca86587f4837a9088a85dfb7791bdc55e",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Animal_Anthropomorphic_Modeling_SKILL",
+        "sha256": "d3b81038bcdf2cd48fc1f9c1e71e626d7ae456dc36ed4f371c4319ff6a184f3c",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Organic_Sculpting_SKILL",
+        "sha256": "d011ffd8946d62b7f1461fe0a017923f051591f3c35c2117ef43686d54f33b43",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Retopology_Deformation_SKILL",
+        "sha256": "293e44f361ea51d1bc38ae194043834f6625487ec95a9ddaacb5f4ec070eba5b",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Character_QA_SKILL",
+        "sha256": "53af8e0a04657acced282e6fcf5d7dd6b6ce78f970c91e4e9f6aadfba325873c",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Iterative_Refinement_SKILL",
+        "sha256": "eaaa7b54f8ef04b003fa91c3a2bfd3bcfa88f6f825878217ef0894c00c9c1084",
+        "matches_current_worktree": true
+      },
+      {
+        "name": "Blender_Character_Rigging_Animation_Godot_SKILL",
+        "sha256": "005fd8c445c9e45903154b224ab626cbedbdebee8ee13d6dc5b815591150d715",
+        "matches_current_worktree": true
+      }
+    ],
+    "identity": {
+      "sameServer": true,
+      "sameSchema": true,
+      "restartRequired": false,
+      "tools": 17
+    },
+    "context": {
+      "ok": true,
+      "documents": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+          "characters": 5174,
+          "status": "delivered"
+        },
+        {
+          "path": "skills/project-audit/SKILL.md",
+          "sha256": "7ee66ec9152b6b69405cb64bcf07b149f16a4d5a39972568181adfd03493d172",
+          "characters": 3498,
+          "status": "delivered"
+        },
+        {
+          "path": "docs/project-review.md",
+          "sha256": "08cc990640fcfe033f5c2756d4ca196aabfae6ec21888ff44d743125f2e18ed7",
+          "characters": 17364,
+          "status": "delivered"
+        }
+      ],
+      "retained": [
+        {
+          "path": "docs/foundation.md",
+          "sha256": "0082befa665f35367dec08a0ec5596bd5cecbd3150030b35d6be128cfd80dce6",
+          "characters": 5174,
+          "status": "retained"
+        },
+        {
+          "path": "skills/project-audit/SKILL.md",
+          "sha256": "7ee66ec9152b6b69405cb64bcf07b149f16a4d5a39972568181adfd03493d172",
+          "characters": 3498,
+          "status": "retained"
+        },
+        {
+          "path": "docs/project-review.md",
+          "sha256": "08cc990640fcfe033f5c2756d4ca196aabfae6ec21888ff44d743125f2e18ed7",
+          "characters": 17364,
+          "status": "retained"
+        }
+      ],
+      "retainedOk": true
+    },
+    "discovery": [
+      {
+        "query": "cross-artifact",
+        "ok": true,
+        "owners": [
+          "project-audit"
+        ],
+        "phase": "metadata"
+      },
+      {
+        "query": "traceability",
+        "ok": true,
+        "owners": [
+          "contracts-lint"
+        ],
+        "phase": "metadata"
+      },
+      {
+        "query": "convergence",
+        "ok": true,
+        "owners": [
+          "verification"
+        ],
+        "phase": "metadata"
+      }
+    ],
+    "beforeServerSha": "3edcbfa98a1e501e468512e00dd35a9dc5cd49a64bdba095108b9922af811c42",
+    "beforeSchemaSha": "2c45b6df56b665e736d501126fb774a1ac4096751969118ee71da44fadf5e8fc"
+  },
+  "disk_audit": {
+    "command": [
+      "python",
+      "tools/mcp_deployment.py",
+      "--project",
+      "E:/MyCreations/Blender-MCP-Co"
+    ],
+    "exit_code": 0,
+    "status": "PASS",
+    "tools": 17
+  },
+  "domain": {
+    "converge": {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "tools/project_review.py",
+        "converge",
+        "review.json",
+        "--project",
+        "tests/fixtures/project_review_vehicle"
+      ],
+      "exit_code": 0,
+      "acceptance": "OPEN",
+      "visual": "NOT_EVALUATED",
+      "requirements": {
+        "VEHICLE-001": "PASS",
+        "VEHICLE-002": "OPEN",
+        "VEHICLE-003": "OPEN"
+      }
+    },
+    "existing_receipt": {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "tools/qa_gate.py",
+        "E:\\MyCreations\\Tools_C\\.local\\patch-b-final-2026-10-16\\vehicle-receipt.json"
+      ],
+      "exit_code": 2,
+      "structure": "PASS",
+      "gate": "OPEN"
+    },
+    "image_inspection": "SKIP: metadata only, no actual images or scene"
+  },
+  "preservation": {
+    "primary_outside_scope_preserved": 423,
+    "preserved_missing_paths": 76,
+    "mixed_contract_old_hunk_preserved": true,
+    "integration_unchanged": 60,
+    "integration_head_unchanged": true,
+    "integration_changed": [
+      "mcp-server/skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Modeling_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Pipeline_Core/SKILL.md",
+      "mcp-server/skills/Blender_Character_QA_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+      "mcp-server/skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+      "mcp-server/skills/PIPELINE_MANIFEST.json",
+      "skills/Blender_Animal_Anthropomorphic_Modeling_SKILL/SKILL.md",
+      "skills/Blender_Character_Modeling_SKILL/SKILL.md",
+      "skills/Blender_Character_Pipeline_Core/SKILL.md",
+      "skills/Blender_Character_QA_SKILL/SKILL.md",
+      "skills/Blender_Character_Rigging_Animation_Godot_SKILL/SKILL.md",
+      "skills/Blender_Iterative_Refinement_SKILL/SKILL.md",
+      "skills/Blender_Organic_Sculpting_SKILL/SKILL.md",
+      "skills/Blender_Reference_Reconstruction_SKILL/SKILL.md",
+      "skills/Blender_Retopology_Deformation_SKILL/SKILL.md",
+      "skills/PIPELINE_MANIFEST.json"
+    ]
+  },
+  "gates": {
+    "R0": {
+      "status": "PASS",
+      "evidence": [
+        "reports/PATCH_B_R0_2026-10-16.md"
+      ]
+    },
+    "K1": {
+      "status": "PASS",
+      "evidence": [
+        "manifest.json"
+      ],
+      "limit": "Existing authority, 28 canonical IDs, 9 aliases preserved"
+    },
+    "K2": {
+      "status": "PASS",
+      "evidence": [
+        "tests/test_project_review.py"
+      ],
+      "limit": "Scoped formal hash/line/ID/ref binding"
+    },
+    "K3": {
+      "status": "PASS",
+      "evidence": [
+        "tests/test_project_review.py"
+      ],
+      "limit": "Formal conflicts/duplicates/coverage, semantics require review"
+    },
+    "K4": {
+      "status": "PASS",
+      "evidence": [
+        "reports/PATCH_B_B4_B5_2026-10-16.md"
+      ],
+      "limit": "Four observed gap types; unknown/manual distinct"
+    },
+    "K5": {
+      "status": "PASS",
+      "evidence": [
+        "tests/test_project_review.py"
+      ],
+      "limit": "NO-OP, stable IDs, closed recurrence and guarded task write"
+    },
+    "K6": {
+      "status": "DEFER",
+      "evidence": [
+        "reports/PATCH_B_R0_2026-10-16.md",
+        "reports/PATCH_B_B6_B7_2026-10-16.md"
+      ],
+      "limit": "Existing state/freshness reused; separate Ledger/resume executor unnecessary"
+    },
+    "K7": {
+      "status": "PASS",
+      "evidence": [
+        "tests/test_project_review_impact.py"
+      ],
+      "limit": "Selected dependency scope; incomplete coverage and migration unknown explicit"
+    },
+    "K8": {
+      "status": "PASS",
+      "evidence": [
+        "tests/test_project_review_integration.py"
+      ],
+      "limit": "433 working / 421 candidate tests; L1 51/9, 9 live aliases"
+    },
+    "K9": {
+      "status": "PASS",
+      "evidence": [
+        "reports/PATCH_B_FINAL_2026-10-16.md"
+      ],
+      "limit": "423/60 outside-scope paths preserved, 18 own primary paths, no deployment"
+    },
+    "K10": {
+      "status": "PASS",
+      "evidence": [
+        "Project-pulse.md",
+        "tasks/plan.md",
+        "tasks/todo.md",
+        "docs/project-review.md"
+      ],
+      "limit": "Current report/evidence and runnable metadata fixture; unrun asset acceptance explicit"
+    }
+  },
+  "integration": {
+    "sync_command": [
+      "python",
+      "tools/sync_blender.py",
+      "--project",
+      "E:/MyCreations/Blender-MCP-Co"
+    ],
+    "generated_paths": 20,
+    "commit": "NOT_COMMITTED",
+    "scope": "Installed working tree, including protected pre-existing character workflow edits; separate from clean primary candidate",
+    "remote_publication": "BLOCKED: previous configured remote Repository not found; no retry"
+  },
+  "deployment_actions": [],
+  "push": false,
+  "engine_scene_or_model_work": "SKIP: metadata/software scope",
+  "historical_g5": "SKIP: blocked file reads in prior paired agent harness; not reopened",
+  "next_owner": "Routine requested project review; independently review integration publication and regenerate against intended canonical tree",
+  "limits": [
+    "Manual/L4 and formal PASS0 remain OPEN without evidence",
+    "Metadata checks cannot attest images or arbitrary semantics",
+    "Impact coverage limited to selected bound sources",
+    "Guarded task writer assumes explicit cooperating exclusive writer interval",
+    "Separate Ledger and engine execution require reopening R0"
+  ]
+}

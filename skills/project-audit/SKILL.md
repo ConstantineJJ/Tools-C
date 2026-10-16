@@ -1,6 +1,6 @@
 ---
 name: project-audit
-description: Audit or scope work in a local project, or connect it to Tools_C while preserving instructions and worktree changes. Use for project orientation and integration, not asset authoring.
+description: Audit project scope, integration and cross-artifact dependencies while preserving instructions and worktree changes. Use for orientation or read-only project review, not asset authoring.
 ---
 
 # Project audit
@@ -24,6 +24,12 @@ Inspect the primary and additional roots, nested instructions, branch/HEAD, remo
 For an integration request, follow [project integration](references/integration.md): inspect existing configuration, connect through the managed bootstrap path, then review and specialize the generated profile/contracts. A generated profile is unreviewed until its project choices are checked; L1 passing does not make its assumptions true.
 
 ## Anti-degradation and stop
+
+For requested cross-artifact review or an existing scoped review packet, read
+[project review interfaces](../../docs/project-review.md). Use `validate`,
+`analyze` and `impact` on explicitly selected sources; direct/possible/unknown
+dependencies are distinct. Do not create a packet or scan other projects for
+every small task. These read-only operations do not authorize edits or deployment.
 
 For an explicitly requested session analysis, use the bounded read-only
 `tools/session_diagnostics.py LOG --root ALLOWED_ROOT`; see

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "scope": "vehicle-metadata-demo",
+  "revision": 1,
+  "sources": [
+    {
+      "id": "spec",
+      "path": "spec.md",
+      "sha256": "472d09c5ad18636428f282f3e89e0574f8d55346a0ab67e80722d471434d8249"
+    },
+    {
+      "id": "todo",
+      "path": "todo.md",
+      "sha256": "0e753ed70af09784dc420d5167d18b91234ea649f1774c6b2d5139c781141efe"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "VEHICLE-001",
+      "source": {
+        "id": "spec",
+        "line": 2
+      },
+      "description": "Saved metadata bytes",
+      "mandatory": true,
+      "level": "L1",
+      "checks": [
+        "META"
+      ]
+    },
+    {
+      "id": "VEHICLE-002",
+      "source": {
+        "id": "spec",
+        "line": 3
+      },
+      "description": "Actual reference likeness review",
+      "mandatory": true,
+      "level": "L4",
+      "checks": [
+        "VISUAL"
+      ]
+    },
+    {
+      "id": "VEHICLE-003",
+      "source": {
+        "id": "spec",
+        "line": 4
+      },
+      "description": "Actual formal PASS0 acceptance",
+      "mandatory": true,
+      "level": "L1",
+      "checks": [
+        "PASS0"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "B9",
+      "source": {
+        "id": "todo",
+        "line": 1
+      },
+      "requirements": [
+        "VEHICLE-001",
+        "VEHICLE-002",
+        "VEHICLE-003"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "metadata",
+      "path": "vehicle.json"
+    }
+  ],
+  "checks": [
+    {
+      "id": "META",
+      "requirement": "VEHICLE-001",
+      "artifact": "metadata",
+      "kind": "sha256",
+      "expected": "36c021a7120de89038ad9c4d8bc78a9b1301b3a8bf31c37588ee670c9d5280de"
+    },
+    {
+      "id": "VISUAL",
+      "requirement": "VEHICLE-002",
+      "artifact": "metadata",
+      "kind": "manual"
+    },
+    {
+      "id": "PASS0",
+      "requirement": "VEHICLE-003",
+      "artifact": "metadata",
+      "kind": "manual"
+    }
+  ]
+}

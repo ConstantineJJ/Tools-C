@@ -245,9 +245,40 @@ checks the same finding ID. The CLI test runs the actual subprocess and verifies
 unchanged input bytes; other cases cover source staleness, wrong references,
 strict parsing/bounds, canonical pointer isolation and unopened L4 evidence.
 
-## Deferred B functions
+## Deferred functions
 
-Owner integration and domain/final acceptance remain B8–B10 under
-[R0](../reports/PATCH_B_R0_2026-10-16.md). No Ledger/workflow engine, external model
-trial or generic visual/manual PASS adapter is added. B-III adds dependency evidence
-without auto edits, router generation, deployments or service restarts.
+[R0](../reports/PATCH_B_R0_2026-10-16.md) defers a separate Ledger/workflow engine;
+no external model trial or generic visual/manual PASS adapter is added. Impact
+analysis reports dependencies without auto edits, generation or deployment.
+Owner integration and domain verification are recorded in the
+[final B report](../reports/PATCH_B_FINAL_2026-10-16.md).
+
+## Existing owners and runnable domain example
+
+Use this optional workflow only for requested review or a current scoped packet:
+
+| Owner | Responsibility |
+|---|---|
+| project-audit | Intake, selected scope, read-only analyze/impact |
+| contracts-lint | Packet/ID/source validation; existing formats remain authoritative |
+| verification | Current convergence and existing domain acceptance |
+| production-project-state-gates | Guarded task application and handoff in existing todo/Pulse |
+
+These entrypoints link here without forcing the full interface into every context.
+MCP-only clients may fetch it through the existing `get_skill_context` request:
+`task="project-audit", requested_documents=["docs/project-review.md"]`; reuse
+current receipts only while retaining those exact documents. No MCP schema or
+tool name is added. Review data never authorizes source fixes or engine execution.
+
+```powershell
+python tools/project_review.py converge review.json --project tests/fixtures/project_review_vehicle
+```
+
+The checked-in metadata-only fixture produces VEHICLE-001 PASS (actual saved
+bytes), VEHICLE-002 OPEN (unreviewed likeness) and VEHICLE-003 OPEN (formal PASS0
+not established); overall OPEN, visual NOT_EVALUATED, no proposed corrective tasks.
+No scene/images are included, so actual image inspection is SKIP. This does not
+reassess the user's accepted visual improvement after A. The isolated
+`test_existing_asset_receipt_blocks_uninspected_vehicle_views` also exercises the
+existing ASSET_FINAL receipt owner: structurally valid metadata with unreviewed
+views cannot yield its final gate PASS.

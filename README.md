@@ -127,6 +127,13 @@ review; structural checks do not certify visual quality. Architecture 4.0 keeps
 JSON schema_version 1 and historical lesson/report versions unchanged.
 
 L1 structural/contracts/static checks: [format, codes, limits and adding rules](docs/contracts.md).
+
+Optional [project review](docs/project-review.md) connects scoped requirement IDs,
+tasks, sources and evidence. `tools/project_review.py` provides read-only
+`validate`, `analyze`, `converge` and `impact`; `apply-tasks` is an explicit guarded
+todo write. Existing projects need no new packet. A runnable
+[vehicle metadata example](tests/fixtures/project_review_vehicle/spec.md) keeps
+structural success separate from unreviewed visual/formal acceptance.
 L2 engine/import probes: [selection, commands and evidence](docs/engines.md).
 L3 requires an explicit runtime behavior probe; L4 requires actual engineering/
 visual evidence via [verification](skills/verification/SKILL.md). Missing capability

@@ -121,7 +121,18 @@
         "tests/test_session_diagnostics.py",
         "tests/skill_behavior_cases.json",
         "skills/verification/references/behavioral-tests.md",
-        "docs/mega-tools.md"
+        "docs/mega-tools.md",
+        "tools/project_review.py",
+        "tools/project_review_tasks.py",
+        "tools/project_review_impact.py",
+        "tests/test_project_review.py",
+        "tests/test_project_review_impact.py",
+        "tests/test_project_review_integration.py",
+        "docs/project-review.md",
+        "tests/fixtures/project_review_vehicle/spec.md",
+        "tests/fixtures/project_review_vehicle/todo.md",
+        "tests/fixtures/project_review_vehicle/vehicle.json",
+        "tests/fixtures/project_review_vehicle/review.json"
       ]
     },
     {
@@ -134,7 +145,9 @@
         ".tooling/contracts.json",
           ".tooling/blender-domain-contracts.json",
         ".tooling/blender-polishing-contracts.json",
-        ".tooling/blender-anime-contracts.json"
+        ".tooling/blender-anime-contracts.json",
+        "tests/fixtures/project_review_vehicle/vehicle.json",
+        "tests/fixtures/project_review_vehicle/review.json"
       ]
     },
     {
@@ -153,7 +166,9 @@
         "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
-        "Project-pulse.md"
+        "Project-pulse.md",
+        "docs/project-review.md",
+        "tests/fixtures/project_review_vehicle/spec.md"
       ]
     },
     {
@@ -216,6 +231,19 @@
           ".tooling/surface-transfer-contracts.json"
         ]
       }
+    },
+    {
+      "id": "TOOLS-PROJECT-REVIEW-ROUTES",
+      "kind": "markdown",
+      "paths": [
+        "skills/project-audit/SKILL.md",
+        "skills/contracts-lint/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/production-project-state-gates/SKILL.md"
+      ],
+      "required_targets": [
+        "docs/project-review.md"
+      ]
     }
   ]
 }

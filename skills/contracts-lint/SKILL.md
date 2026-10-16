@@ -1,6 +1,6 @@
 ---
 name: contracts-lint
-description: Maintain Tools_C contracts, checker rules and reusable lessons when a repeatable invariant or skill rule needs to change. Use for tooling maintenance, not ordinary project QA.
+description: Maintain Tools_C contracts, checker rules, scoped traceability validation and reusable lessons. Use for tooling or rule maintenance, not ordinary asset QA.
 ---
 
 # Contracts and lessons
@@ -24,6 +24,12 @@ Read the [contract format](../../docs/contracts.md), relevant checker, current t
 For a rule change, update the active definition and affected tests/consumers together. Exercise a valid fixture and a violating fixture, including malformed input and path escape when relevant. Retire superseded active text rather than keeping two authorities. Follow the [rule and lesson lifecycle](references/rule-lifecycle.md) for IDs, provenance and replacement details.
 
 ## Anti-degradation and stop
+
+For the optional traceability packet, read
+[project review interfaces](../../docs/project-review.md): validate scoped IDs,
+source hashes/lines and links before analysis. Summaries do not supersede source
+authority; changed sources require explicit review/rebind. A missing optional
+packet does not invalidate legacy profiles/contracts or change their v1 schemas.
 
 Skill discovery uses the canonical manifest for identities and canonical
 frontmatter for descriptions. Follow [Mega tools boundaries](../../docs/mega-tools.md):

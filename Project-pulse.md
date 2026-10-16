@@ -9,12 +9,13 @@ Catalog: 28 canonical Skills / 9 legacy aliases. A baseline HEAD `becd57b`; publ
 
 **User decision, 2026-10-16:** visual improvement in ordinary-chat after A versus ordinary-chat before A is personally confirmed and accepted for closing A. User authorized commit/push and preparation for B; no further model experiments are required for this handoff. Exact reference replication and controlled causal G5 measurement remain separate open scopes.
 
-**Published A:** `be926e45be927b61f0acc446898fe56f660af852` in `origin/codex/mega-tools-a`; remote SHA verified. Preparation commit `3e86428` is also published. Main was not rewritten. **B1/R0 PASS; B2–B7 DONE / B-III PASS**; B8+ open. B branch `codex/development-control-b`; the B1–B7 checkpoint uses a reviewed 17-path allowlist, without push. Commit identity is recorded in Git; B8–B10 follow separately. [R0](reports/PATCH_B_R0_2026-10-16.md), [B2/B3](reports/PATCH_B_B2_B3_2026-10-16.md), [B4/B5](reports/PATCH_B_B4_B5_2026-10-16.md), [B6/B7](reports/PATCH_B_B6_B7_2026-10-16.md).
+**Published A:** `be926e45be927b61f0acc446898fe56f660af852` in `origin/codex/mega-tools-a`; remote SHA verified. Preparation commit `3e86428` is also published. Main was not rewritten. **B1–B10 DONE / B-IV PASS** within R0 scope. B branch `codex/development-control-b`; checkpoint `f878b0a` contains 17 reviewed paths, B8–B10 use a separate 18-path allowlist. No B push. [Final QA/evidence](reports/PATCH_B_FINAL_2026-10-16.md), [R0](reports/PATCH_B_R0_2026-10-16.md), [B2/B3](reports/PATCH_B_B2_B3_2026-10-16.md), [B4/B5](reports/PATCH_B_B4_B5_2026-10-16.md), [B6/B7](reports/PATCH_B_B6_B7_2026-10-16.md).
 
 Implemented lightweight current header discovery, exact IDs/aliases and bounded RU/EN intent fixes, generic context boundaries, deferred delivery for explicit long stage chains, a passive behavioral evidence utility and read-only bounded session diagnostics. Existing project-audit / verification / contracts-lint remain owners; schemas, 28 IDs/9 aliases and public MCP input schemas remain stable. No new Ledger or workflow engine.
 
 ## Verification
 
+- B8–B10 final working tree **433/433 PASS**, 272.013 s; separate clean candidate **421/421 PASS**, 271.470 s, both 0 failures/errors/skips. Includes 66 review tests, 6 new integration tests. Self/candidate L1 **51 PASS**, integration **9 PASS**, no WARN/FAIL; expected L2–L4 SKIP. Initial anime context-budget regression fixed by shortening new Verification wording; existing 60000 limit and mandatory documents preserved, all 11 anime tests PASS. Live resident MCP read all 9 aliases with exact current canonical content, explicit interface/receipts verified, 17 tools/server/schema unchanged, no restart. Metadata vehicle CLI leaves likeness/formal PASS0 OPEN; ASSET_FINAL blocks uninspected views. 423 central / 60 integration outside-scope paths preserved. [Final report](reports/PATCH_B_FINAL_2026-10-16.md).
 - Full regression: **367/367 PASS**, 231.588 s, 0 failures/errors/skips. Self L1 **50/0/0**; Blender-MCP-Co L1 **9/0/0**. Actual source/router disk audit PASS with 17 tools.
 - Exact A commit candidate, excluding unrelated dirty work: **355/355 PASS**, 228.208 s, 0 failures/errors/skips; self/integration L1 **50/9 PASS**. The additional 12 working-tree tests belong to the pre-existing workflow stream and were not committed. Documentation-only B preparation uses link/L1/diff checks.
 - Fresh B1 review checks: self/integration L1 **50/9 PASS**, Model Contract **28 tests PASS**, freshness **17 tests PASS**; expected strict-v1 unknown-field rejection confirmed in memory. Full suite is prior baseline evidence, not rerun in R0. No B runtime implementation or model/engine trials.
@@ -37,7 +38,7 @@ Only generated routers/manifests (20 files) changed in Blender-MCP-Co, via canon
 
 Router commit `317a9690fc77c023cb3008f3e92c82930c7320d7` exists locally in Blender-MCP-Co `codex/mega-tools-a`. Its push failed (exit 128, configured GitHub remote returned `Repository not found`); remote router publication is **BLOCKED**, not claimed as complete. Credentials/remotes/services were not changed.
 
-## Next / patch B boundary
+## Patch B handoff / next
 
 B1/R0 complete at `3e86428` plus preserved dirty baseline. [Review/evidence](reports/PATCH_B_R0_2026-10-16.md) selects ADAPT for traceability, cross-artifact analysis, convergence and read-only impact; separate Ledger/workflow engine DEFER. Existing state/QA/freshness and canonical owners remain authoritative. Nine external source files reviewed at pinned Spec Kit ref; no external code/install/dependency introduced.
 
@@ -66,10 +67,18 @@ or runtime use. Schema migration UNKNOWN without compatibility delta; recommende
 L1–L4 NOT_RUN separately from executed L1. B-III PASS: review 60, final full
 427 and L1 50/9 PASS; 425 outside-scope paths/deletions preserved.
 
-B6/B7 scope: core entrypoint, one impact module/test, interface doc, two reports,
-plan/todo/Pulse. B1–B7 form the scoped checkpoint; B8–B10 follow as separate work. Historical evidence and unrelated
-bytes/deletions preserved; no owner/Skill/MCP/router integration, new Ledger,
-services or assets. After B-III: B8–B10. Router remote access remains separate.
+B1–B7 checkpoint `f878b0a` is complete. B8 integrates optional review in the four
+existing owners and L1 routes; B9 adds a metadata-only vehicle example and six
+integration tests; B10 closes scoped engineering QA, report and handoff. B-IV PASS.
+Separate Ledger remains DEFER by R0; no services or production assets changed.
+
+Next: use the optional interface when scoped cross-artifact review is requested.
+No B implementation remains in accepted scope. Router publication is separate:
+20 generated files reflect the installed dirty canonical worktree and remain
+local/uncommitted, while the clean Tools_C candidate was independently tested.
+Before publishing integration, review its changes and regenerate against the
+intended canonical publication tree; remote access remains BLOCKED from A.
+Historical evidence and unrelated bytes/deletions are preserved.
 
 Optional A evidence remains: a controlled paired experiment with fixed model/settings/budget and actual Skill consumption. User acceptance closes the requested A handoff without spending more model quota; do not convert the previous blocked experiment into PASS.
 

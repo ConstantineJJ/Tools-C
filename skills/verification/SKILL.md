@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Validate a scoped change with static, engine, runtime and visual evidence, including regressions and unrun checks. Use for QA or acceptance, not as permission to edit the asset.
+description: Verify scoped changes, convergence and L1-L4 evidence; QA grants no asset edit permission.
 ---
 
 # Verification
@@ -48,6 +48,8 @@ available, otherwise explicit SELF_REVIEW. Preserve locked design and accepted
 regions. Metadata PASS cannot establish artistic quality.
 
 ## Anti-degradation and stop
+
+[Optional convergence](../../docs/project-review.md): manual/L4 stays open.
 
 Skill-rule trials: [protocol](references/behavioral-tests.md). Offline PASS is not agent execution.
 

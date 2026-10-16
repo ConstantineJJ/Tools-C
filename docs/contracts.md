@@ -144,3 +144,8 @@ affected project. Avoid freezing tuning or asset identity as universal policy.
 Retire an obsolete rule by updating/removing its active definition and consumers
 together, with the reason in Git history. A replaced rule must not remain active
 in another copy. Lessons lifecycle: [contracts-lint](../skills/contracts-lint/SKILL.md).
+
+The optional [project review packet](project-review.md) is a separate scoped map,
+not a contract/profile schema extension. Existing projects remain valid without it.
+Its analysis exit 0 means a report was built; inspect `acceptance_status` for
+PASS/FAIL/OPEN. The core L1 checker's exit/status contract above is unchanged.

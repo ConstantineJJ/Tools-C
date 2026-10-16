@@ -40,7 +40,9 @@ L1 50/9 PASS. [Scope публикации](../reports/MEGA_TOOLS_PUBLICATION_202
 focused tests PASS, self/integration L1 50/9 PASS. B4/B5 implementation завершена;
 [новый отчёт](../reports/PATCH_B_B4_B5_2026-10-16.md), 39 focused tests PASS,
 checkpoint B-II PASS: full 406, L1 50/9; 421 outside-scope paths preserved.
-B6 boundary review и B7 DONE: focused 60, full 427, L1 50/9 PASS; [B-III отчёт](../reports/PATCH_B_B6_B7_2026-10-16.md), checkpoint B-III PASS, 425 outside-scope paths preserved. B8+ остаются открытыми.
+B6 boundary review и B7 DONE: focused 60, full 427, L1 50/9 PASS; [B-III отчёт](../reports/PATCH_B_B6_B7_2026-10-16.md), checkpoint B-III PASS, 425 outside-scope paths preserved.
+B8–B10 DONE / B-IV PASS: full working **433**, clean candidate **421 PASS**,
+L1 **51/9 PASS**, all 9 aliases live-read; [final report](../reports/PATCH_B_FINAL_2026-10-16.md).
 
 - [x] B1 — Актуальный audit, 9 external source files, owners/options review и Gate R0 PASS по пяти функциям. Свежие L1 50/9, Model Contract 28 и freshness 17 tests PASS.
 - [x] B2 — Optional bounded review packet v1, строгие ID/source/hash/line/ref проверки; legacy schema не менялась.
@@ -52,7 +54,7 @@ B6 boundary review и B7 DONE: focused 60, full 427, L1 50/9 PASS; [B-III отч
 - [x] B6 — Boundary review: existing state/freshness сохранены; separate Ledger/resume DEFER, ложного reuse/manual PASS нет.
 - [x] B7 — Read-only Sync Impact: direct/possible/unknown, selected source/hash/line/pointer chains; recommended/executed checks отдельно.
 - [x] Checkpoint B-III — Full 427, focused review 60, freshness 17, state 16 и L1 50/9 PASS; no new state authority.
-- [ ] B8 — Интеграция в действующих owners с legacy compatibility.
-- [ ] B9 — Изолированный доменный кейс, regression и preservation review.
-- [ ] B10 — Инженерный отчёт R0 + K1–K10, Pulse и передача.
-- [ ] Checkpoint B-IV — Проверяемая финальная приёмка B.
+- [x] B8 — Четыре действующих owners, opt-in interface/receipts, live 9 aliases и прежние MCP schemas; context budget regression исправлена.
+- [x] B9 — Изолированный vehicle metadata case, 6 новых integration tests; full 433/421 PASS и L1 51/9 PASS.
+- [x] B10 — R0 + K1–K10, final report/evidence/Pulse; 423/60 outside-scope paths preserved, separate Ledger DEFER.
+- [x] Checkpoint B-IV — Scoped technical acceptance PASS; actual asset visual/runtime QA вне этого патча, integration routers local-only.
