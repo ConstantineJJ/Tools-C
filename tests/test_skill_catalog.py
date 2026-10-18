@@ -154,6 +154,32 @@ class SkillCatalogTests(unittest.TestCase):
         self.assertTrue(result['ok'])
         self.assertNotIn('SOURCE: docs/blender-evidence.md',result['skills'][0]['content'])
 
+    def test_negated_owner_is_excluded_from_route_search_and_context(self):
+        import mcp_runtime as runtime
+        for query in ['Do not use blender-animation; export GLB.',
+                      'Не используй blender-animation; экспортируй GLB.']:
+            with self.subTest(query=query):
+                expected = ['blender-export-validation']
+                self.assertEqual(runtime.route_task(query), expected)
+                self.assertEqual([r['name'] for r in skill_catalog.search(check.ROOT, query)['results']], expected)
+                result = runtime.context(check.ROOT, query)
+                self.assertTrue(result['ok'])
+                self.assertEqual(result['routing']['owners'], expected)
+                self.assertNotIn('skills/blender-animation/SKILL.md', [d['path'] for d in result['documents']])
+
+    def test_pure_prohibition_never_returns_owner_or_spelling_suggestion(self):
+        import mcp_runtime as runtime
+        for query in ['Do not use blender-animation.', 'Не используй blender-animation.',
+                      'Do not use blender-animtion.']:
+            with self.subTest(query=query):
+                self.assertEqual(runtime.route_task(query), [])
+                result = skill_catalog.search(check.ROOT, query)
+                self.assertEqual(result['results'], [])
+                self.assertEqual(result['suggestions'], [])
+                self.assertFalse(runtime.context(check.ROOT, query)['ok'])
+        self.assertEqual(runtime.route_task('blender-animation'), ['blender-animation'])
+        self.assertEqual(skill_catalog.search(check.ROOT, 'blender-animation')['results'][0]['name'], 'blender-animation')
+
     def test_explicit_long_stage_sequence_loads_only_current_phase(self):
         import mcp_runtime as runtime
         q='Create a character, then create a rig, then create animation, then export GLB.'

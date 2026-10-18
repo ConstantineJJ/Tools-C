@@ -620,6 +620,20 @@ def validate(packet, *, root=None, stage="FINAL", mode="STANDARD"):
             result["gate"] = "FAIL"
         elif status != "PASS" or dual["TECHNICAL_QA"] != "PASS" or dual["artistic_gate"] != "PASS":
             result["gate"] = "OPEN"
+    # Keep legacy declaration-only gate/exit semantics, but never advertise
+    # acceptance readiness when artifact bytes have not been checked.
+    result['file_verification'] = 'PASS' if root is not None else 'NOT_RUN'
+    result['acceptance_gate'] = result['gate'] if root is not None or result['gate'] == 'FAIL' else 'OPEN'
+    if root is None:
+        result['next_action'] = 'VERIFY_FILES'
+    elif result['gate'] != 'PASS':
+        result['next_action'] = 'RESOLVE_GATE'
+        if (extensions and result.get('evidence_gate') == 'PASS'
+                and result['dual_verification']['TECHNICAL_QA'] == 'PASS'):
+            result['next_action'] = result['dual_verification'].get('next', 'RESOLVE_GATE')
+    else:
+        result['next_action'] = {'FACE':'BUILD_PRIMARY_FORMS', 'DETAIL':'CONTINUE_SCOPED_DETAIL',
+                                 'FINAL':'HANDOFF_DECLARED_EVIDENCE'}[stage]
     return result
 
 

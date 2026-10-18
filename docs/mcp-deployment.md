@@ -3,6 +3,19 @@
 Canonical Tools_C → generated routers in integration repository → configured MCP
 wrapper/process → local tunnel → ChatGPT connector. Each edge has its own evidence.
 
+## External capture storage
+
+Native `capture_viewport` and managed Python image delivery share
+`tools/mcp_capture_response.py:capture_directory`. Default output is
+`Work_Utility/captures/<unique-id>` beside canonical Tools_C, currently
+`E:/MyCreations/Work_Utility/captures`. Optional `TOOLS_C_WORK_ROOT` must be
+absolute and outside canonical Tools_C; set it consistently for server and Blender.
+Path resolution, manifest equality, PNG bounds and hashes remain enforced.
+Old `.local/captures` evidence is preserved, but is no longer an attachment source.
+Restart the MCP server normally after its capture route update. Until reloaded,
+use the managed Python recipe in [evidence](blender-evidence.md), which reads the
+current helper per call. This does not require reopening or restarting Blender.
+
 ## Context delivery and bounded operations
 
 The seventeen public tool names and their input schemas remain stable. All tools

@@ -146,6 +146,17 @@ Repeated state leaves bytes unchanged, even if `--previous` changed report read 
 A completed task stays completed; a newly observed state creates a linked occurrence
 with a new task ID. The operation never silently reopens a checkbox.
 
+New task observations also store an optional `history_sha256` prefix fingerprint
+of that finding's normalized report history. An explicit `FAIL → not_observed →
+FAIL` history extension is a new occurrence even when the packet, revision and
+final state hash match the original failure. Replay compares the latest task
+observation, not every state ever seen; open tasks retain `A → B → A` transitions.
+Legacy observations without this field remain readable and are not rewritten on
+NO-OP. A standalone identical state without intervening history cannot establish
+a new closed-task occurrence; supply `--previous` history or an explicit revision.
+History fingerprints bind coordinator-supplied observations, not an attestation
+that unobserved intermediate events happened.
+
 Use the returned `todo_sha256` as the expected hash for a repeat. An already recorded
 state returns NO-OP without claiming current acceptance. This handles a first append
 invalidating the bound todo source hash: for any new analysis/write, explicitly review

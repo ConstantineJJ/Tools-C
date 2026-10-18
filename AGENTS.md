@@ -23,6 +23,7 @@ Read the matching skill **before** work; combine only the relevant routes:
 | Blender standalone environment fixtures, street/site assets and repeatable set-dressing objects | [blender-environment-assets](skills/blender-environment-assets/SKILL.md) |
 | Blender roads, sidewalks, curbs, paths, crossings, junctions and connected linear ground infrastructure | [blender-roads-infrastructure](skills/blender-roads-infrastructure/SKILL.md) |
 | Blender furniture, containers, tools, clutter, decor, hand-held and interior set-dressing props | [blender-props](skills/blender-props/SKILL.md) |
+| Blender material-aware destructible assets, fragments, interiors, collision preparation and intact/destroyed variants | [blender-destruction-assets](skills/blender-destruction-assets/SKILL.md) |
 | Blender cars, trucks, buses, motorcycles, trailers and other wheeled vehicle modeling | [blender-vehicle-modeling](skills/blender-vehicle-modeling/SKILL.md) |
 | Blender household appliances, consumer electronics, computers, displays and product-design devices | [blender-product-electronics-modeling](skills/blender-product-electronics-modeling/SKILL.md) |
 | Blender trees, shrubs, grass, flowers, vines and vegetation systems | [blender-vegetation](skills/blender-vegetation/SKILL.md) |

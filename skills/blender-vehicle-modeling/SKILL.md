@@ -54,6 +54,8 @@ Establish the minimum useful brief:
 
 If reference views disagree, establish which source is authoritative before locking wheelbase or body contour. Blueprints from the internet can be inaccurate or mismatched to trim/year; do not force photographs to fit a bad drawing.
 
+For a concrete class-specific build sequence, select exactly the applicable [vehicle quick recipe](references/vehicle-recipes.md): passenger/stylized car, motorcycle/scooter, or heavy truck/multi-axle/trailer. Recipes are execution aids, not separate owners or substitute source authority. Do not load all recipes or run unneeded stages for a narrow edit.
+
 ## Reference and measurement strategy
 
 Organize references by vehicle question:
@@ -72,6 +74,17 @@ Align multiple views using stable landmarks such as axle centers, wheel diameter
 
 Use the least complex representation that preserves the required silhouette, reflections, articulation and target-camera detail.
 
+### Vehicle-specific acceptance gates
+
+For new or substantially rebuilt vehicles, follow the [V0–V4 gate and measurement guide](references/vehicle-qa.md):
+- **V0 source/datum:** source authority, units, axle markers, project coordinate basis, applicable PASS 0/Model Contract;
+- **V1 blockout/stance:** inspected neutral front/side/rear/top and target 3/4, wheelbase/track/ground-clearance measurements. A silhouette/proportion FAIL blocks body-panel detail, grilles, trim and UV/wear escalation;
+- **V2 developed clay/body curvature:** accept major body/fender/cabin/tank/cargo form in comparable clay *and* neutral highlight/reflection inspection before fine detailing. Pinches, wavy reflections or source mismatch return to geometry, not lighting, paint or increased subdivision;
+- **V3 articulation/mechanics:** actual wheel/steering/hinge/hitch origins, sampled required travel/turn/open states, measured or explicitly unverified clearance; return failed mechanisms to geometry before rig handoff;
+- **V4 geometry handoff:** records and evidence for applicable gates, source/contract hashes and remaining downstream owners; never infer GameReady/rig/export PASS from a visual vehicle.
+
+Apply only affected gates for a scoped correction. A generated capture or passing text/contract check is not visual acceptance. Use the existing Tools_C QA status/provenance system, **not a new ledger or checker schema**. Do not invent universal metric tolerances or certify unseen faces/poses.
+
 ### Pass 1 — wheel centers, stance and bounding proportions
 
 Start with wheel/axle centers and a simple body envelope. Establish:
@@ -88,7 +101,7 @@ For cars/trucks, wheels are powerful scale/proportion anchors. For motorcycles/b
 
 Judge the blockout from front, side, rear, top and multiple 3/4 views. A side blueprint can look correct while fender width, shoulder line or roof curvature is wrong in perspective.
 
-Do not begin panel gaps, grilles, vents, tread or interior controls until stance and primary surfaces are credible.
+Do not begin panel gaps, grilles, vents, tread or interior controls until stance and primary surfaces are credible. **Run V1 before proceeding:** freeze the wheel/hardpoint datums, record measured values with project/reference tolerances or UNKNOWN, and inspect the neutral proxy against source-matched front/side/rear/top plus target 3/4. If silhouette, cab/body envelope, stance or wheel placement fails, correct the blockout and recapture; never escalate details to conceal it.
 
 ### Pass 2 — primary body surfaces and reflection continuity
 
@@ -105,7 +118,7 @@ Check:
 
 Subdivision can be useful for smooth bodywork, but additional support loops/creases should serve surface control, not merely increase density. Weighted normals can help hard-surface parts but cannot fix poor body curvature.
 
-Use temporary glossy/neutral material and moving light/environment reflections if available; flat clay shading alone can hide surface waviness.
+Use temporary glossy/neutral material and moving light/environment reflections if available; flat clay shading alone can hide surface waviness. **Run V2 before Pass 3 or tertiary details:** compare matte/clay and controlled neutral highlight views in the same cameras against V1/approved references. Inspect longitudinal highlight flow across hood, roof, fenders and adjoining panels (or tank/fork/cab for other vehicle classes). Reject waviness, kinks, false panel volume and modifier-masked contour errors; record the exact region and return to sparse control geometry. Deliberate stylized planes remain valid when approved.
 
 ### Pass 3 — define panel architecture before detail
 
@@ -184,7 +197,7 @@ Before rigging handoff, define geometry origins/axes:
 
 Test each required articulation with temporary transforms. Confirm panels do not obviously intersect at intended open/steer/travel ranges. Return objects to the agreed neutral state after testing.
 
-Do not create an elaborate bone/control rig here unless explicitly in scope; hand off stable axes and hierarchy to rigging.
+Do not create an elaborate bone/control rig here unless explicitly in scope; hand off stable axes and hierarchy to rigging. **Run V3 for requested motion:** capture neutral pivots/hierarchy and evaluate representative steering, suspension, door, swingarm or hitch extrema. Report measured clearance or collision method per pose and restore the neutral state. A bounding-box overlap alone is not proof of mesh collision; one passing pose is not proof of a continuous sweep.
 
 ### Pass 8 — representation and game-ready reduction
 
@@ -258,7 +271,7 @@ A representative structural QA should include applicable cases:
 - moving-part hierarchy;
 - target-camera close and distant readability.
 
-A vehicle that looks correct in side view but fails in 3/4 reflections, wheel clearance or articulation is not accepted.
+A vehicle that looks correct in side view but fails in 3/4 reflections, wheel clearance or articulation is not accepted. **V4** records the accepted geometry checkpoints and explicit remaining surface, rig, export and engine gates; it must not claim an unexecuted target-system test.
 
 ## Performance and LOD guidance
 
@@ -271,6 +284,8 @@ A vehicle that looks correct in side view but fails in 3/4 reflections, wheel cl
 - Engine physics, wheel collision, suspension values and runtime handling belong to the target-engine/project owner.
 
 ## Validation
+
+Use the [vehicle QA/measurement reference](references/vehicle-qa.md) for axle-station positions, wheelbase, per-axle track, tire envelope, body ground clearance, overhang, pivots, tested motion poses and evidence quality. Measurements require a declared vehicle-local coordinate frame, evaluated geometry and expected project/source range where available; a number without units, method, pose, reference or tolerance is not a validated PASS. Use actual collision/closest-point geometry checks when needed; do not treat AABB-only overlap as a definitive clash.
 
 Perform applicable checks and label unavailable evidence as SKIP.
 
@@ -380,7 +395,7 @@ When passing to rigging, animation, export or engine integration, report:
 
 ## Completion / stop
 
-Complete when the requested vehicle exists with approved stance/proportion, controlled primary surfaces, coherent panel/mechanical construction, usable wheel and articulation axes, appropriate representation/detail for target cameras, protected data intact, and applicable structural/visual checks passed or explicitly handed off.
+Complete when the requested vehicle exists with approved stance/proportion, controlled primary surfaces, coherent panel/mechanical construction, usable wheel and articulation axes, appropriate representation/detail for target cameras, protected data intact, and applicable structural/visual checks passed or explicitly handed off. For a major build, **V1 and V2 are prerequisites** for claiming completed body geometry; V3 is required only for moving assemblies in scope, and V4 is a handoff record rather than automatic rig/export/GameReady acceptance. Document FAIL, unavailable/unknown evidence and required rework without declaring them PASS.
 
 Stop and report instead of guessing when reference/blueprint conflict changes wheelbase or major body shape materially, required mechanical articulation cannot be determined from available evidence, target-camera/open-state requirements are missing but necessary to scope interior/underbody work, or a requested change would invalidate protected rig/UV/pivot contracts outside scope.
 

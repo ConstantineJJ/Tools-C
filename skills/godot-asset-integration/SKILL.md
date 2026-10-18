@@ -17,6 +17,12 @@ before changing imported or shared resources. Keep authored state outside conten
 that reimport replaces. No fixed skeleton, AnimationTree graph or collision design
 is implied by this skill.
 
+For [destruction assets](../blender-destruction-assets/SKILL.md), consume the
+piece/body/proxy map and rest transforms explicitly. Validate intact/fragment
+collision switching, supported remainders, impact, settling and repeat reset in
+the requested target scope. Blender physics properties are not an implicit GLB
+runtime contract. New damage/controller logic remains with godot-project.
+
 Run a bounded import/load, then explicit target-scene playback and another affected
 instance. Compare material appearance and sampled poses in target lighting; an HTTP
 health endpoint or tunnel success does not prove engine import. Record bridge

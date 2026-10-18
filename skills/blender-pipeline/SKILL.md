@@ -53,6 +53,7 @@ or domain decisions are requested.
 | Model standalone environment fixtures, street/site furniture or repeatable outdoor set-dressing assets | [environment assets](../blender-environment-assets/SKILL.md) |
 | Build roads, sidewalks, curbs, paths, crossings, medians or connected linear ground infrastructure | [roads & infrastructure](../blender-roads-infrastructure/SKILL.md) |
 | Model furniture, containers, tools, clutter, decor, hand-held or interior set-dressing props | [props](../blender-props/SKILL.md) |
+| Prepare material-aware game destruction assets | [destruction](../blender-destruction-assets/SKILL.md) |
 | Model cars, trucks, buses, motorcycles, trailers or other wheeled vehicles | [vehicle modeling](../blender-vehicle-modeling/SKILL.md) |
 | Model household appliances, consumer electronics, computers, displays or other engineered product devices | [product & electronics](../blender-product-electronics-modeling/SKILL.md) |
 | Model trees, shrubs, grass, flowers, vines or vegetation families | [vegetation](../blender-vegetation/SKILL.md) |

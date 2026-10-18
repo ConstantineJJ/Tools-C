@@ -24,6 +24,7 @@ Own:
 - assembly validation, repetition control and large-structure optimization decisions.
 
 Route:
+- destructible masonry, localized structural breakup and supported remainders to [destruction assets](../blender-destruction-assets/SKILL.md); approved building form, module grid and undamaged neighbors remain here;
 - benches, lamps, fences, bins, bollards and similar standalone environment objects to `blender-environment-assets`;
 - roads, curbs, sidewalks, paths, gutters and network infrastructure to `blender-roads-infrastructure`;
 - furniture and hand-held/interior detail objects to `blender-props`;

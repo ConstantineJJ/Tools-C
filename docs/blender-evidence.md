@@ -107,24 +107,22 @@ import runpy, uuid
 from pathlib import Path
 tools_c = Path("E:/MyCreations/Tools_C")
 capture = runpy.run_path(str(tools_c / "tools/blender_capture.py"))["capture_viewport"]
-output = tools_c / ".local/captures" / uuid.uuid4().hex
+capture_directory = runpy.run_path(str(tools_c / "tools/mcp_capture_response.py"))["capture_directory"]
+output = capture_directory(tools_c) / uuid.uuid4().hex
 _result = capture(output=str(output),
                   view="front", target="character", object_names=["Body", "Head"],
                   mode="solid", frame=1, resolution=512)
 print(_result)
 ```
 
-The updated Tools_C integration adapter recognizes this managed capture and
-returns a verified MCP image alongside the unchanged structured Python result.
-Its loaded server must include that adapter update; discovery of a new tool is
-not required. It accepts only matching capture manifests and PNG hashes beneath
-Tools_C `.local/captures`; arbitrary Python-returned file paths are not attached.
-With an older adapter, the response is metadata only: open `_result['path']` with
-the client's local image-view capability (for example `view_image`) or an authorized
-image attachment/download mechanism. Verify the PNG against `_result['sha256']`.
-A JSON path alone is not visual review. If a remote client cannot retrieve image
-bytes, report that image-access blocker instead of claiming that Python solved it.
-Do not overwrite the evidence folder; use a new directory for each capture.
+Both routes use external `Work_Utility/captures/<unique-id>` beside Tools_C;
+`TOOLS_C_WORK_ROOT` can override the work root. Never overwrite old evidence.
+See [deployment](mcp-deployment.md#external-capture-storage) for reload/override rules.
+The adapter validates contained paths, manifest, PNG/hash and returns the image
+with unchanged structured Python output; arbitrary file paths are not attached.
+Older adapters return metadata only: open `_result['path']` using `view_image`
+or authorized image retrieval, checking `_result['sha256']`.
+A JSON path alone is not visual review. Unavailable image bytes remain a blocker.
 
 3. If the Blender bridge/session is down, a local agent can render an explicitly
    saved current candidate in an isolated Blender process without MCP:

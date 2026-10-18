@@ -292,6 +292,85 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertIn(b'- [x] B11', target.read_bytes())
         self.assertIn(b'previous B11', target.read_bytes())
 
+    def test_reappearing_same_state_creates_linked_task_and_replay_is_noop(self):
+        import project_review_tasks as pt
+        target = self.root/'fixes.md'
+        target.write_bytes(b'# Independent corrective todo\n')
+        (self.root/'result.txt').unlink()
+        first = self.run_review()
+        (self.root/'first.json').write_text(json.dumps(first), encoding='utf-8')
+        applied = pt.apply_tasks(self.root, 'first.json', 'fixes.md', sha(target.read_bytes()),
+                                 namespace='B', start=11, exclusive_writer=True)
+        self.assertEqual(applied['created'], ['B11'])
+        target.write_bytes(target.read_bytes().replace(b'- [ ] B11', b'- [x] B11'))
+        (self.root/'result.txt').write_bytes(b'repaired')
+        repaired = pr.review(self.root, 'review.json', operation='converge', previous='first.json')
+        self.assertEqual(repaired['acceptance_status'], 'PASS')
+        (self.root/'repaired.json').write_text(json.dumps(repaired), encoding='utf-8')
+        (self.root/'result.txt').unlink()
+        recurrent = pr.review(self.root, 'review.json', operation='converge', previous='repaired.json')
+        self.assertEqual(pr.observation_digest(first), pr.observation_digest(recurrent))
+        (self.root/'recurrent.json').write_text(json.dumps(recurrent), encoding='utf-8')
+        applied = pt.apply_tasks(self.root, 'recurrent.json', 'fixes.md', sha(target.read_bytes()),
+                                 namespace='B', start=11, exclusive_writer=True)
+        self.assertEqual(applied['created'], ['B12'])
+        self.assertIn(b'- [x] B11', target.read_bytes())
+        self.assertIn(b'previous B11', target.read_bytes())
+        after = target.read_bytes()
+        for report_path in ['first.json', 'recurrent.json']:
+            repeat = pt.apply_tasks(self.root, report_path, 'fixes.md', sha(after),
+                                    namespace='B', start=11, exclusive_writer=True)
+            self.assertFalse(repeat['written'])
+            self.assertEqual(after, target.read_bytes())
+
+    def test_open_task_records_return_to_prior_state_without_history(self):
+        import project_review_tasks as pt
+        self.packet['checks'][0].update(kind='sha256', expected=sha(b'expected'))
+        target = self.root/'fixes.md'
+        target.write_bytes(b'# Tasks\n')
+        for index, content in enumerate([b'A', b'B', b'A']):
+            (self.root/'result.txt').write_bytes(content)
+            report = self.run_review()
+            (self.root/'report.json').write_text(json.dumps(report), encoding='utf-8')
+            applied = pt.apply_tasks(self.root, 'report.json', 'fixes.md', sha(target.read_bytes()),
+                                     namespace='B', start=11, exclusive_writer=True)
+            self.assertEqual(applied['created'], ['B11'] if index == 0 else [])
+            self.assertEqual(applied['updated'], [] if index == 0 else ['B11'])
+        _, entries, _ = pt.read_section(target.read_bytes(), report['scope'], 'B')
+        self.assertEqual(len(entries[0]['data']['observations']), 3)
+
+    def test_legacy_task_observations_support_recurrence_without_silent_migration(self):
+        import project_review_tasks as pt
+        (self.root/'result.txt').unlink()
+        first = self.run_review()
+        raw, _, _ = pt.task_update(b'# Tasks\n', first, 'B', 11)
+        lines = raw.decode().splitlines()
+        for i, line in enumerate(lines):
+            if line.startswith('<!-- tools-c:task '):
+                meta = json.loads(line[len('<!-- tools-c:task '):-len(' -->')])
+                for observation in meta['observations']:
+                    observation.pop('history_sha256')
+                lines[i] = '<!-- tools-c:task '+json.dumps(meta, sort_keys=True)+' -->'
+        legacy = ('\n'.join(lines)+'\n').encode().replace(b'- [ ] B11', b'- [x] B11')
+        self.assertEqual(pt.task_update(legacy, first, 'B', 11), (legacy, [], []))
+        (self.root/'first.json').write_text(json.dumps(first), encoding='utf-8')
+        (self.root/'result.txt').write_bytes(b'repaired')
+        repaired = pr.review(self.root, 'review.json', operation='converge', previous='first.json')
+        (self.root/'repaired.json').write_text(json.dumps(repaired), encoding='utf-8')
+        (self.root/'result.txt').unlink()
+        recurrent = pr.review(self.root, 'review.json', operation='converge', previous='repaired.json')
+        after, created, _ = pt.task_update(legacy, recurrent, 'B', 11)
+        self.assertEqual(created, ['B12'])
+        self.assertIn(b'- [x] B11', after)
+        self.assertEqual(pt.task_update(after, recurrent, 'B', 11), (after, [], []))
+        _, entries, _ = pt.read_section(after, first['scope'], 'B')
+        token = entries[-1]['data']['observations'][-1]['history_sha256']
+        with self.assertRaises(Violation):
+            pt.read_section(after.replace(token.encode(), b'invalid'), first['scope'], 'B')
+        recurrent['history'][0]['observations'][-1]['status'] = 'not_observed'
+        with self.assertRaises(Violation):
+            pt.task_update(after, recurrent, 'B', 11)
+
     def test_apply_rejects_stale_forged_and_concurrent_inputs_without_writes(self):
         import project_review_tasks as pt
         (self.root/'result.txt').unlink()
@@ -470,6 +549,41 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(todo.read_bytes(), before)
         self.assertFalse(list(self.root.glob('*.tools-c-review.lock')))
         self.assertFalse(list(self.root.glob('.tools-c-review-*')))
+
+    def test_late_finding_truncation_cannot_close_acceptance_in_any_order(self):
+        original = copy.deepcopy(self.packet)
+        for count in [99, 100, 101]:
+            for mandatory_first in [True, False]:
+                with self.subTest(count=count, mandatory_first=mandatory_first):
+                    self.packet = copy.deepcopy(original)
+                    lines = ['CORE-001 Required result']
+                    for i in range(count):
+                        rid, cid, aid = f'OPTION-{i}', f'CHECK-{i}', f'FILE-{i}'
+                        lines.append(rid+' Optional visual check')
+                        path = f'optional-{i}.txt'
+                        (self.root/path).write_bytes(b'present')
+                        self.packet['requirements'].append(dict(id=rid, source=dict(id='spec', line=i+2),
+                            description='Optional visual check', mandatory=False, level='L4', checks=[cid]))
+                        self.packet['tasks'][0]['requirements'].append(rid)
+                        self.packet['artifacts'].append(dict(id=aid, path=path))
+                        self.packet['checks'].append(dict(id=cid, requirement=rid, artifact=aid, kind='file_exists'))
+                    (self.root/'spec.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
+                    self.packet['sources'][0]['sha256'] = sha((self.root/'spec.md').read_bytes())
+                    if not mandatory_first:
+                        self.packet['requirements'].reverse()
+                    result = self.run_review()
+                    self.assertEqual(result['omitted_findings'], max(0, count-100))
+                    self.assertEqual(result['acceptance_status'], 'OPEN' if count > 100 else 'PASS')
+                    if count > 100:
+                        import project_review_tasks as pt
+                        (self.root/'report.json').write_text(json.dumps(result), encoding='utf-8')
+                        before = (self.root/'todo.md').read_bytes()
+                        with self.assertRaises(Violation):
+                            pt.apply_tasks(self.root, 'report.json', 'todo.md', sha(before),
+                                           namespace='B', start=11, exclusive_writer=True)
+                        self.assertEqual((self.root/'todo.md').read_bytes(), before)
+        (self.root/'result.txt').unlink()
+        self.assertEqual(self.run_review()['acceptance_status'], 'FAIL')
 
     def test_optional_failure_does_not_close_unestablished_mandatory_scope(self):
         self.packet['requirements'][0]['mandatory'] = False

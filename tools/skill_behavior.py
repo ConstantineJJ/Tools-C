@@ -69,7 +69,7 @@ def evaluate(trial, root):
             require(row['status'] in ('PASS', 'FAIL', 'SKIP', 'NOT_RUN'), 'Invalid checkpoint status')
             require(isinstance(row['evidence'], list) and len(row['evidence']) <= 32, 'Invalid evidence list')
             complete = complete and row['status'] in ('PASS', 'FAIL') and bool(row['evidence'])
-            failed = failed or row['status'] == 'FAIL'
+            failed = failed or (row['status'] == 'FAIL' and bool(row['evidence']))
             for ref in row['evidence']:
                 fields(ref, ['path', 'sha256', 'line'])
                 require(transcript and ref['path'] == transcript['path'] and ref['sha256'] == transcript['sha256'], 'Evidence is not bound to this transcript')
@@ -84,7 +84,9 @@ def evaluate(trial, root):
                      and type(environment['budget']) is int and environment['budget'] > 0)
         reviewed = (trial['review']['status'] == 'REVIEWED' and isinstance(trial['review']['reviewer'], str)
                     and bool(trial['review']['reviewer'].strip()))
-        status = ('FAIL' if failed else 'PASS') if complete and available and reviewed and trial['run_kind'] == 'agent' else 'SKIP'
+        status = 'SKIP'
+        if available and reviewed and trial['run_kind'] == 'agent':
+            status = 'FAIL' if failed else 'PASS' if complete else 'SKIP'
         return dict(evidence_status='PASS' if complete else 'SKIP', behavioral_status=status,
                     scenario_id=trial['scenario_id'], condition=trial['condition'],
                     reason='Observed checkpoints reviewed' if status != 'SKIP' else 'Real comparable run, complete trace or review unavailable',
@@ -96,6 +98,8 @@ def evaluate(trial, root):
 
 def compare(baseline, with_rule, root):
     a, b = evaluate(baseline, root), evaluate(with_rule, root)
+    evidence = [a['evidence_status'], b['evidence_status']]
+    evidence_status = 'FAIL' if 'FAIL' in evidence else 'PASS' if evidence == ['PASS', 'PASS'] else 'SKIP'
     comparable = (a['evidence_status'] == b['evidence_status'] == 'PASS'
                   and baseline['condition'] == 'baseline' and with_rule['condition'] == 'with-rule'
                   and baseline['scenario_id'] == with_rule['scenario_id']
@@ -104,10 +108,10 @@ def compare(baseline, with_rule, root):
                   and baseline['environment'] == with_rule['environment']
                   and baseline['controls'] == with_rule['controls']
                   and set(baseline['controls']) >= {'fixtures', 'tools'})
-    status = 'SKIP'
+    status = 'FAIL' if evidence_status == 'FAIL' else 'SKIP'
     if comparable and a['behavioral_status'] != 'SKIP' and b['behavioral_status'] != 'SKIP':
         status = b['behavioral_status']
-    return dict(status=status, comparable=comparable, baseline=a, with_rule=b,
+    return dict(status=status, evidence_status=evidence_status, comparable=comparable, baseline=a, with_rule=b,
                 improvement_observed=comparable and a['behavioral_status'] == 'FAIL' and b['behavioral_status'] == 'PASS',
                 limits='A pair is an observed trial, not a statistical reliability claim; protected-condition fingerprints are declared by the coordinator.')
 

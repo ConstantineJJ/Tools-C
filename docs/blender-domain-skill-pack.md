@@ -15,6 +15,36 @@ Every specialist should answer:
 - what structural and visual evidence proves the result;
 - when to stop or hand off to another owner.
 
+## Destruction stage across domains — 2026-10-17
+
+[blender-destruction-assets](../skills/blender-destruction-assets/SKILL.md) adds
+material/construction-aware breakable-asset preparation. It owns destruction
+planning, detachable/fractured geometry, cut interiors, body/proxy budgets and
+intact/destroyed/rest variants. It is a production stage across the existing
+domains, not a ninth replacement form owner. The live canonical catalog now has
+29 Skills and 9 unchanged legacy aliases; Light's frozen fallback stays historical.
+
+| Existing owner | Retained responsibility / handoff |
+|---|---|
+| Props | Crate/furniture/container form and joinery → constructed components for breakup |
+| Architecture | Wall/building form, modular grid and undamaged neighbors → fracture zone and supported remainder |
+| Environment assets | Fixture families and placement/mounting anchors → detachable fixtures/panels |
+| Roads/infrastructure | Network continuity, grade and module connections → bounded destructible zone without rebuilding the network |
+| Vehicle modeling | Body/chassis/axle form and articulation axes → selected panel/glass detachment; existing motion remains protected |
+| Product/electronics | Device construction, layers and functional interfaces → casing/glass/internal attachment breakup |
+| Vegetation | Species/growth, trunk/branch hierarchy and wind representation → selected rigid broken members; foliage need not become bodies |
+| Sculpting / polishing | Sculpt-only damage / cosmetic wear remain separate; neither alone establishes a breakable game asset |
+| Pipeline surfaces | UV/bake/PBR mechanics; destruction defines the new interior face regions and substrate roles |
+| Rigging / animation | Bone/weight and authored-motion ownership; physics preparation does not authorize rebuilding them |
+| Export / Godot integration | Actual output/fresh import / target collision, activation and reset verification |
+| Verification | Read-only checks and evidence; reports do not authorize asset mutation |
+
+LIVE discovery uses the manifest/header and shared RU/EN task router, followed by
+complete canonical context. Material recipes are requested only for the selected
+material; the physics/verification reference is part of required context. Metadata
+matching and routing tests establish discovery/transport, not artistic or runtime
+quality of future destruction assets.
+
 ## Implemented specialist owners
 
 ### 1. `blender-architecture-environment` — buildings and large structures

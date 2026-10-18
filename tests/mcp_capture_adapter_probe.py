@@ -16,7 +16,8 @@ async def main(project, root, capture_json, output):
     if output.exists():
         raise ValueError('New output directory required')
     output.mkdir(parents=True)
-    directory = root / '.local/captures' / uuid.uuid4().hex
+    capture_directory = runpy.run_path(str(root / 'tools/mcp_capture_response.py'))['capture_directory']
+    directory = capture_directory(root) / uuid.uuid4().hex
     directory.mkdir(parents=True)
     metadata = json.loads(capture_json.read_text(encoding='utf-8'))
     raw = Path(metadata['path']).read_bytes()

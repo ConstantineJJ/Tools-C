@@ -35,11 +35,50 @@ def proposal_identity(scope, proposal):
     return {k: v for k, v in proposal.items() if k != 'finding'}
 
 
-def task_observation(report, finding):
+def finding_history(report, finding):
     row = next((r for r in report['history'] if r['id'] == finding), None)
     require(row is not None and row['observations'], 'Missing finding observation', 'E_TASKS')
+    require(row['observations'][-1] == dict(revision=report['revision'],
+            state_sha256=pr.observation_digest(report), status='FAIL'),
+            'Finding history does not end at the current gap', 'E_TASKS')
+    return row['observations']
+
+
+def history_tokens(history):
+    # Prefix fingerprints distinguish a new occurrence from a replay, in O(n).
+    token = ''
+    for observation in history:
+        token = pr.digest((token+json.dumps(observation, sort_keys=True, separators=(',', ':'))).encode())
+        yield token
+
+
+def task_observation(report, finding):
+    tokens = list(history_tokens(finding_history(report, finding)))
     return dict(revision=report['revision'], state_sha256=pr.observation_digest(report),
-                report_sha256=report['report_sha256'])
+                report_sha256=report['report_sha256'], history_sha256=tokens[-1])
+
+
+def observation_recorded(entries, report, finding):
+    existing = [e for e in entries if e['data']['finding'] == finding]
+    if not existing:
+        return False
+    history = finding_history(report, finding)
+    last = existing[-1]['data']['observations'][-1]
+    if last['state_sha256'] != history[-1]['state_sha256']:
+        return False
+    tokens = list(history_tokens(history))
+    if 'history_sha256' in last:
+        # An extension past the recorded observation proves a later occurrence,
+        # even if the final state is byte-identical to the original failure.
+        return last['history_sha256'] not in tokens[:-1]
+    # Legacy task metadata has only a state fingerprint. Recognize a return to
+    # that state only with an explicit intervening different observation.
+    seen = False
+    for observation in history[:-1]:
+        if seen and observation['state_sha256'] != last['state_sha256']:
+            return False
+        seen = seen or observation['state_sha256'] == last['state_sha256']
+    return True
 
 
 def read_section(raw, scope, namespace):
@@ -71,10 +110,12 @@ def read_section(raw, scope, namespace):
             require(data['previous'] in ids, 'Recurrence must reference an earlier task', 'E_TASKS')
         require(isinstance(data['observations'], list) and data['observations'], 'Missing history', 'E_TASKS')
         for obs in data['observations']:
-            fields(obs, ['revision', 'report_sha256', 'state_sha256'])
+            fields(obs, ['revision', 'report_sha256', 'state_sha256'], ['history_sha256'])
             require(type(obs['revision']) is int and obs['revision'] > 0, 'Invalid task history')
             pr.hash_value(obs['report_sha256'])
             pr.hash_value(obs['state_sha256'])
+            if 'history_sha256' in obs:
+                pr.hash_value(obs['history_sha256'])
         ids.add(data['id'])
         entries.append(dict(line=lines[i], closed=match[1] != ' ', data=data))
     require(sum(len(e['data']['observations']) for e in entries) <= pr.HISTORY_LIMIT, 'Task history limit', 'E_LIMIT')
@@ -95,7 +136,7 @@ def task_update(raw, report, namespace, start):
         require(all(e['data']['identity'] == identity for e in existing), 'Conflicting task identity', 'E_TASKS')
         require(sum(not e['closed'] for e in existing) <= 1, 'Duplicate active occurrence', 'E_TASKS')
         obs = task_observation(report, proposal['finding'])
-        if existing and any(any(o['state_sha256'] == obs['state_sha256'] for o in e['data']['observations']) for e in existing):
+        if observation_recorded(entries, report, proposal['finding']):
             continue
         if existing and not existing[-1]['closed']:
             existing[-1]['data']['observations'].append(obs)
@@ -148,9 +189,8 @@ def apply_tasks(project, report_path, todo_path, expected_sha256, *, namespace, 
     _, entries, _ = read_section(raw, report['scope'], namespace)
     for p in report['proposed_tasks']:
         proposal_identity(report['scope'], p)
-    if report['proposed_tasks'] and all(any(e['data']['finding'] == p['finding'] and any(
-        o['state_sha256'] == task_observation(report, p['finding'])['state_sha256'] for o in e['data']['observations'])
-        for e in entries) for p in report['proposed_tasks']):
+    if report['proposed_tasks'] and all(observation_recorded(entries, report, p['finding'])
+                                      for p in report['proposed_tasks']):
         return dict(written=False, created=[], updated=[], todo_sha256=expected_sha256, reason='already_recorded')
     fresh = pr.review(project, report['packet'], operation='converge', _inputs=inputs)
     # History/read byte counts may differ; no old predicate/status/proposal is trusted.

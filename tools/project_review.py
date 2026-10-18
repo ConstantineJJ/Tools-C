@@ -311,7 +311,7 @@ def assess(inputs, packet, indexed, report):
                                            status=status, checks=req['checks'], tasks=task_ids, source=req['source']))
     required = [r['status'] for r in report['requirements'] if r['mandatory']]
     report['acceptance_status'] = ('FAIL' if 'FAIL' in required else
-                                   'OPEN' if not required or 'OPEN' in required else 'PASS')
+                                   'OPEN' if report['omitted_findings'] or not required or 'OPEN' in required else 'PASS')
 
 
 def load_report(inputs, path):

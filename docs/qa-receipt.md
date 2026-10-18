@@ -17,6 +17,16 @@ view or review remains unresolved; FAIL means an observed defect or
 incomparable setup. Exit codes: 0=PASS, 2=OPEN/FAIL, 1=invalid receipt.
 A record declaring PASS cannot prove whether the actual image looks correct.
 
+Results also expose `file_verification` (PASS/NOT_RUN), `acceptance_gate` and
+`next_action`. Legacy `gate` and exit codes retain declaration-only compatibility;
+without --verify-files, a legacy gate PASS has acceptance_gate OPEN. Consumers
+must use acceptance_gate for file-backed readiness, while visual remains
+NOT_EVALUATED even when artifact hashes pass. This is declared-evidence readiness,
+not automated artistic acceptance or permission to mutate Blender.
+next_action points to VERIFY_FILES, RESOLVE_GATE, the existing Dual Verification
+decision, or the next scoped workflow activity after a passing stage. Follow the
+reported blockers; do not start detailing merely because JSON structure passed.
+
 ## Dual Verification v1 (opt-in extension, 2026-10-08)
 
 Existing schema 1/2/3 receipts retain their fields and results. Add the optional

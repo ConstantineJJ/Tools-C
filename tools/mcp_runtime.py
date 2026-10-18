@@ -160,15 +160,39 @@ def robot_modeling_route(query):
     return bool(domain and (create or primary_geometry_revision(query) or re.search(r'\bblockout\b|блокаут',query)))
 
 
+def destruction_route(query):
+    """Breakable-asset preparation, not cosmetic damage or a delivered state name."""
+    clauses = re.split(r'[.;\n]|\b(?:then|and|затем|потом|и)\b', query)
+    if len(clauses) > 1:
+        return any(destruction_route(clause) for clause in clauses if clause.strip())
+    stage_only = re.search(
+        r'\b(?:create|make|build|author)\s+(?:(?:a|an|the|new|collapse|fracture|destruction)\s+)*'
+        r'(?:uvs?|materials?|textures?|animations?|actions?|clips?|rig|armature)\b|'
+        r'(?:созда|сдела)\w*\s+(?:анимац|материал|текстур|разв[её]ртк|риг\b)', query)
+    if stage_only and not re.search(r'\b(?:prepare|segment|split)\b|подготов|раздел', query):
+        return False
+    direct = re.search(r'\b(?:destruction\s+planning|fracturing|pre[- ]fracturing|shattering)\b|'
+                       r'^\s*(?:please\s+)?(?:fracture|pre[- ]fracture|shatter)\b|'
+                       r'\bbreak\b[^.;\n]*\b(?:into|apart)\b|'
+                       r'\b(?:разбей|расколи|разрушь|раздроби|фрагментируй)\b', query)
+    subject = re.search(r'\b(?:destructible|destruction|breakable|fracture|shards?|fragments?)\b|'
+                        r'разруша|разрушени|осколк|обломк|фрагмент\w*\s+разруш', query)
+    prepare = re.search(r'\b(?:prepare|create|build|make|model|segment|split|author)\b|'
+                        r'подготов|созда|сдела|смодел|раздел|сегментир', query)
+    return bool(direct or subject and prepare)
+
+
 def _route_task(task):
     query=task.strip().lower()
     if artistic_review_route(query):
         return ['verification']
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     query=action_query(query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     unclear = re.search(r'(?:причин\w*\s+неясн|выглядит\s+плохо|animation\s+looks\s+(?:bad|wrong)|cause\s+(?:is\s+)?unclear)', query)
     reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
-    if reviewing and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
+    preparing_destruction = destruction_route(query) and bool(re.search(
+        r'\b(?:prepare|segment|split|fracture|shatter)\b|подготов|раздел|разбей|расколи|разрушь', query))
+    if reviewing and not preparing_destruction and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
         return ['verification']
     if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
@@ -184,12 +208,21 @@ def _route_task(task):
     if re.search(r'godot|годот',query): routes.append('godot-asset-integration')
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ|постро)\w*\s+(?:(?:нов\w*|эт\w*|текущ\w*)\s+)*(?:rig\b|риг\w*|арматур\w*|скелет\w*)',query): routes.append('blender-rigging-skinning')
     if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|\banimate\b|анимиру|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
+    destruction = destruction_route(query)
+    if destruction:
+        routes.insert(0, 'blender-destruction-assets')
+        # Existing source preparation is a stage. Co-load the form owner only
+        # for actual new source construction or explicit primary-form revision.
+        new_source = re.search(r'\b(?:create|build|model)\b|созда|смодел|постро', query)
+        existing_source = re.search(r'\b(?:existing|unchanged|current)\b|существующ|готов\w*\s+(?:модел|ассет)', query)
+        if not primary_geometry_revision(query) and (not new_source or existing_source):
+            return list(dict.fromkeys(routes))
     if polishing and re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|voxel\s+remesh|multires)\b|скульпт|ремеш|динтопо|мультирез', query):
         routes.append('blender-sculpting')
     # A stage-only request loads its existing procedure; asset nouns are context.
     # Explicit geometry creation may co-route with a requested UV/retopo stage.
     primary_revision = primary_geometry_revision(query)
-    if (procedures or polishing or transfer) and not primary_revision and not re.search(
+    if (procedures or polishing or transfer) and not destruction and not primary_revision and not re.search(
         r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack|decal|logo|graphic|pattern|reference\s+surface\s+transfer))|'
         r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост|декал|логотип|перенос))',query):
         return list(dict.fromkeys(routes))
@@ -272,13 +305,17 @@ def route_task(task, *, root=ROOT):
     planning = bool(re.search(r'\b(?:canonical\s+concept|hero\s+view|concept\s+candidates|visual\s+concept)\b|'
                               r'визуальн\w*\s+концепт|выбер\w*\s+концепт', query))
     new_design = bool(re.search(r'\b(?:create|build|make|model)\b|(?:созда|сдела|смодел|постро)\w*', query))
+    # A new breakable source still needs design analysis; preparation of an
+    # approved/existing assembly remains a stage without restarting PASS0.
+    destruction_design = 'blender-destruction-assets' in owners and new_design and not re.search(
+        r'\b(?:existing|unchanged|current)\b|существующ|готов\w*\s+(?:модел|ассет)', query)
     if (description and analysis or planning) and owners in ([], ['blender-pipeline']):
         return ['visual-reference-reconstruction']
     stage_only = bool(procedure_routes(query)) and not domain
     # Generic creation can be a trivial primitive. Domain agents assess complexity
     # from actual inputs; explicit briefs and new articulated robot design need PASS 0.
     complex_design = new_design and 'blender-robot-mechanism-modeling' in owners
-    if not stage_only and (visual or description or complex_design) and (geometry_intent(query) or human_form_creation(query)) and (domain or (visual or description) and owners == ['blender-pipeline']):
+    if not stage_only and (visual or description or complex_design) and (geometry_intent(query) or human_form_creation(query)) and (domain or destruction_design or (visual or description) and owners == ['blender-pipeline']):
         owners = ['visual-reference-reconstruction', *owners]
     return list(dict.fromkeys(owners))
 

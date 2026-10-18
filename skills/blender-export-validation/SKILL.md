@@ -10,6 +10,12 @@ geometry, rig/rest pose, materials and Actions. Export settings and a new delive
 file are the normal change scope. Never export from a viewer scene containing
 helpers or a repaired in-memory object without checking the intended source copy.
 
+For [destruction assets](../blender-destruction-assets/SKILL.md), carry stable
+piece IDs, piece/body/proxy mapping and parent-relative rest transforms through
+selection and fresh import. Check reconstructed assembly and interior UV/material
+roles. GLB mesh export alone does not transfer Blender rigid bodies, breakable
+constraints or an engine damage system; require an explicit supported handoff.
+
 1. Inspect explicit object selection, dependencies, units/axes/transforms, modifiers,
    shape keys, skin bindings, materials/textures and Action/slot/NLA inclusion.
    Record Blender/exporter version and available RNA options; unknown options fail.

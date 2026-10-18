@@ -58,6 +58,14 @@ remain FAIL. Only a comparable baseline FAIL → with-rule PASS pair reports obs
 improvement; it is not a statistical guarantee. Exit: 0 for prepare/PASS/SKIP,
 2 for evidence or observed behavioral FAIL, 1 for invalid CLI input.
 
+A reviewed FAIL with valid checkpoint evidence survives a partial run: behavioral
+status is FAIL while evidence completeness can remain SKIP. Missing review,
+offline runs or a FAIL without evidence cannot establish that violation. Pair
+comparison exposes aggregate `evidence_status`; invalid evidence in either arm
+returns FAIL/exit 2, with that arm's behavior still SKIP. Valid noncomparable pairs
+remain SKIP/exit 0. Incomplete pairs do not establish a comparative improvement;
+inspect each arm's behavioral status for an already observed violation.
+
 ## Report and handoff
 
 Record scenario/repeat ID, rule version/hash, environment, protected controls,

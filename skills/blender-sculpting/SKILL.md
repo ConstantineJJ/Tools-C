@@ -27,6 +27,7 @@ Own:
 - sculpt-specific structural/visual QA and anti-degradation.
 
 Route:
+- game-ready detachable fragments, fracture interiors, physics proxies and intact/destroyed states to [destruction assets](../blender-destruction-assets/SKILL.md); sculpt-only cracks/dents remain here;
 - matching supplied orthographic/photo references and deciding landmarks to reference reconstruction;
 - generic character construction/proportion ownership to `blender-character-modeling` when the task is primarily modeling rather than sculpt execution;
 - animal/creature body-plan decisions to `blender-animal-anthropomorphic-modeling`;

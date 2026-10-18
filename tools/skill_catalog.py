@@ -85,14 +85,17 @@ def search(root, query, max_results=10):
     limit = max(1, min(int(max_results), 25))
     selected = [r for r in records if query.casefold() in {n.casefold() for n in [r['name'], *r['aliases']]}]
     phase = 'metadata'
+    positive_query = query
     if not selected:
         # Reuse task intent; no second RU/EN trigger registry.
-        route_task = runpy.run_path(str(Path(__file__).with_name('mcp_runtime.py')))['route_task']
-        owners = route_task(query, root=root)
+        runtime = runpy.run_path(str(Path(__file__).with_name('mcp_runtime.py')))
+        owners = runtime['route_task'](query, root=root)
+        positive_query = runtime['action_query'](query).strip()
+        terms = _words(positive_query)
         if owners != ['blender-pipeline']:
             selected = [r for owner in owners for r in records if r['name'] == owner]
         if selected: phase = 'intent'
-    if not selected:
+    if not selected and terms:
         metadata = lambda r: ' '.join([r['name'], r['title'], r['description'], *r['aliases']])
         primary = lambda r: ' '.join([r['name'], r['title'], *r['aliases']])
         selected = ([r for r in records if terms <= _words(primary(r))]
@@ -116,5 +119,5 @@ def search(root, query, max_results=10):
     names = [r['name'] for r in records]
     return dict(ok=True, query=query, count=len(results), results=results, total_matches=len(selected),
                 catalog_scope='canonical owners', search_scope=phase,
-                suggestions=difflib.get_close_matches(query, names, n=3, cutoff=.85) if not selected else [],
+                suggestions=difflib.get_close_matches(positive_query, names, n=3, cutoff=.85) if not selected and terms else [],
                 limits='Discovery suggestions only. Read the selected owner and required documents; this is not execution evidence.')

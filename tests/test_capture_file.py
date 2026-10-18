@@ -1,5 +1,6 @@
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -39,7 +40,8 @@ class OfflineCaptureTests(unittest.TestCase):
 
     def test_python_fallback_requires_matching_manifest_hash_and_png_dimensions(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory); folder = root / '.local/captures/probe'; folder.mkdir(parents=True)
+            root = Path(directory) / 'Tools_C'
+            folder = mcp_capture_response.capture_directory(root) / 'probe'; folder.mkdir(parents=True)
             image = folder / 'front.png'
             # Header fixture exercises validation; real rendering is a separate engine gate.
             raw = b'\x89PNG\r\n\x1a\n' + struct.pack('>I', 13) + b'IHDR' + struct.pack('>II', 512, 512) + b'\0' * 120
@@ -54,6 +56,30 @@ class OfflineCaptureTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     mcp_capture_response.capture_image(root, dict(ok=True, data=dict(result=bad)))
             manifest.write_text(json.dumps(dict(data, view='wrong')), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                mcp_capture_response.capture_image(root, response)
+
+    def test_capture_directory_is_external_and_rejects_canonical_or_relative_override(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / 'Tools_C'
+            with patch.dict(os.environ, {'TOOLS_C_WORK_ROOT': ''}):
+                self.assertEqual(mcp_capture_response.capture_directory(root),
+                                 Path(directory).resolve() / 'Work_Utility/captures')
+            with patch.dict(os.environ, {'TOOLS_C_WORK_ROOT': str(Path(directory) / 'authorized')}):
+                self.assertEqual(mcp_capture_response.capture_directory(root),
+                                 Path(directory).resolve() / 'authorized/captures')
+            for value in ('relative', str(root), str(root / '.local')):
+                with patch.dict(os.environ, {'TOOLS_C_WORK_ROOT': value}):
+                    with self.assertRaises(ValueError):
+                        mcp_capture_response.capture_directory(root)
+
+    def test_python_fallback_rejects_old_canonical_capture_location(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / 'Tools_C'
+            folder = root / '.local/captures/old'; folder.mkdir(parents=True)
+            image = folder / 'front.png'; image.write_bytes(b'old capture')
+            response = dict(ok=True, data=dict(result=dict(ok=True, status='VISUAL REVIEW REQUIRED',
+                capture_kind='viewport-oriented evidence render', path=str(image))))
             with self.assertRaises(ValueError):
                 mcp_capture_response.capture_image(root, response)
 

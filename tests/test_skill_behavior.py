@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 
@@ -67,6 +68,62 @@ class BehaviorTests(unittest.TestCase):
         self.assertEqual(behavior.evaluate(t,self.root)['behavioral_status'],'FAIL')
         t=self.trial();t['rule']['path']='../outside'
         self.assertEqual(behavior.evaluate(t,self.root)['evidence_status'],'FAIL')
+
+    def test_invalid_pair_evidence_is_failure_in_report_and_cli(self):
+        for side in ['baseline', 'with_rule']:
+            for mutation in ['hash', 'path', 'schema']:
+                with self.subTest(side=side, mutation=mutation):
+                    trials = dict(baseline=self.trial('baseline'), with_rule=self.trial())
+                    invalid = trials[side]
+                    if mutation == 'hash': invalid['transcript']['sha256'] = '0'*64
+                    if mutation == 'path': invalid['rule']['path'] = '../outside'
+                    if mutation == 'schema': invalid['unexpected'] = 'PRIVATE_CANARY'
+                    report = behavior.compare(trials['baseline'], trials['with_rule'], self.root)
+                    self.assertEqual(report['status'], 'FAIL')
+                    self.assertEqual(report['evidence_status'], 'FAIL')
+                    self.assertEqual(report[side]['behavioral_status'], 'SKIP')
+                    self.assertFalse(report['comparable'])
+                    self.assertFalse(report['improvement_observed'])
+                    for name, trial in trials.items():
+                        (self.root/(name+'.json')).write_text(json.dumps(trial), encoding='utf-8')
+                    cli = subprocess.run([sys.executable, str(Path(behavior.__file__)), 'compare',
+                        str(self.root/'baseline.json'), str(self.root/'with_rule.json'), '--root', str(self.root)],
+                        capture_output=True, text=True)
+                    self.assertEqual(cli.returncode, 2, cli.stderr)
+                    self.assertEqual(json.loads(cli.stdout)['evidence_status'], 'FAIL')
+                    self.assertNotIn('PRIVATE_CANARY', cli.stdout+cli.stderr)
+
+    def test_reviewed_partial_failure_survives_incomplete_run(self):
+        trial = self.trial()
+        trial['checkpoints'][0]['status'] = 'FAIL'
+        trial['checkpoints'][-1].update(status='NOT_RUN', evidence=[])
+        result = behavior.evaluate(trial, self.root)
+        self.assertEqual(result['evidence_status'], 'SKIP')
+        self.assertEqual(result['behavioral_status'], 'FAIL')
+        (self.root/'partial.json').write_text(json.dumps(trial), encoding='utf-8')
+        cli = subprocess.run([sys.executable, str(Path(behavior.__file__)), 'review',
+            str(self.root/'partial.json'), '--root', str(self.root)], capture_output=True, text=True)
+        self.assertEqual(cli.returncode, 2, cli.stderr)
+        for mutation in ['offline', 'unreviewed', 'no_evidence', 'invalid_line', 'unknown_environment']:
+            with self.subTest(mutation=mutation):
+                other = copy.deepcopy(trial)
+                if mutation == 'offline': other['run_kind'] = 'offline'
+                if mutation == 'unreviewed': other['review']['status'] = 'NOT_RUN'
+                if mutation == 'no_evidence': other['checkpoints'][0]['evidence'] = []
+                if mutation == 'invalid_line': other['checkpoints'][0]['evidence'][0]['line'] = 999
+                if mutation == 'unknown_environment': other['environment']['model'] = None
+                self.assertEqual(behavior.evaluate(other, self.root)['behavioral_status'], 'SKIP')
+
+    def test_valid_noncomparable_pair_still_exits_zero(self):
+        a, b = self.trial('baseline'), self.trial()
+        b['environment']['model'] = 'different-model'
+        for name, trial in [('baseline', a), ('with_rule', b)]:
+            (self.root/(name+'.json')).write_text(json.dumps(trial), encoding='utf-8')
+        cli = subprocess.run([sys.executable, str(Path(behavior.__file__)), 'compare',
+            str(self.root/'baseline.json'), str(self.root/'with_rule.json'), '--root', str(self.root)],
+            capture_output=True, text=True)
+        self.assertEqual(cli.returncode, 0, cli.stderr)
+        self.assertEqual(json.loads(cli.stdout)['status'], 'SKIP')
 
     def test_scenario_ids_are_unique_and_pressure_has_observables(self):
         data=behavior.scenarios();all_ids=[r['id'] for rows in data.values() for r in rows]
