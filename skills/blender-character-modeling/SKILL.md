@@ -64,7 +64,7 @@ When a blockout still reads as accidental balls, tubes or slabs, use
 and its section-controlled limb/hair/cloth examples before tertiary detail.
 Smooth shading alone does not change silhouette. Keep intended toy/low-poly forms.
 
-Choose direct editing or a procedural/modifier method according to editability and downstream needs. Use separate geometry for genuinely separate or rigid parts; use continuous geometry when continuous deformation is required. Do not join objects just to reduce count or rebuild geometry to mask a rig, weight, animation or exporter problem. Read [geometry decisions](references/geometry-decisions.md) for joint, part, hand, face or clothing choices, and [modifiers and transforms](references/modifiers-transforms.md) when those data are affected.
+Choose direct editing, procedural methods or [MPFB](references/mpfb.md) according to editability and downstream needs. Use separate geometry for genuinely separate or rigid parts; use continuous geometry when continuous deformation is required. Do not join objects just to reduce count or rebuild geometry to mask a rig, weight, animation or exporter problem. Read [geometry decisions](references/geometry-decisions.md) for joint, part, hand, face or clothing choices, and [modifiers and transforms](references/modifiers-transforms.md) when those data are affected.
 
 ## Modeling priorities and routing
 

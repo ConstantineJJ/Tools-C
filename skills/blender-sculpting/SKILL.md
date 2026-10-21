@@ -126,6 +126,14 @@ Prefer masks, Face Sets, visibility and smooth falloff over repeated whole-objec
 
 A regional edit is accepted only if the requested area improves without introducing a ring, dent, surface ripple or silhouette regression at the transition.
 
+For late-stage geometry corrections, protected anatomical volumes, Multires
+coarse-level edits and surface/groom rebinding, read
+[regional revisions](references/regional-revisions.md). Requested broad changes
+remain valid after detailing; assess their dependencies rather than forbidding them.
+When selecting a new human sculpt base, evaluate
+[MPFB](../blender-character-modeling/references/mpfb.md); preserve its parametric
+source if topology-changing sculpt work is needed on a separate working copy.
+
 ## Masks, Face Sets and isolation
 
 Use Sculpt visibility, Masks, Face Sets and auto-masking to reduce accidental edits.

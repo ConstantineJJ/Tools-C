@@ -17,6 +17,11 @@ Inspect existing UVs, materials, textures, color spaces, mesh split boundaries,
 target engine and texel budget before replacing anything. Preserve authored UVs
 when the requested repair does not require a new unwrap.
 
+For native Hair Curves after a surface revision, check surface/UV bindings,
+rest/evaluated geometry and transforms, then inspect roots, guide direction and
+coat coverage. Read [regional recovery](../../blender-sculpting/references/regional-revisions.md)
+when topology/UVs or the underlying form changed; root snapping alone is not groom acceptance.
+
 For native production: finalize topology relevant to UV → place seams away from
 critical visible bends → unwrap → inspect checker distortion and island scale →
 pack with padding appropriate to resolution/mips → validate mirrored/overlapping

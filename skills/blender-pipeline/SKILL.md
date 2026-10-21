@@ -14,7 +14,7 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 ## Activation routing
 
-Select only the reference matching the task:
+Select a procedure; [PASS aid](references/modelling-pass-cheatsheet.md).
 
 Before complex new design from text or image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
 Verify hashes and stage limits; BLOCKED stops construction. Reuse valid packets;

@@ -2,6 +2,35 @@
 
 Research snapshot: 2026-10-03.
 
+## Refresh — 2026-10-21 (primary sources)
+
+- [Blender 4.5, Adaptive Resolution](https://docs.blender.org/manual/en/4.5/sculpt_paint/sculpting/introduction/adaptive.html).
+  Multires permits returning to coarse levels for broad shape changes after fine
+  detail exists; arbitrary base-topology edits break subdivision correspondence.
+  Applied to legitimate late revisions, not an enforced one-way stage order.
+  The official search-index text was available; direct page fetch was unavailable.
+- [Blender 4.5, Remeshing](https://docs.blender.org/manual/en/4.5/modeling/meshes/retopology.html).
+  Voxel and Quad modes have different purposes; neither proves animation topology.
+  Remeshing works on original mesh data, excludes Multires objects and can transfer
+  selected attributes. Preserve topology identity separately from transferred data.
+- [Julien Kaspar, Head Sculpting Lessons, Blender Studio](https://studio.blender.org/training/stylized-character-workflow/5d3a1fe14980f083715e410f/).
+  The public file notes describe masking eyelids while adjusting the brow overlap.
+  Applied narrowly as a protected-neighbor example, not a universal eyelid shape.
+  Only public indexed text was available; course video and project files were not reviewed.
+- [Blender, Attach Hair Curves to Surface](https://docs.blender.org/manual/en/4.4/modeling/geometry_nodes/hair/utility/attach_hair_curves_to_surface.html)
+  and [Blender source, snap curves operator](https://github.com/blender/blender/blob/main/source/blender/editors/curves/intern/curves_ops.cc).
+  The documented surface/UV/rest inputs and the operator's nearest-versus-deform
+  distinction support explicit attachment checks after geometry changes. The
+  source says its existing-attachment deform mode requires unchanged topology.
+  Check installed-version behavior; nearest root placement alone does not restore
+  all groom direction, density or material sampling.
+
+Tools_C synthesis: isolate anatomy/clearance volumes in addition to masks, inspect
+skin and dependent surfaces independently, and use correct crossing intervals for
+scripted volume tests. These are engineering choices for bounded corrections,
+not results certified by the sources or a new automatic validation subsystem.
+See [regional revisions](regional-revisions.md).
+
 This file records the basis for the canonical `blender-sculpting` specialist. It consolidates the previous Tools_C organic sculpting guidance and bounded sculpt-operation safeguards instead of creating a second rule source. Blender documentation is software authority; production interviews are workflow evidence and are generalized only where several sources converge. Project-specific topology, bake, polygon and engine requirements remain local.
 
 ## Existing Tools_C sculpting guidance — migration source
