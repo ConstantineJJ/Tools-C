@@ -1,4 +1,55 @@
-# Transfer record v1
+# Transfer record v1 (backward compatible) / v2 (face strategy)
+
+Schema v1 remains valid for existing assets and old records. **New face
+transfers should use schema_version=2**, which retains every v1 field and adds
+one mandatory `face_strategy` object validated structurally by the same
+`tools/surface_transfer.py` checker. Non-face transfers may stay on v1.
+No v1 file is rewritten automatically, and schema v2 does not certify art.
+
+## Version 2 face_strategy
+
+Exact keys: `mode`, `regions`, `occluder`, `occlusion_mask`,
+`occlusion_layer`, `reason`. Mode is `DIRECT`,
+`RECONSTRUCT_THEN_LAYER` or `HYBRID`.
+
+- Each `regions[]` object has `name` (unique stable string),
+  `visibility` (VISIBLE/PARTIAL/OCCLUDED), `source`
+  (ORIGINAL/INFERRED), `landmarks` (unique nonempty string list), and
+  `protected` (Boolean). Fully OCCLUDED regions cannot claim ORIGINAL
+  observed pixels; entirely VISIBLE regions cannot be relabeled INFERRED.
+  Landmark labels describe what will be checked visually, not measurements.
+- `occluder` is NONE/HAIR/OTHER. If non-NONE, `occlusion_mask`
+  must refer to an existing artifact and `occlusion_layer` must be
+  GEOMETRY/ALPHA; if NONE, the mask must be null and layer NONE.
+- DIRECT preserves source regions and cannot have regeneration steps;
+  RECONSTRUCT_THEN_LAYER requires a masked regeneration step and at
+  least one inferred region; HYBRID requires source+inferred regions
+  and masked regeneration. All regenerate steps retain v1 prompt/mask
+  provenance. `reason` describes why this strategy was selected.
+
+Example additional field (append beside the existing v1 required fields):
+
+```json
+"face_strategy": {
+  "mode": "HYBRID",
+  "regions": [
+    {"name": "left_eye", "visibility": "VISIBLE", "source": "ORIGINAL",
+     "landmarks": ["outer_corner", "iris"], "protected": true},
+    {"name": "right_eye", "visibility": "OCCLUDED", "source": "INFERRED",
+     "landmarks": ["eye_line"], "protected": false}
+  ],
+  "occluder": "HAIR",
+  "occlusion_mask": "mask",
+  "occlusion_layer": "GEOMETRY",
+  "reason": "Preserve visible eye; reconstruct only hair-covered region."
+}
+```
+
+The checker verifies only schema, categorical consistency, artifacts and
+declared provenance. An agent can still lie in a field. Final seam visibility,
+face likeness, hair-depth occlusion and 3D registration require actual
+visual inspection and the later cross-cutting QA pass.
+
 
 Keep one JSON record per transferred patch; store it beside a contained artifact
 package. This record supplements the existing PASS 0/Model Contract; it does not
@@ -33,6 +84,32 @@ decisions and tool/version as appropriate. `regenerate` additionally requires
 `mask` and `prompt` artifact IDs; reason states insufficient source data and why
 deterministic cleanup was inadequate. Generative upscale uses regenerate, with its
 upscale settings in parameters. Do not label it ordinary upscale to bypass lineage.
+
+## Recording face strategies without changing schema v1
+
+The checker requires **exact existing fields**. Do not add `strategy`,
+`protected_zones`, `occlusion` or `seam_metrics` as new top-level keys: it
+will reject them. For legacy schema-v1 records, store the chosen
+DIRECT / RECONSTRUCT-THEN-LAYER / HYBRID strategy, visibility notes, preserved
+landmarks and rejected alternatives in `steps[].reason` and
+`steps[].parameters` (**both are required strings**, not nested objects),
+plus `target.settings` and `qa.identity.observations` as appropriate.
+Use separate per-region records/artifacts for eyes and mouth when provenance
+or masks differ. Each `regenerate` operation still requires unique mask/prompt
+artifacts; retain original pixels as separate immutable inputs.
+
+Keep skin-mask/occlusion-mask provenance and pre/post seam closeups as artifact
+IDs, referenced in existing fields. Record the protected approved features in
+observations and the task's existing Model Contract/hand-off notes, not a new
+second identity registry. An imagined covered eye remains INFERRED even if the
+generated clean face looks convincing.
+
+For a facial patch, `qa.identity` and `qa.seams` cannot honestly be PASS while
+a feature has drifted or a cutout border is visible under neutral lighting.
+`qa.reopen` requires evidence after saving/reopening; target/deformation may
+remain SKIP with concrete reason when outside the assigned task. A structural
+PASS from `surface_transfer.py` only validates record consistency, **not** face
+likeness, color integration or the absence of visible seams.
 
 Every QA item has `{status, reviewer, observations, artifacts}`. Status is PASS,
 FAIL, SKIP or REVIEW_REQUIRED; artifacts is an ID list. PASS/FAIL require a reviewer

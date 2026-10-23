@@ -27,6 +27,7 @@ Own:
 - sculpt-specific structural/visual QA and anti-degradation.
 
 Route:
+- game-ready detachable fragments, fracture interiors, physics proxies and intact/destroyed states to [destruction assets](../blender-destruction-assets/SKILL.md); sculpt-only cracks/dents remain here;
 - matching supplied orthographic/photo references and deciding landmarks to reference reconstruction;
 - generic character construction/proportion ownership to `blender-character-modeling` when the task is primarily modeling rather than sculpt execution;
 - animal/creature body-plan decisions to `blender-animal-anthropomorphic-modeling`;
@@ -124,6 +125,14 @@ For a surgical sculpt fix, define:
 Prefer masks, Face Sets, visibility and smooth falloff over repeated whole-object smoothing. Read [bounded sculpt operations](../blender-pipeline/references/techniques/sculpt-operations.md) when implementing a scripted regional correction.
 
 A regional edit is accepted only if the requested area improves without introducing a ring, dent, surface ripple or silhouette regression at the transition.
+
+For late-stage geometry corrections, protected anatomical volumes, Multires
+coarse-level edits and surface/groom rebinding, read
+[regional revisions](references/regional-revisions.md). Requested broad changes
+remain valid after detailing; assess their dependencies rather than forbidding them.
+When selecting a new human sculpt base, evaluate
+[MPFB](../blender-character-modeling/references/mpfb.md); preserve its parametric
+source if topology-changing sculpt work is needed on a separate working copy.
 
 ## Masks, Face Sets and isolation
 

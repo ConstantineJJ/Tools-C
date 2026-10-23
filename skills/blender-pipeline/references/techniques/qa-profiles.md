@@ -15,6 +15,18 @@ Do not rerun all unrelated meshes and render every scene after a tip adjustment.
 Do not skip them when the tip uses a shared mesh, material or modifier whose other
 users are affected. Preserve fixed comparison conditions and record concrete defects.
 
+## Final 3D character acceptance (separate from local iteration)
+
+When a full character stage is being accepted, use the mandatory view
+and critical-closeup procedure in [character QA](../qa.md), including
+`high_45` and `low_45` plus source-matched orthographic proportions.
+The task-local [QA receipt](../../../../tools/qa_gate.py) can block missing
+views, absent reviewer/visual evidence, broken BEFORE/AFTER comparability,
+failed protected-zone checks and misleading readiness claims.
+It does not infer visual quality from filenames or JSON assertions.
+An inapplicable export/rig/engine stage is SKIP/NOT_APPLICABLE with reason
+and **cannot** be silently counted as GAME_READY.
+
 ## Contacts
 
 Use [selected-pair contact diagnostics](../../../../tools/blender_contacts.py) with

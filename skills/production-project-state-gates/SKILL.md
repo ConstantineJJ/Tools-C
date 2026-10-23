@@ -1,6 +1,6 @@
 ---
 name: production-project-state-gates
-description: Maintain lightweight project decisions, gates, regression evidence, and session handoffs. Use for multi-session work or milestones where context loss could cause repeated work or regression.
+description: Maintain lightweight project decisions, gates, guarded corrective tasks and session handoffs. Use for multi-session state where context loss could repeat work or cause regression.
 ---
 
 # Production Project State Gates
@@ -179,6 +179,14 @@ VERIFIED BASELINE:
 Keep it short enough that the next agent will actually read it.
 
 ## 10. Handoff
+
+When using scoped corrective tasks, read
+[project review interfaces](../../docs/project-review.md). Analysis is read-only;
+`apply-tasks` is a separate explicit write to an existing owned todo with its old
+hash and exclusive writer interval. Preserve IDs, completed history and unrelated
+sections; no automatic implementation or task completion. `--previous` retains
+observations, not engine resume authority. Keep Pulse/plan/todo authoritative;
+a separate Ledger/workflow executor remains deferred for this integration.
 
 Before ending a substantial session:
 

@@ -38,6 +38,14 @@ Record, explicitly or mentally, the minimum useful design sheet:
 
 If the body plan or reference is ambiguous enough to change joint placement or silhouette, resolve it before detailed modeling.
 
+For construction, facial attachments or an existing furred animal correction, read
+[animal construction and regional revisions](references/quadruped-checkpoints.md).
+Use its skeletal/volume scaffold and separate skin, coat and reference landmarks.
+Authorized late proportion changes are valid revisions: preserve accepted regions
+and repair affected attachments rather than restarting production or blaming pass order.
+For a human-dominant hybrid base, evaluate [MPFB](../blender-character-modeling/references/mpfb.md);
+an installed human generator is not a quadruped anatomy solution.
+
 ## Reference stack
 
 Use multiple kinds of reference; one beauty image is not enough for anatomical decisions.

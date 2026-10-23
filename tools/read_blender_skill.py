@@ -42,6 +42,11 @@ def document_paths(root, alias):
     canonical = {s["id"]: s["path"] for s in manifest["skills"]}
     if alias not in manifest["blender_aliases"] and alias not in canonical:
         raise ValueError(f"Unknown Blender skill alias: {alias}")
+    if alias in canonical and (alias in {'project-audit', 'contracts-lint', 'godot-project'} or alias.startswith('production-')):
+        paths = ['docs/foundation.md', canonical[alias]]
+        if alias == 'contracts-lint': paths.extend(['docs/contracts.md', 'skills/contracts-lint/references/rule-lifecycle.md'])
+        if alias == 'godot-project': paths.append('skills/godot-project/references/scene-ownership.md')
+        return paths
     paths = ["docs/foundation.md", "docs/blender-evidence.md", "skills/blender-pipeline/SKILL.md",
              "skills/blender-pipeline/references/core.md",
              canonical[alias] if alias in canonical else manifest["blender_aliases"][alias]["reference"],
@@ -53,6 +58,8 @@ def document_paths(root, alias):
         paths.append("skills/blender-animation/references/motion.md")
     elif alias == "blender-animation":
         paths.append("skills/blender-animation/references/motion.md")
+    elif alias == "blender-destruction-assets":
+        paths.append("skills/blender-destruction-assets/references/physics-and-verification.md")
     elif alias == "blender-reference-surface-transfer":
         paths.extend(["skills/blender-reference-surface-transfer/references/workflow.md",
                       "skills/blender-reference-surface-transfer/references/record.md",
@@ -69,6 +76,10 @@ def document_paths(root, alias):
                       "skills/blender-pipeline/references/techniques/form-development.md"])
     if alias in {"visual-reference-reconstruction", "Blender_Reference_Reconstruction_SKILL", "blender-robot-mechanism-modeling"}:
         paths.append("skills/visual-reference-reconstruction/references/model-contract.md")
+    if alias in {"blender-character-modeling", "blender-anime-character-modeling"} or paths[4] == canonical['blender-character-modeling']:
+        paths.append("skills/blender-character-modeling/references/workflow-gates.md")
+    if alias == 'verification':
+        paths.append('skills/verification/references/dual-verification.md')
     if alias in ROUTE_TECHNIQUES:
         paths.append("skills/blender-pipeline/references/techniques/" + ROUTE_TECHNIQUES[alias])
     return list(dict.fromkeys(paths))

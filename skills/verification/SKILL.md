@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Validate a scoped change with static, engine, runtime and visual evidence, including regressions and unrun checks. Use for QA or acceptance, not as permission to edit the asset.
+description: Verify scoped changes, convergence and L1-L4 evidence; QA grants no asset edit permission.
 ---
 
 # Verification
@@ -26,11 +26,35 @@ For Blender, use [snapshot/capture/export tools](../../docs/blender-evidence.md)
 STRUCTURAL PASS is separate from VISUAL SKIP, VISUAL REVIEW REQUIRED and VISUAL PASS.
 A PNG must be inspected for the named criterion before visual acceptance.
 
+## Final QA acceptance receipt
+
+For full character final acceptance, use the existing
+[Blender character QA matrix](../blender-pipeline/references/qa.md)
+and the task-local [QA receipt checker](../../tools/qa_gate.py).
+A visual review requires opened images, reviewer observations and comparable
+source evidence. Declared PASS is not independently proven by a metadata
+checker. The final completeness gate blocks missing high_45/low_45 views,
+orthographic proportions, relevant closeups, user-marked red flags,
+protected-zone regressions or pending inspection. Explicitly separate
+STATIC_VISUAL / EXPORT / RIG_READY / DEFORMATION_READY / GAME_READY,
+including valid SKIP/NOT_APPLICABLE explanations.
+
+## Dual verification / ARTISTIC_REVIEW
+
+Read the [dual verification protocol](references/dual-verification.md) before
+ARTISTIC_REVIEW, freshness or corrections in existing receipts. Report technical
+and artistic results separately. Use a blind read-only independent critic when
+available, otherwise explicit SELF_REVIEW. Preserve locked design and accepted
+regions. Metadata PASS cannot establish artistic quality.
+
 ## Anti-degradation and stop
 
-For Blender, select [local/final QA profiles](../blender-pipeline/references/techniques/qa-profiles.md)
-according to the changed dependencies. A local iteration does not replace the final
-saved-file or requested delivery gate.
+[Optional convergence](../../docs/project-review.md): manual/L4 stays open.
+
+Skill-rule trials: [protocol](references/behavioral-tests.md). Offline PASS is not agent execution.
+
+Use [QA profiles](../blender-pipeline/references/techniques/qa-profiles.md) for changed dependencies.
+Local work does not replace final saved-file/delivery gates.
 
 Compare the requested improvement and affected views, assets, topology, deformation, animation, runtime stability or complexity as applicable. Keep an improvement without material regression; correct a bounded regression; otherwise restore only your own attempted change through the project's recovery method. Stop after the required evidence is gathered and the result and open checks are reported. Test counts and exit codes alone do not establish visual or user-feel acceptance.
 

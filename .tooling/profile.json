@@ -13,6 +13,7 @@
     "blender-environment-assets",
     "blender-roads-infrastructure",
     "blender-props",
+    "blender-destruction-assets",
     "blender-vehicle-modeling",
     "blender-product-electronics-modeling",
     "blender-vegetation",
@@ -41,10 +42,8 @@
     ".tooling/surface-transfer-contracts.json"
   ],
   "references": [
-    "README.md",
     "docs/skills.md",
-    "docs/contracts.md",
-    "docs/architecture-v4.md",
-    "docs/blender-evidence.md"
+    "README.md",
+    "docs/contracts.md"
   ]
 }

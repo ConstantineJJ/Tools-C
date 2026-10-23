@@ -36,6 +36,32 @@ Use only a handful of meaningful geometry anchors, not every vertex or fastener.
 Set tolerances from camera/pose uncertainty and modeling goals; never enlarge them
 after seeing a failure. No universal 5% tolerance or exact dimensions from perspective.
 
+## Humanoid proportion anchors — use existing schema
+
+For a humanoid, derive a small set of relevant measurements from the approved
+reference/design: skull crown-to-chin (exclude hair), full height, shoulder
+width, rib-cage/waist/pelvis span, pelvis-to-knee/ankle placement, arm reach
+and approved feature spacing. Document pose, camera/projection and whether
+a value is actually measurable. If only a front illustration exists, side
+depth remains UNKNOWN until another authorized source or user decision
+supports it.
+
+Keep each supported dimension in existing `relative_dimensions`, visual
+landmarks in `silhouette_notes`, and a **reviewed** dimension/ratio/anchor
+rule in `model_contract.rules` only when evidence and a useful tolerance
+exist. For example, use separately supported head-height and total-height
+dimensions to bind a head/height ratio: a verbal "eight heads" convention
+alone is not enough to make a hard invariant. No new `body_proportions`
+object or second proportions manifest is introduced.
+
+Profiles like realistic, stylized-slim, anime/chibi or heroic are
+project/reference **interpretations**, not universal numeric presets. An
+occluded knee, hairstyle extending beyond the skull, cropped feet, posed
+pelvis or foreshortened camera cannot justify a precise PROPORTION LOCK.
+Use an uncertainty-bearing qualitative note or READY_WITH_LIMITS instead.
+A 45-degree high/low view supports contact/volume diagnosis; it cannot
+alone invalidate correctly measured orthographic proportions.
+
 ## Embedded definition
 
 `model_contract` fields: schema_version=1, id, revision (positive integer), status=LOCKED,

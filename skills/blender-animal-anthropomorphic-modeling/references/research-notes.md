@@ -2,6 +2,33 @@
 
 Research snapshot: 2026-09-28.
 
+## Refresh — 2026-10-21 (primary sources)
+
+- [Marshall Vandruff, Introduction to Animal Anatomy, Gnomon Workshop](https://www.thegnomonworkshop.com/workshops/introduction-to-animal-anatomy).
+  Public workshop descriptions cover skeleton/muscle volumes, torso, support and
+  propulsion, skulls in multiple views and facial construction from simple solids.
+  Applied as a lightweight skeletal/mass scaffold, species-specific joints and
+  cross-view head reasoning. This does not require fully modeling an internal
+  skeleton. Public descriptions were read; the subscription lessons were not viewed.
+- [Gaël Kerchenbaum, Lynx pardinus / CGMA lecture](https://gaelkerchenbaum.art/projects/kvGL6).
+  The artist's own presentation identifies skull/bone study and écorché as the
+  anatomy foundation. Applied as skull/soft-tissue/coat separation and supported
+  attachments. No claim is made to have watched the paid course or reproduced
+  its software-specific brush procedure.
+- [Blender, Attach Hair Curves to Surface](https://docs.blender.org/manual/en/4.4/modeling/geometry_nodes/hair/utility/attach_hair_curves_to_surface.html).
+  Surface and surface UV inputs, transform alignment and rest-position handling
+  inform groom recovery after shape changes. Root snapping and normal alignment
+  do not alone certify the final visible coat. This API/workflow reference is
+  versioned; check the installed Blender/node group before use.
+- [MPFB basemesh](https://static.makehumancommunity.org/mpfb/docs/assets/concept_basemesh_and_helpers.html).
+  The documented base is human. Tools_C therefore evaluates it for human-dominant
+  hybrid regions instead of assuming it supplies a species-specific quadruped.
+
+These sources inform [construction and revisions](quadruped-checkpoints.md).
+The late-stage geometry revision use case is expressly authorized by the user;
+it is not recorded as an agent sequencing failure. Initial construction advice
+does not prohibit revisions after fur, texturing or detailing.
+
 This file records the external principles used to design the specialist skill. It is not a claim that every source is an authority; production/community advice is used where it aligns with Blender documentation and is framed as practice rather than invariant law.
 
 ## Blender Manual — Mesh Structure (4.5 LTS)

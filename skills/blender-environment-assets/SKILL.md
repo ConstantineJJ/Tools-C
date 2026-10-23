@@ -24,6 +24,7 @@ Own:
 - bounded LOD/readability preparation when explicitly part of the asset task.
 
 Route:
+- breakable fixture preparation, detachable components and intact/destroyed variants to [destruction assets](../blender-destruction-assets/SKILL.md); fixture form and placement anchors remain here;
 - integral windows, doors, facade trims and building modules to `blender-architecture-environment`;
 - continuous roads, curbs, sidewalks, gutters, paths, medians and network geometry to `blender-roads-infrastructure`;
 - furniture, containers, tools, handheld/interior clutter and narrative small objects to `blender-props`;

@@ -27,6 +27,20 @@ higher-level acceptance. Explicitly label STRUCTURAL PASS independently of:
 - VISUAL PASS: inspected images support the named criterion; record reviewer,
   artifact paths/hashes and observations. Failed appearance is VISUAL FAIL.
 
+For final L4 acceptance of an in-scope **3D humanoid character** or facial
+texture transfer, run the task-local
+[QA receipt gate](../tools/qa_gate.py) and preserve the receipt plus its
+reviewed source frames and hashes. Required fixed views include orthographic
+front/side/back as applicable, front three-quarter, high_45 and low_45; changed
+assets require fixed BEFORE/AFTER comparisons and all user-marked protected
+zones. A missing required view, uninspected screenshot or unrun QA checker
+leaves the final L4 acceptance OPEN; the agent may not call it VISUAL PASS.
+The receipt checker assesses *declared completeness*, not pixel truth.
+Do not substitute a structural L1 receipt for direct review of actual images.
+A focused local iteration need not render unrelated full-scene data but cannot
+claim the broader character-final gate. Do not infer incorrect skull/leg sizes
+from perspective or foreshortened ±45-degree views alone.
+
 Capture success alone is VISUAL REVIEW REQUIRED. Four still views do not prove
 animation feel, all deformation poses or target-engine material appearance.
 
@@ -43,6 +57,19 @@ redefines locked geometry. Downstream passes reuse the graph rather than reinter
 it. Check counts, key proportions/anchors and critical relationships at significant
 stage checkpoints only. Intentional locked changes require explicit revisions;
 stage-only edits retain the existing design without restarting production.
+
+After `open_mainfile`, `read_factory_settings` or other scene/file reset
+through Blender MCP, do not trust an open socket or Hub Connected light.
+From a **new RPC**, run [bridge health](../tools/blender_bridge_health.py)
+with the expected file/scene, then independently call `get_scene_info`.
+Require the queue timer to be actually registered and the expected scene to
+answer. If health fails, stop dependent mutations and report recovery, rather
+than blindly resending an operation. If a timed-out request returns
+`CANCELLED_BEFORE_EXECUTION`, it never began; if it returns
+`UNKNOWN_EXECUTION`, inspect the scene/asset first because partial or
+completed changes may exist. Legacy generic timeouts also remain unknown.
+Record load attempts, checks, cancellation/recovery and any duplicate-risk
+reconciliation in the task report.
 
 Before sending Blender Python through MCP, run [Python preflight](../tools/python_preflight.py).
 AST success does not prove Blender API compatibility or safety. Keep the existing

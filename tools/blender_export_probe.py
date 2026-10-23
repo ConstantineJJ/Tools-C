@@ -7,8 +7,24 @@ import bpy
 from mathutils import Vector
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from blender_snapshot import snapshot
+from blender_snapshot import snapshot, delivery_statistics
 from handoff_snapshot import canonical_bytes
+
+
+def validate_export_objects(names):
+    """Fail before export when the explicit allowlist would silently lose groom."""
+    if not names or len(set(names)) != len(names):
+        raise ValueError('Explicit unique objects required')
+    references = {obj.name for coll in bpy.data.collections if coll.get('tools_c_reference')
+                  for obj in coll.all_objects}
+    for name in names:
+        obj = bpy.data.objects[name]
+        if obj.get('tools_c_reference') or name in references:
+            raise ValueError('Exclude reference object from delivery: '+name)
+        if obj.type == 'CURVES':
+            raise ValueError('Native Hair CURVES require an explicit supported delivery copy: '+name)
+        if obj.type == 'MESH' and obj.data.shape_keys:
+            raise ValueError('Shape-key delivery needs a dedicated target contract')
 
 
 def bounds(names):
@@ -31,13 +47,9 @@ def run(job):
         if glb.exists() or glb.suffix.lower()!='.glb': raise ValueError('GLB output must be new .glb')
         bpy.ops.wm.open_mainfile(filepath=str(source),load_ui=False,use_scripts=False)
         names=job['objects']; actions=job.get('actions',[])
-        if not names or len(set(names))!=len(names): raise ValueError('Explicit unique objects required')
+        validate_export_objects(names)
         bpy.context.scene.frame_set(job.get('frame',1))
         before=snapshot('source',names,protected=names,action_names=actions)
-        # Fail rather than exporting shape keys or animated topology with an unproven contract.
-        for name in names:
-            obj=bpy.data.objects[name]
-            if obj.type=='MESH' and obj.data.shape_keys: raise ValueError('Shape-key delivery needs a dedicated target contract')
         bpy.ops.object.select_all(action='DESELECT')
         for name in names: bpy.data.objects[name].select_set(True)
         bpy.context.view_layer.objects.active=bpy.data.objects[names[0]]
@@ -76,10 +88,13 @@ def run(job):
     output.mkdir(parents=True)
     (output/'snapshot.json').write_bytes(canonical_bytes(data))
     result=dict(mode=job['mode'],blender=bpy.app.version_string,objects=names,actions=actions,bounds=bounds(names),
+                statistics=delivery_statistics(names),
                 limits='Static declared snapshot and bounds; clip samples and visual review are separate')
     if job['mode']=='import':
         result['startup_objects_excluded']=sorted(o.name for o in startup_objects)
         result['import_options']=import_options
+    else:
+        result['glb_bytes']=glb.stat().st_size
     (output/'result.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     print('TOOLS_C_EXPORT_PROBE '+json.dumps(result))
     return result

@@ -37,6 +37,11 @@ posteffects. Adding a missing finish material is allowed within this scope.
 
 Ownership boundaries:
 
+- [Destruction assets](../blender-destruction-assets/SKILL.md) owns detachable
+  game fragments, structural segmentation, fracture interiors and physics-ready
+  variants. Cosmetic crack textures remain here; sculpt-only shape damage stays
+  with sculpting. Do not use surface effects as proof of a breakable asset.
+
 - [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md) owns original-image
   graphics and distinctive wear-pattern transfer; preserve that artwork before
   adding requested finish. Generic procedural wear remains here.

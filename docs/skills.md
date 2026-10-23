@@ -1,55 +1,37 @@
-# Skills catalog
+# Tools_C skill catalog
 
-Choose the owner for the requested task. Read its instructions and the shared
-[foundation](foundation.md) before acting. Combine owners only when the task
-crosses stages; each owner keeps its scope and handoff conditions.
+Architecture version: 4.0.1. This portable package contains 29 canonical Skills and nine compatibility aliases.
 
-| Task | Canonical skill |
+Read the [foundation contract](foundation.md) before the matching Skill.
+
+| Skill | Instructions |
 |---|---|
-| Audit, task scope, project integration | [project-audit](../skills/project-audit/SKILL.md) |
-| Godot scenes, resources, import, engine integration | [godot-project](../skills/godot-project/SKILL.md) |
-| Blender character blockout, proportions, silhouette and geometry revision | [blender-character-modeling](../skills/blender-character-modeling/SKILL.md) |
-| Blender anime/manga humanoids, chibi forms, stylized faces and hair geometry | [anime character modeling](../skills/blender-anime-character-modeling/SKILL.md) |
-| Blender animals, creatures, quadrupeds and anthropomorphic animal modeling | [blender-animal-anthropomorphic-modeling](../skills/blender-animal-anthropomorphic-modeling/SKILL.md) |
-| Blender buildings, architectural shells, modular kits and large structures | [blender-architecture-environment](../skills/blender-architecture-environment/SKILL.md) |
-| Blender standalone environment fixtures, street/site assets and repeatable set-dressing objects | [blender-environment-assets](../skills/blender-environment-assets/SKILL.md) |
-| Blender roads, sidewalks, curbs, paths, crossings, junctions and connected linear ground infrastructure | [blender-roads-infrastructure](../skills/blender-roads-infrastructure/SKILL.md) |
-| Blender furniture, containers, tools, clutter, decor, hand-held and interior set-dressing props | [blender-props](../skills/blender-props/SKILL.md) |
-| Blender cars, trucks, buses, motorcycles, trailers and other wheeled vehicle modeling | [blender-vehicle-modeling](../skills/blender-vehicle-modeling/SKILL.md) |
-| Blender household appliances, consumer electronics, computers, displays and product-design devices | [blender-product-electronics-modeling](../skills/blender-product-electronics-modeling/SKILL.md) |
-| Blender trees, shrubs, grass, flowers, vines and vegetation systems | [blender-vegetation](../skills/blender-vegetation/SKILL.md) |
-| Blender organic/hard-surface sculpting, remesh/Dyntopo/Multires and bounded sculpt corrections | [blender-sculpting](../skills/blender-sculpting/SKILL.md) |
-| Blender multi-stage work, sculpt, UV/PBR, rig, animation, external asset repair | [blender-pipeline](../skills/blender-pipeline/SKILL.md) |
-| Blender late material/texture finishing, wear, surface damage, emission and posteffects | [Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md) |
-| Blender bones, bindings and weights | [blender-rigging-skinning](../skills/blender-rigging-skinning/SKILL.md) |
-| Blender Actions and motion | [blender-animation](../skills/blender-animation/SKILL.md) |
-| Blender GLB export and round-trip validation | [blender-export-validation](../skills/blender-export-validation/SKILL.md) |
-| Godot asset delivery and target playback | [godot-asset-integration](../skills/godot-asset-integration/SKILL.md) |
-| Checks, evidence, runtime and anti-degradation | [verification](../skills/verification/SKILL.md) |
-| Contracts, checker, rule lifecycle, skill maintenance | [contracts-lint](../skills/contracts-lint/SKILL.md) |
-| Isolated playable mechanic tuning and playtest | [production-mechanic-gym](../skills/production-mechanic-gym/SKILL.md) |
-| Explicitly requested parallel agent work and merge review | [production-subagent-worktree](../skills/production-subagent-worktree/SKILL.md) |
-| Visual baseline before producing asset families | [production-lookdev-gate](../skills/production-lookdev-gate/SKILL.md) |
-| Decisions, milestones, regression gates and resumable project state | [production-project-state-gates](../skills/production-project-state-gates/SKILL.md) |
-
-
-UVs, baking and base materials use the [surfaces procedure](../skills/blender-pipeline/references/surfaces.md);
-final topology uses the [retopology procedure](../skills/blender-pipeline/references/retopology.md).
-The [manifest](../manifest.json) records canonical IDs and nine legacy Blender aliases.
-The harness verifies this catalog and its actual local links.
-
-## Reference preparation and rigid mechanisms
-
-[visual-reference-reconstruction](../skills/visual-reference-reconstruction/SKILL.md)
-owns mandatory PASS 0 analysis and optional auxiliary references before complex
-image-based geometry work across domains.
-
-[blender-robot-mechanism-modeling](../skills/blender-robot-mechanism-modeling/SKILL.md)
-owns rigid robot/mech and articulated mechanism geometry from a prepared packet;
-surface, rig, animation and delivery owners retain their stages.
-
-## Original surface graphics
-
-[blender-reference-surface-transfer](../skills/blender-reference-surface-transfer/SKILL.md)
-owns source-region preparation, bounded repair and graphic identity transfer;
-UV/bake mechanics and baseline PBR remain with surfaces.
+| project-audit | [SKILL.md](../skills/project-audit/SKILL.md) |
+| godot-project | [SKILL.md](../skills/godot-project/SKILL.md) |
+| blender-pipeline | [SKILL.md](../skills/blender-pipeline/SKILL.md) |
+| blender-character-modeling | [SKILL.md](../skills/blender-character-modeling/SKILL.md) |
+| blender-anime-character-modeling | [SKILL.md](../skills/blender-anime-character-modeling/SKILL.md) |
+| blender-animal-anthropomorphic-modeling | [SKILL.md](../skills/blender-animal-anthropomorphic-modeling/SKILL.md) |
+| blender-architecture-environment | [SKILL.md](../skills/blender-architecture-environment/SKILL.md) |
+| blender-environment-assets | [SKILL.md](../skills/blender-environment-assets/SKILL.md) |
+| blender-roads-infrastructure | [SKILL.md](../skills/blender-roads-infrastructure/SKILL.md) |
+| blender-props | [SKILL.md](../skills/blender-props/SKILL.md) |
+| blender-destruction-assets | [SKILL.md](../skills/blender-destruction-assets/SKILL.md) |
+| blender-vehicle-modeling | [SKILL.md](../skills/blender-vehicle-modeling/SKILL.md) |
+| blender-product-electronics-modeling | [SKILL.md](../skills/blender-product-electronics-modeling/SKILL.md) |
+| blender-vegetation | [SKILL.md](../skills/blender-vegetation/SKILL.md) |
+| blender-sculpting | [SKILL.md](../skills/blender-sculpting/SKILL.md) |
+| blender-posteffects-polishing | [SKILL.md](../skills/blender-posteffects-polishing/SKILL.md) |
+| verification | [SKILL.md](../skills/verification/SKILL.md) |
+| contracts-lint | [SKILL.md](../skills/contracts-lint/SKILL.md) |
+| blender-rigging-skinning | [SKILL.md](../skills/blender-rigging-skinning/SKILL.md) |
+| blender-animation | [SKILL.md](../skills/blender-animation/SKILL.md) |
+| blender-export-validation | [SKILL.md](../skills/blender-export-validation/SKILL.md) |
+| godot-asset-integration | [SKILL.md](../skills/godot-asset-integration/SKILL.md) |
+| production-mechanic-gym | [SKILL.md](../skills/production-mechanic-gym/SKILL.md) |
+| production-subagent-worktree | [SKILL.md](../skills/production-subagent-worktree/SKILL.md) |
+| production-lookdev-gate | [SKILL.md](../skills/production-lookdev-gate/SKILL.md) |
+| production-project-state-gates | [SKILL.md](../skills/production-project-state-gates/SKILL.md) |
+| visual-reference-reconstruction | [SKILL.md](../skills/visual-reference-reconstruction/SKILL.md) |
+| blender-robot-mechanism-modeling | [SKILL.md](../skills/blender-robot-mechanism-modeling/SKILL.md) |
+| blender-reference-surface-transfer | [SKILL.md](../skills/blender-reference-surface-transfer/SKILL.md) |

@@ -27,6 +27,7 @@ Own:
 - bounded LOD/readability decisions when explicitly requested.
 
 Route:
+- breakable-game-asset preparation, board/component separation, fracture interiors and intact/destroyed variants to [destruction assets](../blender-destruction-assets/SKILL.md); prop form/construction remains here;
 - building-integrated walls, doors, windows, stairs, architectural trims and built-in structural modules to `blender-architecture-environment`;
 - benches, street lamps, bollards, hydrants, public bins, site barriers and similar standalone street/site fixtures to `blender-environment-assets`;
 - roads, curbs, sidewalks, paths, crossings and connected network infrastructure to `blender-roads-infrastructure`;

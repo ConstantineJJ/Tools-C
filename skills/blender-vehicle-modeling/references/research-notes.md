@@ -233,3 +233,48 @@ The recurring durable pattern is:
 8. Allow mid-poly, high/low, direct realtime and hybrid approaches according to iteration and target-fidelity needs.
 9. Scope interior/underbody and texture allocation by actual visibility/open states.
 10. Validate 3/4 silhouette, reflections, wheel clearance and articulation—not only orthographic alignment or mesh cleanliness.
+
+## 2026-10-15 addendum — gated vehicle blockout, quick recipes, measurable QA
+
+**Scope and method.** Reviewed further interviews/tutorials for professional vehicle production. Adopted only portable modeling practice. The newly linked [vehicle recipes](vehicle-recipes.md) and [vehicle QA/measurements](vehicle-qa.md) are original Tools_C syntheses. They do not copy third-party text/code, invent a chassis physics solver, establish fixed millimeter tolerances, or add a new QA schema or Skills owner.
+
+### Irfan Haider — vehicle proxy, playable-camera review, topology economy
+
+Source: https://80.lv/articles/modeling-vehicles-for-aaa-games (2019), senior vehicle artist with Forza/DiRT/F1 credits.
+- Artist uses real dimensions, proxy box and wheel cylinders/camera alignment as initial anchors, and advises orthographic checks, gameplay-camera checks and purposeful polygons.
+- **Applied:** V0/V1 axle markers, wheelbase/track/stance, source-matched views, wheel/body envelope, early target-camera inspection. Existing body/LOD guidance already covered other aspects.
+- **Limit:** No universal wheel clearance tolerance, sampling interval or measured acceptance formula provided by article; those are proposed Tools_C measurement conventions, conditional on project data.
+
+### Michael Neocleous — simple editable base mesh and non-destructive body modeling
+
+Source: https://80.lv/articles/recreating-mad-max-s-interceptor-using-blender-substance-3d-painter (2021), senior environment artist.
+- Artist emphasizes proportional blockout, simple base mesh, restrained support loops, and modifiers where justified.
+- **Applied:** stricter V2 controlled body-surface/clay checkpoint before small panel/detail escalation.
+- **Limit:** No empirical threshold for highlight waviness; V2 relies on inspected comparable views and specific visible defects, not a textual or modifier-count score.
+
+### Manish Rawat — truck-specific layout and authenticity
+
+Source: https://80.lv/articles/001agt-002mrs-how-to-model-a-local-truck (2019), game vehicle artist (Forza, Metro Exodus, Days Gone).
+- Truck production starts with major dimensions and the arrangement of primary forms; details need local, period and vehicle authenticity, rather than attractive random additions. The artist explains staged blockout, mid/high/low-poly and reference-driven texturing.
+- **Applied:** heavy truck/hauler recipe: axle stations, chassis/cab/cargo massing and region-appropriate detail added only after V1/V2.
+- **Limit:** The article does not prescribe a universal articulated trailer model, axle grouping formula or physical payload test. V3 articulation examples are engineering synthesis.
+
+### Alexa Ranzola — motorcycle breakdown, distinct moving assemblies and baked small details
+
+Source: https://80.lv/articles/how-to-model-a-realistic-bike-based-on-a-2013-harley-davidson-sportster (2026), Viper Cruiser.
+- Artist collects multi-angle references, separates core parts for rig/animation and prioritizes prominent detail while baking small parts. Exact published triangle figure is project-specific and deliberately not generalized.
+- **Applied:** motorcycle recipe focusing on wheel/frame/fork/tank/swingarm breakdown, intent-aware geometry and handoff boundaries.
+- **Limit:** Steering-head and swingarm axis review, geometric clearances and V3 sampling are Tools_C original QA proposals, not claims about the author's particular rig checks.
+
+### Blender official semantics and project-owned numeric checks
+
+Source: https://docs.blender.org/manual/en/4.5/modeling/modifiers/generate/mirror.html and https://docs.blender.org/manual/en/4.5/modeling/modifiers/introduction.html
+- Blender Mirror uses origin or Mirror Object; modifiers affect evaluated output without necessarily changing editable base topology.
+- **Applied:** measure in declared vehicle-local F/R/U directions from evaluated geometry, preserve mirror source and distinguish geometry from shading when reviewing actual body.
+- **Limit:** Vehicle wheelbase, track and ground-clearance formulas in [vehicle QA](vehicle-qa.md) are coordinate-geometry definitions written for our workflow, *not* assertions that Blender supplies a certified vehicle metrology feature. Test scripts or Blender live captures have not been run in this documentation-only pass.
+
+### Exclusions
+
+- No copying paid add-on-specific modeling workflows (HardOps, Substance Painter, CAD packages, Vehicle Rig add-ons) as mandatory dependencies.
+- No fixed steering angle, tire geometry segments, clearance millimeters, polygon/LOD percentages, suspension travel or texture sizes.
+- No claims of verified vehicle appearance, rig behavior, collision correctness or engine import from the research alone.

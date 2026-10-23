@@ -1,8 +1,21 @@
 """Verify managed capture artifacts for the existing Python tool's image fallback."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import struct
+
+
+def capture_directory(root):
+    """Resolve the external work area shared by capture and image delivery."""
+    canonical = Path(root).resolve()
+    work = Path(os.environ.get('TOOLS_C_WORK_ROOT') or canonical.parent / 'Work_Utility')
+    if not work.is_absolute():
+        raise ValueError('TOOLS_C_WORK_ROOT must be an absolute path')
+    directory = (work / 'captures').resolve()
+    if directory == canonical or canonical in directory.parents:
+        raise ValueError('Capture output must stay outside canonical Tools_C')
+    return directory
 
 
 def capture_image(root, response):
@@ -14,10 +27,10 @@ def capture_image(root, response):
         return None
     if metadata.get('ok') is not True or metadata.get('status') != 'VISUAL REVIEW REQUIRED':
         raise ValueError('Capture did not return an unreviewed successful image')
-    directory = (Path(root) / '.local/captures').resolve()
+    directory = capture_directory(root)
     image = Path(metadata['path']).resolve(strict=True)
     if image.parent.parent != directory or image.suffix.lower() != '.png':
-        raise ValueError('Image fallback requires a managed Tools_C .local/captures/<new-directory> PNG')
+        raise ValueError('Image fallback requires a managed Work_Utility captures/<new-directory> PNG')
     manifest = image.parent / 'capture.json'
     if manifest.resolve(strict=True).parent != image.parent:
         raise ValueError('Capture manifest escaped artifact directory')

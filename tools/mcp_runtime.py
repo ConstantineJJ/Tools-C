@@ -3,8 +3,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import runpy
 
-from check import catalog, read_json, existing
+from check import ROOT, catalog, read_json, existing
 from read_blender_skill import render
 
 
@@ -12,38 +13,22 @@ PROCEDURES = {
     'retopology': 'skills/blender-pipeline/references/retopology.md',
     'surfaces': 'skills/blender-pipeline/references/surfaces.md',
 }
+CHARACTER_OWNERS = {'blender-character-modeling', 'blender-anime-character-modeling'}
+CHARACTER_GATES = 'skills/blender-character-modeling/references/workflow-gates.md'
+DUAL_REVIEW = 'skills/verification/references/dual-verification.md'
+
+
+def artistic_review_route(task):
+    return bool(re.search(r'\bartistic[_ ]review\b|\bartistic\s+critic\b|художествен\w*\s+(?:проверк|ревью|критик)|независим\w*\s+художествен',task.lower()))
 
 
 def render_context(root, owner, procedures=()):
     # Keep the reader's two-argument API: a live adapter may cache that module.
-    content=render(root,owner)
-    paths=[]
-    form='skills/blender-pipeline/references/techniques/form-development.md'
-    if owner in {'blender-character-modeling','blender-anime-character-modeling',
-                 'blender-architecture-environment','blender-environment-assets',
-                 'blender-props','blender-vegetation','blender-robot-mechanism-modeling'} and f'SOURCE: {form}\n\n' not in content:
-        paths.append(form)
-    pass0='skills/visual-reference-reconstruction/SKILL.md'
-    if owner in {'blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {pass0}\n\n' not in content:
-        paths.append(pass0)
-    contract='skills/visual-reference-reconstruction/references/model-contract.md'
-    if owner in {'visual-reference-reconstruction','blender-robot-mechanism-modeling','Blender_Reference_Reconstruction_SKILL'} and f'SOURCE: {contract}\n\n' not in content:
-        paths.append(contract)
-    if owner == 'blender-reference-surface-transfer':
-        for path in ['skills/blender-reference-surface-transfer/references/workflow.md',
-                     'skills/blender-reference-surface-transfer/references/record.md',
-                     'skills/blender-pipeline/references/surfaces.md']:
-            if f'SOURCE: {path}\n\n' not in content:
-                paths.append(path)
-    finishing='skills/blender-posteffects-polishing/references/finishing-techniques.md'
-    if owner == 'blender-posteffects-polishing' and f'SOURCE: {finishing}\n\n' not in content:
-        # A live adapter can retain the earlier two-argument reader module.
-        paths.append(finishing)
-    if owner == "blender-anime-character-modeling":
-        for path in ["skills/blender-character-modeling/SKILL.md",
-                     "skills/blender-anime-character-modeling/references/face-hair-workflow.md"]:
-            if f"SOURCE: {path}\n\n" not in content:
-                paths.append(path)
+    reader = runpy.run_path(str(Path(__file__).with_name('read_blender_skill.py')))
+    content=reader['render'](root,owner)
+    # One dependency inventory for direct, legacy and context readers. A cached
+    # two-argument renderer may omit documents, but cannot redefine this list.
+    paths=[p for p in reader['document_paths'](root,owner) if f'SOURCE: {p}\n\n' not in content]
     for procedure in procedures:
         if procedure not in PROCEDURES:
             raise ValueError(f'Unknown Blender procedure: {procedure}')
@@ -67,9 +52,16 @@ def resolve_root(project):
 
 def action_query(task):
     """Bounded clause filtering for suggestions, never an authorization decision."""
+    task = re.sub(r'\b(?:сделай|сделать|проведи|провести)\s+(?=ревью|аудит|обзор|проверк)', '', task.strip().lower())
+    def trailing_preservation(match):
+        clause = match.group(1)
+        preserve = re.search(r'\bсохран(?:ить|и|ять)\s*$', clause)
+        action = re.search(r'исправ|поправ|созда|модел|развер|запек|экспорт|добав|перенес', clause)
+        return '' if preserve and not action else match.group(0)
+    task = re.sub(r'[,;]([^,;.\n]*)', trailing_preservation, task)
     return re.sub(
         r'(?:\b(?:preserve|preserving|keeping|keep(?!\s+(?:sculpting|modeling|working)\b)|without|no|do\s+not)\b|'
-        r'(?:сохрани(?:ть)?|не\s+меняя|без|не\s+(?:делай|используй|меняй|трогай)))'
+        r'(?:сохрани(?:ть)?|не\s+меняя|без|не\s+(?:делай|используй|меняй|трогай|созда\w*|модел\w*)))'
         r'[^.;\n]*?(?=[.;\n]|\b(?:but|then)\b|\band\s+(?:create|repair|edit|fix|build|rebind|model|sculpt|unwrap|bake|export|review|add|polish|refine|improve|transfer|project|extract|crop)\b|'
         r'\b(?:а|но|затем|потом)\b|\bи\s+(?:созда|сдела|исправ|поправ|перепривяз|развер|запек|экспорт|добав|улучш|перенес|спроецир|выреж)|$)',
         '', task.strip().lower())
@@ -168,14 +160,41 @@ def robot_modeling_route(query):
     return bool(domain and (create or primary_geometry_revision(query) or re.search(r'\bblockout\b|блокаут',query)))
 
 
+def destruction_route(query):
+    """Breakable-asset preparation, not cosmetic damage or a delivered state name."""
+    clauses = re.split(r'[.;\n]|\b(?:then|and|затем|потом|и)\b', query)
+    if len(clauses) > 1:
+        return any(destruction_route(clause) for clause in clauses if clause.strip())
+    stage_only = re.search(
+        r'\b(?:create|make|build|author)\s+(?:(?:a|an|the|new|collapse|fracture|destruction)\s+)*'
+        r'(?:uvs?|materials?|textures?|animations?|actions?|clips?|rig|armature)\b|'
+        r'(?:созда|сдела)\w*\s+(?:анимац|материал|текстур|разв[её]ртк|риг\b)', query)
+    if stage_only and not re.search(r'\b(?:prepare|segment|split)\b|подготов|раздел', query):
+        return False
+    direct = re.search(r'\b(?:destruction\s+planning|fracturing|pre[- ]fracturing|shattering)\b|'
+                       r'^\s*(?:please\s+)?(?:fracture|pre[- ]fracture|shatter)\b|'
+                       r'\bbreak\b[^.;\n]*\b(?:into|apart)\b|'
+                       r'\b(?:разбей|расколи|разрушь|раздроби|фрагментируй)\b', query)
+    subject = re.search(r'\b(?:destructible|destruction|breakable|fracture|shards?|fragments?)\b|'
+                        r'разруша|разрушени|осколк|обломк|фрагмент\w*\s+разруш', query)
+    prepare = re.search(r'\b(?:prepare|create|build|make|model|segment|split|author)\b|'
+                        r'подготов|созда|сдела|смодел|раздел|сегментир', query)
+    return bool(direct or subject and prepare)
+
+
 def _route_task(task):
     query=task.strip().lower()
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
-    if explicit: return list(dict.fromkeys(explicit))
-    query=action_query(query)
-    reviewing=bool(re.search(r'\b(?:review|inspect|audit|diagnose)\b|проверь|проверить|осмотр',query))
-    if reviewing and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
+    if artistic_review_route(query):
         return ['verification']
+    query=action_query(query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    unclear = re.search(r'(?:причин\w*\s+неясн|выглядит\s+плохо|animation\s+looks\s+(?:bad|wrong)|cause\s+(?:is\s+)?unclear)', query)
+    reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
+    preparing_destruction = destruction_route(query) and bool(re.search(
+        r'\b(?:prepare|segment|split|fracture|shatter)\b|подготов|раздел|разбей|расколи|разрушь', query))
+    if reviewing and not preparing_destruction and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
+        return ['verification']
+    if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
     # mentions do not grant modeling or rig-edit ownership.
     procedures=procedure_routes(query)
@@ -189,17 +208,26 @@ def _route_task(task):
     if re.search(r'godot|годот',query): routes.append('godot-asset-integration')
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ|постро)\w*\s+(?:(?:нов\w*|эт\w*|текущ\w*)\s+)*(?:rig\b|риг\w*|арматур\w*|скелет\w*)',query): routes.append('blender-rigging-skinning')
     if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|\banimate\b|анимиру|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
+    destruction = destruction_route(query)
+    if destruction:
+        routes.insert(0, 'blender-destruction-assets')
+        # Existing source preparation is a stage. Co-load the form owner only
+        # for actual new source construction or explicit primary-form revision.
+        new_source = re.search(r'\b(?:create|build|model)\b|созда|смодел|постро', query)
+        existing_source = re.search(r'\b(?:existing|unchanged|current)\b|существующ|готов\w*\s+(?:модел|ассет)', query)
+        if not primary_geometry_revision(query) and (not new_source or existing_source):
+            return list(dict.fromkeys(routes))
     if polishing and re.search(r'\b(?:sculpt|sculpting|sculpted|dyntopo|voxel\s+remesh|multires)\b|скульпт|ремеш|динтопо|мультирез', query):
         routes.append('blender-sculpting')
     # A stage-only request loads its existing procedure; asset nouns are context.
     # Explicit geometry creation may co-route with a requested UV/retopo stage.
     primary_revision = primary_geometry_revision(query)
-    if (procedures or polishing or transfer) and not primary_revision and not re.search(
+    if (procedures or polishing or transfer) and not destruction and not primary_revision and not re.search(
         r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack|decal|logo|graphic|pattern|reference\s+surface\s+transfer))|'
         r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост|декал|логотип|перенос))',query):
         return list(dict.fromkeys(routes))
     if re.search(r'\b(?:building|buildings|house|houses|architecture|architectural|facade|façade|roof|modular\s+(?:building|architecture|kit|wall)|wall\s+module|floor\s+module|building\s+blockout)\b|здани|\bдом(?:ик\w*|а|у|ом|е)?\b|постройк|архитект|фасад|крыш(?:а|и|у|ей|е)\b|модульн.*(?:здани|дом|стен)',query): routes.append('blender-architecture-environment')
-    if re.search(r'\b(?:environment\s+assets?|street\s+furniture|site\s+fixtures?|bench(?:es)?|street\s*lamps?|lamp\s*posts?|bollards?|hydrants?|litter\s*bins?|trash\s*bins?|bike\s*racks?|planters?|fence\s+panels?|railing\s+panels?|traffic\s+barriers?|road\s+signs?|street\s+signs?|standalone\s+signs?)\b|скамейк|скамь|\bзабор\w*|уличн.*фонар|фонарн.*столб|урн(?:а|ы|у|ой)?\b|боллард|гидрант|велопарков|заборн.*секц|секц.*забор|огражд.*секц',query): routes.append('blender-environment-assets')
+    if re.search(r'\b(?:environment\s+assets?|street\s+furniture|site\s+fixtures?|bench(?:es)?|street\s*lamps?|lamp\s*posts?|bollards?|hydrants?|litter\s*bins?|trash\s*bins?|bike\s*racks?|planters?|fence\s+panels?|railing\s+panels?|(?:traffic|roadside)\s+barriers?|road\s+signs?|street\s+signs?|standalone\s+signs?)\b|скамейк|скамь|\bзабор\w*|уличн.*фонар|фонарн.*столб|урн(?:а|ы|у|ой)?\b|боллард|гидрант|велопарков|заборн.*секц|секц.*забор|огражд.*секц',query): routes.append('blender-environment-assets')
     if re.search(r'\b(?:road|roads|street\s+surface|sidewalks?|pavements?|curbs?|kerbs?|gutters?|medians?|crosswalks?|pedestrian\s+crossing|paths?|trails?|road\s+shoulders?|intersections?|roundabouts?|ramps?|roadways?|lane\s+network)\b|дорог|тротуар|бордюр|поребрик|обочин|пешеходн.*переход|переход.*дорог|перекр[её]ст|тропин|дорожк|медиан|разделительн.*полос|съезд|рамп',query): routes.append('blender-roads-infrastructure')
     if re.search(r'\b(?:prop|props|furniture|(?:dining\s+|office\s+)?chairs?|stools?|tables?|shel(?:f|ves)|shelving|cabinets?|crates?|toolbox(?:es)?|tool\s+prop|wrench|hammer|bottle|book|clutter|decor|hand[- ]?held\s+(?:object|prop)|interior\s+prop|set[- ]?dressing\s+prop)\b|реквизит|мебел|стул|табурет|стол(?:ик|а|у|ом)?\b|полк(?:а|и|у|ой)?\b|шкаф|ящик|инструмент|молоток|гаечн.*ключ|бутылк|книг|декор|интерьерн.*проп|ручн.*предмет|мелк.*проп',query): routes.append('blender-props')
     if re.search(r'\b(?:car|cars|vehicle|vehicles|truck|trucks|van|vans|bus|buses|motorcycles?|motorbikes?|scooters?|trailers?|bicycles?|bikes?|carts?|wheelbase|wheel\s+arch|vehicle\s+wheel|vehicle\s+tire|vehicle\s+tyre)\b|автомоб|грузовик|фургон|автобус|мотоцикл|скутер|прицеп|кол[её]сн.*(?:техник|транспорт|машин)',query): routes.append('blender-vehicle-modeling')
@@ -212,24 +240,60 @@ def _route_task(task):
     if anime: routes.append("blender-anime-character-modeling")
     robot = robot_modeling_route(query)
     if robot: routes.append('blender-robot-mechanism-modeling')
-    if not anime and not robot and re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query): routes.append('blender-character-modeling')
+    character_creation = re.search(r'\b(?:create|build|make|model|remodel)\s+'
+                                   r'(?:(?:an?|the|new|full-body|stylized|male|female|human|game|3d|realistic|low-poly|blue|red)\s+)*'
+                                   r'(?:character|humanoid|fighter|person|avatar)\b|'
+                                   r'(?:созда|сдела|смодел|передел)\w*\s+'
+                                   r'(?:(?:модель|3d|[а-яё]+(?:ого|ую|ый|ий|ой|ые|ое|ных|ный|кого))\s+)*'
+                                   r'(?:персонаж|гуманоид|боец|аватар)', query)
+    if not anime and not robot and (character_creation or human_form_creation(query) or re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query)): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
-        return ['blender-pipeline']
+        return ['blender-pipeline'] if re.search(r'blender|asset|mesh|task|блендер|ассет|меш|задач', query) else []
     return list(dict.fromkeys(routes))
 
 
-def route_task(task):
+def human_form_creation(query):
+    """Bind a creation verb to human geometry, not to a camera beside a human."""
+    return bool(re.search(
+        r'\b(?:create|build|make|model|sculpt|remodel)\s+'
+        r'(?:(?:a|an|the|new|3d|human|realistic|stylized|male|female|model|of|this|that)\s+)*'
+        r'(?:bust|head|face|person|man|woman)\b(?!\s+(?:texture|material|image|decal|mask)\b)|'
+        r'(?:созда|сдела|смодел|вылеп|слепи)\w*\s+'
+        r'(?:(?:3d|3д|модель|модели|этого|этой|[а-яё]+(?:ого|ую|ый|ий|ой|ое))\s+)*'
+        r'(?:бюст|голов|лиц|человек|парн|мужчин|женщин|девушк)\w*', query))
+
+
+def stage_phases(task, root):
+    """Only explicit long stage chains, never infer a production state machine."""
+    parts = re.split(r'(?:,\s*)?\b(?:then|затем|потом)\b|→', task, flags=re.I)
+    if not 3 <= len(parts) <= 8: return []
+    phases = [route_task(part.strip(), root=root) for part in parts]
+    delivery = {'blender-rigging-skinning', 'blender-animation', 'blender-export-validation', 'godot-asset-integration'}
+    if any(not p for p in phases) or len(delivery & {o for p in phases for o in p}) < 2: return []
+    return phases
+
+
+def route_task(task, *, root=ROOT):
     """PASS 0 precedes visual/text design; actual artifacts determine input mode."""
+    resolve_identifier = runpy.run_path(str(Path(__file__).with_name('skill_catalog.py')))['resolve_identifier']
+    explicit = resolve_identifier(root, task)
+    if explicit: return [explicit]
+    if re.fullmatch(r'(?:blender-|godot-|production-)[a-z-]+', task.strip().lower()):
+        return []
+    phases = stage_phases(task, root)
+    if phases: return list(dict.fromkeys(o for phase in phases for o in phase))
     query = action_query(task)
     visual = bool(re.search(r'\b(?:images?|references?|blueprints?|photos?|multiview|multi-view)\b|'
-                            r'референс|изображени|картинк|черт[её]ж|фотограф', query))
+                            r'референс|изображени|картинк|черт[её]ж|фото', query))
+    visual = visual or (human_form_creation(query) and bool(re.search(
+        r'\b(?:this|that)\s+(?:person|man|woman|head|face)|этого\s+(?:человек|парн|мужчин)|этой\s+(?:женщин|девушк)', query)))
     analysis = bool(re.search(r'\b(?:analy[sz]e|reconstruct|technical\s+reference\s+pack|pass\s*0)\b|'
                               r'проанализ|разбер\w*\s+референс|восстанов\w*\s+вид|пакет\s+референс', query))
     if visual and analysis and not geometry_intent(query) and not surface_transfer_route(query):
         return ['visual-reference-reconstruction']
     owners = _route_task(task)
-    if visual and analysis and owners == ['blender-pipeline']:
+    if visual and analysis and owners in ([], ['blender-pipeline']):
         return ['visual-reference-reconstruction']
     if 'blender-robot-mechanism-modeling' in owners:
         owners = ['blender-robot-mechanism-modeling', *[o for o in owners if o != 'blender-robot-mechanism-modeling']]
@@ -241,13 +305,17 @@ def route_task(task):
     planning = bool(re.search(r'\b(?:canonical\s+concept|hero\s+view|concept\s+candidates|visual\s+concept)\b|'
                               r'визуальн\w*\s+концепт|выбер\w*\s+концепт', query))
     new_design = bool(re.search(r'\b(?:create|build|make|model)\b|(?:созда|сдела|смодел|постро)\w*', query))
-    if (description and analysis or planning) and owners == ['blender-pipeline']:
+    # A new breakable source still needs design analysis; preparation of an
+    # approved/existing assembly remains a stage without restarting PASS0.
+    destruction_design = 'blender-destruction-assets' in owners and new_design and not re.search(
+        r'\b(?:existing|unchanged|current)\b|существующ|готов\w*\s+(?:модел|ассет)', query)
+    if (description and analysis or planning) and owners in ([], ['blender-pipeline']):
         return ['visual-reference-reconstruction']
     stage_only = bool(procedure_routes(query)) and not domain
     # Generic creation can be a trivial primitive. Domain agents assess complexity
     # from actual inputs; explicit briefs and new articulated robot design need PASS 0.
     complex_design = new_design and 'blender-robot-mechanism-modeling' in owners
-    if not stage_only and (visual or description or complex_design) and geometry_intent(query) and (domain or (visual or description) and owners == ['blender-pipeline']):
+    if not stage_only and (visual or description or complex_design) and (geometry_intent(query) or human_form_creation(query)) and (domain or destruction_design or (visual or description) and owners == ['blender-pipeline']):
         owners = ['visual-reference-reconstruction', *owners]
     return list(dict.fromkeys(owners))
 
@@ -264,13 +332,22 @@ def _context_documents(content):
     return result
 
 
-def context(root, task, max_chars=50000, known_documents=None, requested_documents=()):
+def context(root, task, max_chars=60000, known_documents=None, requested_documents=()):
     """Stateless atomic delivery. Receipts apply only to this caller's retained context.
 
     Clear receipts for a new agent/chat or after context loss. Missing documents
     are never cut mid-rule. Retained hashes must match current normalized UTF-8 text.
     """
-    requested=route_task(task)
+    requested=route_task(task, root=root)
+    if not requested:
+        return dict(ok=False, task=task, skills=[], documents=[], missing_documents=[],
+                    conditional_documents=[], receipts={}, skill_usage=[],
+                    routing=dict(owners=[], procedures=[], limits='No supported task intent; clarify the operation'),
+                    error='No supported task intent; no procedure loaded')
+    all_requested = requested
+    phases = stage_phases(task, root)
+    if phases: requested = phases[0]
+    deferred = [o for o in all_requested if o not in requested]
     procedures=procedure_routes(action_query(task)) if 'blender-pipeline' in requested else []
     known_documents = known_documents or {}
     if not isinstance(known_documents, dict) or any(not isinstance(p,str) or not isinstance(h,str)
@@ -297,6 +374,17 @@ def context(root, task, max_chars=50000, known_documents=None, requested_documen
         if len(requested) > 1:
             blocks.insert(1,('docs/blender-evidence-entry.md',existing(root,'docs/blender-evidence-entry.md').read_text(encoding='utf-8')))
         owner_documents.append((name,content,blocks))
+    # Reserve entry gates before long recipes consume the transport budget. This
+    # also protects the general character owner needed by the anime specialist.
+    priority = []
+    for _, _, blocks in owner_documents:
+        priority.extend((p,b) for p,b in blocks if p == 'docs/foundation.md' or p.endswith('/SKILL.md') or p == CHARACTER_GATES)
+    if 'visual-reference-reconstruction' in requested and set(requested) & CHARACTER_OWNERS:
+        path = 'skills/blender-reference-surface-transfer/SKILL.md'
+        body = existing(root,path).read_text(encoding='utf-8')
+        conditional[path] = dict(path=path,sha256=hashlib.sha256(body.encode()).hexdigest(),
+                                 reason='Read and acquire its workflow/record before executing the selected face transfer method')
+    owner_documents[0][2][:0] = priority
     if requested_documents:
         if not isinstance(requested_documents,(list,tuple)):
             raise ValueError('requested_documents must be canonical Markdown paths')
@@ -342,7 +430,19 @@ def context(root, task, max_chars=50000, known_documents=None, requested_documen
                 receipts={p:r['sha256'] for p,r in documents.items() if r['status']!='pending'},
                 receipt_scope='Caller-retained context only; reset after compaction/context loss or a new agent/chat',
                 delivery='Shared documents emitted once; SOURCE blocks remain whole. Read conditional references before their operation.',
-                routing=dict(owners=requested,procedures=procedures,limits='Routing suggestions; inspect actual ownership before edits'),
+                routing=dict(owners=all_requested,active_owners=requested,deferred_owners=deferred,
+                             sequence=phases,procedures=procedures,
+                             limits='ok covers active context only. Load each deferred owner after actual upstream evidence; these suggestions do not execute stages'),
+                skill_usage=[dict(id=name,status='DISCOVERED',reason='Routed context delivery is not proof of reading or execution',
+                                  execution=[],verification=[]) for name in all_requested],
+                workflow_requirements=([dict(receipt='QA schema 3',stages=['FACE','DETAIL','FINAL'],
+                                              checker='tools/qa_gate.py',contract=CHARACTER_GATES)]
+                                       if set(requested) & CHARACTER_OWNERS else []),
+                verification_mode='ARTISTIC_REVIEW' if artistic_review_route(task) else 'STANDARD',
+                review_requirements=([dict(receipt='Existing QA receipt + dual_verification v1',
+                                          critic='read-only; blind objective packet; different dispatched agent or explicit SELF_REVIEW',
+                                          checker='tools/qa_gate.py',contract=DUAL_REVIEW)]
+                                     if artistic_review_route(task) else []),
                 error=None if not missing else 'Required documents omitted by budget; request missing_documents with retained receipts or increase max_chars')
 
 

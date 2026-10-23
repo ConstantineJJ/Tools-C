@@ -1,0 +1,1 @@
+- [ ] B9 Check VEHICLE-001, VEHICLE-002 and VEHICLE-003 within this synthetic example.

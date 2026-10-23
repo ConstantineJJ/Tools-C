@@ -80,7 +80,7 @@ JSON parsing rejects non-finite constants and overflow such as `1e999`.
 
 The Tools_C self-profile opts into [Blender domain contracts](../.tooling/blender-domain-contracts.json):
 eight canonical IDs/paths, their self-profile membership, nine legacy targets,
-catalog/pipeline owner links, shared-foundation links and the sculpt compatibility
+AGENTS/pipeline owner links, shared-foundation links and the sculpt compatibility
 pointer. Projects are not required to activate all eight domains. Canonical source
 hashes remain migration provenance; current context hashes are still generated.
 No asset identity, dimensions, triangle/texture/LOD budget or visual acceptance is
@@ -88,16 +88,13 @@ encoded. Routing behavior stays under regression/live checks; artistic judgment,
 safeguards in prose and project suitability stay under review/verification.
 The Tools_C base contract also checks its canonical self-profile path and domain
 contract activation; the domain profile check requires both base and domain files.
-The public catalog at docs/skills.md replaces the internal AGENTS index.
-TOOLS-CATALOG-ROUTES checks actual links to all canonical owners; BDP-CATALOG
-keeps the eight domain-owner routes protected.
 These declarations apply to Tools_C's own layout, not arbitrary project profiles.
 They detect accidental deactivation while either checked-in contract remains active;
 removing all validators/contract declarations is outside an opt-in integrity check.
 
 The late [Posteffects and polishing](../skills/blender-posteffects-polishing/SKILL.md)
 stage has a separate [polishing contract](../.tooling/blender-polishing-contracts.json).
-It protects its canonical ID/path, self-profile membership/activation, catalog and
+It protects its canonical ID/path, self-profile membership/activation, AGENTS and
 pipeline entrypoints, prerequisite/evidence/research links and the surfaces/core
 handoff. The base contract guards its activation; the original eight domain-owner
 contracts retain their ownership scope and require this downstream pipeline link.
@@ -106,6 +103,11 @@ ordering in prose or shader portability. No wear/glow strength or texture budget
 fixed universally; regression/live routing and inspected images remain separate.
 
 The [anime character contract](../.tooling/blender-anime-contracts.json) guards the canonical owner, self-profile activation, actual entrypoint links and prerequisites/evidence references. It leaves style ratios, facial design, shader strengths and visual acceptance project-specific.
+
+The [surface transfer contract](../.tooling/surface-transfer-contracts.json) protects canonical registration,
+activation and stage links. [Transfer records](../skills/blender-reference-surface-transfer/references/record.md)
+check crop bounds, artifact hashes and repair lineage; pixel identity, actual mask
+containment, PBR quality and Blender/target behavior require separate review.
 
 Profile adapters live in [profile_adapters.py](../tools/profile_adapters.py):
 
@@ -143,9 +145,7 @@ Retire an obsolete rule by updating/removing its active definition and consumers
 together, with the reason in Git history. A replaced rule must not remain active
 in another copy. Lessons lifecycle: [contracts-lint](../skills/contracts-lint/SKILL.md).
 
-[Reference Surface Transfer](../skills/blender-reference-surface-transfer/SKILL.md)
-has [registration guards](../.tooling/surface-transfer-contracts.json) and
-[transfer records](../skills/blender-reference-surface-transfer/references/record.md)
-for crop bounds, lineage and artifact hashes. Pixel identity, actual masks
-and PBR correctness retain separate review gates. PASS 0 task schema 3 embeds
-a persistent [Model Contract](../skills/visual-reference-reconstruction/references/model-contract.md).
+The optional [project review packet](project-review.md) is a separate scoped map,
+not a contract/profile schema extension. Existing projects remain valid without it.
+Its analysis exit 0 means a report was built; inspect `acceptance_status` for
+PASS/FAIL/OPEN. The core L1 checker's exit/status contract above is unchanged.

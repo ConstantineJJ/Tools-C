@@ -47,6 +47,11 @@ that preparation does not authorize a new rig, expressions or final retopology.
 
 ## Preflight
 
+Consume the general owner's [face and primary-form gates](../blender-character-modeling/references/workflow-gates.md).
+Anime style does not justify discarding original eye/mouth artwork or skipping
+strategy selection. Geometry-only remains valid for reviewed volumetric identity
+or explicitly accepted simplification; otherwise execute the selected surface method.
+
 Identify new creation versus revision, named objects/regions, approved views and
 style landmarks. Inspect source geometry, modifier evaluation, shared meshes,
 materials, UVs, custom normals, shape keys and any rig before changing them.
@@ -60,6 +65,14 @@ when those features matter. [Source notes](references/research-notes.md) explain
 the evidence and limitations behind the methods; they are optional study resources.
 
 ## Workflow
+
+For creation or major body/head revision, use the general
+[body proportion guide](../blender-character-modeling/references/body-proportions.md)
+with the **approved anime subtype** and view-specific anchors. It is a
+reference-led comparison, not a realistic-body normalization. Measure skull,
+face artwork and external hair volume separately; protect accepted eye spacing,
+mouth and expression when reshaping the skull/hair shell. Occluding hair is
+a deliberate front layer, not evidence that the hidden eye has been observed.
 
 For creation, establish body/head/hair/outfit masses before details. Compare the
 reference projection and another relevant view. Build facial planes, lids and

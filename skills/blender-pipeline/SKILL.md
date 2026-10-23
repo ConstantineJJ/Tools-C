@@ -14,7 +14,7 @@ Apply the foundation contract before changing an asset. Complete only the select
 
 ## Activation routing
 
-Select only the reference matching the task:
+Select a procedure; [PASS aid](references/modelling-pass-cheatsheet.md).
 
 Before complex new design from text or image-based scene mutation, complete [PASS 0](../visual-reference-reconstruction/SKILL.md).
 Verify hashes and stage limits; BLOCKED stops construction. Reuse valid packets;
@@ -26,9 +26,19 @@ blockout, mechanics, clay handoff and delivery checkpoints. Generated panels can
 override source/Contract; explicit revisions invalidate stale reviews and bindings.
 
 For blockout forms that remain visibly primitive, read [form development](references/techniques/form-development.md).
-Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration and final checks.
+Use [QA profiles](references/techniques/qa-profiles.md) for scoped iteration
+and final checks. For **final full humanoid acceptance**, the final stage
+is *not complete* until [character QA](references/qa.md) has inspected
+the required fixed/oblique views, protected zones and relevant closeups,
+and the [QA receipt](../../tools/qa_gate.py) reports the scoped gate.
+A missing, SKIP or REVIEW_REQUIRED mandatory criterion must be declared OPEN,
+not silently converted to a visually accepted model. This is distinct from
+PASS 0 design constraints or routine narrow corrective edits.
 
 Stage-only work keeps its owner; an asset name does not restart modeling.
+Reference-character creation consumes [face/primary-form stage gates](../blender-character-modeling/references/workflow-gates.md)
+in the existing QA receipt. PASS0 is design handoff, followed by actual procedure
+execution; reading Skills is not a completed production stage.
 Read-only review uses verification. Co-load a domain owner only when geometry
 or domain decisions are requested.
 
@@ -43,6 +53,7 @@ or domain decisions are requested.
 | Model standalone environment fixtures, street/site furniture or repeatable outdoor set-dressing assets | [environment assets](../blender-environment-assets/SKILL.md) |
 | Build roads, sidewalks, curbs, paths, crossings, medians or connected linear ground infrastructure | [roads & infrastructure](../blender-roads-infrastructure/SKILL.md) |
 | Model furniture, containers, tools, clutter, decor, hand-held or interior set-dressing props | [props](../blender-props/SKILL.md) |
+| Prepare material-aware game destruction assets | [destruction](../blender-destruction-assets/SKILL.md) |
 | Model cars, trucks, buses, motorcycles, trailers or other wheeled vehicles | [vehicle modeling](../blender-vehicle-modeling/SKILL.md) |
 | Model household appliances, consumer electronics, computers, displays or other engineered product devices | [product & electronics](../blender-product-electronics-modeling/SKILL.md) |
 | Model trees, shrubs, grass, flowers, vines or vegetation families | [vegetation](../blender-vegetation/SKILL.md) |

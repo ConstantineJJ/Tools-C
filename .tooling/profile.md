@@ -1,11 +1,11 @@
 # Tools_C self profile
 
-Tools_C 4.1.0 activates all twenty-eight canonical skills and four self-contract
-files. It validates the public skills catalog, shared foundation, nine legacy
-Blender aliases and bounded harness tools. Schema_version remains 1.
-Core L1 uses only the Python standard library; engine/runtime/visual evidence
-is separate. See [architecture](../docs/architecture-v4.md) and
-[skills catalog](../docs/skills.md).
-
-PASS 0 schema 3 preserves REFERENCE/DESCRIPTION source priority in one
-persistent Model Contract; reviewed migration is required before resuming old geometry packets.
+Tools_C architecture 4.0.1 owns twenty-seven canonical skills, nine legacy Blender aliases,
+a shared foundation, bounded evidence/export/preflight tools and deployment diagnosis.
+Catalog/profile/contract schema_version remains 1, independent of architecture version.
+PASS 0 task packets use schema 3 for explicit REFERENCE/DESCRIPTION modes and one
+persistent [Model Contract](../skills/visual-reference-reconstruction/references/model-contract.md);
+assembly/view reviews pin its revision/hash. Historical schema 1/2 parse for audit;
+reviewed Contract migration is required before modeling.
+Provider-neutral L1 uses only Python standard library. Engine/runtime/visual gates
+remain separate. See docs/architecture-v4.md and TOOLS_C_V4_MIGRATION_REPORT.md.

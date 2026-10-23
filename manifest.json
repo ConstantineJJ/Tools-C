@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "4.2.0",
+  "version": "4.0.1",
   "skills": [
     {
       "id": "project-audit",
@@ -41,6 +41,10 @@
     {
       "id": "blender-props",
       "path": "skills/blender-props/SKILL.md"
+    },
+    {
+      "id": "blender-destruction-assets",
+      "path": "skills/blender-destruction-assets/SKILL.md"
     },
     {
       "id": "blender-vehicle-modeling",

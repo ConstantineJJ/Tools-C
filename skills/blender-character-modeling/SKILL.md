@@ -29,9 +29,33 @@ Words such as improve, fix or make better do not authorize redesign of unrelated
 
 Inspect only what the task requires. Determine new model versus revision, broad pass versus surgical edit, target objects/regions, reference intent, proportion and silhouette constraints, symmetry, transforms, modifiers/procedural dependencies and downstream deformation needs. Record MUST PRESERVE before editing. If required reference or target data is absent, resolve that uncertainty before guessing.
 
+## Proportion ownership and body/head anchors
+
+Before locking a humanoid blockout or undertaking a major head/body correction,
+use the [body proportion guide](references/body-proportions.md). Character modeling
+owns skull-to-body balance, shoulder/pelvis widths, torso/leg division,
+arm/hand/foot mass, profile volume and intentional style exaggeration. Do not
+delegate initial proportions to rigging; do not invent one mandatory eight-head
+anatomy template. Measure the **skull** separately from hair/headgear, and
+preserve approved eyes/mouth while adjusting hair or back-of-skull volumes.
+
+Select a project/reference-specific style family (realistic adult/feminine,
+stylized slim, anime/chibi, heroic/broader or age-specific) as a **description**,
+not a universal hard-coded ratio. Capture supported numeric envelopes and
+landmarks in the existing PASS 0/Model Contract. When a change affects clothes,
+straps, armor or surface-attached details, check their support/contact again.
+
 ## Workflow and decisions
 
-For a broad task: blockout → primary silhouette → major forms/proportions → joint clearance → secondary forms → clothing/accessories → controlled refinement → validation → handoff. Resolve primary form before tertiary detail; keep operations editable while the design is uncertain.
+For a broad task: blockout → proportions → primary forms → joint clearance → secondary forms → clothing/accessories → detailing → validation → handoff. Resolve primary form before tertiary detail; keep operations editable while the design is uncertain.
+
+For reference-character production, run the [workflow gates](references/workflow-gates.md)
+in the existing schema-3 QA receipt: justify face technology before the final
+face; accept head/face, neck/shoulders, torso/pelvis, proportions and canonical
+silhouette before mass detailing. After two unsuccessful corrections, save state
+and reconsider method/owner before dependent work. Record execution separately
+from reading. PASS0/numeric envelopes do not certify primary forms or complete
+the selected surface procedure.
 
 For a revision: inspect → isolate the requested change and dependencies → make the smallest sufficient edit → compare the requested result and protected views/data → stop.
 
@@ -40,7 +64,7 @@ When a blockout still reads as accidental balls, tubes or slabs, use
 and its section-controlled limb/hair/cloth examples before tertiary detail.
 Smooth shading alone does not change silhouette. Keep intended toy/low-poly forms.
 
-Choose direct editing or a procedural/modifier method according to editability and downstream needs. Use separate geometry for genuinely separate or rigid parts; use continuous geometry when continuous deformation is required. Do not join objects just to reduce count or rebuild geometry to mask a rig, weight, animation or exporter problem. Read [geometry decisions](references/geometry-decisions.md) for joint, part, hand, face or clothing choices, and [modifiers and transforms](references/modifiers-transforms.md) when those data are affected.
+Choose direct editing, procedural methods or [MPFB](references/mpfb.md) according to editability and downstream needs. Use separate geometry for genuinely separate or rigid parts; use continuous geometry when continuous deformation is required. Do not join objects just to reduce count or rebuild geometry to mask a rig, weight, animation or exporter problem. Read [geometry decisions](references/geometry-decisions.md) for joint, part, hand, face or clothing choices, and [modifiers and transforms](references/modifiers-transforms.md) when those data are affected.
 
 ## Modeling priorities and routing
 
