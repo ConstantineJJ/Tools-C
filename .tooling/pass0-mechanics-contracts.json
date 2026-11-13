@@ -70,7 +70,7 @@
       "id": "VRM-AGENTS",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md"
+        "docs/skills.md"
       ],
       "required_targets": [
         "skills/visual-reference-reconstruction/SKILL.md",

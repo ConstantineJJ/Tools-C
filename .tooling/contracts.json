@@ -147,11 +147,7 @@
         "tests/test_mcp_checks.py",
         "tests/blender_vision_probe.py",
         "docs/agent-vision.md",
-        "docs/tools-c-plugin.md",
-        "docs/release-v4.2.1.md",
-        "AGENTS.md",
-        "Project-pulse.md",
-        "docs/blender-domain-skill-pack.md"
+        "docs/tools-c-plugin.md"
       ]
     },
     {
@@ -184,16 +180,12 @@
         "docs/architecture-v4.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
-        "Project-pulse.md",
         "docs/project-review.md",
         "docs/source-bundles.md",
         "docs/mcp-helper.md",
         "tests/fixtures/project_review_vehicle/spec.md",
         "docs/agent-vision.md",
-        "docs/tools-c-plugin.md",
-        "docs/release-v4.2.1.md",
-        "AGENTS.md",
-        "docs/blender-domain-skill-pack.md"
+        "docs/tools-c-plugin.md"
       ]
     },
     {

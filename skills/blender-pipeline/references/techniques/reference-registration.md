@@ -37,10 +37,10 @@ task script through the existing `execute_blender_python` route, for example:
 
 ```python
 import runpy
-refs = runpy.run_path('E:/MyCreations/Tools_C/tools/blender_reference.py')
+refs = runpy.run_path('C:/path/to/Tools_C/tools/blender_reference.py')
 _result = refs['create_reference_set']([{
     'projection': 'orthographic', 'view': 'right',
-    'image': 'E:/MyCreations/Work_Utility/task/reference-profile.png',
+    'image': 'C:/path/to/task/reference-profile.png',
     'pixels': [[40, 440], [280, 440], [150, 120]],
     'plane_points': [[0, 0], [.24, 0], [.11, .32]],
     'landmark_types': ['visible_surface', 'visible_surface', 'coat_tip'],

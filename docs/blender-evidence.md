@@ -105,7 +105,7 @@ Use these routes in order; tool discovery failure is a reason to try the next ro
 ```python
 import runpy, uuid
 from pathlib import Path
-tools_c = Path("E:/MyCreations/Tools_C")
+tools_c = Path("C:/path/to/Tools_C")
 capture = runpy.run_path(str(tools_c / "tools/blender_capture.py"))["capture_viewport"]
 capture_directory = runpy.run_path(str(tools_c / "tools/mcp_capture_response.py"))["capture_directory"]
 output = capture_directory(tools_c) / uuid.uuid4().hex

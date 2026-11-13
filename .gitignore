@@ -1,3 +1,16 @@
 __pycache__/
 *.pyc
 .local/
+
+# Local development state and account-specific connections
+/AGENTS.md
+/Project-pulse.md
+/PatchesAB_fix.md
+/reports/
+/tasks/
+/docs/blender-domain-skill-pack.md
+/docs/release-v4.0.3.md
+/docs/release-v4.1.0.md
+/docs/release-v4.2.0.md
+/docs/release-v4.2.1.md
+/plugins/tools-c/.app.json

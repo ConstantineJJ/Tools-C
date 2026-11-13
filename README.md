@@ -1,159 +1,93 @@
 # Tools_C 4.2.1
 
-Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Tools_C v4.2.1 sources](https://github.com/ConstantineJJ/Tools-C/tree/v4.2.1)
-include the canonical skills and checkers. See [4.2.1 changes](docs/release-v4.2.1.md),
-[private Tools_C plugin](docs/tools-c-plugin.md) and [Agent Vision](docs/agent-vision.md).
-[Current project state](Project-pulse.md) records the latest completed work, checks,
-open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to 30 canonical skills. A shared
-[foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
-semantics. The live count comes from `manifest.json`; the Light v0.1 fallback
-remains a historical snapshot (28 owners / 9 aliases), not the live catalog.
-Architecture version, published package version and fallback version are independent.
-Rigging/skinning, animation, GLB export validation and Godot asset
-integration now have separate owners. Nine legacy Blender names remain compatible.
+Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
+Tools_C has [30 canonical skills](docs/skills.md), nine compatible legacy Blender
+routes, reusable checkers and project integration. Tools_C Light is a separate
+product. [Release 4.2.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.1)
+contains the distributable toolkit and checksums.
 
-[Posteffects and polishing](skills/blender-posteffects-polishing/SKILL.md) finishes
-materials/textures, localized wear and motivated glow near final QA/delivery.
-Its [contracts](.tooling/blender-polishing-contracts.json) protect registration and
-handoff links; project art direction and inspected visual evidence still decide
-the finish. UV/bakes remain with surfaces, structural damage with sculpting.
+Skills own procedures; project profiles hold replaceable project choices;
+contracts declare machine-checkable invariants. The shared
+[foundation](docs/foundation.md) defines scope, preservation, evidence and handoff.
+Canonical procedures are read from this repository rather than copied into plugins.
 
-[Anime character modeling](skills/blender-anime-character-modeling/SKILL.md) owns anime/manga humanoid form, faces, eyes, hair and clothing, with renderer-compatible visual QA and explicit downstream handoffs.
+## Install and check
 
-[Reference Surface Transfer](skills/blender-reference-surface-transfer/SKILL.md) reuses original image regions for faces/eyes,
-logos, prints and unique patterns, with bounded repair, transfer/bake and provenance QA.
+Clone or extract the release into a permanent directory. Python 3.10+ is required;
+the core tools use the standard library. Blender, Godot and live MCP dependencies
+are needed only for their corresponding operations.
 
-[Visual reference reconstruction](skills/visual-reference-reconstruction/SKILL.md)
-is the required PASS 0 before complex image-based modeling or new text-only design across asset domains.
-Its [DESCRIPTION mode](skills/visual-reference-reconstruction/references/description-mode.md)
-extracts constraints, selects a hero concept, freezes its identity and derives reviewed
-views from that image. Both modes use schema 3 and one persistent
-[Model Contract](skills/visual-reference-reconstruction/references/model-contract.md)
-for hard identity, proportion envelopes and soft details. Assembly/view reviews pin
-its revision/hash; known crop or geometric drift cannot become new design truth.
-Historical packets still parse for audit and require reviewed migration before modeling.
-Its provenance-aware packet feeds [robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
-or the matching domain owner. [Implementation and real workflow evidence](reports/archive/PASS0_AND_ROBOT_SKILLS_2026-10-05.md)
-separate structured handoff acceptance, auxiliary-image limits and clay quality.
-
-Four production skills coordinate a playable [mechanic gym](skills/production-mechanic-gym/SKILL.md),
-[parallel worktrees](skills/production-subagent-worktree/SKILL.md), a representative
-[lookdev gate](skills/production-lookdev-gate/SKILL.md) and compact
-[project state and regression gates](skills/production-project-state-gates/SKILL.md).
-They guide specialist work; project profiles, contracts and the applicable
-Blender/Godot skills still own concrete requirements and checks.
-
-Skills describe how to work. Project profiles hold replaceable local choices.
-Contracts declare invariants, checkers prove bounded properties, and project Pulse
-files record observed status. A future character, genre or model generator does
-not require changing the core. Native Blender and external-assisted production
-are equal paths; Tripo is an optional source note.
-
-Requirements: Python 3.10+. Tools_C runtime/checkers use only the Python standard
-library; no third-party packages to install. Its own contracts/checkers are
-authoritative. Optional external validators (including skill-creator quick_validate)
-have their own dependencies; their absence does not invalidate Tools_C checks.
-Engine probes, full live MCP service dependencies and human review are separate.
-Mega tools adds bounded metadata discovery, [behavioral trial evidence and
-read-only session diagnostics](docs/mega-tools.md). `python tools/skill_behavior.py
---help` lists prepare/review/compare; `python tools/session_diagnostics.py LOG
---root ALLOWED_ROOT` analyzes only the selected transcript. Neither command
-launches agents, engines or repairs. Actual trial/visual acceptance stays separate.
-Latest Blender form/context improvements and evidence: [form-methods report](reports/archive/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
-Obsolete V1/v4 run reports were removed for 4.2.1. Earlier sources and evidence
-remain in Git history; current acceptance is recorded in [the 4.2.1 report](reports/v4.2.1.md). Godot and Blender are optional for
-L1 and required only for their applicable engine/runtime checks.
-
-For final character visual acceptance use the task-local evidence packet:
-[QA receipt protocol](docs/qa-receipt.md), [separate testing playbook](docs/qa-test-playbook.md),
-and [checker](tools/qa_gate.py). The receipt is not an automatic
-judgment of image quality.
-
-For migrations with untracked application sources, use [working-tree source bundles](docs/source-bundles.md):
-inventory, review an exact allowlist, capture raw working bytes externally and verify
-their integrity/freshness without staging or replacing the source with HEAD.
-
-From Tools_C in PowerShell:
+From the Tools_C directory in PowerShell:
 
 ```powershell
 .\check.bat --self
-.\check.bat --project "E:\MyCreations\Stickmans_Duel\stickmans-duel-project"
-.\check.bat --project "E:\MyCreations\Blender-MCP-Co"
-python -m unittest discover -s tests -v
-python tools/check.py --project "C:\path\to\project" --json
-```
-
-Set TOOLS_C_PYTHON to an explicit Python executable if `python` is unavailable.
-The launchers work from another working directory and propagate failure codes.
-
-Connect a future existing folder:
-
-```powershell
 .\bootstrap.bat --project "C:\path\to\project" --kind godot
+.\check.bat --project "C:\path\to\project"
+python -m unittest discover -s tests -v
 ```
 
-Kinds: generic, godot, blender. Bootstrap creates only `.tooling` files and appends
-one managed AGENTS block; it preserves existing profiles and unrelated router bytes.
-New profiles carry `review_state: generated_unreviewed`; checks emit WARN with exit 0
-if there are no failures. Inspect and specialize the profile/contracts, then set
-`review_state` to `reviewed` explicitly. Missing legacy status also warns; review
-never disables invariant checks. Project choices belong in `.tooling/profile.md`
-and profile.json, with machine-checkable invariants in contracts.json. For a moved
-Tools_C folder, update tools_root or set TOOLS_C_ROOT; regenerate Blender routers
-with `python tools/sync_blender.py --project "C:\path\to\Blender-MCP-Co"`.
-No global installation, environment-variable mutation or symlinks are required.
+Kinds: `generic`, `godot`, `blender`. Bootstrap creates project-local `.tooling`
+files and one managed `AGENTS.md` block, preserving existing profiles and unrelated
+content. Review the generated profile/contracts before explicitly marking the
+profile `reviewed`; new profiles start `generated_unreviewed`.
 
-Blender MCP compatibility: list/read/context keep the nine legacy names. The
-integration server resolves canonical text on each read; direct canonical names
-are also readable. `get_skill_context` selects stage owners and reports truncation
-as incomplete. `capture_viewport` returns PNG evidence and metadata; `deployment_info`
-reports loaded/disk identity and tool-schema/context digests. The generic Python
-bridge applies non-executing syntax preflight before Blender execution.
+Set `TOOLS_C_PYTHON` to a Python executable if needed. After moving Tools_C, update
+the consuming project's `tools_root` or set `TOOLS_C_ROOT`. No global installation,
+environment mutation or symlinks are required. The launchers propagate exit codes.
 
-Generate both managed router trees (edited or stale copies fail before writes):
+## Plugin and MCP
+
+The [Tools_C plugin source](docs/tools-c-plugin.md) is one thin invocation
+entrypoint with the supplied Tools_C icon. It discovers current connected tools
+and routes to existing canonical contexts. Public source contains no personal
+App bindings; private installation connects the operator's existing services.
+It does not install or start engines or MCP services.
+
+The [Blender MCP integration](docs/mcp-deployment.md) supports skill discovery,
+stage-specific context, captures, deployment identity and bounded central checks.
+Regenerate managed routers for an existing integration:
 
 ```powershell
 python tools/sync_blender.py --project "C:\path\to\Blender-MCP-Co"
 python tools/mcp_deployment.py --project "C:\path\to\Blender-MCP-Co"
-python tools/sync_blender.py --bundle "C:\path\to\NEW-package"
 ```
 
-Offline packages contain generated context, not editable authorities. Existing
-bundle directories fail without writes. Router hashes include current canonical
-context identity. The integration launcher's current behavior is read-only router
-verification, not the historical destructive sync. After server changes, the normal
-tunnel/MCP restart loads code; connector schema refresh is a separate boundary.
-See [deployment diagnosis](docs/mcp-deployment.md). Local sync is never live PASS.
+The [4.2.1 adapter patch](adapters/blender-mcp-4.2.1.patch) wires the existing
+server to the canonical helpers; it is not another MCP server. See
+[deployment diagnosis](docs/mcp-deployment.md) for loaded/disk identity checks.
+After server changes, restart the existing MCP process and refresh client metadata.
+Local synchronization alone does not prove the live service has loaded changes.
 
-Use [Blender evidence tools](docs/blender-evidence.md) for deterministic snapshots,
-fixed/current views and isolated export/fresh-import validation. Images require
-review; structural checks do not certify visual quality. Toolkit 4.2.1 keeps
-JSON schema_version 1 and historical lesson/report versions unchanged.
+## Capabilities and evidence
 
-L1 structural/contracts/static checks: [format, codes, limits and adding rules](docs/contracts.md).
+- [Skill catalog](docs/skills.md): domain modeling, reference reconstruction,
+  surface transfer, sculpting, rigging, animation, export and Godot integration.
+- [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md):
+  stylized humanoid form, faces, eyes, hair and clothing with scoped visual QA.
+- [Agent Vision](docs/agent-vision.md): fixed/named-camera captures, silhouettes,
+  world-space measurements, calibrated contour/landmark comparison, difference
+  maps and localized findings through existing capture and QA helpers.
+- [Blender evidence](docs/blender-evidence.md) and [QA receipts](docs/qa-receipt.md):
+  scoped snapshots, comparable views, export checks and hash-bound evidence.
+- [Project review](docs/project-review.md), [source bundles](docs/source-bundles.md)
+  and [Mega tools](docs/mega-tools.md): optional traceability, source preservation,
+  metadata discovery and behavioral-trial analysis.
+- [Contracts](docs/contracts.md) and [engine checks](docs/engines.md): explicit
+  invariants, stable diagnostics and bounded structural/import probes.
 
-Optional [project review](docs/project-review.md) connects scoped requirement IDs,
-tasks, sources and evidence. `tools/project_review.py` provides read-only
-`validate`, `analyze`, `converge` and `impact`; `apply-tasks` is an explicit guarded
-todo write. Existing projects need no new packet. A runnable
-[vehicle metadata example](tests/fixtures/project_review_vehicle/spec.md) keeps
-structural success separate from unreviewed visual/formal acceptance.
-L2 engine/import probes: [selection, commands and evidence](docs/engines.md).
-L3 requires an explicit runtime behavior probe; L4 requires actual engineering/
-visual evidence via [verification](skills/verification/SKILL.md). Missing capability
-is SKIP with reason. Import success cannot certify appearance or gameplay feel.
-Tools_C does not replace engines, MCP services, project design or human acceptance.
+Structural, engine, runtime and visual results remain separate. Missing capability
+is reported as SKIP with a reason. Generated ImageGen views/textures remain auxiliary
+evidence under the existing reference workflow; they do not establish hidden geometry.
+Silhouette metrics require declared masks and comparable camera/pose setup.
+Automatic metric success does not certify artistic likeness, deformation or gameplay.
 
-Add repeatable judgment-based lessons to the owning skill, using its existing
-Pitfalls / Lessons Learned format. Add reliable checks to contracts instead of
-another prose prohibition. Update obsolete active rules and tests together; use
-Git history rather than duplicate archives.
+The repository includes functional documentation, tests and minimal test fixtures.
+Internal reports, task histories, local state and account-specific connection files
+are excluded from the current distribution. Schema versions and historical skill
+provenance are independent of the toolkit release version.
 
 Architectural reference: [ArcEngine](https://github.com/xaidan777/ArcEngine), audited
-at commit 70c777242c1b9dc8b2525394450472b826491c4b: router, verification/render
-conventions, check runner, instancing and lint tests. Implementation here is original;
+at commit `70c777242c1b9dc8b2525394450472b826491c4b`. Implementation here is original;
 no ArcEngine code was copied. ArcEngine is MIT, copyright 2026 Tearevo. Blender
 procedures were migrated from the user's local pipeline with authorization;
-original source hashes/versions are retained in [manifest](manifest.json).
+source hashes/versions remain in [manifest.json](manifest.json).

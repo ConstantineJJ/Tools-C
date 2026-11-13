@@ -258,11 +258,10 @@ strict parsing/bounds, canonical pointer isolation and unopened L4 evidence.
 
 ## Deferred functions
 
-[R0](../reports/archive/PATCH_B_R0_2026-10-16.md) defers a separate Ledger/workflow engine;
-no external model trial or generic visual/manual PASS adapter is added. Impact
-analysis reports dependencies without auto edits, generation or deployment.
-Owner integration and domain verification are recorded in the
-[final B report](../reports/archive/PATCH_B_FINAL_2026-10-16.md).
+A separate Ledger/workflow engine, external model trials and a generic
+visual/manual PASS adapter are outside this interface. Impact analysis reports
+dependencies without automatic edits, generation or deployment. Existing domain
+owners and evidence gates retain their acceptance responsibilities.
 
 ## Existing owners and runnable domain example
 

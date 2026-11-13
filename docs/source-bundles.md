@@ -14,8 +14,8 @@ deployment manager or replacement for project-review/deployment tools.
 Run from Tools_C. Substitute the observed project and external evidence directory:
 
 ```powershell
-$sourceProject = 'E:/MyCreations/Constantine-Hub'
-$evidenceRoot = 'E:/MyCreations/Work_Utility/patch-c-source'
+$sourceProject = 'C:/path/to/project'
+$evidenceRoot = 'C:/path/to/external-evidence/source-bundle'
 New-Item -ItemType Directory -Path $evidenceRoot -Force | Out-Null
 python tools/source_bundle.py inventory --project $sourceProject
 ```
@@ -31,23 +31,23 @@ Review the inventory and write `allowlist.json` as a JSON array of **exact files
 
 ```json
 [
-  "apps/ConstantineHub/ConstantineHub.csproj",
-  "apps/ConstantineHub/Program.cs",
-  "apps/ConstantineHub/Adapters/Blender/BlenderAdapter.cs"
+  "pyproject.toml",
+  "src/main.py",
+  "src/adapters/blender.py"
 ]
 ```
 
-These are examples, **not a complete Hub allowlist**. Include required source
+These are examples, **not a complete project allowlist**. Include required source
 dependencies, tests, assets and build/CI definitions after inspection. Do not infer
-closure from `.csproj` alone. Review omitted paths; exclude build products, caches,
+closure from a project manifest alone. Review omitted paths; exclude build products, caches,
 logs, secrets and unrelated work deliberately. There is no secret scanner or
 automatic publication approval. Directories, globs, unknown paths and ignored
 files are rejected rather than silently expanded.
 
 ```powershell
-python tools/source_bundle.py capture --project $sourceProject --allowlist "$evidenceRoot/allowlist.json" --output "$evidenceRoot/hub-source"
-python tools/source_bundle.py verify --bundle "$evidenceRoot/hub-source"
-python tools/source_bundle.py verify --bundle "$evidenceRoot/hub-source" --project $sourceProject
+python tools/source_bundle.py capture --project $sourceProject --allowlist "$evidenceRoot/allowlist.json" --output "$evidenceRoot/project-source"
+python tools/source_bundle.py verify --bundle "$evidenceRoot/project-source"
+python tools/source_bundle.py verify --bundle "$evidenceRoot/project-source" --project $sourceProject
 ```
 
 Capture reads current raw bytes. HEAD/index versions never replace working bytes.

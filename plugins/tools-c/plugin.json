@@ -22,8 +22,7 @@
         ],
         "logo": "./assets/tools-c.png",
         "composerIcon": "./assets/tools-c.png"
-      },
-      "apps": "./.app.json"
+      }
     }
   }
 }

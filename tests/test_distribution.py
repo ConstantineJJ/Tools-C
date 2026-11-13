@@ -16,7 +16,19 @@ class DistributionTest(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix='tools-c distribution ')
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name) / 'pack'
-        shutil.copytree(check.ROOT, self.root, ignore=shutil.ignore_patterns('.git', '.local', '__pycache__'))
+        # A relocated distribution must work without development state or personal bindings.
+        def ignore(directory, names):
+            omitted = {'.git', '.local', '__pycache__'}
+            relative = Path(directory).relative_to(check.ROOT)
+            if relative == Path('.'):
+                omitted.update({'AGENTS.md', 'Project-pulse.md', 'PatchesAB_fix.md', 'reports', 'tasks'})
+            elif relative == Path('docs'):
+                omitted.update(name for name in names if name.startswith('release-'))
+                omitted.add('blender-domain-skill-pack.md')
+            elif relative == Path('plugins/tools-c'):
+                omitted.add('.app.json')
+            return omitted.intersection(names)
+        shutil.copytree(check.ROOT, self.root, ignore=ignore)
         environment = patch.dict(os.environ, {'TOOLS_C_ROOT': str(self.root)})
         environment.start()
         self.addCleanup(environment.stop)
@@ -45,6 +57,18 @@ class DistributionTest(unittest.TestCase):
         self.assertIn("folder's docs/skills.md catalog", block)
         self.assertNotIn("folder's AGENTS.md", block)
         self.assertFalse(check.run(target, self.root).failed)
+
+    def test_plugin_source_has_no_dangling_private_connection(self):
+        plugin = self.root / 'plugins/tools-c'
+        portable = check.read_json(plugin / 'plugin.json')
+        compatibility = check.read_json(plugin / '.codex-plugin/plugin.json')
+        self.assertFalse((plugin / '.app.json').exists())
+        self.assertNotIn('apps', portable['extensions']['com.openai'])
+        self.assertNotIn('apps', compatibility)
+        self.assertEqual(portable['name'], compatibility['name'])
+        self.assertEqual(portable['version'], compatibility['version'])
+        for field in ('logo', 'composerIcon'):
+            self.assertTrue((plugin / portable['extensions']['com.openai']['interface'][field]).is_file())
 
 if __name__ == '__main__':
     unittest.main()

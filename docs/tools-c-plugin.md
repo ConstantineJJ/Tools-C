@@ -1,8 +1,9 @@
 # Private Tools_C plugin
 
 Source: `plugins/tools-c`. This package contains one invocation entrypoint,
-presentation, the user's original icon and references to existing registered
-Blender/Godot/files Apps. It contains no copied canonical procedures or validators.
+presentation and the user's original icon. It discovers existing connected
+Blender/Godot/files tools. The public source omits account-specific App IDs and
+contains no copied canonical procedures or validators.
 The canonical manifest, router, skills, project profiles and QA remain in Tools_C.
 
 The plugin reads deployment_info, list_skills and get_skill_context. Generic
@@ -24,9 +25,17 @@ refresh client metadata. Existing 17 operation names remain; tools_c_check is
 additive and capture_viewport gains only optional camera_name/channel inputs.
 Existing scalar square resolution and capture defaults remain supported.
 
-For a private account install, package the directory with its root plugin.json,
-.app.json, compatibility manifest, skill and icon. Verify registered App IDs and
-archive contents, then use the existing Plugin Creator account-save operation.
+The public directory is a portable skills entrypoint, not a preconfigured service
+connection or a public-directory App submission. It requires the operator's
+existing connected MCP services. Missing services are reported explicitly.
+
+For a private account install, copy the directory to private staging outside the
+repository, add a root `.app.json` using verified registered App IDs, and reference
+it through `extensions.com.openai.apps` in the root manifest and `apps` in the
+compatibility manifest. Package that private copy with its skill and icon, verify
+the contents, then use the existing Plugin Creator account-save operation.
+Keep these personal bindings out of the distributable source. An already installed
+private plugin retains its own bindings when the repository is cleaned.
 Uploading a plugin does not start its local services, install Python/Blender,
 grant filesystem access, or guarantee the host provides ImageGen. Missing
 capabilities stay explicit. Fresh-chat invocation is a separate client check.

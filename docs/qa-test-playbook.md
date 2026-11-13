@@ -1,15 +1,15 @@
 # Character QA practical test playbook — isolated session
 
-Date: 2026-10-08. Read this in the separate test conversation after the user
+Read this in a separate test conversation after the user
 provides the reference. It does not authorize a Hub update or irreversible
 modification of the approved source character.
 
 ## Before work
 
-Read Project-pulse.md and the QA, Verification, Reference Surface Transfer,
-Character Modeling and Model Contract Skills. Until Blender MCP Server is
-restarted, pass max_chars=60000 explicitly to get_skill_context; the running
-server may still use the historical 50000 default. Never silently accept
+Read the active project's instructions and current state, then the QA,
+Verification, Reference Surface Transfer, Character Modeling and Model Contract
+skills through the [catalog](skills.md). Inspect `deployment_info` and context
+completeness; load any missing context before work. Never silently accept
 truncated skill context. Capture protected source geometry, UV, approved eyes,
 mouth and expression, head-to-body sizes, skull separately from hair, and
 authoritative original reference. Keep source/BEFORE evidence untouched.
@@ -63,4 +63,4 @@ user MUST_FIX/PRESERVE/DO_NOT_REINTERPRET items, image paths/hashes, actual visu
 observations, QA receipt result, limitations, runtime/bridge incidents and any
 regression. Final acceptance remains OPEN if a mandatory view is uninspected.
 
-Constantine Hub stays on v0.2.9. No application upgrade is required for QA.
+Use the existing host and integration; QA does not authorize an application upgrade.

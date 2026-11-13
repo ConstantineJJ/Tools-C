@@ -37,7 +37,7 @@
       "id": "RST-ENTRYPOINTS",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md",
+        "docs/skills.md",
         "skills/blender-pipeline/SKILL.md",
         "skills/visual-reference-reconstruction/SKILL.md",
         "skills/blender-pipeline/references/surfaces.md",
