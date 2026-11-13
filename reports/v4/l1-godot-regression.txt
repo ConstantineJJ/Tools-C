@@ -1,6 +1,0 @@
-L1 PASS OK [TOOLS-CATALOG] Declared check satisfied
-L1 FAIL E_FILE [PROJECT-PROFILE] Required file missing: .tooling/config.json
-L2 SKIP NOT_RUN [system] Use tools/engine_check.py; no engine executed by L1
-L3 SKIP NOT_RUN [system] Runtime/bridge/input behavior requires an explicit task probe
-L4 SKIP NOT_RUN [system] Visual and engineering review requires recorded evidence
-SUMMARY PASS=1 WARN=0 FAIL=1 SKIP=3

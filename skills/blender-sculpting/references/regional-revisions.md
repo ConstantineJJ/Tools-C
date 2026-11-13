@@ -34,7 +34,9 @@ surface without resolving its construction. Use mask boundaries and suitable
 fairing/relaxation only where they preserve the intended landmarks. Inspect the
 result, not the brush/operator name. A failure to improve calls for diagnosis of
 registration, topology density, falloff, construction or dependency binding before
-another equivalent operation; no fixed retry quota is added here.
+another equivalent operation. After two equivalent failed attempts on the same
+defect, change the hypothesis/representation before trying again. Compare the
+same feature and views; this is not a quota on user revisions or a full restart.
 
 For scripted containment in a closed, consistently evaluated mesh, sort ray
 crossings and classify individual entry/exit intervals with robust edge/tangent
@@ -57,6 +59,12 @@ surface UVs or topology changed, inspect attachment data and reattach/rebuild th
 affected region. Snapping roots alone does not restore guide direction, regional
 length, material sampling or coverage. Compare a sparse guide sample before a
 full-density groom; keep the previous source recoverable until the repair works.
+
+For a changed region use the short dependency order: skin → eye/ear contact →
+roots/UV/rest positions → guide flow/length → pigment → whiskers. One sparse,
+lit checkpoint should expose binding, length and color defects before density
+increases. Increase topology resolution only for a named unsupported form or
+detail; do not repeat a full SDF/remesh rebuild for a secondary fixed-topology fix.
 
 Inspect clay skin, guides/roots and the final material/coat separately. Compare
 the changed feature plus a second view/three-quarter view with fixed framing;

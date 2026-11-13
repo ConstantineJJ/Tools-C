@@ -11,6 +11,7 @@ VIEWS = {
     'left': ((0, -1, 0), (0, 0, 1), (-1, 0, 0)),
     'top': ((1, 0, 0), (0, 1, 0), (0, 0, 1)),
 }
+LANDMARK_TYPES = {'visible_surface', 'hidden_construction', 'coat_tip'}
 
 
 def _points(values):
@@ -70,8 +71,8 @@ def create_reference_set(records, collection_name='REFERENCE', camera_distance=1
     planned, seen = [], set()
     required = {'projection', 'view', 'image', 'pixels', 'plane_points', 'authority', 'scope', 'confidence'}
     for record in records:
-        if not isinstance(record, dict) or set(record) != required:
-            raise ValueError('Reference fields must be exactly: '+', '.join(sorted(required)))
+        if not isinstance(record, dict) or not required <= set(record) or set(record)-required-{'landmark_types'}:
+            raise ValueError('Required reference fields: '+', '.join(sorted(required))+'; optional: landmark_types')
         view = record['view']
         if not isinstance(view, str) or view not in VIEWS or view in seen:
             raise ValueError('Views must be unique: front, back, right, left, top')
@@ -84,6 +85,11 @@ def create_reference_set(records, collection_name='REFERENCE', camera_distance=1
         if not path.is_absolute() or not path.is_file():
             raise ValueError('Reference image must be an existing absolute local file')
         fit = fit_landmarks(record['pixels'], record['plane_points'])
+        if 'landmark_types' in record:
+            kinds = record['landmark_types']
+            if not isinstance(kinds, (list, tuple)) or len(kinds) != len(record['pixels']) or any(
+                    not isinstance(kind, str) or kind not in LANDMARK_TYPES for kind in kinds):
+                raise ValueError('landmark_types must match pixels and use visible_surface, hidden_construction or coat_tip')
         planned.append((record, path.resolve(), fit))
         seen.add(view)
     created_objects, created_cameras, created_images = [], [], []
@@ -138,7 +144,8 @@ def create_reference_set(records, collection_name='REFERENCE', camera_distance=1
                 data.ortho_scale = max(abs(a)*width+abs(b)*height, abs(b)*width+abs(a)*height)
                 data.clip_start, data.clip_end = .001, camera_distance*4
             metadata = dict(record, fit=fit, source_path=str(Path(record['image']).resolve()),
-                            pixel_size=[width, height], export_policy='exclude this collection explicitly')
+                            pixel_size=[width, height],
+                            export_policy='exclude this collection explicitly')
             for obj in (image, camera) if camera is not None else (image,):
                 obj.hide_select = True
                 obj.hide_render = True
@@ -159,3 +166,80 @@ def create_reference_set(records, collection_name='REFERENCE', camera_distance=1
         for img in created_images:
             bpy.data.images.remove(img)
         raise
+
+
+def diagnose_reference_set(collection_name, tolerance=1e-5):
+    """Read actual world registration; warnings are diagnostics, never likeness PASS.
+
+    Existing untyped metadata remains readable. Source-side naming, model transforms,
+    source-camera calibration and anatomy need separate inspection.
+    """
+    import bpy
+    from mathutils import Vector
+
+    if type(tolerance) not in (int, float) or not math.isfinite(tolerance) or tolerance <= 0:
+        raise ValueError('Positive finite scene-unit tolerance required')
+    collection = bpy.data.collections[collection_name]
+    if not collection.get('tools_c_reference'):
+        raise ValueError('Not a Tools_C reference collection')
+    bpy.context.view_layer.update()
+    rows = []
+    render = bpy.context.scene.render
+    square = (render.resolution_x == render.resolution_y and
+              abs(render.pixel_aspect_x-render.pixel_aspect_y) < 1e-6)
+    for image in sorted(collection.objects, key=lambda o: o.name):
+        if image.type != 'EMPTY' or not image.get('tools_c_reference'):
+            continue
+        meta = json.loads(image['registration'])
+        view, fit = meta['view'], meta['fit']
+        u, v, n = map(Vector, VIEWS[view])
+        width, height = meta['pixel_size']
+        errors, drift = [], []
+        for (x, y), (qx, qy) in zip(meta['pixels'], meta['plane_points']):
+            local = Vector(((x+image.empty_image_offset[0]*width)/max(width, height),
+                            (height-y+image.empty_image_offset[1]*height)/max(width, height), 0))*image.empty_display_size
+            actual = image.matrix_world @ local
+            fitted = u*(fit['a']*x+fit['b']*y+fit['tx'])+v*(fit['b']*x-fit['a']*y+fit['ty'])
+            errors.append((actual-u*qx-v*qy).length)
+            drift.append((actual-fitted).length)
+        warnings = []
+        if 'landmark_types' not in meta:
+            warnings.append('untyped_landmarks')
+        basis = image.matrix_world.to_3x3()
+        axes = [basis.col[i] for i in range(3)]
+        scales = [axis.length for axis in axes]
+        if max(scales)-min(scales) > 1e-6 or min(scales) <= 1e-8:
+            warnings.append('nonuniform_transform')
+        if any(abs(axes[i].normalized().dot(axes[j].normalized())) > 1e-6
+               for i, j in ((0, 1), (0, 2), (1, 2))) or basis.determinant() <= 0:
+            warnings.append('sheared_or_reflected_transform')
+        if max(drift) > tolerance:
+            warnings.append('registration_drift')
+        if list(image.data.size) != list(meta['pixel_size']):
+            warnings.append('image_aspect_or_size_changed')
+        if meta['projection'] == 'orthographic':
+            if not square:
+                warnings.append('render_aspect')
+            camera = bpy.data.objects.get(collection_name+'_'+view+'_camera')
+            if camera is None or camera.type != 'CAMERA':
+                warnings.append('missing_camera')
+            else:
+                rotation = camera.matrix_world.to_3x3()
+                if any((rotation.col[i]-axis).length > 1e-5 for i, axis in enumerate((u,v,n))):
+                    warnings.append('camera_orientation')
+                center = u*(fit['a']*width/2+fit['b']*height/2+fit['tx'])+v*(fit['b']*width/2-fit['a']*height/2+fit['ty'])
+                offset = camera.matrix_world.translation-center
+                span = max(abs(fit['a'])*width+abs(fit['b'])*height,
+                           abs(fit['b'])*width+abs(fit['a'])*height)
+                if (camera.data.type != 'ORTHO' or abs(camera.data.ortho_scale-span) > tolerance or
+                        abs(camera.data.shift_x)*camera.data.ortho_scale > tolerance or
+                        abs(camera.data.shift_y)*camera.data.ortho_scale > tolerance or
+                        abs(offset.dot(u)) > tolerance or abs(offset.dot(v)) > tolerance or
+                        not camera.data.clip_start < offset.dot(n) < camera.data.clip_end):
+                    warnings.append('camera_framing')
+        rows.append(dict(view=view, scope=meta['scope'], landmark_types=meta.get('landmark_types'),
+                         fit_errors=fit['errors'], fit_rms_error=fit['rms_error'],
+                         world_errors=errors, world_rms_error=math.hypot(*errors)/math.sqrt(len(errors)),
+                         transform_errors=drift, warnings=warnings))
+    return dict(collection=collection_name, views=rows, status='DIAGNOSTICS_ONLY',
+                limits='No source-side recognition, model transform check, camera calibration or artistic acceptance')

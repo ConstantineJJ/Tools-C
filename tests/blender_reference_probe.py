@@ -47,6 +47,10 @@ def check_set():
     perspective = bpy.data.collections['PERSPECTIVE_GUIDE']
     assert len(perspective.objects) == 1
     assert all(o.type == 'EMPTY' for o in perspective.objects)
+    diagnostic = refs.diagnose_reference_set('REFERENCE')
+    assert all(not row['warnings'] for row in diagnostic['views']), diagnostic
+    assert json.loads(images[0]['registration'])['landmark_types'] == [
+        'visible_surface', 'hidden_construction', 'coat_tip']
     return dict(packed_images=len(images)+1, orthographic_cameras=len(cameras),
                 perspective_measurement_cameras=0, landmarks='matched actual image-object transforms')
 
@@ -60,10 +64,13 @@ if opts.phase == 'create':
     source.filepath_raw = str(image_path)
     source.file_format = 'PNG'
     source.save()
+    bpy.context.scene.render.resolution_x = bpy.context.scene.render.resolution_y = 512
+    bpy.context.scene.render.pixel_aspect_x = bpy.context.scene.render.pixel_aspect_y = 1
     records = [dict(projection='orthographic', view=view, image=str(image_path),
                     pixels=[[0, 0], [320, 0], [0, 240]],
                     plane_points=[[-.16, .24], [.16, .24], [-.16, 0]],
-                    authority='synthetic test fixture', scope='test plane', confidence='known')
+                    authority='synthetic test fixture', scope='test plane', confidence='known',
+                    landmark_types=['visible_surface', 'hidden_construction', 'coat_tip'])
                for view in refs.VIEWS]
     active, selected, camera = bpy.context.view_layer.objects.active, list(bpy.context.selected_objects), bpy.context.scene.camera
     cube = bpy.data.objects['Cube']
@@ -86,7 +93,57 @@ if opts.phase == 'create':
     except ValueError:
         pass
     assert state == inventory(), 'Failed setup leaked or changed datablocks'
-    refs.create_reference_set([dict(records[0], projection='perspective')], 'PERSPECTIVE_GUIDE')
+    for types in [[], ['iris']*3, 'visible_surface', None]:
+        try:
+            refs.create_reference_set([dict(records[0], landmark_types=types)], 'BAD_TYPES')
+            raise AssertionError('Expected invalid landmark type rejection')
+        except ValueError:
+            pass
+        assert state == inventory()
+    image = bpy.data.objects['REFERENCE_front_image']
+    parent = bpy.data.objects.new('Nonuniform_parent', None)
+    bpy.context.scene.collection.objects.link(parent)
+    image.parent = parent
+    parent.scale = (1, 2, 3)
+    bpy.context.view_layer.update()
+    row = next(r for r in refs.diagnose_reference_set('REFERENCE')['views'] if r['view'] == 'front')
+    assert {'nonuniform_transform', 'registration_drift'} <= set(row['warnings']), row
+    image.parent = None
+    bpy.data.objects.remove(parent, do_unlink=True)
+    image.empty_image_offset = (0, 0)
+    row = next(r for r in refs.diagnose_reference_set('REFERENCE')['views'] if r['view'] == 'front')
+    assert 'registration_drift' in row['warnings'], row
+    image.empty_image_offset = (-.5, -.5)
+    cam = bpy.data.objects['REFERENCE_front_camera']
+    original = cam.matrix_world.copy()
+    cam.rotation_euler.z += 3.141592653589793
+    bpy.context.view_layer.update()
+    row = next(r for r in refs.diagnose_reference_set('REFERENCE')['views'] if r['view'] == 'front')
+    assert 'camera_orientation' in row['warnings'], row
+    cam.matrix_world = original
+    for axis in ('shift_x', 'shift_y'):
+        setattr(cam.data, axis, .5)
+        row = next(r for r in refs.diagnose_reference_set('REFERENCE')['views'] if r['view'] == 'front')
+        assert 'camera_framing' in row['warnings'], (axis, row)
+        setattr(cam.data, axis, 0)
+    assert not refs.diagnose_reference_set('REFERENCE')['views'][0]['warnings']
+    large = dict(records[0], plane_points=[[x*100, y*100] for x, y in records[0]['plane_points']])
+    refs.create_reference_set([large], 'REFERENCE_LARGE')
+    large_cam = bpy.data.objects['REFERENCE_LARGE_front_camera']
+    for axis in ('shift_x', 'shift_y'):
+        setattr(large_cam.data, axis, .25)
+        assert 'camera_framing' in refs.diagnose_reference_set('REFERENCE_LARGE', tolerance=1)['views'][0]['warnings'], axis
+        setattr(large_cam.data, axis, .01)
+        assert not refs.diagnose_reference_set('REFERENCE_LARGE', tolerance=1)['views'][0]['warnings'], axis
+        setattr(large_cam.data, axis, 0)
+    bpy.context.scene.render.resolution_x = 1024
+    assert 'render_aspect' in refs.diagnose_reference_set('REFERENCE')['views'][0]['warnings']
+    bpy.context.scene.render.resolution_x = 512
+    # Legacy records without the optional field still work and remain untyped.
+    legacy = dict(records[0], projection='perspective')
+    del legacy['landmark_types']
+    refs.create_reference_set([legacy], 'PERSPECTIVE_GUIDE')
+    assert refs.diagnose_reference_set('PERSPECTIVE_GUIDE')['views'][0]['warnings'] == ['untyped_landmarks']
     result.update(check_set())
     bpy.ops.wm.save_as_mainfile(filepath=str(opts.work/'reference-fixture.blend'))
     result['asset_and_selection_preserved'] = True

@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from check import ROOT, catalog, existing
+from validation_core import ROOT, catalog, existing
 
 
 # Keep legacy names stable; these descriptions decide discovery at the old entrypoints.
@@ -60,6 +60,8 @@ def document_paths(root, alias):
         paths.append("skills/blender-animation/references/motion.md")
     elif alias == "blender-destruction-assets":
         paths.append("skills/blender-destruction-assets/references/physics-and-verification.md")
+    elif alias == "blender-imported-asset-recovery":
+        paths.append("skills/blender-imported-asset-recovery/references/inspection.md")
     elif alias == "blender-reference-surface-transfer":
         paths.extend(["skills/blender-reference-surface-transfer/references/workflow.md",
                       "skills/blender-reference-surface-transfer/references/record.md",

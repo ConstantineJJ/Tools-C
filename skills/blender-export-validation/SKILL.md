@@ -19,6 +19,10 @@ constraints or an engine damage system; require an explicit supported handoff.
 1. Inspect explicit object selection, dependencies, units/axes/transforms, modifiers,
    shape keys, skin bindings, materials/textures and Action/slot/NLA inclusion.
    Record Blender/exporter version and available RNA options; unknown options fail.
+   For fur, read [fur delivery](../blender-pipeline/references/techniques/fur-delivery.md).
+   Direct native Hair Curves (`CURVES`) require an explicit supported delivery copy;
+   never equate a successful body-only GLB with groom inclusion. Exclude references
+   through the object allowlist; hide-render is insufficient.
 2. Save baseline [snapshot and fixed views](../../docs/blender-evidence.md). Export
    selected objects to a new GLB, excluding helpers. A successful operator is only
    export execution evidence. Run the [bounded GLB inspector](../../tools/glb_inspect.py).

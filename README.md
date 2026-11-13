@@ -6,9 +6,12 @@ includes the canonical ZIP, checksums and extracted-package verification.
 See [v4.2.0 changes and compatibility](docs/release-v4.2.0.md).
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
-[AGENTS.md](AGENTS.md) routes to twenty-eight canonical skills. A shared
+[AGENTS.md](AGENTS.md) routes to 30 canonical skills. A shared
 [foundation](docs/foundation.md) owns scope, preservation, evidence and handoff
-semantics. Rigging/skinning, animation, GLB export validation and Godot asset
+semantics. The live count comes from `manifest.json`; the Light v0.1 fallback
+remains a historical snapshot (28 owners / 9 aliases), not the live catalog.
+Architecture version, published package version and fallback version are independent.
+Rigging/skinning, animation, GLB export validation and Godot asset
 integration now have separate owners. Nine legacy Blender names remain compatible.
 
 [Posteffects and polishing](skills/blender-posteffects-polishing/SKILL.md) finishes
@@ -32,7 +35,7 @@ for hard identity, proportion envelopes and soft details. Assembly/view reviews 
 its revision/hash; known crop or geometric drift cannot become new design truth.
 Historical packets still parse for audit and require reviewed migration before modeling.
 Its provenance-aware packet feeds [robot and mechanism modeling](skills/blender-robot-mechanism-modeling/SKILL.md)
-or the matching domain owner. [Implementation and real workflow evidence](reports/PASS0_AND_ROBOT_SKILLS_2026-10-05.md)
+or the matching domain owner. [Implementation and real workflow evidence](reports/archive/PASS0_AND_ROBOT_SKILLS_2026-10-05.md)
 separate structured handoff acceptance, auxiliary-image limits and clay quality.
 
 Four production skills coordinate a playable [mechanic gym](skills/production-mechanic-gym/SKILL.md),
@@ -58,7 +61,7 @@ read-only session diagnostics](docs/mega-tools.md). `python tools/skill_behavior
 --help` lists prepare/review/compare; `python tools/session_diagnostics.py LOG
 --root ALLOWED_ROOT` analyzes only the selected transcript. Neither command
 launches agents, engines or repairs. Actual trial/visual acceptance stays separate.
-Latest Blender form/context improvements and evidence: [form-methods report](reports/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
+Latest Blender form/context improvements and evidence: [form-methods report](reports/archive/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
 Historical V1/v4 evidence (September 2026) is retained in the machine-local
 `.local/archived_reports/2026-10-08/` archive rather than the current reports
 index; it is not shipped in public releases. Godot and Blender are optional for
@@ -68,6 +71,10 @@ For final character visual acceptance use the task-local evidence packet:
 [QA receipt protocol](docs/qa-receipt.md), [separate testing playbook](docs/qa-test-playbook.md),
 and [checker](tools/qa_gate.py). The receipt is not an automatic
 judgment of image quality.
+
+For migrations with untracked application sources, use [working-tree source bundles](docs/source-bundles.md):
+inventory, review an exact allowlist, capture raw working bytes externally and verify
+their integrity/freshness without staging or replacing the source with HEAD.
 
 From Tools_C in PowerShell:
 

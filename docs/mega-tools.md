@@ -87,3 +87,18 @@ G4/G5: separately labelled offline versus real paired trial evidence; G6: synthe
 known defects, negative coverage and no-leak parser tests; G7: full regressions;
 G8: scoped diff, preserved unrelated bytes and current Pulse. L2–L4/live runtime
 remain separate checks, never inferred from Python unit tests.
+
+## Context delivery and dependency boundaries
+
+`get_skill_context` reports `status_scope=CONTEXT_DELIVERY`; `ok` proves only that
+the active required documents fit or have valid retained receipts. Execution and
+acceptance remain `NOT_EVALUATED`. Missing and conditional documents still require
+explicit reads before their operation. Robot context includes the required Model Contract
+and delivers the short evidence entry; fetch the full capture recipe when needed.
+
+`validation_core.py` owns schema/path/catalog primitives without importing the
+checker, profile adapters, reader or router. `check.py` re-exports its existing API.
+Routing resolves exact identities through this leaf module, so search and routing
+no longer load each other. Data files are read afresh; Python helper implementations
+are process-loaded. Restart MCP after changing Python helper source; document-only
+changes remain visible through current reads and receipt hashes.

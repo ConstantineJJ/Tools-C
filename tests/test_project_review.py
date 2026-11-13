@@ -610,6 +610,22 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(report['acceptance_status'], 'FAIL')
         self.assertEqual(report['findings'][0]['gap_kind'], 'missing')
 
+    def test_cli_opt_in_acceptance_gate_distinguishes_pass_fail_and_open(self):
+        command=[sys.executable,str(TOOLS/'project_review.py'),'converge','review.json',
+                 '--project',str(self.root),'--require-acceptance']
+        passed=subprocess.run(command,capture_output=True,text=True)
+        self.assertEqual(passed.returncode,0,passed.stderr)
+        (self.root/'result.txt').unlink()
+        failed=subprocess.run(command,capture_output=True,text=True)
+        self.assertEqual(failed.returncode,2,failed.stderr)
+        self.assertEqual(json.loads(failed.stdout)['acceptance_status'],'FAIL')
+        self.packet['checks']=[]
+        self.packet['requirements'][0]['checks']=[]
+        self.save()
+        opened=subprocess.run(command,capture_output=True,text=True)
+        self.assertEqual(opened.returncode,2,opened.stderr)
+        self.assertEqual(json.loads(opened.stdout)['acceptance_status'],'OPEN')
+
     def test_read_only_cli_and_no_source_payload_or_unimplemented_operations(self):
         before = {f.name:f.read_bytes() for f in self.root.iterdir() if f.is_file()}
         result = subprocess.run([sys.executable, str(TOOLS/'project_review.py'), 'converge', 'review.json',

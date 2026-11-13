@@ -258,11 +258,11 @@ strict parsing/bounds, canonical pointer isolation and unopened L4 evidence.
 
 ## Deferred functions
 
-[R0](../reports/PATCH_B_R0_2026-10-16.md) defers a separate Ledger/workflow engine;
+[R0](../reports/archive/PATCH_B_R0_2026-10-16.md) defers a separate Ledger/workflow engine;
 no external model trial or generic visual/manual PASS adapter is added. Impact
 analysis reports dependencies without auto edits, generation or deployment.
 Owner integration and domain verification are recorded in the
-[final B report](../reports/PATCH_B_FINAL_2026-10-16.md).
+[final B report](../reports/archive/PATCH_B_FINAL_2026-10-16.md).
 
 ## Existing owners and runnable domain example
 
@@ -293,3 +293,12 @@ reassess the user's accepted visual improvement after A. The isolated
 `test_existing_asset_receipt_blocks_uninspected_vehicle_views` also exercises the
 existing ASSET_FINAL receipt owner: structurally valid metadata with unreviewed
 views cannot yield its final gate PASS.
+
+## Optional CLI acceptance gate
+
+`project_review.py converge PACKET --project ROOT --require-acceptance` returns
+exit 0 only when the declared acceptance status is PASS, exit 2 for FAIL/OPEN or
+other non-PASS acceptance, and exit 1 for invalid inputs. Without this opt-in,
+exit 0 continues to mean the report was produced successfully. Consumers must
+read `analysis_status`, `acceptance_status` and `visual_status` separately.
+Neither form proves engine execution or visual quality.

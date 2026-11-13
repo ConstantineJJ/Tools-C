@@ -66,7 +66,7 @@ or domain decisions are requested.
 | Actions, loops and secondary motion | [animation](../blender-animation/SKILL.md) |
 | GLB delivery and fresh import | [export validation](../blender-export-validation/SKILL.md) |
 | Target Godot asset playback | [Godot integration](../godot-asset-integration/SKILL.md) |
-| Inspect or repair a supplied model | [external intake](references/external-import.md) |
+| Inspect/repair/separate imported models | [recovery](references/external-import.md) |
 | Validate visual or structural quality | [character QA](references/qa.md) and [verification](../verification/SKILL.md) |
 | Iterate on measured defects | [refinement](references/refinement.md) |
 

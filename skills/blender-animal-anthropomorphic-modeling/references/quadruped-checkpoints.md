@@ -71,6 +71,11 @@ alone, roots/guides and final coat/material independently. Inspect both sides,
 ear backs, cheeks and seams under neutral light. Count visible/evaluated strands
 separately from stored hidden or zero-radius curves; counts do not prove coverage.
 Follow the surface workflow for native Hair Curves attachment and materials.
+For regional length/color transitions, sparse shader tests, short-undercoat bake,
+LOD budgets and fixed-distance comparisons, read
+[fur delivery](../../blender-pipeline/references/techniques/fur-delivery.md)
+before constructing a dense groom. A smooth skin mesh alone does not establish
+coat coverage or a natural eye/cheek section.
 
 Name the feature, revision and images supporting each observation. A better nose
 profile is a scoped result; the full head/body needs its own evidence. Save/reopen,

@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 import runpy
 
-from check import ROOT, catalog, read_json, existing
+from validation_core import ROOT, catalog, read_json, existing, resolve_identifier
 from read_blender_skill import render
 
 
@@ -182,17 +182,37 @@ def destruction_route(query):
     return bool(direct or subject and prepare)
 
 
+def imported_asset_recovery_route(query):
+    """Existing-asset repairs; supplier/asset nouns alone do not start recovery."""
+    source = re.search(
+        r'\b(?:imported|supplied|existing|selected|third[- ]party|scanned|scan|tripo|meshy)\b|'
+        r'импортир|загруженн|готов\w*\s+модел|существующ|выделенн|скан\w*', query)
+    mesh = re.search(r'\b(?:mesh|model|asset|blender|scan)\b|меш|модел|ассет|блендер', query)
+    action = re.search(
+        r'\b(?:repair|fix|recover|restore|clean|weld|merge|fill|close|patch|separate|split|segment|detach|extract|retexture|unwrap|repack)\b|'
+        r'исправ|поправ|почин|восстанов|очист|свари|сварить|завари|заварить|сшей|сшить|закрой|закрыть|задел|залат|'
+        r'раздел|сегментир|отдел|выдели|выреж|ретекстур|перетекстур|разверн|перепак', query)
+    problem = re.search(
+        r'\b(?:geometry|topology|holes?|gaps?|seams?|vertices|normals?|uvs?|textures?|retexture|materials?|mesh\s+errors?)\b|'
+        r'геометр|тополог|дыр|отверсти|щел|шов|швы|вершин|нормал|разв[её]ртк|текстур|материал', query)
+    separation = re.search(r'\b(?:separate|split|segment|detach|extract)\b|раздел|сегментир|отдел|выреж', query)
+    generic = re.search(
+        r'\b(?:repair|fix|recover|restore|clean\s+up)\s+(?:(?:the|this|that|an?|my|imported|supplied|existing|selected|damaged|broken|third-party|tripo|meshy|3d)\s+)*(?:model|asset|mesh|scan)\b|'
+        r'(?:исправ|поправ|почин|восстанов|очист)\w*\s+(?:(?:эт\w*|мо\w*|импортированн\w*|готов\w*|загруженн\w*|поврежд[её]нн\w*|3d)\s+)*(?:модел|ассет|меш|скан)', query)
+    return bool(action and (source and (problem or separation or generic) or mesh and (separation or problem)))
+
+
 def _route_task(task):
     query=task.strip().lower()
     if artistic_review_route(query):
         return ['verification']
     query=action_query(query)
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:imported-asset-recovery|reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     unclear = re.search(r'(?:причин\w*\s+неясн|выглядит\s+плохо|animation\s+looks\s+(?:bad|wrong)|cause\s+(?:is\s+)?unclear)', query)
     reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
     preparing_destruction = destruction_route(query) and bool(re.search(
         r'\b(?:prepare|segment|split|fracture|shatter)\b|подготов|раздел|разбей|расколи|разрушь', query))
-    if reviewing and not preparing_destruction and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
+    if reviewing and not preparing_destruction and not imported_asset_recovery_route(query) and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
         return ['verification']
     if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
@@ -200,14 +220,23 @@ def _route_task(task):
     procedures=procedure_routes(query)
     polishing=polishing_route(query)
     transfer=surface_transfer_route(query)
+    recovery=imported_asset_recovery_route(query) and not destruction_route(query)
     routes=['verification'] if reviewing else []
+    if recovery: routes.append('blender-imported-asset-recovery')
     if transfer: routes.append('blender-reference-surface-transfer')
-    if procedures: routes.append('blender-pipeline')
-    if polishing: routes.append('blender-posteffects-polishing')
-    if re.search(r'export|round.trip|glb|gltf|экспорт',query): routes.append('blender-export-validation')
+    if procedures and not recovery: routes.append('blender-pipeline')
+    if polishing and not recovery: routes.append('blender-posteffects-polishing')
+    if re.search(r'export|round.trip|экспорт',query) or not recovery and re.search(r'glb|gltf',query): routes.append('blender-export-validation')
     if re.search(r'godot|годот',query): routes.append('godot-asset-integration')
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ|постро)\w*\s+(?:(?:нов\w*|эт\w*|текущ\w*)\s+)*(?:rig\b|риг\w*|арматур\w*|скелет\w*)',query): routes.append('blender-rigging-skinning')
     if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|\banimate\b|анимиру|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
+    recovery_redesign = re.search(
+        r'\b(?:silhouette|proportions?|redesign|remodel|rebuild)\b|силуэт|пропорц|перестро|передел', query)
+    new_recovery_geometry = re.search(
+        r'\b(?:create|build|model|make)\s+(?:(?:a|an|the)\s+)?new\b|'
+        r'(?:созда|смодел|постро|сдела)\w*\s+нов\w*', query)
+    if recovery and not recovery_redesign and not new_recovery_geometry:
+        return list(dict.fromkeys(routes))
     destruction = destruction_route(query)
     if destruction:
         routes.insert(0, 'blender-destruction-assets')
@@ -276,7 +305,6 @@ def stage_phases(task, root):
 
 def route_task(task, *, root=ROOT):
     """PASS 0 precedes visual/text design; actual artifacts determine input mode."""
-    resolve_identifier = runpy.run_path(str(Path(__file__).with_name('skill_catalog.py')))['resolve_identifier']
     explicit = resolve_identifier(root, task)
     if explicit: return [explicit]
     if re.fullmatch(r'(?:blender-|godot-|production-)[a-z-]+', task.strip().lower()):
@@ -360,8 +388,8 @@ def context(root, task, max_chars=60000, known_documents=None, requested_documen
         blocks=_context_documents(content)
         # This pointer repeats foundation/pipeline rather than adding rules.
         defer={'skills/blender-pipeline/references/core.md':'Legacy compatibility pointer; foundation and pipeline are delivered directly'}
-        if len(requested) > 1:
-            # Multi-domain entry: acquire the full capture recipe when actually
+        if len(requested) > 1 or name == 'blender-robot-mechanism-modeling':
+            # Multi-domain/large robot entry: acquire the full capture recipe when actually
             # capturing; retain the bounded renderer/fallback contract now.
             defer['docs/blender-evidence.md']='Read the full acquisition recipe before capture/snapshot/export'
             if len(requested) > 2:
@@ -371,7 +399,7 @@ def context(root, task, max_chars=60000, known_documents=None, requested_documen
         for p,b in blocks:
             if p in defer: conditional[p]=dict(path=p,sha256=hashlib.sha256(b.encode()).hexdigest(),reason=defer[p])
         blocks=[(p,b) for p,b in blocks if p not in defer]
-        if len(requested) > 1:
+        if len(requested) > 1 or name == 'blender-robot-mechanism-modeling':
             blocks.insert(1,('docs/blender-evidence-entry.md',existing(root,'docs/blender-evidence-entry.md').read_text(encoding='utf-8')))
         owner_documents.append((name,content,blocks))
     # Reserve entry gates before long recipes consume the transport budget. This
@@ -425,6 +453,8 @@ def context(root, task, max_chars=60000, known_documents=None, requested_documen
         row['ok']=not row['missing_documents']; row['truncated']=not row['ok']
     missing=[p for p in missing if documents[p]['status']=='pending']
     return dict(ok=all(s['ok'] for s in loaded),task=task,skills=loaded,
+                status_scope='CONTEXT_DELIVERY', execution_status='NOT_EVALUATED',
+                acceptance_status='NOT_EVALUATED',
                 documents=list(documents.values()),missing_documents=missing,
                 conditional_documents=list(conditional.values()),
                 receipts={p:r['sha256'] for p,r in documents.items() if r['status']!='pending'},

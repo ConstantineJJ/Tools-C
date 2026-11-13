@@ -43,6 +43,7 @@ _result = refs['create_reference_set']([{
     'image': 'E:/MyCreations/Work_Utility/task/reference-profile.png',
     'pixels': [[40, 440], [280, 440], [150, 120]],
     'plane_points': [[0, 0], [.24, 0], [.11, .32]],
+    'landmark_types': ['visible_surface', 'visible_surface', 'coat_tip'],
     'authority': 'user-corrected profile', 'scope': 'head and forequarters',
     'confidence': 'observed silhouette; hidden width unknown'
 }], collection_name='REFERENCE')
@@ -64,6 +65,24 @@ registration, not an unexplained automatic fit. The cameras use fixed square
 framing enclosing the rotated image; use square render resolution and square pixels
 for these cameras (the helper preserves scene render settings). Do not reframe to model bounds between passes.
 Residuals have no automatic likeness threshold or artistic PASS.
+
+`landmark_types` is optional for compatibility. When supplied, it has one entry
+per point: `visible_surface`, `hidden_construction` or `coat_tip`. Use scope and
+confidence to name the actual features and skin/coat envelope; visible iris and
+hidden eyeball center are different landmarks. Legacy untyped records are not
+silently assigned types. Use a separate named collection for a head/paw crop;
+retain common world landmark heights with the body registration where justified.
+
+Call `diagnose_reference_set('REFERENCE')` after setup, parent/root changes or
+reopening. It reports original fit residuals, actual world per-point residuals,
+drift from the registered fit, nonuniform/sheared/reflected image transforms,
+camera orientation/framing, image-size changes and incompatible render aspect.
+It changes no registration or model data. Compare errors in scene units at the
+feature's scale; no universal error threshold certifies a likeness. Check the
+model's own local-to-world transform separately. Orientation warnings compare
+the camera to the declared view; source-image handedness/pose still needs visual
+inspection and cannot be inferred from the view name. An unchanged aspect-warped
+source can produce fit residuals but is not automatically repaired.
 
 Perspective sources can be imported with `projection: 'perspective'` as visual
 guides, but the helper creates **no measurement camera** for them. Plane placement

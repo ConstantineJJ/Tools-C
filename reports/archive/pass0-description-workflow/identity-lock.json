@@ -1,0 +1,528 @@
+{
+  "proportion_basis": {
+    "unit": "H",
+    "scale_status": "RELATIVE_ONLY",
+    "axis_convention": "Z up; local front is forward gun direction; define right in object coordinates",
+    "pose": "standing hero pose",
+    "camera_notes": "Perspective lens unknown; adopted ranges, not orthographic dimensions"
+  },
+  "constraints": [
+    {
+      "id": "R.scout",
+      "property": "R.scout",
+      "value": "light reconnaissance",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: light reconnaissance",
+          "observation": "light reconnaissance"
+        }
+      ],
+      "target": "intent"
+    },
+    {
+      "id": "R.biped",
+      "property": "R.biped",
+      "value": 2,
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: 2",
+          "observation": "2"
+        }
+      ],
+      "target": "count",
+      "component_id": "legs"
+    },
+    {
+      "id": "R.sphere",
+      "property": "R.sphere",
+      "value": "sphere",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: sphere",
+          "observation": "sphere"
+        }
+      ],
+      "target": "claim",
+      "component_id": "torso",
+      "target_claim_ids": [
+        "torso.shape"
+      ]
+    },
+    {
+      "id": "R.guns",
+      "property": "R.guns",
+      "value": 2,
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: 2",
+          "observation": "2"
+        }
+      ],
+      "target": "count",
+      "component_id": "guns"
+    },
+    {
+      "id": "R.energy",
+      "property": "R.energy",
+      "value": "energy",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: energy",
+          "observation": "energy"
+        }
+      ],
+      "target": "claim",
+      "component_id": "guns",
+      "target_claim_ids": [
+        "guns.type"
+      ]
+    },
+    {
+      "id": "R.longlegs",
+      "property": "R.longlegs",
+      "value": "long",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: long",
+          "observation": "long"
+        }
+      ],
+      "target": "claim",
+      "component_id": "legs",
+      "target_claim_ids": [
+        "legs.proportion"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "torso",
+      "label": "spherical torso",
+      "count": 1,
+      "claims": [
+        {
+          "id": "torso.shape",
+          "property": "shape",
+          "value": "sphere",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "sphere"
+            }
+          ],
+          "requirement_ids": [
+            "R.sphere"
+          ]
+        },
+        {
+          "id": "torso.panels",
+          "property": "panel design",
+          "value": "segmented gray spherical shell; circular front aperture",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "segmented gray spherical shell; circular front aperture"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guns",
+      "label": "paired forward gun assemblies",
+      "count": 2,
+      "claims": [
+        {
+          "id": "guns.count",
+          "property": "count",
+          "value": 2,
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "2"
+            }
+          ],
+          "requirement_ids": [
+            "R.guns"
+          ]
+        },
+        {
+          "id": "guns.type",
+          "property": "weapon type",
+          "value": "energy",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "energy"
+            }
+          ],
+          "requirement_ids": [
+            "R.energy"
+          ]
+        },
+        {
+          "id": "guns.form",
+          "property": "form",
+          "value": "elongated rectangular housings, one on each side, teal side strip",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "elongated rectangular housings, one on each side, teal side strip"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legs",
+      "label": "long articulated legs",
+      "count": 2,
+      "claims": [
+        {
+          "id": "legs.count",
+          "property": "count",
+          "value": 2,
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "2"
+            }
+          ],
+          "requirement_ids": [
+            "R.biped"
+          ]
+        },
+        {
+          "id": "legs.proportion",
+          "property": "proportion",
+          "value": "long",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "long"
+            }
+          ],
+          "requirement_ids": [
+            "R.longlegs"
+          ]
+        },
+        {
+          "id": "legs.form",
+          "property": "limb shape",
+          "value": "thin gray links with exposed circular knee/ankle interfaces",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "thin gray links with exposed circular knee/ankle interfaces"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feet",
+      "label": "feet",
+      "count": 2,
+      "claims": [
+        {
+          "id": "feet.form",
+          "property": "shape",
+          "value": "each visible foot has forward narrow wedge and small heel support",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "each visible foot has forward narrow wedge and small heel support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optics",
+      "label": "optical elements",
+      "count": 2,
+      "claims": [
+        {
+          "id": "optics.form",
+          "property": "visible arrangement",
+          "value": "front circular aperture and one raised top camera housing",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "front circular aperture and one raised top camera housing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antenna",
+      "label": "top antenna",
+      "count": 1,
+      "claims": [
+        {
+          "id": "antenna.form",
+          "property": "shape",
+          "value": "single thin antenna to image-right of top camera",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "single thin antenna to image-right of top camera"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relative_dimensions": [
+    {
+      "id": "torso.width",
+      "property": "relative width",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "width",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "torso.depth",
+      "property": "relative depth",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "depth",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "torso.height",
+      "property": "relative height",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "height",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "legs.height",
+      "property": "relative height",
+      "value": [
+        0.56,
+        0.65
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.56, 0.65]"
+        }
+      ],
+      "component_id": "legs",
+      "axis": "height",
+      "min": 0.56,
+      "max": 0.65,
+      "unit": "H"
+    },
+    {
+      "id": "guns.length",
+      "property": "relative length",
+      "value": [
+        0.18,
+        0.26
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.18, 0.26]"
+        }
+      ],
+      "component_id": "guns",
+      "axis": "length",
+      "min": 0.18,
+      "max": 0.26,
+      "unit": "H"
+    },
+    {
+      "id": "feet.length",
+      "property": "relative length",
+      "value": [
+        0.16,
+        0.24
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.16, 0.24]"
+        }
+      ],
+      "component_id": "feet",
+      "axis": "length",
+      "min": 0.16,
+      "max": 0.24,
+      "unit": "H"
+    }
+  ],
+  "silhouette_notes": [
+    {
+      "id": "silhouette.primary",
+      "property": "outline",
+      "value": "spherical body over two very long thin legs; short side gun extensions",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "spherical body over two very long thin legs; short side gun extensions"
+        }
+      ]
+    },
+    {
+      "id": "design.palette",
+      "property": "palette",
+      "value": "matte slate-gray with restrained teal accents",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "matte slate-gray with restrained teal accents"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "attach.guns",
+      "property": "gun attachment",
+      "value": "gun housings connect at left/right spherical torso sides",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "gun housings connect at left/right spherical torso sides"
+        }
+      ],
+      "from_component": "guns",
+      "to_component": "torso",
+      "relationship": "bilateral side mounts"
+    },
+    {
+      "id": "attach.legs",
+      "property": "leg attachment",
+      "value": "two visible hip interfaces under torso",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "two visible hip interfaces under torso"
+        }
+      ],
+      "from_component": "legs",
+      "to_component": "torso",
+      "relationship": "underbody hip links"
+    }
+  ]
+}

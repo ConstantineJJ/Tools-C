@@ -1,0 +1,153 @@
+{
+  "status": "FAIL",
+  "errors": [],
+  "checks": [
+    {
+      "rule_id": "required.R.scout",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.R.sphere",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.R.energy",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.R.longlegs",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.torso.shape",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.guns.count",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.legs.count",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "required.legs.proportion",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "dimension.torso.width",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "dimension.torso.depth",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "dimension.torso.height",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "dimension.legs.height",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "dimension.guns.length",
+      "result": "FAIL",
+      "reason": "proportion outside locked envelope"
+    },
+    {
+      "rule_id": "dimension.feet.length",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "ratio.gun_body",
+      "result": "FAIL",
+      "reason": "proportion outside locked envelope"
+    },
+    {
+      "rule_id": "ratio.leg_body",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "anchor.hip_z",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "anchor.gun_z",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "symmetry.guns",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "symmetry.legs",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "soft.torso.panels",
+      "result": "WARN",
+      "reason": "adaptable detail: hard identity/relationship mismatch"
+    },
+    {
+      "rule_id": "soft.feet.form",
+      "result": "WARN",
+      "reason": "adaptable detail: hard identity/relationship mismatch"
+    },
+    {
+      "rule_id": "count.torso",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "count.guns",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "count.legs",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "count.feet",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "count.optics",
+      "result": "PASS",
+      "reason": "within locked design"
+    },
+    {
+      "rule_id": "count.antenna",
+      "result": "PASS",
+      "reason": "within locked design"
+    }
+  ],
+  "contract_ref": {
+    "id": "scout-sphere-design",
+    "revision": 1,
+    "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+  },
+  "checkpoint": "MACRO",
+  "observations_sha256": "650f2ccd0a101306c8368697d9ceb875b5a8f0225172c84f3777f3372a473e33"
+}

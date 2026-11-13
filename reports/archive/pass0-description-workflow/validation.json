@@ -1,0 +1,34 @@
+{
+  "unittest": {
+    "status": "PASS",
+    "tests": 159,
+    "new_description_tests": 17
+  },
+  "l1": {
+    "self": {
+      "PASS": 41,
+      "SKIP": 3
+    },
+    "adapter": {
+      "PASS": 9,
+      "SKIP": 3
+    }
+  },
+  "reference_v1": "verify-files PASS",
+  "description_v2": "verify-files PASS",
+  "identity": "hero/manifest bytes unchanged",
+  "auxiliary": "RESTRICTED",
+  "gate": "READY_WITH_LIMITS / MACRO_BLOCKOUT",
+  "optional_quick_validate": {
+    "status": "SKIP",
+    "reason": "PyYAML unavailable"
+  },
+  "preservation": {
+    "status": "PASS",
+    "files": {
+      "E:\\MyCreations\\Tools_C": 7,
+      "E:\\MyCreations\\Blender-MCP-Co": 28
+    }
+  },
+  "publication": "Local update only; existing v4.1.0 unchanged"
+}

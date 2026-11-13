@@ -1,6 +1,6 @@
 """Typed timer-chunked curve operations inside Blender; no arbitrary executable jobs.
 
-State lives in this Blender process and a bounded Tools_C receipt directory.
+State lives in this Blender process and an external Work_Utility receipt directory.
 Reusing an ID with identical inputs reads its status; changed inputs are rejected.
 After process loss, receipts expose interruption; never replay partial mutations.
 """
@@ -10,6 +10,10 @@ import math
 from pathlib import Path
 import re
 import time
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mcp_capture_response import work_directory
 
 ROOT = Path(__file__).resolve().parents[1]
 STATES_KEY = '_TOOLS_C_CURVE_OPERATIONS_V1'
@@ -27,7 +31,11 @@ def _states():
 
 
 def _receipt(operation):
-    return ROOT/'.local'/'operations'/(_id(operation)+'.json')
+    directory = work_directory(ROOT, 'operations')
+    path = (directory / (_id(operation)+'.json')).resolve()
+    if path.parent != directory:
+        raise ValueError('Operation receipt escaped work directory')
+    return path
 
 
 def _public(state):
@@ -38,6 +46,8 @@ def _save(state):
     path=_receipt(state['operation_id'])
     path.parent.mkdir(parents=True,exist_ok=True)
     temporary=path.with_suffix('.json.tmp')
+    if temporary.is_symlink() or temporary.resolve().parent != path.parent:
+        raise ValueError('Temporary receipt escaped work directory')
     temporary.write_text(json.dumps(_public(state),sort_keys=True,allow_nan=False),encoding='utf-8')
     temporary.replace(path)
 
@@ -47,7 +57,14 @@ def operation_status(operation_id, cancel=False):
     if operation_id not in states:
         path=_receipt(operation_id)
         if not path.is_file():
-            return dict(ok=False,operation_id=operation_id,status='unknown',error='No receipt; inspect scene before replaying any mutation')
+            # Preserve old receipts as read-only interruption evidence. Never
+            # silently replay a completed/partial operation after relocation.
+            legacy=ROOT/'.local'/'operations'/(operation_id+'.json')
+            if legacy.resolve().parent != (ROOT/'.local'/'operations').resolve():
+                raise ValueError('Legacy receipt path escaped')
+            if not legacy.is_file():
+                return dict(ok=False,operation_id=operation_id,status='unknown',error='No receipt; inspect scene before replaying any mutation')
+            path=legacy
         state=json.loads(path.read_text(encoding='utf-8'))
         if state['status'] in ('queued','running'):
             state['status']='interrupted'

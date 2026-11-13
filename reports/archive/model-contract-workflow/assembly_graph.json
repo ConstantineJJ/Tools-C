@@ -1,0 +1,525 @@
+{
+  "contract_ref": {
+    "id": "scout-sphere-design",
+    "revision": 1,
+    "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+  },
+  "parts": [
+    {
+      "part_id": "Ankle.L",
+      "object_name": "Ankle.L",
+      "component_id": "legs",
+      "instance_id": "legs.L",
+      "parent_id": "Hip.L",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Ankle.R",
+      "object_name": "Ankle.R",
+      "component_id": "legs",
+      "instance_id": "legs.R",
+      "parent_id": "Hip.R",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Antenna",
+      "object_name": "Antenna",
+      "component_id": "antenna",
+      "instance_id": "antenna.0",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Foot.L",
+      "object_name": "Foot.L",
+      "component_id": "feet",
+      "instance_id": "feet.L",
+      "parent_id": "Hip.L",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Foot.R",
+      "object_name": "Foot.R",
+      "component_id": "feet",
+      "instance_id": "feet.R",
+      "parent_id": "Hip.R",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Gun.L",
+      "object_name": "Gun.L",
+      "component_id": "guns",
+      "instance_id": "guns.L",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Gun.R",
+      "object_name": "Gun.R",
+      "component_id": "guns",
+      "instance_id": "guns.R",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Hip.L",
+      "object_name": "Hip.L",
+      "component_id": "legs",
+      "instance_id": "legs.L",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Hip.R",
+      "object_name": "Hip.R",
+      "component_id": "legs",
+      "instance_id": "legs.R",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Knee.L",
+      "object_name": "Knee.L",
+      "component_id": "legs",
+      "instance_id": "legs.L",
+      "parent_id": "Hip.L",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Knee.R",
+      "object_name": "Knee.R",
+      "component_id": "legs",
+      "instance_id": "legs.R",
+      "parent_id": "Hip.R",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Lower.L",
+      "object_name": "Lower.L",
+      "component_id": "legs",
+      "instance_id": "legs.L",
+      "parent_id": "Hip.L",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Lower.R",
+      "object_name": "Lower.R",
+      "component_id": "legs",
+      "instance_id": "legs.R",
+      "parent_id": "Hip.R",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Optic.Front",
+      "object_name": "Optic.Front",
+      "component_id": "optics",
+      "instance_id": "optics.front",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Optic.Top",
+      "object_name": "Optic.Top",
+      "component_id": "optics",
+      "instance_id": "optics.top",
+      "parent_id": "Torso",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Torso",
+      "object_name": "Torso",
+      "component_id": "torso",
+      "instance_id": "torso.0",
+      "parent_id": null,
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Upper.L",
+      "object_name": "Upper.L",
+      "component_id": "legs",
+      "instance_id": "legs.L",
+      "parent_id": "Hip.L",
+      "role": "macro proxy"
+    },
+    {
+      "part_id": "Upper.R",
+      "object_name": "Upper.R",
+      "component_id": "legs",
+      "instance_id": "legs.R",
+      "parent_id": "Hip.R",
+      "role": "macro proxy"
+    }
+  ],
+  "observations": [
+    {
+      "rule_id": "required.R.scout",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "light reconnaissance",
+      "unit": null
+    },
+    {
+      "rule_id": "required.R.sphere",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "sphere",
+      "unit": null
+    },
+    {
+      "rule_id": "required.R.energy",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "energy",
+      "unit": null
+    },
+    {
+      "rule_id": "required.R.longlegs",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "long",
+      "unit": null
+    },
+    {
+      "rule_id": "required.torso.shape",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "sphere",
+      "unit": null
+    },
+    {
+      "rule_id": "required.guns.count",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 2,
+      "unit": null
+    },
+    {
+      "rule_id": "required.legs.count",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 2,
+      "unit": null
+    },
+    {
+      "rule_id": "required.legs.proportion",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "long",
+      "unit": null
+    },
+    {
+      "rule_id": "dimension.torso.width",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.3150000095367432,
+      "unit": "H",
+      "instance_values": {
+        "torso.0": 0.3150000095367432
+      }
+    },
+    {
+      "rule_id": "dimension.torso.depth",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.3150000095367432,
+      "unit": "H",
+      "instance_values": {
+        "torso.0": 0.3150000095367432
+      }
+    },
+    {
+      "rule_id": "dimension.torso.height",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.31499996185302737,
+      "unit": "H",
+      "instance_values": {
+        "torso.0": 0.31499996185302737
+      }
+    },
+    {
+      "rule_id": "dimension.legs.height",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.5969999462366105,
+      "unit": "H",
+      "instance_values": {
+        "legs.R": 0.5969999462366105,
+        "legs.L": 0.5969999462366105
+      }
+    },
+    {
+      "rule_id": "dimension.guns.length",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.2200000047683716,
+      "unit": "H",
+      "instance_values": {
+        "guns.L": 0.2200000047683716,
+        "guns.R": 0.2200000047683716
+      }
+    },
+    {
+      "rule_id": "dimension.feet.length",
+      "state": "MEASURED",
+      "method": "Evaluated world bounds of each physical instance / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.2,
+      "unit": "H",
+      "instance_values": {
+        "feet.R": 0.2,
+        "feet.L": 0.2
+      }
+    },
+    {
+      "rule_id": "ratio.gun_body",
+      "state": "MEASURED",
+      "method": "Measured instance extent ratio in canonical world axes",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 0.6984126924056797,
+      "unit": "ratio",
+      "instance_values": {
+        "guns.L": 0.6984126924056797,
+        "guns.R": 0.6984126924056797
+      }
+    },
+    {
+      "rule_id": "ratio.leg_body",
+      "state": "MEASURED",
+      "method": "Measured instance extent ratio in canonical world axes",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": 1.8952381540768521,
+      "unit": "ratio",
+      "instance_values": {
+        "legs.R": 1.8952381540768521,
+        "legs.L": 1.8952381540768521
+      }
+    },
+    {
+      "rule_id": "anchor.hip_z",
+      "state": "MEASURED",
+      "method": "Named hip/gun center world Z / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": [
+        0.6199999809265136
+      ],
+      "unit": "H"
+    },
+    {
+      "rule_id": "anchor.gun_z",
+      "state": "MEASURED",
+      "method": "Named hip/gun center world Z / H=10",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": [
+        0.7800000190734864
+      ],
+      "unit": "H"
+    },
+    {
+      "rule_id": "symmetry.guns",
+      "state": "MEASURED",
+      "method": "Measured bilateral root centers, X=0 symmetry plane; internal topology not certified",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      },
+      "unit": null
+    },
+    {
+      "rule_id": "symmetry.legs",
+      "state": "MEASURED",
+      "method": "Measured bilateral root centers, X=0 symmetry plane; internal topology not certified",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      },
+      "unit": null
+    },
+    {
+      "rule_id": "soft.torso.panels",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "primitive macro envelope; detail intentionally deferred",
+      "unit": null
+    },
+    {
+      "rule_id": "soft.feet.form",
+      "state": "MEASURED",
+      "method": "Macro fixture geometry/design review; no engineering or polished likeness claim",
+      "evidence": "macro-probe.blend / evaluated scene objects; explicit fixture construction",
+      "value": "primitive macro envelope; detail intentionally deferred",
+      "unit": null
+    }
+  ],
+  "verification": {
+    "status": "PASS",
+    "errors": [],
+    "checks": [
+      {
+        "rule_id": "required.R.scout",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.sphere",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.energy",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.R.longlegs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.torso.shape",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.guns.count",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.legs.count",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "required.legs.proportion",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.torso.width",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.torso.depth",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.torso.height",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.legs.height",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.guns.length",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "dimension.feet.length",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "ratio.gun_body",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "ratio.leg_body",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "anchor.hip_z",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "anchor.gun_z",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "symmetry.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "symmetry.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "soft.torso.panels",
+        "result": "WARN",
+        "reason": "adaptable detail: hard identity/relationship mismatch"
+      },
+      {
+        "rule_id": "soft.feet.form",
+        "result": "WARN",
+        "reason": "adaptable detail: hard identity/relationship mismatch"
+      },
+      {
+        "rule_id": "count.torso",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.guns",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.legs",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.feet",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.optics",
+        "result": "PASS",
+        "reason": "within locked design"
+      },
+      {
+        "rule_id": "count.antenna",
+        "result": "PASS",
+        "reason": "within locked design"
+      }
+    ],
+    "contract_ref": {
+      "id": "scout-sphere-design",
+      "revision": 1,
+      "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+    },
+    "checkpoint": "MACRO",
+    "observations_sha256": "e691d1a26d1cca4d83acbc4983b1c5749a6cd6d61ee2daf3d6cbd11be13b161c"
+  }
+}

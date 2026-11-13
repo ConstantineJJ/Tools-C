@@ -43,6 +43,7 @@ class ReferenceRegistrationTest(unittest.TestCase):
     def test_cheatsheet_and_animal_recipe_can_be_read_on_demand(self):
         for path in ['skills/blender-pipeline/references/modelling-pass-cheatsheet.md',
                      'skills/blender-pipeline/references/techniques/reference-registration.md',
+                     'skills/blender-pipeline/references/techniques/fur-delivery.md',
                      'skills/blender-animal-anthropomorphic-modeling/references/quadruped-checkpoints.md']:
             ctx = mcp_runtime.context(check.ROOT, 'blender-animal-anthropomorphic-modeling',
                                       max_chars=200000, requested_documents=[path])

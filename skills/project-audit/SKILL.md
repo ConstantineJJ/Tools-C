@@ -21,6 +21,15 @@ Follow the user's audit/integration scope and applicable project instructions be
 
 Inspect the primary and additional roots, nested instructions, branch/HEAD, remotes, staged/unstaged/untracked paths, installed runtimes, local routers, skill indexes, manifests, architecture and relevant project status. Read actual consumers before treating an old design or milestone as current. Separate observed implementation, planned work and unknowns. Scope only the applicable skills; a whole integration audit may require all discovered local skills.
 
+For migrations with dirty/untracked sources, read [source bundles](../../docs/source-bundles.md).
+HEAD alone may omit the application. Inventory first, review an exact allowlist,
+capture current working bytes externally and verify source freshness before use.
+Do not stage/clean/reset, restore deletions or edit ignores merely to capture code.
+
+For scoped C# symbol/reference impact or rename preview, read optional
+[MCP Helper integration](../../docs/mcp-helper.md). Discover its configured
+workspace/capabilities first; partial semantic facts do not replace project review.
+
 For an integration request, follow [project integration](references/integration.md): inspect existing configuration, connect through the managed bootstrap path, then review and specialize the generated profile/contracts. A generated profile is unreviewed until its project choices are checked; L1 passing does not make its assumptions true.
 
 ## Anti-degradation and stop

@@ -8,7 +8,8 @@ from pathlib import Path
 import re
 import stat
 
-from check import ROOT, Violation, fields, identifier, local_path, require
+from validation_core import ROOT, Violation, fields, identifier, local_path, require
+from project_review_core import digest, key, path_in, strict_json, refs, hash_value
 
 PACKET_LIMIT = 1024 * 1024
 TOTAL_LIMIT = 16 * PACKET_LIMIT
@@ -19,10 +20,6 @@ HISTORY_LIMIT = 1024
 ENGINE_VERSION = 'project-review-b4-b5-1'
 
 
-def digest(raw):
-    return hashlib.sha256(raw).hexdigest()
-
-
 def report_digest(report):
     return digest(json.dumps({k: v for k, v in report.items() if k != 'report_sha256'},
                              sort_keys=True, separators=(',', ':'), allow_nan=False).encode())
@@ -30,54 +27,10 @@ def report_digest(report):
 
 def engine_digest():
     paths = [Path(__file__), Path(__file__).with_name('project_review_tasks.py'),
-             Path(__file__).with_name('project_review_impact.py')]
+             Path(__file__).with_name('project_review_impact.py'),
+             Path(__file__).with_name('project_review_core.py'),
+             Path(__file__).with_name('project_review_cli.py')]
     return digest(b''.join(path.read_bytes() for path in paths))
-
-
-def key(value):
-    identifier(value)
-    require(len(value) <= 128, 'Identifier budget exceeded', 'E_LIMIT')
-
-
-def path_in(root, value):
-    require(isinstance(value, str) and len(value) <= 4096, 'Path budget exceeded', 'E_LIMIT')
-    return local_path(root, value)
-
-
-def strict_json(raw):
-    # check.read_json reads a whole file; decode our already bounded bytes instead.
-    def pairs(rows):
-        result = {}
-        for key, value in rows:
-            require(key not in result, 'Duplicate JSON key', 'E_JSON')
-            result[key] = value
-        return result
-
-    def nonfinite(value):
-        raise Violation('E_JSON', 'Non-finite JSON value')
-
-    def finite(value):
-        result = float(value)
-        require(result not in (float('inf'), float('-inf')), 'Non-finite JSON number', 'E_JSON')
-        return result
-
-    try:
-        return json.loads(raw.decode('utf-8-sig'), object_pairs_hook=pairs,
-                          parse_constant=nonfinite, parse_float=finite)
-    except (UnicodeError, ValueError, RecursionError) as error:
-        raise Violation('E_JSON', 'Invalid bounded UTF-8 JSON') from error
-
-
-def refs(values):
-    require(isinstance(values, list) and all(isinstance(x, str) for x in values), 'Expected ID array')
-    require(len(values) == len(set(values)), 'Duplicate reference', 'E_ID')
-    for value in values:
-        key(value)
-    return values
-
-
-def hash_value(value):
-    require(isinstance(value, str) and re.fullmatch('[a-f0-9]{64}', value), 'Invalid SHA-256')
 
 
 class Inputs:
@@ -401,7 +354,7 @@ def review(project, packet_path, *, operation='validate', previous=None, _inputs
         analyze(inputs, packet, indexed, report)
     if operation == 'impact':
         from project_review_impact import build
-        report['impact'] = build(inputs, packet, indexed, changed_source=changed_source, changed_rule=changed_rule)
+        report['impact'] = build(inputs, packet, indexed, changed_source=changed_source, changed_rule=changed_rule, finding_limit=FINDING_LIMIT)
         report['coverage'] = report['impact']['coverage']
     if operation == 'converge':
         assess(inputs, packet, indexed, report)
@@ -412,46 +365,8 @@ def review(project, packet_path, *, operation='validate', previous=None, _inputs
     return report
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('operation', choices=['validate', 'analyze', 'converge', 'impact', 'apply-tasks'])
-    parser.add_argument('packet')
-    parser.add_argument('--project', type=Path, required=True)
-    parser.add_argument('--previous')
-    parser.add_argument('--todo')
-    parser.add_argument('--expected-sha256')
-    parser.add_argument('--namespace')
-    parser.add_argument('--start', type=int)
-    parser.add_argument('--exclusive-writer', action='store_true')
-    changes = parser.add_mutually_exclusive_group()
-    changes.add_argument('--changed-source')
-    changes.add_argument('--changed-rule')
-    args = parser.parse_args()
-    if (args.operation == 'impact') != bool(args.changed_source or args.changed_rule):
-        parser.error('Only impact requires one of --changed-source or --changed-rule')
-    write_options = (args.todo, args.expected_sha256, args.namespace, args.start)
-    if args.operation == 'apply-tasks':
-        if not all(v is not None for v in write_options) or not args.exclusive_writer or args.previous:
-            parser.error('apply-tasks requires --todo, --expected-sha256, --namespace, --start, --exclusive-writer; no --previous')
-    elif any(v is not None for v in write_options) or args.exclusive_writer:
-        parser.error('Task write options require apply-tasks')
-    if args.previous and args.operation != 'converge':
-        parser.error('--previous requires converge')
-    try:
-        if args.operation == 'apply-tasks':
-            from project_review_tasks import apply_tasks
-            result = apply_tasks(args.project, args.packet, args.todo, args.expected_sha256,
-                                 namespace=args.namespace, start=args.start, exclusive_writer=args.exclusive_writer)
-        else:
-            result = review(args.project, args.packet, operation=args.operation, previous=args.previous,
-                            changed_source=args.changed_source, changed_rule=args.changed_rule)
-    except (Violation, OSError, ValueError, TypeError, KeyError, RecursionError) as error:
-        print(json.dumps(dict(analysis_status='FAIL', acceptance_status='NOT_EVALUATED',
-                             error=getattr(error, 'code', 'E_INPUT'), message='Invalid, stale, unsupported or out-of-scope review input')))
-        return 1
-    print(json.dumps(result, allow_nan=False))
-    return 0
-
-
 if __name__ == '__main__':
+    import sys
+    sys.modules['project_review'] = sys.modules[__name__]
+    from project_review_cli import main
     raise SystemExit(main())

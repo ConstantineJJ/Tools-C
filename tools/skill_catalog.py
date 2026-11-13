@@ -4,21 +4,7 @@ import re
 from pathlib import Path
 import runpy
 
-import check as _checker
-from check import existing, require
-
-# MCP runs helpers from disk but Python can retain an older check module.
-# Load only this installed sibling, never executable code from the supplied data root.
-catalog_manifest = getattr(_checker, 'catalog_manifest', None)
-if not callable(catalog_manifest):
-    catalog_manifest = runpy.run_path(str(Path(__file__).with_name('check.py')))['catalog_manifest']
-
-
-def resolve_identifier(root, query):
-    """Exact names only; aliases retain their historical read/context semantics."""
-    manifest = catalog_manifest(root)
-    names = [s['id'] for s in manifest['skills']] + list(manifest['blender_aliases'])
-    return next((n for n in names if n.casefold() == query.strip().casefold()), None)
+from validation_core import existing, require, catalog_manifest, resolve_identifier
 
 
 def _header(path):

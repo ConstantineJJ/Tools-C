@@ -6,7 +6,7 @@ import json
 import re
 from urllib.parse import unquote, urlsplit
 
-import project_review as pr
+import project_review_core as pr
 from check import fields, local_path, require, strings, validate_contract
 
 EDGE_LIMIT = 4096
@@ -61,7 +61,7 @@ def source_kind(path):
     return 'other'
 
 
-def build(inputs, packet, indexed, *, changed_source=None, changed_rule=None):
+def build(inputs, packet, indexed, *, changed_source=None, changed_rule=None, finding_limit=100):
     require((changed_source is None) != (changed_rule is None), 'Select one changed source or requirement')
     if changed_rule is not None:
         pr.key(changed_rule)
@@ -254,7 +254,7 @@ def build(inputs, packet, indexed, *, changed_source=None, changed_rule=None):
     budget = 0
     def append(bucket, row):
         nonlocal budget
-        if budget < pr.FINDING_LIMIT:
+        if budget < finding_limit:
             result[bucket].append(row)
             budget += 1
         else:

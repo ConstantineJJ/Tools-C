@@ -199,7 +199,7 @@ routing defect.
 7. Vegetation.
 8. Sculpting consolidation/upgrade.
 
-After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. The final 8/8 review is recorded in [review report](../reports/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md). The following dedicated contracts pass is recorded in [contracts report](../reports/BLENDER_DOMAIN_CONTRACTS_2026-10-03.md): only stable, machine-checkable invariants were promoted; tuning advice and asset identity remain project decisions.
+After every 2–3 specialists, perform an integration pass for duplicate rules, routing ambiguity and contradictory safeguards. The final 8/8 review is recorded in [review report](../reports/archive/BLENDER_DOMAIN_PACK_REVIEW_2026-10-03.md). The following dedicated contracts pass is recorded in [contracts report](../reports/archive/BLENDER_DOMAIN_CONTRACTS_2026-10-03.md): only stable, machine-checkable invariants were promoted; tuning advice and asset identity remain project decisions.
 
 ## Dedicated contracts acceptance
 

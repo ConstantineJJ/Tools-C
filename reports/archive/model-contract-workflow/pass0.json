@@ -1,0 +1,2436 @@
+{
+  "schema_version": 3,
+  "mode": "DESCRIPTION",
+  "packet_id": "description-scout-contract-001",
+  "task_scope": "Model Contract intake and disposable Blender macro checkpoint only",
+  "object_class": "robot/mech",
+  "source_of_truth": [
+    "brief",
+    "hero"
+  ],
+  "sources": [
+    {
+      "id": "brief",
+      "path": "brief.txt",
+      "sha256": "076b4262239d6540328b0dc27829831de9bc87371ef6ee7b0d628a6e5d1191f9",
+      "role": "BRIEF",
+      "projection": "text",
+      "authority_note": "Verbatim example brief supplied by user"
+    },
+    {
+      "id": "hero",
+      "path": "canonical-hero.png",
+      "sha256": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+      "role": "CANONICAL_CONCEPT",
+      "projection": "3/4 perspective",
+      "authority_note": "Agent-selected generated concept design; never observed real-world evidence"
+    },
+    {
+      "id": "auxiliary",
+      "path": "auxiliary-multiview.png",
+      "sha256": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+      "role": "AUXILIARY_INPUT",
+      "projection": "generated mixed near-orthographic/perspective sheet",
+      "authority_note": "Reconstruction from locked hero; restricted, never canonical authority"
+    }
+  ],
+  "proportion_basis": {
+    "unit": "H",
+    "scale_status": "RELATIVE_ONLY",
+    "axis_convention": "Z up; local front is forward gun direction; define right in object coordinates",
+    "pose": "standing hero pose",
+    "camera_notes": "Perspective lens unknown; adopted ranges, not orthographic dimensions"
+  },
+  "constraints": [
+    {
+      "id": "R.scout",
+      "property": "R.scout",
+      "value": "light reconnaissance",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: light reconnaissance",
+          "observation": "light reconnaissance"
+        }
+      ],
+      "target": "intent"
+    },
+    {
+      "id": "R.biped",
+      "property": "R.biped",
+      "value": 2,
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: 2",
+          "observation": "2"
+        }
+      ],
+      "target": "count",
+      "component_id": "legs"
+    },
+    {
+      "id": "R.sphere",
+      "property": "R.sphere",
+      "value": "sphere",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: sphere",
+          "observation": "sphere"
+        }
+      ],
+      "target": "claim",
+      "component_id": "torso",
+      "target_claim_ids": [
+        "torso.shape"
+      ]
+    },
+    {
+      "id": "R.guns",
+      "property": "R.guns",
+      "value": 2,
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: 2",
+          "observation": "2"
+        }
+      ],
+      "target": "count",
+      "component_id": "guns"
+    },
+    {
+      "id": "R.energy",
+      "property": "R.energy",
+      "value": "energy",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: energy",
+          "observation": "energy"
+        }
+      ],
+      "target": "claim",
+      "component_id": "guns",
+      "target_claim_ids": [
+        "guns.type"
+      ]
+    },
+    {
+      "id": "R.longlegs",
+      "property": "R.longlegs",
+      "value": "long",
+      "certainty": "REQUIRED",
+      "basis": "Explicit user brief clause",
+      "evidence": [
+        {
+          "source_id": "brief",
+          "region": "brief: long",
+          "observation": "long"
+        }
+      ],
+      "target": "claim",
+      "component_id": "legs",
+      "target_claim_ids": [
+        "legs.proportion"
+      ]
+    }
+  ],
+  "design_brief": {
+    "source_id": "brief",
+    "intent": "light reconnaissance mech",
+    "preferences": [],
+    "open_decisions": [
+      "rear cooling",
+      "hidden pivots/actuators",
+      "real-world scale"
+    ],
+    "strategy_reason": "SINGLE bounded smoke exercise; one candidate, no 3-candidate visual-selection claim"
+  },
+  "concept_candidates": [
+    {
+      "id": "A",
+      "source_id": "hero",
+      "generated": true,
+      "views": [
+        "hero"
+      ],
+      "input_source_ids": [
+        "brief"
+      ],
+      "prompt_path": "concept_prompt.txt",
+      "prompt_sha256": "d0acd8684fbd279e1ee9cd50dd96c8d31a2e64d05eea85d6c028dfa44aad9595",
+      "requirement_reviews": [
+        {
+          "id": "R.scout",
+          "result": "PASS",
+          "observations": "Slender exposed leg links and compact torso read as a light scout; function is design intent, not runtime proof."
+        },
+        {
+          "id": "R.biped",
+          "result": "PASS",
+          "observations": "Exactly two complete legs are visible."
+        },
+        {
+          "id": "R.sphere",
+          "result": "PASS",
+          "observations": "Main torso silhouette is spherical, not a cuboid."
+        },
+        {
+          "id": "R.guns",
+          "result": "PASS",
+          "observations": "Exactly two lateral forward gun housings are visible."
+        },
+        {
+          "id": "R.energy",
+          "result": "PASS",
+          "observations": "Teal illuminated strips establish the adopted energy-weapon visual language; operating technology unproven."
+        },
+        {
+          "id": "R.longlegs",
+          "result": "PASS",
+          "observations": "Leg assembly from hip to foot is substantially taller than torso diameter."
+        }
+      ],
+      "quality_reviews": [
+        {
+          "id": "brief_fit",
+          "score": 5,
+          "observations": "All six extracted required constraints reviewed."
+        },
+        {
+          "id": "silhouette",
+          "score": 4,
+          "observations": "Sphere, paired guns and long legs distinct against neutral gray."
+        },
+        {
+          "id": "plausibility",
+          "score": 3,
+          "observations": "Visible hip/knee/ankle interfaces support construction planning; stroke, loading and balance not established."
+        },
+        {
+          "id": "reconstruction",
+          "score": 4,
+          "observations": "Full unobscured body, joints and feet visible; rear remains uncertain."
+        },
+        {
+          "id": "low_noise",
+          "score": 4,
+          "observations": "Sparse shell paneling; no wear clutter, limited small mechanisms."
+        }
+      ]
+    }
+  ],
+  "candidate_selection": {
+    "strategy": "SINGLE",
+    "selector": "AGENT",
+    "actor": "Codex visual review",
+    "selected_candidate_id": "A",
+    "reason": "All explicit brief constraints visually satisfied; readable macro design; hidden feasibility remains speculative"
+  },
+  "components": [
+    {
+      "id": "torso",
+      "label": "spherical torso",
+      "count": 1,
+      "claims": [
+        {
+          "id": "torso.shape",
+          "property": "shape",
+          "value": "sphere",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "sphere"
+            }
+          ],
+          "requirement_ids": [
+            "R.sphere"
+          ]
+        },
+        {
+          "id": "torso.panels",
+          "property": "panel design",
+          "value": "segmented gray spherical shell; circular front aperture",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "segmented gray spherical shell; circular front aperture"
+            }
+          ]
+        },
+        {
+          "id": "torso.hidden",
+          "property": "hidden mechanism",
+          "value": "rear cooling/internal structure",
+          "certainty": "SPECULATIVE",
+          "basis": "Not resolved by a single hero; defer/internal proxy only",
+          "evidence": []
+        },
+        {
+          "id": "torso.auxrear",
+          "property": "proposed rear panel design",
+          "value": "rear round access disk and panel arrangement",
+          "certainty": "SPECULATIVE",
+          "basis": "New rear panel decisions appear only in generated auxiliary; not promoted into frozen design",
+          "evidence": [
+            {
+              "source_id": "auxiliary",
+              "region": "rear panel",
+              "observation": "Circular access disk and extra panel seams are drawn"
+            }
+          ]
+        }
+      ],
+      "parent_id": null,
+      "symmetry": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    },
+    {
+      "id": "guns",
+      "label": "paired forward gun assemblies",
+      "count": 2,
+      "claims": [
+        {
+          "id": "guns.count",
+          "property": "count",
+          "value": 2,
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "2"
+            }
+          ],
+          "requirement_ids": [
+            "R.guns"
+          ]
+        },
+        {
+          "id": "guns.type",
+          "property": "weapon type",
+          "value": "energy",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "energy"
+            }
+          ],
+          "requirement_ids": [
+            "R.energy"
+          ]
+        },
+        {
+          "id": "guns.form",
+          "property": "form",
+          "value": "elongated rectangular housings, one on each side, teal side strip",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "elongated rectangular housings, one on each side, teal side strip"
+            }
+          ]
+        },
+        {
+          "id": "guns.hidden",
+          "property": "hidden mechanism",
+          "value": "energy core and hidden bore/channel",
+          "certainty": "SPECULATIVE",
+          "basis": "Not resolved by a single hero; defer/internal proxy only",
+          "evidence": []
+        }
+      ],
+      "parent_id": "torso",
+      "symmetry": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    },
+    {
+      "id": "legs",
+      "label": "long articulated legs",
+      "count": 2,
+      "claims": [
+        {
+          "id": "legs.count",
+          "property": "count",
+          "value": 2,
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "2"
+            }
+          ],
+          "requirement_ids": [
+            "R.biped"
+          ]
+        },
+        {
+          "id": "legs.proportion",
+          "property": "proportion",
+          "value": "long",
+          "certainty": "REQUIRED",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "brief",
+              "region": "hero view",
+              "observation": "long"
+            }
+          ],
+          "requirement_ids": [
+            "R.longlegs"
+          ]
+        },
+        {
+          "id": "legs.form",
+          "property": "limb shape",
+          "value": "thin gray links with exposed circular knee/ankle interfaces",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "thin gray links with exposed circular knee/ankle interfaces"
+            }
+          ]
+        },
+        {
+          "id": "legs.hidden",
+          "property": "hidden mechanism",
+          "value": "joint internals and actuator anchors",
+          "certainty": "SPECULATIVE",
+          "basis": "Not resolved by a single hero; defer/internal proxy only",
+          "evidence": []
+        }
+      ],
+      "parent_id": "torso",
+      "symmetry": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    },
+    {
+      "id": "feet",
+      "label": "feet",
+      "count": 2,
+      "claims": [
+        {
+          "id": "feet.form",
+          "property": "shape",
+          "value": "each visible foot has forward narrow wedge and small heel support",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "each visible foot has forward narrow wedge and small heel support"
+            }
+          ]
+        }
+      ],
+      "parent_id": "legs",
+      "symmetry": {
+        "type": "BILATERAL",
+        "axis": "X",
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    },
+    {
+      "id": "optics",
+      "label": "optical elements",
+      "count": 2,
+      "claims": [
+        {
+          "id": "optics.form",
+          "property": "visible arrangement",
+          "value": "front circular aperture and one raised top camera housing",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "front circular aperture and one raised top camera housing"
+            }
+          ]
+        }
+      ],
+      "parent_id": "torso",
+      "symmetry": {
+        "type": "NONE",
+        "axis": null,
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    },
+    {
+      "id": "antenna",
+      "label": "top antenna",
+      "count": 1,
+      "claims": [
+        {
+          "id": "antenna.form",
+          "property": "shape",
+          "value": "single thin antenna to image-right of top camera",
+          "certainty": "CANONICAL",
+          "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+          "evidence": [
+            {
+              "source_id": "hero",
+              "region": "hero view",
+              "observation": "single thin antenna to image-right of top camera"
+            }
+          ]
+        }
+      ],
+      "parent_id": "torso",
+      "symmetry": {
+        "type": "NONE",
+        "axis": null,
+        "basis": "Visible paired masses; optics are distinct front/top modules; antenna is single"
+      }
+    }
+  ],
+  "relative_dimensions": [
+    {
+      "id": "torso.width",
+      "property": "relative width",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "width",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "torso.depth",
+      "property": "relative depth",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "depth",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "torso.height",
+      "property": "relative height",
+      "value": [
+        0.29,
+        0.34
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.29, 0.34]"
+        }
+      ],
+      "component_id": "torso",
+      "axis": "height",
+      "min": 0.29,
+      "max": 0.34,
+      "unit": "H"
+    },
+    {
+      "id": "legs.height",
+      "property": "relative height",
+      "value": [
+        0.56,
+        0.65
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.56, 0.65]"
+        }
+      ],
+      "component_id": "legs",
+      "axis": "height",
+      "min": 0.56,
+      "max": 0.65,
+      "unit": "H"
+    },
+    {
+      "id": "guns.length",
+      "property": "relative length",
+      "value": [
+        0.18,
+        0.26
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.18, 0.26]"
+        }
+      ],
+      "component_id": "guns",
+      "axis": "length",
+      "min": 0.18,
+      "max": 0.26,
+      "unit": "H"
+    },
+    {
+      "id": "feet.length",
+      "property": "relative length",
+      "value": [
+        0.16,
+        0.24
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "[0.16, 0.24]"
+        }
+      ],
+      "component_id": "feet",
+      "axis": "length",
+      "min": 0.16,
+      "max": 0.24,
+      "unit": "H"
+    }
+  ],
+  "silhouette_notes": [
+    {
+      "id": "silhouette.primary",
+      "property": "outline",
+      "value": "spherical body over two very long thin legs; short side gun extensions",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "spherical body over two very long thin legs; short side gun extensions"
+        }
+      ]
+    },
+    {
+      "id": "design.palette",
+      "property": "palette",
+      "value": "matte slate-gray with restrained teal accents",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "matte slate-gray with restrained teal accents"
+        }
+      ]
+    },
+    {
+      "id": "anchor.hip_z",
+      "property": "hip height above ground / H",
+      "value": [
+        0.62
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Manual visible Hero proportion estimate; relative only; tolerance includes perspective uncertainty",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "complete object / hip / ground",
+          "observation": "Adopted silhouette anchor, not exact orthographic measurement"
+        }
+      ],
+      "critical": true
+    },
+    {
+      "id": "anchor.gun_z",
+      "property": "gun axis height above ground / H",
+      "value": [
+        0.78
+      ],
+      "certainty": "CANONICAL",
+      "basis": "Manual visible Hero proportion estimate; relative only; tolerance includes perspective uncertainty",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "complete object / hip / ground",
+          "observation": "Adopted silhouette anchor, not exact orthographic measurement"
+        }
+      ],
+      "critical": true
+    }
+  ],
+  "relationships": [
+    {
+      "id": "attach.guns",
+      "property": "gun attachment",
+      "value": "gun housings connect at left/right spherical torso sides",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "gun housings connect at left/right spherical torso sides"
+        }
+      ],
+      "from_component": "guns",
+      "to_component": "torso",
+      "relationship": "bilateral side mounts",
+      "critical": true
+    },
+    {
+      "id": "attach.legs",
+      "property": "leg attachment",
+      "value": "two visible hip interfaces under torso",
+      "certainty": "CANONICAL",
+      "basis": "Adopted visible design; perspective estimate, not engineering measurement",
+      "evidence": [
+        {
+          "source_id": "hero",
+          "region": "hero view",
+          "observation": "two visible hip interfaces under torso"
+        }
+      ],
+      "from_component": "legs",
+      "to_component": "torso",
+      "relationship": "underbody hip links",
+      "critical": true
+    }
+  ],
+  "ambiguity_map": [
+    {
+      "id": "A.torso",
+      "component_ids": [
+        "torso"
+      ],
+      "question": "rear cooling and internal frame",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Visible macro envelope only; no hidden mechanism invention",
+      "basis": "Single hero does not show or certify these details"
+    },
+    {
+      "id": "A.legs",
+      "component_ids": [
+        "legs"
+      ],
+      "question": "axis orientation, travel, balance and internal actuator anchors",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Visible macro envelope only; no hidden mechanism invention",
+      "basis": "Single hero does not show or certify these details"
+    },
+    {
+      "id": "A.guns",
+      "component_ids": [
+        "guns"
+      ],
+      "question": "hidden weapon internals and channel depth",
+      "severity": "NONBLOCKING",
+      "decision": "DEFER",
+      "allowed_action": "Visible macro envelope only; no hidden mechanism invention",
+      "basis": "Single hero does not show or certify these details"
+    }
+  ],
+  "contradictions": [],
+  "auxiliary_references": [
+    {
+      "id": "sheet",
+      "path": "auxiliary-multiview.png",
+      "sha256": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+      "prompt_path": "multiview_prompt.txt",
+      "prompt_sha256": "68d7b8c29877b0888d797c5d9d331926c2dfa6f8d5d9d4fb586f028f822cc09d",
+      "input_source_ids": [
+        "hero",
+        "brief"
+      ],
+      "generated": true,
+      "views": [
+        "front",
+        "right",
+        "rear",
+        "3/4"
+      ],
+      "use_status": "REJECTED",
+      "lock_version": 1,
+      "canonical_sha256": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a",
+      "permitted_uses": [],
+      "forbidden_uses": [
+        "All generated panels for geometry: crop, projection and hidden construction are not resolved against Contract"
+      ],
+      "claim_links": [
+        "silhouette.primary",
+        "torso.shape",
+        "legs.proportion",
+        "torso.auxrear"
+      ],
+      "consistency_checks": [
+        {
+          "criterion": "identity",
+          "result": "PASS",
+          "observations": "All four panels retain spherical scout body, paired side guns and long thin legs."
+        },
+        {
+          "criterion": "proportions",
+          "result": "WARN",
+          "observations": "Overall envelope similar, but side knee bend/pose and projected leg spacing are not a metrically comparable pose."
+        },
+        {
+          "criterion": "part_counts",
+          "result": "WARN",
+          "observations": "Front/rear/3/4 depict two legs and paired guns; side occlusion expected, but outer front-left and 3/4-right gun are cropped."
+        },
+        {
+          "criterion": "construction",
+          "result": "WARN",
+          "observations": "Rear disk/paneling and backside joint details are invented hypotheses; amber uncertainty marking requested but absent."
+        },
+        {
+          "criterion": "handedness",
+          "result": "PASS",
+          "observations": "Antenna appears image-right front and image-left rear; side forward guns and top sensor orientation broadly correspond. No hidden axis proof."
+        },
+        {
+          "criterion": "silhouette",
+          "result": "PASS",
+          "observations": "Main spherical mass, long legs and two short lateral gun housings preserve macro read."
+        }
+      ],
+      "permitted_views": [],
+      "contract_review": {
+        "contract_ref": {
+          "id": "scout-sphere-design",
+          "revision": 1,
+          "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+        },
+        "image_sha256": "67dcceb7e03ccb2635f69836caf3ee2d898a7481b72e42df6248c33e504415a9",
+        "views": [
+          {
+            "view": "front",
+            "observations": [
+              {
+                "rule_id": "count.torso",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "count.guns",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.legs",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.feet",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.optics",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "count.antenna",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "required.R.scout",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.sphere",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.energy",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.longlegs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.torso.shape",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.type",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.proportion",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "dimension.torso.width",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.depth",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.legs.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.guns.length",
+                "state": "UNKNOWN",
+                "method": "Panel edge intersects known full gun: front left edge / 3/4 right edge",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "CROPPED"
+              },
+              {
+                "rule_id": "dimension.feet.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "ratio.gun_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "ratio.leg_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.hip_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.gun_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.torso.panels",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.feet.form",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / front panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              }
+            ]
+          },
+          {
+            "view": "right",
+            "observations": [
+              {
+                "rule_id": "count.torso",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "count.guns",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.legs",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.feet",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.optics",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "count.antenna",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "required.R.scout",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.sphere",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.energy",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.longlegs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.torso.shape",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.type",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.proportion",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "dimension.torso.width",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.depth",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.legs.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.guns.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.feet.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "ratio.gun_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "ratio.leg_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.hip_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.gun_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.torso.panels",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.feet.form",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / right panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              }
+            ]
+          },
+          {
+            "view": "rear",
+            "observations": [
+              {
+                "rule_id": "count.torso",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "count.guns",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.legs",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.feet",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.optics",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "count.antenna",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "required.R.scout",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.sphere",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.energy",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.longlegs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.torso.shape",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.type",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.proportion",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "dimension.torso.width",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.depth",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.legs.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.guns.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.feet.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "ratio.gun_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "ratio.leg_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.hip_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.gun_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.torso.panels",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.feet.form",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / rear panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              }
+            ]
+          },
+          {
+            "view": "3/4",
+            "observations": [
+              {
+                "rule_id": "count.torso",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "count.guns",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.legs",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.feet",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 2
+              },
+              {
+                "rule_id": "count.optics",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "count.antenna",
+                "state": "MEASURED",
+                "method": "Visible inventory; opposite gun/leg occlusion checked with neighboring panels, not used to infer length",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "FULL",
+                "value": 1
+              },
+              {
+                "rule_id": "required.R.scout",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.sphere",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.energy",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.R.longlegs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.torso.shape",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.guns.type",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.count",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "required.legs.proportion",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "dimension.torso.width",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.depth",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.torso.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.legs.height",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "dimension.guns.length",
+                "state": "UNKNOWN",
+                "method": "Panel edge intersects known full gun: front left edge / 3/4 right edge",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "CROPPED"
+              },
+              {
+                "rule_id": "dimension.feet.length",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "OCCLUDED"
+              },
+              {
+                "rule_id": "ratio.gun_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "ratio.leg_body",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "ratio",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.hip_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "anchor.gun_z",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": "H",
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "relationship.attach.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.guns",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "symmetry.legs",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.torso.panels",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              },
+              {
+                "rule_id": "soft.feet.form",
+                "state": "UNKNOWN",
+                "method": "Codex actual pixel review; no false 3D measurements from sheet",
+                "evidence": "auxiliary-multiview.png / 3/4 panel; compare canonical-hero.png",
+                "unit": null,
+                "completeness": "UNKNOWN"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "generation": {
+    "status": "COMPLETE",
+    "reason": "Built-in generator: one hero, then a four-view sheet from exact locked image; no correction attempts"
+  },
+  "gate": {
+    "status": "READY_WITH_LIMITS",
+    "permitted_stage": "MACRO_BLOCKOUT",
+    "limits": [
+      "Source-only Hero and persistent Contract; all old generated panels rejected for modeling",
+      "Rear and actual mechanics remain SPECULATIVE; no material/wear acceptance"
+    ],
+    "reviewer": "Codex inspected actual hero",
+    "review_notes": "Actual sheet fails VIEW COMPLETENESS on front and 3/4; remaining panels have insufficient comparable geometry; use unchanged Hero"
+  },
+  "identity_lock": {
+    "status": "LOCKED",
+    "version": 1,
+    "source_id": "hero",
+    "sha256": "8799438ee5fc27ff11011ddcd725405dee1358509b6853bb68ec20096595c39a"
+  },
+  "model_contract": {
+    "schema_version": 1,
+    "id": "scout-sphere-design",
+    "revision": 1,
+    "status": "LOCKED",
+    "reviewer": "Codex direct Hero image review",
+    "reason": "Explicit migration of previously locked text concept; new constraints based on unchanged higher-authority sources",
+    "rules": [
+      {
+        "id": "count.torso",
+        "kind": "count",
+        "target_id": "torso",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "count.guns",
+        "kind": "count",
+        "target_id": "guns",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "count.legs",
+        "kind": "count",
+        "target_id": "legs",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "count.feet",
+        "kind": "count",
+        "target_id": "feet",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "count.optics",
+        "kind": "count",
+        "target_id": "optics",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "count.antenna",
+        "kind": "count",
+        "target_id": "antenna",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.R.scout",
+        "kind": "claim",
+        "target_id": "R.scout",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.R.sphere",
+        "kind": "claim",
+        "target_id": "R.sphere",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.R.energy",
+        "kind": "claim",
+        "target_id": "R.energy",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.R.longlegs",
+        "kind": "claim",
+        "target_id": "R.longlegs",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.torso.shape",
+        "kind": "claim",
+        "target_id": "torso.shape",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.guns.count",
+        "kind": "claim",
+        "target_id": "guns.count",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.guns.type",
+        "kind": "claim",
+        "target_id": "guns.type",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "VIEWS",
+          "GEOMETRY",
+          "FINAL"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.legs.count",
+        "kind": "claim",
+        "target_id": "legs.count",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "required.legs.proportion",
+        "kind": "claim",
+        "target_id": "legs.proportion",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "dimension.torso.width",
+        "kind": "dimension",
+        "target_id": "torso.width",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "dimension.torso.depth",
+        "kind": "dimension",
+        "target_id": "torso.depth",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "dimension.torso.height",
+        "kind": "dimension",
+        "target_id": "torso.height",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "dimension.legs.height",
+        "kind": "dimension",
+        "target_id": "legs.height",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "dimension.guns.length",
+        "kind": "dimension",
+        "target_id": "guns.length",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "dimension.feet.length",
+        "kind": "dimension",
+        "target_id": "feet.length",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Adopted perspective range from previous reviewed Hero; do not claim calibrated dimensions",
+        "unit": "H",
+        "view_completeness": {
+          "required": true,
+          "source_ids": [
+            "hero"
+          ],
+          "basis": "Complete visible object extent in Hero; preserve it despite panel crop or self-occlusion"
+        }
+      },
+      {
+        "id": "ratio.gun_body",
+        "kind": "ratio",
+        "target_id": null,
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design",
+        "numerator_id": "guns.length",
+        "denominator_id": "torso.width",
+        "bounds": [
+          0.58,
+          0.78
+        ],
+        "unit": "ratio"
+      },
+      {
+        "id": "ratio.leg_body",
+        "kind": "ratio",
+        "target_id": null,
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design",
+        "numerator_id": "legs.height",
+        "denominator_id": "torso.height",
+        "bounds": [
+          1.8,
+          2.15
+        ],
+        "unit": "ratio"
+      },
+      {
+        "id": "anchor.hip_z",
+        "kind": "anchor",
+        "target_id": "anchor.hip_z",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design",
+        "unit": "H",
+        "tolerance": 0.05
+      },
+      {
+        "id": "anchor.gun_z",
+        "kind": "anchor",
+        "target_id": "anchor.gun_z",
+        "level": "PROPORTION LOCK",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design",
+        "unit": "H",
+        "tolerance": 0.05
+      },
+      {
+        "id": "relationship.attach.guns",
+        "kind": "relationship",
+        "target_id": "attach.guns",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "VIEWS",
+          "MECHANICS",
+          "GEOMETRY",
+          "FINAL"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "relationship.attach.legs",
+        "kind": "relationship",
+        "target_id": "attach.legs",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "VIEWS",
+          "MECHANICS",
+          "GEOMETRY",
+          "FINAL"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "symmetry.guns",
+        "kind": "symmetry",
+        "target_id": "guns",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "symmetry.legs",
+        "kind": "symmetry",
+        "target_id": "legs",
+        "level": "HARD INVARIANT",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "soft.torso.panels",
+        "kind": "claim",
+        "target_id": "torso.panels",
+        "level": "SOFT CANONICAL",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      },
+      {
+        "id": "soft.feet.form",
+        "kind": "claim",
+        "target_id": "feet.form",
+        "level": "SOFT CANONICAL",
+        "checkpoints": [
+          "FINAL",
+          "GEOMETRY",
+          "MACRO",
+          "MECHANICS",
+          "VIEWS"
+        ],
+        "basis": "Reviewed locked Hero and verbatim brief; preserve established design"
+      }
+    ],
+    "sha256": "c2adc5447c6dac2e35e9d94853f6a961786f02aff39880d9e3dfe19533aba1d4"
+  }
+}

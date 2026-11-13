@@ -8,6 +8,46 @@ import bpy
 DATA_CATEGORIES = {'uvs', 'normals', 'shape_keys', 'weights', 'modifiers', 'curves', 'material_graphs'}
 
 
+def delivery_statistics(object_names):
+    """Read source/evaluated budgets separately; never estimate visible hairs/costs.
+
+    Native counters cover direct CURVES datablocks, not arbitrary GeometrySet
+    instances/components. All-zero-radius means every stored point has radius zero;
+    an absent radius attribute is unknown rather than an invisible curve.
+    """
+    if not object_names or len(set(object_names)) != len(object_names):
+        raise ValueError('Use a nonempty unique explicit object set')
+    graph = bpy.context.evaluated_depsgraph_get()
+    rows = []
+    for name in object_names:
+        obj = bpy.context.scene.objects[name]
+        evaluated = obj.evaluated_get(graph)
+        row = dict(name=name, stored_vertices=len(obj.data.vertices) if obj.type == 'MESH' else None,
+                   stored_native_curves=len(obj.data.curves) if obj.type == 'CURVES' else 0,
+                   evaluated_native_curves=len(evaluated.data.curves) if evaluated.type == 'CURVES' else 0,
+                   stored_zero_radius_curves=None, evaluated_triangles=None,
+                   materials=[s.material.name if s.material else None for s in obj.material_slots],
+                   hide_render=obj.hide_render)
+        if obj.type == 'CURVES':
+            radius = obj.data.attributes.get('radius')
+            if radius is not None and radius.domain == 'POINT' and radius.data_type == 'FLOAT':
+                row['stored_zero_radius_curves'] = sum(
+                    all(radius.data[i].value == 0 for i in range(c.first_point_index, c.first_point_index+c.points_length))
+                    for c in obj.data.curves)
+        if evaluated.type in {'MESH', 'CURVE', 'SURFACE', 'FONT'}:
+            mesh = evaluated.to_mesh()
+            try:
+                mesh.calc_loop_triangles()
+                row['evaluated_triangles'] = len(mesh.loop_triangles)
+            finally:
+                evaluated.to_mesh_clear()
+        rows.append(row)
+    return dict(objects=rows, visible_strands=None, draw_calls=None, vram_bytes=None,
+                overdraw=None, card_count=None, atlas_resolution=None,
+                limits='Direct source/evaluated budgets only; cards/atlas need declared roles; '
+                       'hidden components, shader visibility and renderer costs require separate inspection/profiling')
+
+
 def _digest(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',', ':'),allow_nan=False).encode()).hexdigest()
 

@@ -2,7 +2,7 @@
 import hashlib
 import re
 
-from check import existing, fields, identifier, local_path, read_json, require, strings
+from validation_core import existing, fields, identifier, local_path, read_json, require, strings
 
 
 def check_adapter(root, tools_root, adapter):

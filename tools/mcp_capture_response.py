@@ -6,16 +6,23 @@ from pathlib import Path
 import struct
 
 
-def capture_directory(root):
-    """Resolve the external work area shared by capture and image delivery."""
+def work_directory(root, category):
+    """Resolve bounded artifacts outside the canonical source tree."""
+    if category not in ('captures', 'operations'):
+        raise ValueError('Unknown work artifact category')
     canonical = Path(root).resolve()
     work = Path(os.environ.get('TOOLS_C_WORK_ROOT') or canonical.parent / 'Work_Utility')
     if not work.is_absolute():
         raise ValueError('TOOLS_C_WORK_ROOT must be an absolute path')
-    directory = (work / 'captures').resolve()
+    directory = (work / category).resolve()
     if directory == canonical or canonical in directory.parents:
-        raise ValueError('Capture output must stay outside canonical Tools_C')
+        raise ValueError('Work output must stay outside canonical Tools_C')
     return directory
+
+
+def capture_directory(root):
+    """Resolve the external work area shared by capture and image delivery."""
+    return work_directory(root, 'captures')
 
 
 def capture_image(root, response):

@@ -122,3 +122,41 @@ Optional `--tunnel-profile PROFILE.yaml` checks the configured and live loopback
 health target without recording secrets. `--connector-tools TOOLS.json` compares an
 observed JSON array of connector tool names to the source catalog and reports
 missing/extra entries. Names alone cannot validate remote input schemas.
+
+## Authenticated bridge and bounded work (2026-10-25)
+
+Deploy the matching `blender_mcp_server.py` and `chatgpt_blender_mcp.py` together.
+Reload the addon and restart the MCP server process to activate these source changes.
+The server probes authenticated bridge protocol 2 before sending executable Python;
+an older addon is rejected before the executable payload is sent.
+
+Starting the addon creates a random 256-bit bearer token in
+`%LOCALAPPDATA%/BlenderMCP/bridge-token` (other platforms: `~/.config/BlenderMCP/bridge-token`).
+The MCP process reads the same user-local file. `BLENDER_MCP_TOKEN_FILE` selects an
+absolute private file, or `BLENDER_MCP_TOKEN` supplies 64 lowercase hex characters
+to both processes. Invalid/missing credentials fail closed. Never copy tokens into
+repository files, plugin archives or diagnostic reports. File access inherits the
+Windows user-profile ACL; on POSIX new files use mode 0600. Protect any custom file
+with equivalent permissions. This authenticates local callers; it is not a Python
+sandbox or protection from a compromised process running as the same user/admin.
+
+The bridge remains bound to `127.0.0.1`. Requests are limited to 4 MiB, 16 client
+slots, 16 queued items and a 5-second read deadline. A timer callback handles at
+most two items and stops starting items after 20 ms. A single running Python call
+cannot be preempted safely; use typed curve batches for divisible work.
+
+Every request has an echoed ID and explicit execution wait (60 seconds normally,
+180 seconds for captures); the transport waits an additional 10 seconds for the
+addon verdict. Rejected and cancelled-before-execution requests did not execute.
+An interrupted transport after sending or a running timeout is `UNKNOWN_EXECUTION`:
+inspect the scene/operation receipt before retrying. IDs correlate responses; they
+do not provide automatic deduplication of arbitrary Python or rollback.
+
+Curve receipts now use `TOOLS_C_WORK_ROOT/operations`, beside managed `captures`,
+defaulting to sibling `Work_Utility`. Both output categories reject the canonical
+Tools_C tree. Old `.local/operations` receipts are read-only interruption/history
+evidence and are not automatically replayed or moved.
+
+Token and timeout primitives follow the Python documentation for
+[secrets](https://docs.python.org/3/library/secrets.html) and
+[sockets](https://docs.python.org/3/library/socket.html).
