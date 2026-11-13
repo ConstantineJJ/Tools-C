@@ -32,7 +32,7 @@ def run_checks(root,project=None,*,allowed_projects=()):
     try:
         # Output stays in a temporary file so subprocess output cannot grow RAM without bound.
         with tempfile.TemporaryFile() as log:
-            process=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT,timeout=30,env=env,
+            process=subprocess.run(command,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,timeout=30,env=env,
                     creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
             log.seek(0);raw=log.read(1024*1024+1)
         if len(raw)>1024*1024:raise ValueError('Checker output exceeds 1 MiB')

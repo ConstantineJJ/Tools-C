@@ -20,9 +20,9 @@ readable. The reported toolkit architecture/version is now 4.2.1.
   retain separate verdicts and existing owners.
 - Existing MCP adapter adds only `tools_c_check`; all prior operation names
   remain. Capture parameters are extended with optional inputs only.
-- Obsolete 4.0.1 release report and publication receipt are removed. Deletion of
-  the ignored local V1/v4 archive was blocked by automatic approval review;
-  it remains outside the shipped sources. Prior bytes remain in Git history; original skill
+- Obsolete 4.0.1 release/publication files and 30 early archived report files
+  are removed. The user removed the ignored local V1/v4 archive. Prior bytes
+  remain in Git history; original skill
   source/lesson provenance and later feature reports are retained.
 
 See [Agent Vision](agent-vision.md) and [private plugin](tools-c-plugin.md) for

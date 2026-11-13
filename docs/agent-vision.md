@@ -74,6 +74,29 @@ top-left-origin pixels. VISIBLE landmarks return offset/distance; PARTIAL/OCCLUD
 remain UNKNOWN. Findings identify object scope, view and affected pixel rectangle.
 Inspect originals, masks and overlays before interpreting a form defect.
 
+## Images in ordinary ChatGPT
+
+The existing `execute_blender_python` image response also accepts a verified
+`silhouette comparison diagnostic`; no additional MCP operation is needed.
+Use `vision_compare.capture_comparison(job_path,new_output,channel='contours')`
+or `channel='difference'`. It runs the same comparison and writes a delivery
+manifest. Return that result as `_result` through the existing Python tool.
+
+For managed delivery, the job and its relative input artifacts must stay below
+the existing Work_Utility root; output is a new UUID directory directly below
+its `captures` directory. The output must also be below the job directory, so
+place the job at the Work_Utility root when its inputs span several captures.
+Obtain this root from `mcp_capture_response.capture_directory(tools_c).parent`;
+use the deployment's actual canonical root, not a hard-coded project path.
+Load helpers with runpy and add `tools_c/'tools'` to sys.path when necessary.
+
+The adapter verifies the delivery manifest, contained PNG/hash/dimensions, report
+hash and recomputed job inputs before attaching the image. The wrapper remains
+VISUAL REVIEW REQUIRED and reports the separate metric status. Open the attached
+image in chat; a returned pathname or a metric PASS is not inspected evidence.
+The source silhouette capture remains the QA check's evidence; an overlay must
+not be disguised as an original scene render.
+
 ## Existing QA handoff
 
 A named check in the existing QA receipt can add optional

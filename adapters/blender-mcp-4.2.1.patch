@@ -1,7 +1,16 @@
 diff --git a/mcp-server/blender_mcp_server.py b/mcp-server/blender_mcp_server.py
-index 1c1ef23..b73df92 100644
+index 1c1ef23..f49b10b 100644
 --- a/mcp-server/blender_mcp_server.py
 +++ b/mcp-server/blender_mcp_server.py
+@@ -308,7 +308,7 @@ def execute_blender_python(code: str) -> Dict[str, Any]:
+     """
+     response = send_to_blender({"type": "execute_python", "code": code})
+     metadata = response.get('data', {}).get('result')
+-    if not isinstance(metadata, dict) or metadata.get('capture_kind') != 'viewport-oriented evidence render':
++    if not isinstance(metadata, dict):
+         return response
+     try:
+         raw = _canonical_helper('mcp_capture_response.py')['capture_image'](_tools_root(), response)
 @@ -512,6 +512,21 @@ def blender_operation_status(operation_id: str, cancel: bool = False) -> Dict[st
      return send_to_blender(dict(type='execute_python',code=code))
  

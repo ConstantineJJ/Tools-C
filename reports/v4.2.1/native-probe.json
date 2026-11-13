@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "blender": "5.3.0",
+  "measurements": {
+    "objects": [
+      {
+        "object": "VehicleEnvelope",
+        "world_bounds": {
+          "min": [
+            -2.0,
+            -3.0,
+            -1.0
+          ],
+          "max": [
+            2.0,
+            3.0,
+            1.0
+          ]
+        },
+        "world_dimensions": [
+          4.0,
+          6.0,
+          2.0
+        ],
+        "pivot": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_axes_world": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "determinant": 6.0,
+        "evaluated_vertices": 8
+      }
+    ],
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0,
+      "length_unit": "METERS"
+    },
+    "measurement_unit": "SCENE_UNITS",
+    "limits": "Floating-point evaluated surfaces; physical units require calibration. Not minimum clearance or whole-scene QA."
+  },
+  "comparison": {
+    "resolution": [
+      128,
+      96
+    ],
+    "iou": 0.7861305361305362,
+    "different_pixels": 367,
+    "difference_bbox": [
+      22,
+      30,
+      88,
+      56
+    ],
+    "reference_pixels": 1349,
+    "candidate_pixels": 1716,
+    "contour_distance_px": {
+      "mean": 2.1476156353928455,
+      "median": 0.0,
+      "p95": 7.0,
+      "maximum": 7.0710678118654755
+    },
+    "contour_p95_normalized": 0.04375,
+    "landmarks": []
+  },
+  "checks": [
+    "world dimensions",
+    "camera shift and rectangular aspect",
+    "repeatable PNG bytes",
+    "binary alpha coverage",
+    "same front / different depth",
+    "silhouette drift",
+    "camera mismatch rejection",
+    "ring inner contour",
+    "source frame/camera restored"
+  ]
+}

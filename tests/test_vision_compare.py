@@ -3,9 +3,11 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import os
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import vision_compare as vision
@@ -44,6 +46,11 @@ class MaskComparisonTest(unittest.TestCase):
             with self.subTest(a=a), self.assertRaises(ValueError):
                 vision.compare_masks(a,b)
 
+    def test_oversized_job_is_rejected_before_json_parse(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'job.json';path.write_bytes(b'x'*(1024*1024+1))
+            with self.assertRaisesRegex(ValueError,'exceeds'):vision.analyze_job(path)
+
     def test_png_round_trip_and_contour_overlay(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)/'mask.png'
@@ -78,6 +85,13 @@ class MaskComparisonTest(unittest.TestCase):
             result=vision.compare_job(path,root/'result')
             self.assertEqual(result['status'],'PASS')
             self.assertEqual(vision.verify_comparison(root/'result/comparison.json',root),result)
+            import mcp_capture_response
+            delivered=vision.capture_comparison(path,root/'captures/diagnostic')
+            with patch.dict(os.environ,{'TOOLS_C_WORK_ROOT':str(root)}):
+                response=dict(ok=True,data=dict(result=delivered))
+                self.assertEqual(mcp_capture_response.capture_image(root/'canonical',response),Path(delivered['path']).read_bytes())
+                delivered['status']='PASS'
+                with self.assertRaises(ValueError):mcp_capture_response.capture_image(root/'canonical',response)
             # Feed the real result into the existing receipt, with real input files.
             from test_qa_gate import fixture
             import qa_gate

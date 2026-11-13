@@ -62,9 +62,8 @@ read-only session diagnostics](docs/mega-tools.md). `python tools/skill_behavior
 --root ALLOWED_ROOT` analyzes only the selected transcript. Neither command
 launches agents, engines or repairs. Actual trial/visual acceptance stays separate.
 Latest Blender form/context improvements and evidence: [form-methods report](reports/archive/BLENDER_SKILLS_FORM_METHODS_2026-10-05.md).
-Historical V1/v4 evidence (September 2026) is retained in the machine-local
-`.local/archived_reports/2026-10-08/` archive rather than the current reports
-index; it is not shipped in public releases. Godot and Blender are optional for
+Obsolete V1/v4 run reports were removed for 4.2.1. Earlier sources and evidence
+remain in Git history; current acceptance is recorded in [the 4.2.1 report](reports/v4.2.1.md). Godot and Blender are optional for
 L1 and required only for their applicable engine/runtime checks.
 
 For final character visual acceptance use the task-local evidence packet:
@@ -130,7 +129,7 @@ See [deployment diagnosis](docs/mcp-deployment.md). Local sync is never live PAS
 
 Use [Blender evidence tools](docs/blender-evidence.md) for deterministic snapshots,
 fixed/current views and isolated export/fresh-import validation. Images require
-review; structural checks do not certify visual quality. Architecture 4.0 keeps
+review; structural checks do not certify visual quality. Toolkit 4.2.1 keeps
 JSON schema_version 1 and historical lesson/report versions unchanged.
 
 L1 structural/contracts/static checks: [format, codes, limits and adding rules](docs/contracts.md).

@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -33,6 +34,7 @@ class CheckAdapterTest(unittest.TestCase):
             args,kwargs=run.call_args
             self.assertEqual(args[0][1:],[str(root/'tools/check.py'),'--project',str(root),'--json'])
             self.assertFalse(kwargs.get('shell',False))
+            self.assertEqual(kwargs['stdin'],subprocess.DEVNULL)
             self.assertLessEqual(kwargs['timeout'],30)
 
 

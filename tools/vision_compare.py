@@ -133,6 +133,7 @@ def overlay(reference,candidate):
 
 
 def assess(metrics,alignment,candidate_setup,authority,thresholds):
+    require(isinstance(alignment,dict) and isinstance(thresholds,dict),'Alignment and thresholds must be objects')
     require(authority in ('ORIGINAL','LOCKED_HERO','GENERATED_AUXILIARY'),'Unknown reference authority')
     require(alignment.get('mode') in ('CALIBRATED','APPROXIMATE'),'Explicit alignment mode required')
     require(set(thresholds)<= {'iou_min','contour_p95_max_px'},'Unknown metric threshold')
@@ -193,8 +194,9 @@ def measure_landmarks(rows,resolution):
 
 
 def analyze_job(job_path):
-    job_path=Path(job_path).resolve(strict=True);root=job_path.parent;job=read_json(job_path)
+    job_path=Path(job_path).resolve(strict=True);root=job_path.parent
     require(job_path.stat().st_size<=1024*1024,'Comparison job exceeds 1 MiB')
+    job=read_json(job_path)
     required={'schema_version','reference','candidate','alignment','thresholds'}
     require(isinstance(job,dict) and required<=job.keys() and set(job)<=required|{'landmarks'} and type(job['schema_version']) is int and job['schema_version']==1,'Invalid comparison job')
     def artifact(row):
@@ -250,6 +252,21 @@ def compare_job(job_path,output):
     write_png(output/'contours.png',lines)
     (output/'comparison.json').write_text(json.dumps(result,indent=2,allow_nan=False),encoding='utf-8')
     return result
+
+
+def capture_comparison(job_path,output,channel='contours'):
+    """Deliver a diagnostic image through the existing managed Python MCP route."""
+    require(channel in ('contours','difference'),'Unknown comparison image channel')
+    result=compare_job(job_path,output);output=Path(output).resolve()
+    image=output/(channel+'.png');report=output/'comparison.json'
+    metadata=dict(ok=True,status='VISUAL REVIEW REQUIRED',capture_kind='silhouette comparison diagnostic',
+        path=str(image),sha256=hashlib.sha256(image.read_bytes()).hexdigest(),resolution=result['metrics']['resolution'],
+        job_root=str(Path(job_path).resolve().parent),
+        comparison_report=dict(path=str(report),sha256=hashlib.sha256(report.read_bytes()).hexdigest()),
+        comparison_status=result['status'],metrics=result['metrics'],
+        limits='Diagnostic overlay; inspect actual references and masks. Not artistic acceptance.')
+    (output/'comparison-image.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
+    return metadata
 
 
 if __name__=='__main__':

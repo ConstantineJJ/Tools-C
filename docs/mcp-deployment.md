@@ -18,10 +18,11 @@ current helper per call. This does not require reopening or restarting Blender.
 
 ## Context delivery and bounded operations
 
-The seventeen public tool names and their input schemas remain stable. All tools
+The original seventeen public tool names remain. 4.2.1 adds read-only tools_c_check
+and optional camera_name/channel capture inputs; prior calls retain their behavior. All tools
 declare explicit `readOnlyHint`, `destructiveHint`, `openWorldHint` and
-`idempotentHint` annotations. Six are read-only: `list_skills`, `read_skill`,
-`find_skills`, `get_scene_info`, `get_skill_context`, `deployment_info`.
+`idempotentHint` annotations. Seven are read-only: `list_skills`, `read_skill`,
+`find_skills`, `get_scene_info`, `get_skill_context`, `deployment_info`, `tools_c_check`.
 The other eleven remain writes, including captures that save files and
 `blender_operation_status`, whose optional cancellation changes job state.
 Deletion, slot replacement/shared-material edits, active-camera replacement,
@@ -54,8 +55,8 @@ digest covering descriptions and annotations, plus `tool_annotations`.
 After a server update, verify its loaded identity and refresh client metadata to
 consume changed descriptions/hints. Local stdio success does not certify the
 external UI. The explicit read-only
-[metadata probe](../tests/mcp_metadata_probe.py) compares all seventeen input
-schemas against a saved stdio baseline and exercises discovery/read/context calls.
+[metadata probe](../tests/mcp_metadata_probe.py) compares existing input
+schemas against a saved stdio baseline, allowing the documented optional capture fields and exercises discovery/read/context calls.
 An absent Blender addon makes its scene comparison SKIP; no process starts implicitly.
 
 `get_skill_context(task, max_chars=60000, known_documents={}, requested_documents=[])`
