@@ -1,0 +1,59 @@
+diff --git a/mcp-server/blender_mcp_server.py b/mcp-server/blender_mcp_server.py
+index 1c1ef23..b73df92 100644
+--- a/mcp-server/blender_mcp_server.py
++++ b/mcp-server/blender_mcp_server.py
+@@ -512,6 +512,21 @@ def blender_operation_status(operation_id: str, cancel: bool = False) -> Dict[st
+     return send_to_blender(dict(type='execute_python',code=code))
+ 
+ 
++@mcp.tool(annotations=_annotations(read_only=True, idempotent=True))
++def tools_c_check(project: Optional[str] = None) -> Dict[str, Any]:
++    """Run canonical read-only L1 checks for an explicitly registered project.
++
++    Omitting project checks Tools_C. No Blender connection or shell is required.
++    Runtime and visual acceptance remain NOT_EVALUATED.
++    """
++    try:
++        helper=_canonical_helper('mcp_checks.py');root=_tools_root()
++        allowed=helper['registered_projects'](root,Path(__file__).resolve().parent.parent)
++        return helper['run_checks'](root,project,allowed_projects=allowed)
++    except Exception as exc:
++        return dict(ok=False,code='E_CHECK_CONFIG',error=str(exc))
++
++
+ @mcp.tool(annotations=_annotations(read_only=True, idempotent=True))
+ async def deployment_info() -> Dict[str, Any]:
+     """Read loaded/disk server identity and canonical context hashes; no restart or secrets."""
+@@ -527,6 +542,7 @@ async def deployment_info() -> Dict[str, Any]:
+         return dict(ok=True, server_file=str(Path(__file__).resolve()),
+                     loaded_server_sha256=LOADED_SERVER_SHA256, disk_server_sha256=disk,
+                     restart_required=LOADED_SERVER_SHA256 != disk, skills_dir=str(SKILLS_DIR),
++                    checker_projects=[str(p) for p in _canonical_helper('mcp_checks.py')['registered_projects'](_tools_root(),Path(__file__).resolve().parent.parent)],
+                     tool_schema_sha256=schema_hash, tools=sorted(schemas),
+                     tool_metadata_sha256=hashlib.sha256(json.dumps(metadata, sort_keys=True).encode()).hexdigest(),
+                     tool_annotations={name: row['annotations'] for name, row in metadata.items()}, **info)
+@@ -538,10 +554,12 @@ async def deployment_info() -> Dict[str, Any]:
+ def capture_viewport(view: str = "front", target: str = "selected", mode: str = "solid",
+                      frame: Optional[int] = None, resolution: int = 512,
+                      object_names: Optional[List[str]] = None,
+-                     framing: Optional[Dict[str, Any]] = None) -> List[Any]:
++                     framing: Optional[Dict[str, Any]] = None,
++                     camera_name: Optional[str] = None, channel: str = 'beauty') -> List[Any]:
+     """Capture bounded Blender visual evidence and return PNG plus metadata.
+ 
+-    view: front|side|back|top|bottom|three_quarter|high_45|low_45|current.
++    view: front|side|back|top|bottom|three_quarter|high_45|low_45|current|camera.
++    camera requires camera_name. channel: beauty|silhouette (opaque geometry alpha).
+     target: active|selected|character|scene; character requires object_names.
+     mode: solid|material_preview|rendered. resolution: 64..2048 square pixels.
+     Use explicit frame and the BEFORE framing for reproducible AFTER comparisons.
+@@ -553,7 +571,8 @@ def capture_viewport(view: str = "front", target: str = "selected", mode: str =
+         root = _tools_root()
+         output = _canonical_helper('mcp_capture_response.py')['capture_directory'](root) / uuid.uuid4().hex
+         params = dict(output=str(output), view=view, target=target, mode=mode, frame=frame,
+-                      resolution=resolution, object_names=object_names, framing=framing)
++                      resolution=resolution, object_names=object_names, framing=framing,
++                      camera_name=camera_name,channel=channel)
+         code = ("import runpy\n" +
+                 "capture = runpy.run_path(" + repr(str(root / 'tools/blender_capture.py')) + ")[\"capture_viewport\"]\n" +
+                 "_result = capture(**" + repr(params) + ")\n")

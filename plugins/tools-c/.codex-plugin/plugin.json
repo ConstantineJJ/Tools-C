@@ -1,0 +1,25 @@
+{
+  "name": "tools-c",
+  "version": "4.2.1",
+  "description": "Main Tools_C entrypoint routing to live canonical skills, existing MCP tools and verified evidence.",
+  "author": {
+    "name": "Constantine"
+  },
+  "interface": {
+    "displayName": "Tools_C",
+    "shortDescription": "Основной 3D-инструментарий",
+    "longDescription": "Основной Tools_C: текущие канонические скиллы, Blender и Godot MCP, проверки проектов и Agent Vision.",
+    "developerName": "Constantine",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Проведи аудит проекта через Tools_C.",
+      "Сравни модель с референсом через Tools_C Agent Vision.",
+      "Проверь проект и покажи подтверждённые результаты."
+    ],
+    "logo": "./assets/tools-c.png",
+    "composerIcon": "./assets/tools-c.png"
+  },
+  "apps": "./.app.json",
+  "skills": "./skills/"
+}

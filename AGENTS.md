@@ -1,7 +1,7 @@
 # Tools_C — central agent tooling
 
 This is the primary workspace root and the only canonical source of universal
-skills, checkers and contract definitions. Architecture version: 4.0.1.
+skills, checkers and contract definitions. Architecture version: 4.2.1.
 Read [Project Pulse](Project-pulse.md) for the latest verified state and next work;
 update it after meaningful changes with what changed, checks, blockers and next actions.
 Historical reports remain evidence of their own dates, not the live project state.

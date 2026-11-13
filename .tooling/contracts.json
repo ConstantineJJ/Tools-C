@@ -142,7 +142,15 @@
         "tests/fixtures/project_review_vehicle/spec.md",
         "tests/fixtures/project_review_vehicle/todo.md",
         "tests/fixtures/project_review_vehicle/vehicle.json",
-        "tests/fixtures/project_review_vehicle/review.json"
+        "tests/fixtures/project_review_vehicle/review.json",
+        "tools/vision_compare.py",
+        "tools/mcp_checks.py",
+        "tests/test_vision_compare.py",
+        "tests/test_mcp_checks.py",
+        "tests/blender_vision_probe.py",
+        "docs/agent-vision.md",
+        "docs/tools-c-plugin.md",
+        "docs/release-v4.2.1.md"
       ]
     },
     {
@@ -153,7 +161,7 @@
         ".tooling/config.json",
         ".tooling/profile.json",
         ".tooling/contracts.json",
-          ".tooling/blender-domain-contracts.json",
+        ".tooling/blender-domain-contracts.json",
         ".tooling/blender-polishing-contracts.json",
         ".tooling/blender-anime-contracts.json",
         "tests/fixtures/project_review_vehicle/vehicle.json",
@@ -180,7 +188,10 @@
         "docs/project-review.md",
         "docs/source-bundles.md",
         "docs/mcp-helper.md",
-        "tests/fixtures/project_review_vehicle/spec.md"
+        "tests/fixtures/project_review_vehicle/spec.md",
+        "docs/agent-vision.md",
+        "docs/tools-c-plugin.md",
+        "docs/release-v4.2.1.md"
       ]
     },
     {

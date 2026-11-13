@@ -1,0 +1,13 @@
+{
+  "apps": {
+    "blender-mcp": {
+      "id": "asdk_app_6a377ec5be008191803fdc00bf3a26df"
+    },
+    "godot-mcp": {
+      "id": "asdk_app_6aa3313423908191bcefd52b593432fd"
+    },
+    "local-files": {
+      "id": "asdk_app_6ab981e569c8819185a4705cd445e6ff"
+    }
+  }
+}

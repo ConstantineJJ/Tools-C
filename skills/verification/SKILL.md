@@ -9,7 +9,7 @@ Read the required [foundation contract](../../docs/foundation.md).
 
 ## Instruction Priority
 
-Use the user's acceptance criteria and active project contracts first, then this skill. A successful lower-level check never substitutes for required runtime, visual or human-observed behavior.
+Use user criteria and active project contracts first. Lower-level checks never replace required runtime, visual or human-observed behavior.
 
 ## Domain constraints
 
@@ -26,7 +26,7 @@ For Blender, use [snapshot/capture/export tools](../../docs/blender-evidence.md)
 STRUCTURAL PASS is separate from VISUAL SKIP, VISUAL REVIEW REQUIRED and VISUAL PASS.
 A PNG must be inspected for the named criterion before visual acceptance.
 
-## Final QA acceptance receipt
+## Final QA receipt
 
 For full character final acceptance, use the existing
 [Blender character QA matrix](../blender-pipeline/references/qa.md)
@@ -39,7 +39,9 @@ protected-zone regressions or pending inspection. Explicitly separate
 STATIC_VISUAL / EXPORT / RIG_READY / DEFORMATION_READY / GAME_READY,
 including valid SKIP/NOT_APPLICABLE explanations.
 
-## Dual verification / ARTISTIC_REVIEW
+## ARTISTIC_REVIEW
+
+[Agent Vision](../../docs/agent-vision.md) supplies optional measured evidence.
 
 Read the [dual verification protocol](references/dual-verification.md) before
 ARTISTIC_REVIEW, freshness or corrections in existing receipts. Report technical

@@ -1,9 +1,9 @@
-# Tools_C architecture 4.0.1
+# Tools_C 4.2.1
 
 Central, provider-neutral agent tooling for Godot/Blender/3D projects.
-[Download Tools_C v4.2.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.0)
-includes the canonical ZIP, checksums and extracted-package verification.
-See [v4.2.0 changes and compatibility](docs/release-v4.2.0.md).
+[Tools_C v4.2.1 sources](https://github.com/ConstantineJJ/Tools-C/tree/v4.2.1)
+include the canonical skills and checkers. See [4.2.1 changes](docs/release-v4.2.1.md),
+[private Tools_C plugin](docs/tools-c-plugin.md) and [Agent Vision](docs/agent-vision.md).
 [Current project state](Project-pulse.md) records the latest completed work, checks,
 open issues and next actions.
 [AGENTS.md](AGENTS.md) routes to 30 canonical skills. A shared
