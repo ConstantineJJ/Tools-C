@@ -154,7 +154,13 @@ def assess(metrics,alignment,candidate_setup,authority,thresholds):
             require(all(type(setup[k]) in (int,float) and math.isfinite(setup[k]) and setup[k]>0 for k in ('ortho_scale','lens')),
                     'Invalid camera scale/lens')
             require(type(setup['frame']) in (int,float) and math.isfinite(setup['frame']),'Invalid comparison frame')
-        if not alignment.get('reviewed') or not alignment.get('pose_confirmed') or reference!=candidate_setup:
+            for key in ('shift','pixel_aspect'):
+                require(isinstance(setup[key],list) and len(setup[key])==2 and
+                        all(type(v) in (int,float) and math.isfinite(v) and (key=='shift' or v>0) for v in setup[key]),'Invalid camera '+key)
+            require(isinstance(setup['sensor'],list) and len(setup['sensor'])==3 and
+                    all(type(v) in (int,float) and math.isfinite(v) and v>0 for v in setup['sensor'][:2]) and
+                    setup['sensor'][2] in ('AUTO','HORIZONTAL','VERTICAL'),'Invalid camera sensor')
+        if alignment.get('reviewed') is not True or alignment.get('pose_confirmed') is not True or reference!=candidate_setup:
             status,reason='NOT_COMPARABLE','Camera, pose or reviewed registration does not match'
         elif authority!='GENERATED_AUXILIARY' and thresholds:
             passed=metrics['iou']>=thresholds.get('iou_min',0) and metrics['contour_distance_px']['p95']<=thresholds.get('contour_p95_max_px',math.inf)

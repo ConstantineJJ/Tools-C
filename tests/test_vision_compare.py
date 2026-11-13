@@ -78,6 +78,18 @@ class MaskComparisonTest(unittest.TestCase):
             result=vision.compare_job(path,root/'result')
             self.assertEqual(result['status'],'PASS')
             self.assertEqual(vision.verify_comparison(root/'result/comparison.json',root),result)
+            # Feed the real result into the existing receipt, with real input files.
+            from test_qa_gate import fixture
+            import qa_gate
+            receipt=fixture(profile='ASSET_FINAL',changed=False)
+            for image in receipt['captures']:image['image']=artifact('mask.png')
+            check=receipt['checks']['reference_proportions']
+            check['comparison']=artifact('result/comparison.json')
+            self.assertEqual(qa_gate.validate(receipt,root=root)['gate'],'PASS')
+            wrong=copy.deepcopy(receipt)
+            vision.write_png(root/'other.png',[[(0,0,0,255)]*10]*8)
+            for image in wrong['captures']:image['image']=artifact('other.png')
+            with self.assertRaisesRegex(ValueError,'bound'):qa_gate.validate(wrong,root=root)
             with self.assertRaises(ValueError):vision.compare_job(path,root.parent/'escape')
             report=json.loads((root/'result/comparison.json').read_text());report['metrics']['iou']=.5
             (root/'result/comparison.json').write_text(json.dumps(report))
@@ -94,6 +106,8 @@ class MaskComparisonTest(unittest.TestCase):
                    'reference_setup':setup}
         thresholds={'iou_min':.99,'contour_p95_max_px':.5}
         self.assertEqual(vision.assess(metrics,alignment,setup,'ORIGINAL',thresholds)['status'],'PASS')
+        invalid=copy.deepcopy(alignment);invalid['reviewed']='false'
+        self.assertEqual(vision.assess(metrics,invalid,setup,'ORIGINAL',thresholds)['status'],'NOT_COMPARABLE')
         for authority in ('GENERATED_AUXILIARY',):
             self.assertEqual(vision.assess(metrics,alignment,setup,authority,thresholds)['status'],'REVIEW_REQUIRED')
         changed=copy.deepcopy(setup);changed['shift'][0]=.1

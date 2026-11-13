@@ -52,7 +52,7 @@
       "id": "TOOLS-FILES",
       "kind": "files",
       "paths": [
-        "AGENTS.md",
+        "docs/skills.md",
         "manifest.json",
         "README.md",
         "check.bat",
@@ -69,7 +69,6 @@
         "tests/blender_recovery_probe.py",
         "docs/foundation.md",
         "docs/architecture-v4.md",
-        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "skills/blender-character-modeling/references/body-proportions.md",
         "docs/mcp-deployment.md",
@@ -103,7 +102,6 @@
         "skills/production-subagent-worktree/SKILL.md",
         "skills/production-lookdev-gate/SKILL.md",
         "skills/production-project-state-gates/SKILL.md",
-        "Project-pulse.md",
         ".tooling/blender-domain-contracts.json",
         "tests/test_domain_contracts.py",
         "tools/blender_capture_file.py",
@@ -150,7 +148,10 @@
         "tests/blender_vision_probe.py",
         "docs/agent-vision.md",
         "docs/tools-c-plugin.md",
-        "docs/release-v4.2.1.md"
+        "docs/release-v4.2.1.md",
+        "AGENTS.md",
+        "Project-pulse.md",
+        "docs/blender-domain-skill-pack.md"
       ]
     },
     {
@@ -172,7 +173,7 @@
       "id": "TOOLS-LINKS",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md",
+        "docs/skills.md",
         "README.md",
         "docs/contracts.md",
         "docs/foundation.md",
@@ -181,7 +182,6 @@
         "skills/verification/references/dual-verification.md",
         "docs/dual-verification-blind-review.md",
         "docs/architecture-v4.md",
-        "docs/blender-domain-skill-pack.md",
         "docs/blender-evidence.md",
         "docs/mcp-deployment.md",
         "Project-pulse.md",
@@ -191,7 +191,9 @@
         "tests/fixtures/project_review_vehicle/spec.md",
         "docs/agent-vision.md",
         "docs/tools-c-plugin.md",
-        "docs/release-v4.2.1.md"
+        "docs/release-v4.2.1.md",
+        "AGENTS.md",
+        "docs/blender-domain-skill-pack.md"
       ]
     },
     {
@@ -266,6 +268,45 @@
       ],
       "required_targets": [
         "docs/project-review.md"
+      ]
+    },
+    {
+      "id": "TOOLS-CATALOG-ROUTES",
+      "kind": "markdown",
+      "paths": [
+        "docs/skills.md"
+      ],
+      "required_targets": [
+        "skills/blender-imported-asset-recovery/SKILL.md",
+        "skills/project-audit/SKILL.md",
+        "skills/godot-project/SKILL.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/blender-character-modeling/SKILL.md",
+        "skills/blender-anime-character-modeling/SKILL.md",
+        "skills/blender-animal-anthropomorphic-modeling/SKILL.md",
+        "skills/blender-architecture-environment/SKILL.md",
+        "skills/blender-environment-assets/SKILL.md",
+        "skills/blender-roads-infrastructure/SKILL.md",
+        "skills/blender-props/SKILL.md",
+        "skills/blender-destruction-assets/SKILL.md",
+        "skills/blender-vehicle-modeling/SKILL.md",
+        "skills/blender-product-electronics-modeling/SKILL.md",
+        "skills/blender-vegetation/SKILL.md",
+        "skills/blender-sculpting/SKILL.md",
+        "skills/blender-posteffects-polishing/SKILL.md",
+        "skills/verification/SKILL.md",
+        "skills/contracts-lint/SKILL.md",
+        "skills/blender-rigging-skinning/SKILL.md",
+        "skills/blender-animation/SKILL.md",
+        "skills/blender-export-validation/SKILL.md",
+        "skills/godot-asset-integration/SKILL.md",
+        "skills/production-mechanic-gym/SKILL.md",
+        "skills/production-subagent-worktree/SKILL.md",
+        "skills/production-lookdev-gate/SKILL.md",
+        "skills/production-project-state-gates/SKILL.md",
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "skills/blender-reference-surface-transfer/SKILL.md"
       ]
     }
   ]

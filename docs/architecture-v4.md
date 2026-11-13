@@ -11,7 +11,7 @@ lookdev baselines and project state gates. They orchestrate project work without
 replacing specialist Blender/Godot skills, per-project profiles or evidence checks.
 
 The environment/game-asset specialist expansion is staged rather than bulk-generated.
-Its scope boundaries and implementation order live in [Blender domain skill pack](blender-domain-skill-pack.md).
+Its scope boundaries and implementation order live in [portable skill catalog](skills.md).
 `blender-architecture-environment`, `blender-environment-assets`,
 `blender-roads-infrastructure`, `blender-props`, `blender-vehicle-modeling`,
 `blender-product-electronics-modeling`, `blender-vegetation` and `blender-sculpting`

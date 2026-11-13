@@ -108,7 +108,7 @@ class DomainContractsTest(unittest.TestCase):
         new.parent.mkdir(); old.rename(new)
         item['path'] = new.relative_to(self.root).as_posix()
         self.write('manifest.json', manifest)
-        for value in ['AGENTS.md', 'skills/blender-pipeline/SKILL.md']:
+        for value in ['docs/skills.md', 'skills/blender-pipeline/SKILL.md']:
             path = self.root / value
             path.write_text(path.read_text(encoding='utf-8').replace('blender-vegetation/SKILL.md', 'blender-vegetation/relocated/SKILL.md'), encoding='utf-8')
         # Make the relocated skill structurally valid; only the stable path rule should reject it.
@@ -136,11 +136,11 @@ class DomainContractsTest(unittest.TestCase):
                 path.write_text(baseline.replace(f'({target})', '(references/core.md)'), encoding='utf-8')
                 self.violation('BDP-PIPELINE', 'E_ROUTE')
 
-    def test_agents_route_requires_a_link_not_a_literal_path(self):
-        path = self.root / 'AGENTS.md'
-        target = 'skills/blender-vegetation/SKILL.md'
-        path.write_text(path.read_text(encoding='utf-8').replace(f'({target})', '(README.md)') + '\n`' + target + '`\n', encoding='utf-8')
-        self.violation('BDP-AGENTS', 'E_ROUTE')
+    def test_catalog_route_requires_a_link_not_a_literal_path(self):
+        path = self.root / 'docs/skills.md'
+        target = '../skills/blender-vegetation/SKILL.md'
+        path.write_text(path.read_text(encoding='utf-8').replace(f'({target})', '(../README.md)') + '\n`' + target + '`\n', encoding='utf-8')
+        self.violation('BDP-CATALOG', 'E_ROUTE')
 
     def test_every_owner_has_an_actual_shared_foundation_link(self):
         for owner in OWNER_IDS:
@@ -176,7 +176,7 @@ class DomainContractsTest(unittest.TestCase):
     def test_malformed_new_rule_shapes_are_rejected(self):
         rules = [dict(id='BAD', kind='json_subset', paths=['manifest.json'], expected=value)
                  for value in [None, [], {}, 42, {'number': float('nan')}]]
-        rules += [dict(id='BAD', kind='markdown', paths=['AGENTS.md'], required_targets=value)
+        rules += [dict(id='BAD', kind='markdown', paths=['README.md'], required_targets=value)
                   for value in [None, [], 'README.md', [42]]]
         rules += [dict(id='BAD', kind='json_subset', paths=['manifest.json', 'README.md'], expected={'id': 'x'}),
                   dict(id='BAD', kind='json_subset', paths=['manifest.json'], expected={'id': 'x'}, typo=True)]
@@ -187,7 +187,7 @@ class DomainContractsTest(unittest.TestCase):
 
     def test_required_target_escape_is_a_hard_failure_even_for_warn(self):
         contract = dict(schema_version=1, id='target-escape', rules=[dict(id='ESCAPE', kind='markdown',
-            paths=['AGENTS.md'], required_targets=['../outside.md'], severity='WARN')])
+            paths=['README.md'], required_targets=['../outside.md'], severity='WARN')])
         self.write('.tooling/blender-domain-contracts.json', contract)
         self.violation('.tooling/blender-domain-contracts.json', 'E_PATH')
 
@@ -215,7 +215,7 @@ class DomainContractsTest(unittest.TestCase):
             except OSError as exc:
                 self.skipTest(str(exc))
             contract = dict(schema_version=1, id='target-escape', rules=[dict(id='ESCAPE', kind='markdown',
-                paths=['AGENTS.md'], required_targets=['escape/outside.md'])])
+                paths=['README.md'], required_targets=['escape/outside.md'])])
             self.write('.tooling/blender-domain-contracts.json', contract)
             self.violation('.tooling/blender-domain-contracts.json', 'E_PATH')
 

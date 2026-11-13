@@ -62,7 +62,10 @@
           "blender-vegetation",
           "blender-sculpting"
         ],
-        "contracts": [".tooling/contracts.json", ".tooling/blender-domain-contracts.json"]
+        "contracts": [
+          ".tooling/contracts.json",
+          ".tooling/blender-domain-contracts.json"
+        ]
       }
     },
     {
@@ -104,10 +107,10 @@
       }
     },
     {
-      "id": "BDP-AGENTS",
+      "id": "BDP-CATALOG",
       "kind": "markdown",
       "paths": [
-        "AGENTS.md"
+        "docs/skills.md"
       ],
       "required_targets": [
         "skills/blender-architecture-environment/SKILL.md",

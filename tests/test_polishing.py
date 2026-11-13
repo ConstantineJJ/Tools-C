@@ -130,7 +130,7 @@ class PolishingContractsTest(unittest.TestCase):
                 self.violation(rule, 'E_JSON_VALUE')
 
     def test_each_real_entrypoint_and_surface_handoff_is_required(self):
-        cases = [('AGENTS.md', f'skills/{OWNER}/SKILL.md', 'README.md', 'BPP-ENTRYPOINTS'),
+        cases = [('docs/skills.md', f'../skills/{OWNER}/SKILL.md', '../README.md', 'BPP-ENTRYPOINTS'),
                  ('skills/blender-pipeline/SKILL.md', f'../{OWNER}/SKILL.md', 'references/core.md', 'BPP-ENTRYPOINTS'),
                  ('skills/blender-pipeline/references/surfaces.md', f'../../{OWNER}/SKILL.md', '../SKILL.md', 'BPP-SURFACES-HANDOFF'),
                  ('skills/blender-pipeline/references/core.md', f'../../{OWNER}/SKILL.md', '../SKILL.md', 'BPP-SURFACES-HANDOFF')]

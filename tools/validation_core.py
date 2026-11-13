@@ -194,6 +194,11 @@ def catalog_manifest(root):
 
 def catalog(root):
     manifest = catalog_manifest(root)
+    # Public consumers use the portable catalog; older installations retain
+    # their original AGENTS router until they upgrade the catalog file.
+    router=root/'docs/skills.md'
+    if not router.is_file():router=root/'AGENTS.md'
+    routes=router.read_text(encoding='utf-8')
     for item in manifest["skills"]:
         path = existing(root, item["path"])
         text = path.read_text(encoding="utf-8")
@@ -205,7 +210,7 @@ def catalog(root):
         if manifest["version"].startswith("4."):
             require("../../docs/foundation.md" in text, f"Missing shared foundation reference: {path}", "E_CATALOG")
             existing(root, "docs/foundation.md")
-        require(item["path"] in (root / "AGENTS.md").read_text(encoding="utf-8"), f"Unrouted skill: {path}")
+        require(item["path"] in routes, f"Unrouted skill: {path}")
     lessons = set()
     for path in (root / "skills").rglob("*.md"):
         require(inside(root, path), f"Escaped skill: {path}", "E_PATH")

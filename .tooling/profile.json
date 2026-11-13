@@ -43,10 +43,8 @@
     ".tooling/surface-transfer-contracts.json"
   ],
   "references": [
-    "AGENTS.md",
+    "docs/skills.md",
     "README.md",
-    "docs/contracts.md",
-    "docs/blender-domain-skill-pack.md",
-    "Project-pulse.md"
+    "docs/contracts.md"
   ]
 }
