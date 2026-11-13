@@ -17,16 +17,25 @@ VIEWS = {"front": (0, -1, 0), "side": (1, 0, 0), "back": (0, 1, 0),
 
 
 def capture_viewport(output, view="front", target="selected", mode="solid", frame=None,
-                     resolution=512, object_names=None, framing=None):
-    if view not in (*VIEWS, 'current') or mode not in ('solid', 'material_preview', 'rendered'):
+                     resolution=512, object_names=None, framing=None, camera_name=None,
+                     channel='beauty'):
+    if view not in (*VIEWS, 'current', 'camera') or mode not in ('solid', 'material_preview', 'rendered'):
         raise ValueError('Unsupported view or mode')
+    if channel not in ('beauty','silhouette'):
+        raise ValueError('Unsupported evidence channel')
+    if (view=='camera') != (camera_name is not None):
+        raise ValueError('view=camera requires camera_name; fixed views do not accept it')
     if target not in ('active', 'selected', 'character', 'scene'):
         raise ValueError('Unsupported target')
-    if type(resolution) is not int or not 64 <= resolution <= 2048:
-        raise ValueError('resolution must be an integer from 64 to 2048 (square pixels)')
+    size=[resolution,resolution] if type(resolution) is int else resolution
+    if not isinstance(size,(list,tuple)) or len(size)!=2 or not all(type(x) is int and 64<=x<=2048 for x in size):
+        raise ValueError('resolution needs one or two integers from 64 to 2048')
     if frame is not None and (type(frame) is not int or abs(frame) > 1000000):
         raise ValueError('frame must be an explicit integer within +/-1000000')
     source = bpy.context.scene
+    reference_camera=source.objects.get(camera_name) if isinstance(camera_name,str) else None
+    if view=='camera' and (reference_camera is None or reference_camera.type!='CAMERA' or reference_camera.data.type not in ('ORTHO','PERSP')):
+        raise ValueError('Explicit scene camera must use ORTHO or PERSP projection')
     visible_render = set()
     def collect(collection):
         if collection.hide_render:
@@ -92,7 +101,7 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
                 raise ValueError('Invalid finite framing')
             center, span = Vector(framing['center']), float(framing['span'])
         temp = bpy.data.scenes.new('Tools_C_Evidence')
-        temp.render.resolution_x = temp.render.resolution_y = resolution
+        temp.render.resolution_x,temp.render.resolution_y = size
         temp.render.resolution_percentage = 100
         temp.render.image_settings.file_format = 'PNG'
         # Blender embeds date/render-time text even when no visible stamp is drawn.
@@ -100,7 +109,7 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
         for prop in temp.render.bl_rna.properties:
             if prop.identifier.startswith('use_stamp'):
                 setattr(temp.render, prop.identifier, False)
-        temp.render.film_transparent = False
+        temp.render.film_transparent = channel=='silhouette'
         temp.render.fps, temp.render.fps_base = source.render.fps, source.render.fps_base
         temp.view_settings.view_transform = 'Standard'
         temp.view_settings.look = 'None'
@@ -126,7 +135,13 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
         temp.collection.objects.link(camera); temp.camera = camera
         camera_data.clip_start, camera_data.clip_end = max(span*.0001, .00001), span*100
         camera_data.type = 'ORTHO'; camera_data.ortho_scale = span
-        if current:
+        if reference_camera:
+            camera.matrix_world=reference_camera.matrix_world.copy()
+            for name in ('type','lens','ortho_scale','sensor_width','sensor_height','sensor_fit','shift_x','shift_y','clip_start','clip_end'):
+                setattr(camera_data,name,getattr(reference_camera.data,name))
+            temp.render.pixel_aspect_x=source.render.pixel_aspect_x
+            temp.render.pixel_aspect_y=source.render.pixel_aspect_y
+        elif current:
             camera.matrix_world = current[0]
             camera_data.type = 'ORTHO' if current[1] == 'ORTHO' else 'PERSP'
             camera_data.ortho_scale = current[2] * 2
@@ -140,19 +155,23 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
             direction = Vector(VIEWS[view]).normalized()
             camera.location = center + direction * span * 2
             camera.rotation_euler = (-direction).to_track_quat('-Z', 'Y').to_euler()
-        if mode == 'solid':
+        if mode == 'solid' or channel=='silhouette':
             temp.render.engine = 'BLENDER_WORKBENCH'
             shading = temp.display.shading
             shading.light = 'STUDIO'; shading.studiolight_rotate_z = 0
             shading.color_type = 'MATERIAL'; shading.show_shadows = True
             shading.show_cavity = True; shading.background_type = 'WORLD'
             shading.background_color = (.06, .06, .06)
+            if channel=='silhouette':
+                shading.color_type='SINGLE';shading.single_color=(1,1,1)
+                shading.show_shadows=False;shading.show_cavity=False
+                shading.show_specular_highlight=False
         else:
             temp.render.engine = 'CYCLES'
             temp.cycles.samples = 16; temp.cycles.seed = 0; temp.cycles.use_animated_seed = False
             temp.cycles.time_limit = 30
             temp.cycles.device = 'CPU'
-        if mode == 'rendered':
+        if mode == 'rendered' and channel!='silhouette':
             temp.world = source.world
             for obj in source.objects:
                 if obj.type == 'LIGHT' and not obj.hide_render:
@@ -162,7 +181,7 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
             world = bpy.data.worlds.new('Tools_C_EvidenceWorld'); world.color = (.06, .06, .06)
             temp.world = world
             lighting = 'fixed studio solid' if mode == 'solid' else 'fixed three area lights, Standard transform, Cycles CPU'
-            if mode == 'material_preview':
+            if mode == 'material_preview' and channel!='silhouette':
                 world.use_nodes = True
                 world.node_tree.nodes['Background'].inputs['Color'].default_value = (.12, .12, .12, 1)
                 world.node_tree.nodes['Background'].inputs['Strength'].default_value = .3
@@ -172,6 +191,7 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
                     obj = bpy.data.objects.new('Tools_C_Studio', data); light_objects.append(obj)
                     temp.collection.objects.link(obj); obj.location = center + Vector(offset) * span
                     obj.rotation_euler = (center-obj.location).to_track_quat('-Z','Y').to_euler()
+        if channel=='silhouette':lighting='neutral opaque geometry coverage; Workbench alpha mask'
         output.mkdir(parents=True)
         png = output / (view + '.png')
         temp.render.filepath = str(png)
@@ -185,9 +205,12 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
         metadata = dict(ok=True, status='VISUAL REVIEW REQUIRED', capture_kind='viewport-oriented evidence render',
                         view=view, target=target, objects=sorted(o.name for o in objects), mode=mode,
                         frame=source.frame_current + source.frame_subframe, fps=source.render.fps/source.render.fps_base,
-                        resolution=[resolution,resolution], framing=framing, lighting=lighting,
+                        resolution=list(size), framing=framing, lighting=lighting,channel=channel,
                         camera_matrix=[float(v) for row in camera.matrix_world for v in row],
                         projection=camera_data.type, ortho_scale=camera_data.ortho_scale,
+                        lens=camera_data.lens,shift=[camera_data.shift_x,camera_data.shift_y],
+                        sensor=[camera_data.sensor_width,camera_data.sensor_height,camera_data.sensor_fit],
+                        pixel_aspect=[temp.render.pixel_aspect_x,temp.render.pixel_aspect_y],source_camera=camera_name,
                         blender_version=bpy.app.version_string, path=str(png),
                         sha256=hashlib.sha256(png.read_bytes()).hexdigest(),
                         bounds=dict(min=list(lo), max=list(hi)),

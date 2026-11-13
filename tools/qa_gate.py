@@ -511,8 +511,18 @@ def validate(packet, *, root=None, stage="FINAL", mode="STANDARD"):
     require(isinstance(checks, dict), "checks must be a named map")
     for name,row in checks.items():
         require(nonempty(name), "empty check name")
-        exact(row, ("status", "reviewer", "observations", "evidence"), name)
+        extra=("comparison",) if "comparison" in row else ()
+        exact(row, ("status", "reviewer", "observations", "evidence", *extra), name)
         review(row, name, evidence_ids)
+        if extra:
+            verify_artifact(row['comparison'],name+' comparison',root,png_only=False)
+            if root is not None:
+                from vision_compare import verify_comparison
+                comparison=verify_comparison(Path(root)/row['comparison']['path'],root)
+                require(row['status']!='PASS' or comparison['status']=='PASS','Unaccepted comparison cannot become a PASS check')
+                require(comparison['status']!='FAIL' or row['status']=='FAIL','Failed comparison must remain a failed check')
+                hashes={captures[c]['image']['sha256'] for c in row['evidence'] if c in captures and captures[c]['image']}
+                require(comparison['sources']['candidate']['mask']['sha256'] in hashes,'Comparison candidate is not bound to check evidence')
         if row["status"] == "FAIL":
             failures.append("failed named criterion " + name)
     for name in required["checks"]:

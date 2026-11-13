@@ -312,6 +312,9 @@ def route_task(task, *, root=ROOT):
     phases = stage_phases(task, root)
     if phases: return list(dict.fromkeys(o for phase in phases for o in phase))
     query = action_query(task)
+    if re.fullmatch(r'(?:tools[_ -]?c\s+)?agent\s+vision',query):return ['verification']
+    if re.search(r'\btools[_ -]?c\b',query) and re.search(r'architect|архитектур',query) and re.search(r'review|audit|ревью|аудит',query):
+        return ['project-audit']
     visual = bool(re.search(r'\b(?:images?|references?|blueprints?|photos?|multiview|multi-view)\b|'
                             r'референс|изображени|картинк|черт[её]ж|фото', query))
     visual = visual or (human_form_creation(query) and bool(re.search(

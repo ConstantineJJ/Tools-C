@@ -134,6 +134,36 @@ def data_fingerprints(obj, categories):
     return result
 
 
+def measure_objects(object_names, max_vertices=1000000):
+    """Evaluated world bounds, pivots and local axes in declared scene units."""
+    import math
+    if not object_names or len(object_names)>256 or len(set(object_names))!=len(object_names):
+        raise ValueError('Explicit unique object scope required (1..256)')
+    if type(max_vertices) is not int or not 1<=max_vertices<=1000000:
+        raise ValueError('Vertex budget must be 1..1000000')
+    graph=bpy.context.evaluated_depsgraph_get();rows=[];remaining=max_vertices
+    for name in object_names:
+        obj=bpy.context.scene.objects[name];evaluated=obj.evaluated_get(graph)
+        mesh=evaluated.to_mesh() if evaluated.type in ('MESH','CURVE','SURFACE','FONT','META') else None
+        try:
+            if mesh is None or not mesh.vertices:raise ValueError('No evaluated surface: '+name)
+            if len(mesh.vertices)>remaining:raise ValueError('Evaluated vertex budget exceeded')
+            remaining-=len(mesh.vertices)
+            points=[evaluated.matrix_world@v.co for v in mesh.vertices]
+            if not all(math.isfinite(float(v)) for p in points for v in p):raise ValueError('Non-finite world geometry')
+            low=[min(p[i] for p in points) for i in range(3)];high=[max(p[i] for p in points) for i in range(3)]
+            basis=evaluated.matrix_world.to_3x3()
+            rows.append(dict(object=name,world_bounds=dict(min=low,max=high),
+                world_dimensions=[b-a for a,b in zip(low,high)],pivot=list(evaluated.matrix_world.translation),
+                local_axes_world=[list(basis.col[i].normalized()) for i in range(3)],
+                determinant=basis.determinant(),evaluated_vertices=len(points)))
+        finally:
+            if mesh is not None:evaluated.to_mesh_clear()
+    units=bpy.context.scene.unit_settings
+    return dict(objects=rows,units=dict(system=units.system,scale_length=units.scale_length,length_unit=units.length_unit),
+                measurement_unit='SCENE_UNITS',limits='Floating-point evaluated surfaces; physical units require calibration. Not minimum clearance or whole-scene QA.')
+
+
 def snapshot(stage, object_names, protected=(), action_names=(), blockers=(), data_categories=(), update_scenes=True):
     if not object_names or len(set(object_names)) != len(object_names):
         raise ValueError("Use a nonempty unique explicit object set")
