@@ -13,7 +13,11 @@ from mathutils import Vector
 
 VIEWS = {"front": (0, -1, 0), "side": (1, 0, 0), "back": (0, 1, 0),
          "top": (0, 0, 1), "bottom": (0, 0, -1), "three_quarter": (1, -1, 0.6),
-         "high_45": (0, -1, 1), "low_45": (0, -1, -1)}
+         "high_45": (0, -1, 1), "low_45": (0, -1, -1),
+         # 4.3.0: mirrored/rear directions so -X or +Y facing parts (muzzles, rear
+         # interfaces) can be reviewed without adding a camera to the user's scene.
+         "left": (-1, 0, 0), "three_quarter_left": (-1, -1, 0.6),
+         "rear_three_quarter": (1, 1, 0.6), "rear_three_quarter_left": (-1, 1, 0.6)}
 
 
 def capture_viewport(output, view="front", target="selected", mode="solid", frame=None,

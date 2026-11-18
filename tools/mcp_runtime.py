@@ -143,8 +143,27 @@ def primary_geometry_revision(query):
 def geometry_intent(query):
     """Creation or explicit primary-shape revision, not surface finishing."""
     return bool(re.search(
-        r'\b(?:create|build|make|model|remodel|rebuild|blockout)\b|'
-        r'(?:созда|сдела|смодел|постро|перестро|передел)\w*|блокаут', query) or primary_geometry_revision(query))
+        r'\b(?:create|build|make|model|remodel|rebuild|redesign|rework|overhaul|blockout)\b|'
+        r'(?:созда|сдела|смодел|постро|перестро|передел|переработ)\w*|блокаут', query) or primary_geometry_revision(query))
+
+
+def weapon_module_route(query):
+    """Weapon/turret-head geometry; a weapon noun alone does not authorize edits."""
+    domain = re.search(
+        r'\b(?:weapons?|guns?|cannons?|turrets?|blasters?|rifles?|pistols?|shotguns?|launchers?|'
+        r'flamethrowers?|mortars?|miniguns?|gatling|railguns?|lasers?|plasma\s+(?:cannon|gun|weapon|thrower))\b|'
+        r'\bweapon\s+modules?\b|оружи|пушк|турел|бластер|винтовк|пистолет|дробовик|пул[её]м[её]т|миниган|'
+        r'огнем[её]т|мином[её]т|ракетниц|ракетом[её]т|гранатом[её]т|рельсотрон|\bлазер\w*|плазмом[её]т|'
+        r'плазменн\w*\s+(?:пушк|оруж|модул)', query)
+    # "a mech/car with two cannons": the weapon is an attribute; the host owner keeps it.
+    attribute = re.search(
+        r'(?:\b(?:robots?|mechs?|vehicles?|cars?|trucks?|tanks?|ships?|aircraft|characters?)|'
+        r'робот|\bмех\w*|машин\w*|танк\w*|корабл\w*|персонаж\w*)'
+        r'\W+(?:\w+\W+){0,4}?(?:with|armed|с|со|вооруж\w*)\b', query)
+    explicit = re.search(r'\bweapon\s+modules?\b|\bturret\s+heads?\b|оружейн\w*\s+модул|модул\w*\s+оруж', query)
+    if attribute and not explicit:
+        return False
+    return bool(domain and geometry_intent(query))
 
 
 def robot_modeling_route(query):
@@ -207,12 +226,12 @@ def _route_task(task):
     if artistic_review_route(query):
         return ['verification']
     query=action_query(query)
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:imported-asset-recovery|reference-surface-transfer|robot-mechanism-modeling|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:imported-asset-recovery|reference-surface-transfer|robot-mechanism-modeling|weapon-module|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
     unclear = re.search(r'(?:причин\w*\s+неясн|выглядит\s+плохо|animation\s+looks\s+(?:bad|wrong)|cause\s+(?:is\s+)?unclear)', query)
     reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
     preparing_destruction = destruction_route(query) and bool(re.search(
         r'\b(?:prepare|segment|split|fracture|shatter)\b|подготов|раздел|разбей|расколи|разрушь', query))
-    if reviewing and not preparing_destruction and not imported_asset_recovery_route(query) and not re.search(r'\b(?:create|build|model|remodel|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
+    if reviewing and not preparing_destruction and not imported_asset_recovery_route(query) and not re.search(r'\b(?:create|build|model|remodel|redesign|rework|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|передел|переработ|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
         return ['verification']
     if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
@@ -252,8 +271,8 @@ def _route_task(task):
     # Explicit geometry creation may co-route with a requested UV/retopo stage.
     primary_revision = primary_geometry_revision(query)
     if (procedures or polishing or transfer) and not destruction and not primary_revision and not re.search(
-        r'\b(?:create|build|model|remodel)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack|decal|logo|graphic|pattern|reference\s+surface\s+transfer))|'
-        r'(?:созда|сдела|смодел|постро)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост|декал|логотип|перенос))',query):
+        r'\b(?:create|build|model|remodel|redesign|rework)\s+(?!(?:(?:an?|the)\s+)?(?:retopo|uv|material|texture|normal\s+map|bake|glow|emission|dirt|weathering|surface\s+crack|decal|logo|graphic|pattern|reference\s+surface\s+transfer))|'
+        r'(?:созда|сдела|смодел|постро|передел|переработ)\w*\s+(?!(?:ретополог|uv|материал|текстур|разв[её]ртк|свечени|гряз|пот[её]ртост|декал|логотип|перенос))',query):
         return list(dict.fromkeys(routes))
     if re.search(r'\b(?:building|buildings|house|houses|architecture|architectural|facade|façade|roof|modular\s+(?:building|architecture|kit|wall)|wall\s+module|floor\s+module|building\s+blockout)\b|здани|\bдом(?:ик\w*|а|у|ом|е)?\b|постройк|архитект|фасад|крыш(?:а|и|у|ей|е)\b|модульн.*(?:здани|дом|стен)',query): routes.append('blender-architecture-environment')
     if re.search(r'\b(?:environment\s+assets?|street\s+furniture|site\s+fixtures?|bench(?:es)?|street\s*lamps?|lamp\s*posts?|bollards?|hydrants?|litter\s*bins?|trash\s*bins?|bike\s*racks?|planters?|fence\s+panels?|railing\s+panels?|(?:traffic|roadside)\s+barriers?|road\s+signs?|street\s+signs?|standalone\s+signs?)\b|скамейк|скамь|\bзабор\w*|уличн.*фонар|фонарн.*столб|урн(?:а|ы|у|ой)?\b|боллард|гидрант|велопарков|заборн.*секц|секц.*забор|огражд.*секц',query): routes.append('blender-environment-assets')
@@ -269,13 +288,15 @@ def _route_task(task):
     if anime: routes.append("blender-anime-character-modeling")
     robot = robot_modeling_route(query)
     if robot: routes.append('blender-robot-mechanism-modeling')
+    weapon = weapon_module_route(query)
+    if weapon: routes.append('blender-weapon-module')
     character_creation = re.search(r'\b(?:create|build|make|model|remodel)\s+'
                                    r'(?:(?:an?|the|new|full-body|stylized|male|female|human|game|3d|realistic|low-poly|blue|red)\s+)*'
                                    r'(?:character|humanoid|fighter|person|avatar)\b|'
                                    r'(?:созда|сдела|смодел|передел)\w*\s+'
                                    r'(?:(?:модель|3d|[а-яё]+(?:ого|ую|ый|ий|ой|ые|ое|ных|ный|кого))\s+)*'
                                    r'(?:персонаж|гуманоид|боец|аватар)', query)
-    if not anime and not robot and (character_creation or human_form_creation(query) or re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query)): routes.append('blender-character-modeling')
+    if not anime and not robot and not weapon and (character_creation or human_form_creation(query) or re.search(r'(?:character|humanoid|fighter|person|персонаж|гуманоид|боец).*?(?:blockout|remodel|proportion|silhouette|geometry|mesh|блокаут|пропорц|силуэт|геометр|меш)|(?:blockout|remodel|proportion|silhouette|блокаут|пропорц|силуэт).*?(?:character|humanoid|fighter|person|персонаж|гуманоид|боец)',query)): routes.append('blender-character-modeling')
     if not routes:
         if re.search(r'review|diagnos|deform|looks wrong|проверь|деформац',query): return ['verification']
         return ['blender-pipeline'] if re.search(r'blender|asset|mesh|task|блендер|ассет|меш|задач', query) else []
@@ -326,11 +347,13 @@ def route_task(task, *, root=ROOT):
     owners = _route_task(task)
     if visual and analysis and owners in ([], ['blender-pipeline']):
         return ['visual-reference-reconstruction']
-    if 'blender-robot-mechanism-modeling' in owners:
-        owners = ['blender-robot-mechanism-modeling', *[o for o in owners if o != 'blender-robot-mechanism-modeling']]
+    for lead in ('blender-weapon-module', 'blender-robot-mechanism-modeling'):
+        if lead in owners:
+            owners = [lead, *[o for o in owners if o != lead]]
     domain = any(o.endswith('modeling') or o in {
         'blender-props', 'blender-architecture-environment', 'blender-environment-assets',
-        'blender-roads-infrastructure', 'blender-vegetation', 'blender-sculpting'} for o in owners)
+        'blender-roads-infrastructure', 'blender-vegetation', 'blender-sculpting',
+        'blender-weapon-module'} for o in owners)
     description = bool(re.search(r'\b(?:description|text[ -]only|text[ -]brief|design\s+brief|without\s+(?:images?|references?))\b|'
                                   r'описани|текстов\w*\s+(?:бриф|задани)|без\s+референс', query))
     planning = bool(re.search(r'\b(?:canonical\s+concept|hero\s+view|concept\s+candidates|visual\s+concept)\b|'

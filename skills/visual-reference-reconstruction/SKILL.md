@@ -33,6 +33,9 @@ Select the input mode from actual supplied artifacts, not just routing keywords:
   reconstructed **from that image**. Read [description mode](references/description-mode.md)
   before concept generation or selection. Requirements remain textual authority;
   generated concepts are adopted designs, not discovered real-world evidence.
+- **STYLE MODE:** image as a style example ("not one-to-one"), often a redesign.
+  Read [style mode](references/style-mode.md); its lighter packet (traits, deltas,
+  baseline, invariants, no geometry claims) replaces the schema 3 package below.
 
 Both modes deliver the same **Canonical Visual Package + Constraints + Certainty
 Map + Component Breakdown**, using the [packet contract](references/pass0-contract.md).

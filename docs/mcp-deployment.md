@@ -18,7 +18,12 @@ current helper per call. This does not require reopening or restarting Blender.
 ## Context delivery and bounded operations
 
 The original seventeen public tool names remain. 4.2.1 adds read-only tools_c_check
-and optional camera_name/channel capture inputs; prior calls retain their behavior. All tools
+and optional camera_name/channel capture inputs; prior calls retain their behavior.
+4.3.0 (adapter patch) adds the `result` alias in `execute_blender_python`, read-only
+session state (file, unsaved/dirty, mode, hidden) in `get_scene_info` and mirrored/rear
+capture views; with older Tools_C, `get_scene_info` reports `session_error`.
+Return Python values as `_result`. Baseline an unsaved/dirty session with
+`save_as_mainfile(copy=True)` outside the project, never over the author file. All tools
 declare explicit `readOnlyHint`, `destructiveHint`, `openWorldHint` and
 `idempotentHint` annotations. Seven are read-only: `list_skills`, `read_skill`,
 `find_skills`, `get_scene_info`, `get_skill_context`, `deployment_info`, `tools_c_check`.

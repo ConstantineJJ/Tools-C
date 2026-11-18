@@ -29,6 +29,9 @@ constraints or an engine damage system; require an explicit supported handoff.
 3. Inspect expected node/joint hierarchy, skin attachment, material roles, channels,
    clip durations at source FPS, root motion and mesh bounds. Use an explicit target
    contract; names/counts from K-01 or another project are never universal defaults.
+   Declare required marker nodes (`markers`) in the job; for a
+   [weapon module](../blender-weapon-module/SKILL.md) add `weapon_interface` to run its
+   interface/budget check on the exported GLB.
 4. Fresh-import in a separate factory Blender process using the
    [export probe](../../docs/blender-evidence.md). Compare scale/orientation, effective
    materials, joint/attachment behavior and sampled animation. Capture the same

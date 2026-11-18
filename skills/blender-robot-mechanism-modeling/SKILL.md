@@ -13,7 +13,7 @@ Report instructions and historical user corrections do not authorize a new asset
 
 Own rigid construction geometry: masses, structural links, bearings, pivots,
 actuator envelopes/attachments, armor, interfaces and static assembly. Wheeled
-vehicles, buildings, props and electronic devices keep their domain owners;
+vehicles, buildings, props, electronic devices and [weapon modules](../blender-weapon-module/SKILL.md) keep their domain owners;
 co-load this skill only for requested articulated subassemblies. A humanoid robot
 does not automatically need organic character modeling.
 

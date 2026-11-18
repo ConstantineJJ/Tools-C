@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "weapon-module",
+  "rules": [
+    {
+      "id": "WPN-REGISTRATION",
+      "kind": "json_subset",
+      "paths": [
+        "manifest.json"
+      ],
+      "expected": {
+        "skills": [
+          {
+            "id": "blender-weapon-module",
+            "path": "skills/blender-weapon-module/SKILL.md"
+          }
+        ]
+      }
+    },
+    {
+      "id": "WPN-PROFILE",
+      "kind": "json_subset",
+      "paths": [
+        ".tooling/profile.json"
+      ],
+      "expected": {
+        "skills": [
+          "blender-weapon-module"
+        ],
+        "contracts": [
+          ".tooling/contracts.json",
+          ".tooling/weapon-module-contracts.json"
+        ]
+      }
+    },
+    {
+      "id": "WPN-ENTRYPOINTS",
+      "kind": "markdown",
+      "paths": [
+        "docs/skills.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/blender-robot-mechanism-modeling/SKILL.md",
+        "skills/blender-export-validation/SKILL.md"
+      ],
+      "required_targets": [
+        "skills/blender-weapon-module/SKILL.md"
+      ]
+    },
+    {
+      "id": "WPN-DEPENDENCIES",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-weapon-module/SKILL.md"
+      ],
+      "required_targets": [
+        "docs/foundation.md",
+        "skills/blender-pipeline/SKILL.md",
+        "skills/visual-reference-reconstruction/SKILL.md",
+        "skills/blender-weapon-module/references/functional-detail.md",
+        "skills/blender-weapon-module/references/module-interface.md",
+        "skills/blender-weapon-module/references/research-notes.md",
+        "tools/weapon_module.py"
+      ]
+    },
+    {
+      "id": "WPN-FILES",
+      "kind": "files",
+      "paths": [
+        "tools/weapon_module.py",
+        "tests/test_weapon_module.py"
+      ]
+    },
+    {
+      "id": "WPN-LINKS",
+      "kind": "markdown",
+      "paths": [
+        "skills/blender-weapon-module/references/functional-detail.md",
+        "skills/blender-weapon-module/references/module-interface.md",
+        "skills/blender-weapon-module/references/research-notes.md"
+      ]
+    }
+  ]
+}

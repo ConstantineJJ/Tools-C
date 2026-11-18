@@ -32,6 +32,7 @@
     "production-project-state-gates",
     "visual-reference-reconstruction",
     "blender-robot-mechanism-modeling",
+    "blender-weapon-module",
     "blender-reference-surface-transfer"
   ],
   "contracts": [
@@ -40,7 +41,8 @@
     ".tooling/blender-polishing-contracts.json",
     ".tooling/blender-anime-contracts.json",
     ".tooling/pass0-mechanics-contracts.json",
-    ".tooling/surface-transfer-contracts.json"
+    ".tooling/surface-transfer-contracts.json",
+    ".tooling/weapon-module-contracts.json"
   ],
   "references": [
     "docs/skills.md",

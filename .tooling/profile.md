@@ -1,6 +1,6 @@
 # Tools_C self profile
 
-Tools_C architecture 4.2.1 owns thirty canonical skills, nine legacy Blender aliases,
+Tools_C architecture 4.3.0 owns thirty-one canonical skills, nine legacy Blender aliases,
 a shared foundation, bounded evidence/export/preflight tools, Agent Vision and deployment diagnosis.
 Catalog/profile/contract schema_version remains 1, independent of architecture version.
 PASS 0 task packets use schema 3 for explicit REFERENCE/DESCRIPTION modes and one

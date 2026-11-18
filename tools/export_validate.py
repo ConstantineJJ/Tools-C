@@ -10,6 +10,48 @@ from glb_inspect import inspect
 from handoff_snapshot import validate
 
 
+POST_EXPORT_KEYS=('markers','weapon_interface','weapon_root')
+EXPECTED={'source mesh representation differs':'expected after modifier evaluation, triangulation or split normals',
+          'procedural geometry became mesh':'expected: glTF stores curves/text/surfaces as meshes'}
+
+
+def group_differences(differences, shown=6):
+    """Collapse per-object expected differences into one line per kind."""
+    groups={}
+    for line in differences:
+        name,_,kind=line.partition(': ')
+        groups.setdefault(kind.split(';')[0],[]).append(name)
+    rows=[]
+    for kind,names in groups.items():
+        listed=', '.join(names[:shown])+(f', +{len(names)-shown} more' if len(names)>shown else '')
+        rows.append(dict(kind=kind,count=len(names),objects=listed,note=EXPECTED.get(kind,'review')))
+    return rows
+
+
+def check_markers(glb_path, markers):
+    """Required marker nodes must survive export with their exact names."""
+    from weapon_module import read_gltf
+    if not isinstance(markers,list) or not all(isinstance(m,str) and m for m in markers):
+        raise ValueError('markers must be a list of node names')
+    present={n.get('name') for n in read_gltf(glb_path).get('nodes',[])}
+    return ['Marker missing from GLB: '+m for m in markers if m not in present]
+
+
+def post_export_checks(job, glb_path, job_dir=None):
+    failures=[]; report={}
+    if 'markers' in job:
+        report['markers']=dict(required=job['markers'],missing=check_markers(glb_path,job['markers']))
+        failures+=report['markers']['missing']
+    if 'weapon_interface' in job:
+        from weapon_module import check_glb, load_interface
+        path=Path(job['weapon_interface'])
+        if not path.is_absolute() and job_dir is not None: path=Path(job_dir)/path
+        weapon=check_glb(load_interface(path),glb_path,job.get('weapon_root'))
+        report['weapon_interface']=weapon
+        failures+=['Weapon interface: '+i['message'] for i in weapon['items'] if i['status']=='FAIL']
+    return failures,report
+
+
 def compare(source, imported, source_result, imported_result, glb, tolerance=1e-5):
     validate(source); validate(imported)
     failures=[]; differences=[]
@@ -42,13 +84,16 @@ def compare(source, imported, source_result, imported_result, glb, tolerance=1e-
             expected=(action['range'][1]-action['range'][0])/source['fps']
             if abs(duration-expected)>tolerance: failures.append(action['name']+': exported duration differs')
     return dict(status='FAIL' if failures else 'STRUCTURAL PASS',failures=failures,
-                representation_differences=differences,tolerance=tolerance,visual='SKIP',
+                representation_differences=group_differences(differences),difference_count=len(differences),
+                tolerance=tolerance,visual='SKIP',
                 semantic_review='REVIEW REQUIRED' if differences else 'Not established by this bounded comparison',
                 limits='Static sampled-frame bounds, names/hierarchy/inclusion/duration only; not material shading, rest-matrix/weight equivalence, root-motion policy, arbitrary poses or playback feel')
 
 
-def run(job,engine,output):
+def run(job,engine,output,job_dir=None):
     if output.exists(): raise ValueError('Output must be a new directory')
+    post={k:job[k] for k in POST_EXPORT_KEYS if k in job}
+    job={k:v for k,v in job.items() if k not in POST_EXPORT_KEYS}
     output.mkdir(parents=True)
     executable,resolution=resolve_engine('blender',engine)
     if executable is None: raise ValueError(resolution)
@@ -68,7 +113,10 @@ def run(job,engine,output):
     structural=inspect(output/'asset.glb')
     compared=compare(read_json(output/'source/snapshot.json'),read_json(output/'import/snapshot.json'),
                      read_json(output/'source/result.json'),read_json(output/'import/result.json'),structural)
-    report=dict(engine=identity,probes=rows,glb=structural,comparison=compared)
+    post_failures,post_report=post_export_checks(post,output/'asset.glb',job_dir)
+    if post_failures:
+        compared['failures']+=post_failures; compared['status']='FAIL'
+    report=dict(engine=identity,probes=rows,glb=structural,comparison=compared,interface=post_report)
     (output/'validation.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     return report
 
@@ -78,7 +126,7 @@ if __name__=='__main__':
     p.add_argument('--blender',required=True); p.add_argument('--output',required=True,type=Path)
     args=p.parse_args()
     try:
-        report=run(read_json(args.job),args.blender,args.output.resolve())
+        report=run(read_json(args.job),args.blender,args.output.resolve(),args.job.resolve().parent)
         print(json.dumps(report,indent=2)); raise SystemExit(1 if report['comparison']['status']=='FAIL' else 0)
     except Exception as exc:
         print(json.dumps(dict(status='FAIL',reason=str(exc)))); raise SystemExit(1)

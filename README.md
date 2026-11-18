@@ -1,9 +1,9 @@
-# Tools_C 4.2.1
+# Tools_C 4.3.0
 
 Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
-Tools_C has [30 canonical skills](docs/skills.md), nine compatible legacy Blender
+Tools_C has [31 canonical skills](docs/skills.md), nine compatible legacy Blender
 routes, reusable checkers and project integration. Tools_C Light is a separate
-product. [Release 4.2.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.2.1)
+product. [Release 4.3.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.3.0)
 contains the distributable toolkit and checksums.
 
 Skills own procedures; project profiles hold replaceable project choices;
@@ -53,7 +53,9 @@ python tools/mcp_deployment.py --project "C:\path\to\Blender-MCP-Co"
 ```
 
 The [4.2.1 adapter patch](adapters/blender-mcp-4.2.1.patch) wires the existing
-server to the canonical helpers; it is not another MCP server. See
+server to the canonical helpers; it is not another MCP server. The
+[4.3.0 patch](adapters/blender-mcp-4.3.0.patch) adds the `result` alias, session
+state in `get_scene_info` and the mirrored/rear capture views. See
 [deployment diagnosis](docs/mcp-deployment.md) for loaded/disk identity checks.
 After server changes, restart the existing MCP process and refresh client metadata.
 Local synchronization alone does not prove the live service has loaded changes.
@@ -62,6 +64,9 @@ Local synchronization alone does not prove the live service has loaded changes.
 
 - [Skill catalog](docs/skills.md): domain modeling, reference reconstruction,
   surface transfer, sculpting, rigging, animation, export and Godot integration.
+- [Weapon modules](skills/blender-weapon-module/SKILL.md): turret/vehicle weapon
+  heads and guns with functional detail, mechanisms and a checked socket/muzzle
+  interface ([module checker](tools/weapon_module.py)).
 - [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md):
   stylized humanoid form, faces, eyes, hair and clothing with scoped visual QA.
 - [Agent Vision](docs/agent-vision.md): fixed/named-camera captures, silhouettes,

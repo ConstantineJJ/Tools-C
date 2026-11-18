@@ -35,7 +35,8 @@ def capture_file(blender, source, output, *, objects, view='front', mode='solid'
         raise ValueError('New output directory required')
     if not objects or len(set(objects)) != len(objects):
         raise ValueError('Explicit unique object names required')
-    if view not in ('front', 'side', 'back', 'top', 'bottom', 'three_quarter'):
+    if view not in ('front', 'side', 'back', 'top', 'bottom', 'three_quarter', 'left',
+                    'three_quarter_left', 'rear_three_quarter', 'rear_three_quarter_left'):
         raise ValueError('Offline capture requires a fixed view, not a live viewport')
     if mode not in ('solid', 'material_preview', 'rendered'):
         raise ValueError('Unsupported mode')

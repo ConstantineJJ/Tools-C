@@ -8,7 +8,8 @@ to expand the task. Replaceable asset, skeleton, clip and engine choices stay lo
 Before a change, establish TASK (outcome), MUST PRESERVE (protected data and
 behavior), MAY CHANGE (named scope and necessary dependencies), and SUCCESS
 (observable acceptance). Use the smallest sufficient edit. Preserve unrelated
-dirty/untracked work and record a recoverable baseline for destructive operations.
+dirty/untracked work and record a recoverable baseline for destructive operations
+(Blender session: [scene state](../tools/blender_scene_state.py)).
 These fields need not be repeated in every specialist document or every response.
 
 Compare affected before/after state under comparable settings. Keep an improvement
@@ -38,8 +39,7 @@ leaves the final L4 acceptance OPEN; the agent may not call it VISUAL PASS.
 The receipt checker assesses *declared completeness*, not pixel truth.
 Do not substitute a structural L1 receipt for direct review of actual images.
 A focused local iteration need not render unrelated full-scene data but cannot
-claim the broader character-final gate. Do not infer incorrect skull/leg sizes
-from perspective or foreshortened ±45-degree views alone.
+claim the broader character-final gate.
 
 Capture success alone is VISUAL REVIEW REQUIRED. Four still views do not prove
 animation feel, all deformation poses or target-engine material appearance.

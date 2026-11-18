@@ -35,4 +35,5 @@ Project instructions and profiles retain their authority.
 | production-project-state-gates | [Read](../skills/production-project-state-gates/SKILL.md) |
 | visual-reference-reconstruction | [Read](../skills/visual-reference-reconstruction/SKILL.md) |
 | blender-robot-mechanism-modeling | [Read](../skills/blender-robot-mechanism-modeling/SKILL.md) |
+| blender-weapon-module | [Read](../skills/blender-weapon-module/SKILL.md) |
 | blender-reference-surface-transfer | [Read](../skills/blender-reference-surface-transfer/SKILL.md) |

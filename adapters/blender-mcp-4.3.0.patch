@@ -1,0 +1,114 @@
+From 1cb683954a5013316d9aae6e06256c2ea3efeecd Mon Sep 17 00:00:00 2001
+From: ConstantineJJ <kostiklinda7@gmail.com>
+Date: Wed, 18 Nov 2026 09:05:40 +0200
+Subject: [PATCH] feat: result alias, session state in get_scene_info, mirrored
+ capture views (Tools_C 4.3.0)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+Claude-Session: https://claude.ai/code/session_01EgpXmzAUS4grTDogMfMupr
+---
+ mcp-server/blender_mcp_server.py | 36 ++++++++++++++++++++++++++++----
+ tests/test_bridge_security.py    | 25 ++++++++++++++++++++++
+ 2 files changed, 57 insertions(+), 4 deletions(-)
+
+diff --git a/mcp-server/blender_mcp_server.py b/mcp-server/blender_mcp_server.py
+index f49b10b..ca62710 100644
+--- a/mcp-server/blender_mcp_server.py
++++ b/mcp-server/blender_mcp_server.py
+@@ -294,9 +294,33 @@ def find_skills(query: str, max_results: int = 10) -> Dict[str, Any]:
+ 
+ 
+ @mcp.tool(annotations=_annotations(read_only=True, idempotent=True))
+-def get_scene_info() -> Dict[str, Any]:
+-    """Read current Blender scene/object information without creating, editing or saving objects."""
+-    return send_to_blender({"type": "scene_info"})
++def get_scene_info(include_session: bool = True) -> Dict[str, Any]:
++    """Read current Blender scene/object information without creating, editing or saving objects.
++
++    include_session adds file path, unsaved/dirty state, mode, hidden objects,
++    collections and baseline guidance from Tools_C blender_scene_state (read-only).
++    """
++    info = send_to_blender({"type": "scene_info"})
++    if not include_session or not isinstance(info, dict):
++        return info
++    try:
++        helper = _tools_root() / 'tools/blender_scene_state.py'
++        if not helper.is_file():
++            return dict(info, session_error='Tools_C blender_scene_state.py not found (Tools_C < 4.3.0)')
++        code = "import runpy\n_result = runpy.run_path(" + repr(str(helper)) + ")['scene_state']()\n"
++        state = send_to_blender({"type": "execute_python", "code": code}).get('data', {}).get('result')
++        if not isinstance(state, dict):
++            return dict(info, session_error='scene_state returned no result')
++        keys = ('file', 'is_dirty', 'unsaved_session', 'baseline', 'mode', 'active',
++                'hidden_objects', 'collections', 'blender')
++        return dict(info, session={k: state.get(k) for k in keys})
++    except Exception as exc:
++        return dict(info, session_error=str(exc))
++
++
++# The addon pre-seeds `_result = None` in the exec namespace and returns only `_result`.
++RESULT_ALIAS = ("\n\nif globals().get('_result') is None and 'result' in globals():\n"
++                "    _result = globals()['result']\n")
+ 
+ 
+ @mcp.tool(annotations=_annotations(destructive=True, open_world=True))
+@@ -305,7 +329,9 @@ def execute_blender_python(code: str) -> Dict[str, Any]:
+ 
+     Code may change/delete scene data, overwrite files or access external resources.
+     Use for scoped operations; managed captures can also return verified PNG content.
++    Return data by assigning `_result`; a top-level `result` is accepted as an alias.
+     """
++    code = code + RESULT_ALIAS
+     response = send_to_blender({"type": "execute_python", "code": code})
+     metadata = response.get('data', {}).get('result')
+     if not isinstance(metadata, dict):
+@@ -558,7 +584,9 @@ def capture_viewport(view: str = "front", target: str = "selected", mode: str =
+                      camera_name: Optional[str] = None, channel: str = 'beauty') -> List[Any]:
+     """Capture bounded Blender visual evidence and return PNG plus metadata.
+ 
+-    view: front|side|back|top|bottom|three_quarter|high_45|low_45|current|camera.
++    view: front|side|left|back|top|bottom|three_quarter|three_quarter_left|
++    rear_three_quarter|rear_three_quarter_left|high_45|low_45|current|camera.
++    Mirrored/rear views (Tools_C >= 4.3.0) inspect the second flank and the rear.
+     camera requires camera_name. channel: beauty|silhouette (opaque geometry alpha).
+     target: active|selected|character|scene; character requires object_names.
+     mode: solid|material_preview|rendered. resolution: 64..2048 square pixels.
+diff --git a/tests/test_bridge_security.py b/tests/test_bridge_security.py
+index 0627319..4594130 100644
+--- a/tests/test_bridge_security.py
++++ b/tests/test_bridge_security.py
+@@ -167,5 +167,30 @@ class ServerProtocolTests(unittest.TestCase):
+             self.assertEqual(sent['type'],'bridge_info')
+             self.assertNotIn('code',sent)
+ 
++    def test_result_alias_matches_addon_namespace(self):
++        for code,expected in (('result={"x":1}',{'x':1}),('_result=5\nresult=6',5),('x=1',None)):
++            namespace={'_result':None}  # same seed as the addon
++            exec(code+self.server.RESULT_ALIAS,namespace,namespace)
++            self.assertEqual(namespace['_result'],expected)
++
++    def test_scene_info_adds_session_state_or_reports_why_not(self):
++        sent=[]
++        def fake(payload,timeout=None):
++            sent.append(payload)
++            if payload['type']=='scene_info': return dict(ok=True,objects=[])
++            return dict(ok=True,data=dict(result=dict(file=None,is_dirty=True,unsaved_session=True,
++                                                      baseline='save a copy',mode='OBJECT',extra=1)))
++        with tempfile.TemporaryDirectory() as directory:
++            root=Path(directory); (root/'tools').mkdir()
++            with patch.object(self.server,'send_to_blender',side_effect=fake), \
++                 patch.object(self.server,'_tools_root',return_value=root):
++                self.assertIn('session_error',self.server.get_scene_info())
++                (root/'tools/blender_scene_state.py').write_text('', encoding='utf-8')
++                info=self.server.get_scene_info()
++                self.assertTrue(info['session']['unsaved_session'])
++                self.assertNotIn('extra',info['session'])
++                self.assertNotIn('session',self.server.get_scene_info(include_session=False))
++        self.assertIn('scene_state',sent[-2]['code'])
++
+ 
+ if __name__=='__main__': unittest.main()
+-- 
+2.52.0.windows.1
+

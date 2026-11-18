@@ -38,7 +38,7 @@ joins must be declared; they are not global collision exclusions.
 ## Universal MCP capture
 
 `capture_viewport(view, target, mode, frame, resolution, object_names, framing)`
-supports front/side/back/top/bottom/three_quarter/high_45/low_45/current, active/selected/character/scene,
+supports the fixed views below or current, active/selected/character/scene,
 solid/material_preview/rendered. Character scope requires explicit object_names.
 Resolution is one integer 64–2048 for a square image. Frame may be omitted for an
 initial capture; every response records the resolved frame. Repeat that frame in
@@ -46,12 +46,12 @@ AFTER captures. Pass the BEFORE `framing` (center and span) to all AFTER views;
 automatic reframing after an edit would conceal bounds regressions.
 
 Fixed views are orthographic: front looks from -Y, side from +X, back from +Y,
-top/bottom from +/-Z; three_quarter is a fixed (1,-1,.6) direction.
+top/bottom from +/-Z, left from -X; three_quarter (1,-1,.6) and its mirrors
+three_quarter_left, rear_three_quarter, rear_three_quarter_left.
 The additional high_45/low_45 views use (0,-1,+1)/(0,-1,-1), at ±45 degrees
-from the front horizontal sightline (equivalently 45 degrees from vertical),
-with orthographic projection by default. Both have strong depth foreshortening:
-use them for volume, clearance and contacts, not isolated head/leg proportion
-judgments. Confirm proportions in reference-matched front/side orthographic views. The same sphere
+from the front sightline, orthographic by default. Both have strong depth foreshortening:
+use them for volume, clearance and contacts; judge head/leg proportions in
+reference-matched front/side orthographic views. The same sphere
 fit is used for each view. `current` derives orientation/projection from a live
 VIEW_3D; no area means SKIP. This is a viewport-oriented evidence render in a
 temporary scene, not an exact screenshot of the UI. Current uses square framing.
@@ -133,7 +133,7 @@ python tools/blender_capture_file.py --blender "C:/path/to/blender.exe" --source
 
 For AFTER or another comparable fixed view, use a new output directory and pass
 `--framing "C:/project/evidence/NEW_before_front/image/capture.json"`. Supports
-front/side/back/top/bottom/three_quarter and solid/material_preview/rendered.
+the fixed views except high/low_45 and solid/material_preview/rendered.
 The tool opens the source with autoexec disabled, uses the same capture helper,
 verifies the PNG/hash/completion marker and source-file hash, and writes `result.json`
 and `blender.log`. Open `result.capture.path` and inspect it. It never saves the
