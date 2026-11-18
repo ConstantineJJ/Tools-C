@@ -17,13 +17,29 @@ Establish TASK, MUST PRESERVE, MAY CHANGE and observable SUCCESS before editing.
 Anime is a family of styles: do not prescribe one head/body ratio, eye size,
 gender presentation, anatomy, shader, polygon count or target platform.
 
+## Profiles — read only what the task touches
+
+This file is the core. Detailed procedures live in four profiles; read the
+profile for each region the task changes, before working on it:
+
+| Profile | Read when the task touches | File |
+|---|---|---|
+| Body & outfit | new character, blockout, head/body ratio, chibi, silhouette, neck/torso/limbs, clothing, accessories | [body](references/profile-body.md) |
+| Face & eyes | face planes, eyes, lids, lashes, mouth, expressions prep, face artwork | [face](references/profile-face.md) |
+| Hair | fringe, sides, crown, tails, ornaments, hair silhouette and clearance | [hair](references/profile-hair.md) |
+| Toon look & evidence | dark patches, toon bands, outlines, renderer/target appearance, final review | [look](references/profile-look.md) |
+
+A new full character goes body → face → hair; open the look profile before any
+appearance judgment. MCP context delivers matching profiles and lists the rest
+as conditional documents: request one before working on its region.
+[Source notes](references/research-notes.md) are optional study material.
+
 ## Activation and ownership
 
 Own new or scoped revised humanoid anime/manga geometry: blockout, proportions,
 facial planes, eye/lid/eyelash forms, hair silhouette, outfit volumes and accessories
-belonging to the character. Chibi and more anatomical styles use their own reference.
-Human-bodied characters with animal ears/tails can use this owner for humanoid
-forms; a creature body plan or muzzle/locomotion problem goes to
+belonging to the character. Human-bodied characters with animal ears/tails can use
+this owner; a creature body plan or muzzle/locomotion problem goes to
 [animal modeling](../blender-animal-anthropomorphic-modeling/SKILL.md). Name any
 requested regional split instead of silently replacing species anatomy.
 
@@ -48,88 +64,39 @@ that preparation does not authorize a new rig, expressions or final retopology.
 ## Preflight
 
 Consume the general owner's [face and primary-form gates](../blender-character-modeling/references/workflow-gates.md).
-Anime style does not justify discarding original eye/mouth artwork or skipping
-strategy selection. Geometry-only remains valid for reviewed volumetric identity
-or explicitly accepted simplification; otherwise execute the selected surface method.
-
 Identify new creation versus revision, named objects/regions, approved views and
 style landmarks. Inspect source geometry, modifier evaluation, shared meshes,
 materials, UVs, custom normals, shape keys and any rig before changing them.
-Record projection/camera assumptions, hair/outfit silhouette, asymmetry and target
-use. Use supplied references first. A single illustration constrains its view;
-label unseen design choices and resolve only uncertainties that materially change
-identity or protected structure. Do not invent a mandatory turnaround or outfit.
+Use supplied references first; a single illustration constrains its view. Label
+unseen design choices; do not invent a mandatory turnaround or outfit.
 
-Read [face, hair and presentation decisions](references/face-hair-workflow.md)
-when those features matter. [Source notes](references/research-notes.md) explain
-the evidence and limitations behind the methods; they are optional study resources.
+## Revision rules (all profiles)
 
-## Workflow
-
-For creation or major body/head revision, use the general
-[body proportion guide](../blender-character-modeling/references/body-proportions.md)
-with the **approved anime subtype** and view-specific anchors. It is a
-reference-led comparison, not a realistic-body normalization. Measure skull,
-face artwork and external hair volume separately; protect accepted eye spacing,
-mouth and expression when reshaping the skull/hair shell. Occluding hair is
-a deliberate front layer, not evidence that the hidden eye has been observed.
-
-For creation, establish body/head/hair/outfit masses before details. Compare the
-reference projection and another relevant view. Build facial planes, lids and
-eye placement together so identity survives three-quarter and profile views.
-Resolve hair groups and clothing clearance, then refine only identity-bearing
-secondary forms. Choose polygon editing, curves or an authorized sculpt stage
-according to editability and the requested result.
-
-For a focal character in a larger scene, prove its face, pose and primary hair/body
-masses in a [representative lookdev slice](../production-lookdev-gate/SKILL.md)
-before spending heavily on background dressing. For a Blender-only result, use
-the intended Blender renderer; target-engine checks are conditional on delivery.
-
-For revision, capture the current state, isolate the feature and its dependencies,
-make a bounded change and compare protected views/data. A dark face patch may come
-from geometry, custom normals, a shadow mask or the renderer; diagnose its source
-before changing the face. Preserve intentional stylization and asymmetry.
-
-Keep final topology, UVs, material graphs and delivery choices with their owners.
-Before changing vertex count/order on a mesh with shape keys or production bindings,
-use the project's approved recovery/transfer method or stop at that dependency.
-Localize edits to shared mesh/material users; do not recolor or reshape unrelated assets.
+Capture the current state, isolate the feature and its dependencies, make a
+bounded change and compare protected views/data. Preserve intentional stylization
+and asymmetry. Before changing vertex count/order on a mesh with shape keys or
+production bindings, use the approved recovery/transfer method or stop at that
+dependency. Localize edits to shared mesh/material users. Topology, UVs, material
+graphs and delivery stay with their owners.
 
 ## Visual feedback and acceptance
 
-Use [Blender evidence methods](../../docs/blender-evidence.md): capture through
-the render operation/Render Result, open the actual images, list observed defects,
-correct the authorized region and recapture under comparable settings. If the
-named MCP capture is absent, try the documented Python-image or file-render fallback.
-An inaccessible image or metadata-only response remains a visual blocker.
-
-Judge whole-character silhouette and face/hair detail at the intended viewing
-size. Check the reference view, three-quarter/profile as applicable, intersections,
-lid/eye seating, hair roots/tips and clothing clearance. Recheck an unaffected
-view after a visible correction. Still images do not certify blink, speech or poses.
-
-Workbench/solid evidence supports geometry. The current managed material_preview
-and rendered captures use Cycles and omit the production compositor; they cannot
-certify an EEVEE-only Shader to RGB graph, final outlines or bloom. For those
-criteria, inspect a render from the verified source renderer/compositor or the
-actual target engine using an authorized acquisition path. Preserve production
-settings. If unavailable, report that criterion as SKIP rather than swapping
-shaders, disabling effects or accepting a different renderer's image.
+Use [Blender evidence methods](../../docs/blender-evidence.md): open the actual
+images, list observed defects, correct the authorized region and recapture under
+comparable settings. An inaccessible image or metadata-only response remains a
+visual blocker. Judge silhouette and face/hair at the intended viewing size and
+recheck an unaffected view after a visible correction. Renderer-specific criteria
+(toon bands, outlines, bloom) follow the look profile. Stills do not certify
+blink, speech or poses.
 
 ## Handoff and stop
 
-Hand off approved landmarks/projections, named changed and protected objects,
-hair/eye/clothing construction, topology and shape-key state, modifier/custom-normal
-dependencies, inspected evidence and unresolved render/pose/target gates.
-Stop when the scoped form is observed without protected regression. Route a
-diagnosed stage defect to its owner. Stop at conflicting references/invariants,
-missing identity-critical data, unsafe bound-mesh edits or an unavailable required
-visual gate; explain the remaining decision or capability. No blind detail pass.
-
-For original face/eye artwork, use [Reference Surface Transfer](../blender-reference-surface-transfer/SKILL.md)
-after supporting facial forms are established. Preserve graphic identity and
-expression through source pixels; a frontal texture cannot replace correct volume.
+Hand off approved landmarks/projections, changed and protected objects, hair/eye/
+clothing construction, topology and shape-key state, modifier/custom-normal
+dependencies, inspected evidence and open render/pose/target gates. Stop when the
+scoped form is observed without protected regression; stop at conflicting
+references, missing identity-critical data, unsafe bound-mesh edits or an
+unavailable required visual gate. No blind detail pass.
 
 ## Pitfalls / Lessons Learned
 

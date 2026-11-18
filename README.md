@@ -1,9 +1,9 @@
-# Tools_C 4.3.0
+# Tools_C 4.3.1
 
 Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
 Tools_C has [31 canonical skills](docs/skills.md), nine compatible legacy Blender
 routes, reusable checkers and project integration. Tools_C Light is a separate
-product. [Release 4.3.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.3.0)
+product. [Release 4.3.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.3.1)
 contains the distributable toolkit and checksums.
 
 Skills own procedures; project profiles hold replaceable project choices;
@@ -68,7 +68,8 @@ Local synchronization alone does not prove the live service has loaded changes.
   heads and guns with functional detail, mechanisms and a checked socket/muzzle
   interface ([module checker](tools/weapon_module.py)).
 - [Anime character modeling](skills/blender-anime-character-modeling/SKILL.md):
-  stylized humanoid form, faces, eyes, hair and clothing with scoped visual QA.
+  stylized humanoid form, faces, eyes, hair and clothing with scoped visual QA;
+  a compact core plus body, face, hair and toon-look profiles loaded per task.
 - [Agent Vision](docs/agent-vision.md): fixed/named-camera captures, silhouettes,
   world-space measurements, calibrated contour/landmark comparison, difference
   maps and localized findings through existing capture and QA helpers.

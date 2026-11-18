@@ -1,6 +1,6 @@
-# Tools_C architecture 4.3.0
+# Tools_C architecture 4.3.1
 
-Architecture 4.3.0 has thirty-one canonical skills, one shared foundation, nine stable
+Architecture 4.3.1 has thirty-one canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.

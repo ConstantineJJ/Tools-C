@@ -84,7 +84,7 @@ class ContextDeliveryTest(unittest.TestCase):
             self.assertEqual(combined.count('SOURCE: skills/'+owner+'/SKILL.md\n\n'),1)
         self.assertEqual(combined.count('SOURCE: docs/foundation.md\n\n'),1)
         self.assertLessEqual(sum(len(s['content']) for s in c['skills']),60000)
-        self.assertTrue(any(d['path'].endswith('face-hair-workflow.md') for d in c['conditional_documents']))
+        self.assertTrue(any(d['path'].endswith('profile-face.md') for d in c['conditional_documents']))
 
     def test_receipts_are_explicit_current_and_resettable(self):
         first=mcp_runtime.context(check.ROOT,'blender-character-modeling')
@@ -110,7 +110,7 @@ class ContextDeliveryTest(unittest.TestCase):
 
     def test_conditional_reference_is_fetchable_but_arbitrary_paths_are_rejected(self):
         c=mcp_runtime.context(check.ROOT,self.mixed)
-        face='skills/blender-anime-character-modeling/references/face-hair-workflow.md'
+        face='skills/blender-anime-character-modeling/references/profile-face.md'
         follow=mcp_runtime.context(check.ROOT,self.mixed,known_documents=c['receipts'],requested_documents=[face])
         self.assertIn('SOURCE: '+face,follow['skills'][0]['content'])
         for path in ['../secrets.md','.local/private.md','docs/../../private.md','docs/blender-evidence.md:stream']:

@@ -374,6 +374,38 @@ def route_task(task, *, root=ROOT):
     return list(dict.fromkeys(owners))
 
 
+_ANIME = 'skills/blender-anime-character-modeling/references/profile-'
+# Anime skill profiles: deliver the regions a task touches; list the rest as conditional.
+ANIME_PROFILES = {
+    'body': (_ANIME + 'body.md',
+             r'\b(?:body|proportions?|chibi|blockout|torso|limbs?|arms?|legs?|hands?|feet|neck|'
+             r'shoulders?|outfit|cloth(?:es|ing)?|costume|dress|skirt|jacket|accessor\w*)\b|'
+             r'тел[оаеу]|пропорц|чиби|блокаут|\bрук|\bног|\bше[яию]\b|плеч|одежд|костюм|плать|юбк|куртк|аксессуар',
+             'Read before body/proportion/outfit work'),
+    'face': (_ANIME + 'face.md',
+             r'\b(?:face|facial|eyes?|eyelids?|lids?|lash(?:es)?|mouth|lips?|nose|expressions?|blink)\b|'
+             r'лиц|глаз|\bвек|ресниц|\bрот\b|\bрта\b|губ|\bнос|мимик|выражени',
+             'Read before face/eye/mouth construction'),
+    'hair': (_ANIME + 'hair.md',
+             r'\b(?:hair\w*|fringe|bangs|ponytails?|twintails?|braids?)\b|волос|прич[её]ск|ч[её]лк|хвостик|кос(?:а|ы|у|ичк)',
+             'Read before hair construction'),
+    'look': (_ANIME + 'look.md',
+             r'\b(?:toon|outlines?|shading|shadows?|dark\s+patch|renders?|rendering|bloom|appearance)\b|'
+             r'тун|контур|обводк|\bтен[иья]|шейдинг|рендер|пятн',
+             'Read before shading diagnosis or appearance acceptance'),
+}
+
+
+def anime_profiles(query, limit=2):
+    """Profiles for the regions a task names; a bare/new character starts with body.
+
+    At most `limit` are delivered (in body → face → hair → look order); the rest
+    stay conditional so the 60k context budget holds for whole-character tasks.
+    """
+    chosen = [key for key, (_, pattern, _) in ANIME_PROFILES.items() if re.search(pattern, query)]
+    return set(chosen[:limit]) or {'body'}
+
+
 def _context_documents(content):
     """Compatibility with cached two-argument readers; never reread their old body."""
     blocks = re.split(r'\n\n(?=SOURCE: [^\n]+\n\n)', content)
@@ -420,8 +452,10 @@ def context(root, task, max_chars=60000, known_documents=None, requested_documen
             defer['docs/blender-evidence.md']='Read the full acquisition recipe before capture/snapshot/export'
             if len(requested) > 2:
                 defer['skills/blender-pipeline/references/techniques/form-development.md']='Read before macro/form construction; domain entrypoints and design locks remain delivered'
-            if not re.search(r'\b(?:face|eyes?|hair|hairstyle)\b|лиц|глаз|волос|прич[её]ск',action_query(task)):
-                defer['skills/blender-anime-character-modeling/references/face-hair-workflow.md']='Read before face/eye/hair construction'
+        if name == 'blender-anime-character-modeling':
+            chosen = anime_profiles(action_query(task))
+            for key, (path, _, reason) in ANIME_PROFILES.items():
+                if key not in chosen: defer[path] = reason
         for p,b in blocks:
             if p in defer: conditional[p]=dict(path=p,sha256=hashlib.sha256(b.encode()).hexdigest(),reason=defer[p])
         blocks=[(p,b) for p,b in blocks if p not in defer]

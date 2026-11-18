@@ -67,7 +67,10 @@
         "skills/blender-export-validation/SKILL.md",
         "skills/godot-asset-integration/SKILL.md",
         "skills/verification/SKILL.md",
-        "skills/blender-anime-character-modeling/references/face-hair-workflow.md",
+        "skills/blender-anime-character-modeling/references/profile-body.md",
+        "skills/blender-anime-character-modeling/references/profile-face.md",
+        "skills/blender-anime-character-modeling/references/profile-hair.md",
+        "skills/blender-anime-character-modeling/references/profile-look.md",
         "skills/blender-anime-character-modeling/references/research-notes.md"
       ]
     }

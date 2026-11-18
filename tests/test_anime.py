@@ -67,10 +67,37 @@ class AnimeRoutingTest(unittest.TestCase):
         content = result['skills'][0]['content']
         for path in ['docs/foundation.md', 'docs/blender-evidence.md',
                      f'skills/{OWNER}/SKILL.md', 'skills/blender-character-modeling/SKILL.md',
-                     f'skills/{OWNER}/references/face-hair-workflow.md']:
+                     f'skills/{OWNER}/references/profile-body.md']:
             self.assertIn('SOURCE: ' + path + '\n\n', content)
+        conditional = {d['path'] for d in result['conditional_documents']}
+        for name in ('face', 'hair', 'look'):
+            self.assertIn(f'skills/{OWNER}/references/profile-{name}.md', conditional)
+            self.assertNotIn(f'SOURCE: skills/{OWNER}/references/profile-{name}.md', content)
         self.assertEqual(result['skills'][0]['sha256'], hashlib.sha256(content.encode()).hexdigest())
         self.assertFalse(mcp_runtime.context(check.ROOT, OWNER, 50)['ok'])
+
+    def test_task_delivers_only_the_profiles_it_touches(self):
+        prefix = f'skills/{OWNER}/references/profile-'
+        cases = {
+            'Fix the anime face proportions.': {'face', 'body'},
+            'Refine the anime hair silhouette.': {'hair'},
+            'Сделай аниме персонажа.': {'body'},
+            'Fix the anime face shading defect geometry.': {'face', 'look'},
+            'Смоделируй аниме персонажу чёлку и глаза.': {'hair', 'face'},
+            # Whole character: first two regions now, the rest stay conditional.
+            'Создай аниме персонажа: тело, лицо, волосы, тун-контур.': {'body', 'face'},
+        }
+        for task, expected in cases.items():
+            with self.subTest(task=task):
+                result = mcp_runtime.context(check.ROOT, task)
+                self.assertTrue(result['ok'], result['error'])
+                content = '\n\n'.join(s['content'] for s in result['skills'])
+                delivered = {n for n in ('body', 'face', 'hair', 'look') if f'SOURCE: {prefix}{n}.md\n\n' in content}
+                self.assertEqual(delivered, expected)
+                conditional = {d['path'] for d in result['conditional_documents']}
+                self.assertEqual({p for p in conditional if p.startswith(prefix)},
+                                 {f'{prefix}{n}.md' for n in {'body', 'face', 'hair', 'look'} - expected})
+                self.assertLess(sum(len(s['content']) for s in result['skills']), 57000)
 
     def test_cached_reader_receives_specialist_dependencies_once(self):
         current = read_blender_skill.render(check.ROOT, OWNER)
@@ -80,7 +107,7 @@ class AnimeRoutingTest(unittest.TestCase):
         with patch.object(mcp_runtime, 'render', return_value=previous):
             self.assertEqual(mcp_runtime.render_context(check.ROOT, OWNER), current)
         for path in ['skills/blender-character-modeling/SKILL.md',
-                     f'skills/{OWNER}/references/face-hair-workflow.md']:
+                     f'skills/{OWNER}/references/profile-face.md']:
             self.assertEqual(mcp_runtime.render_context(check.ROOT, OWNER).count('SOURCE: ' + path + '\n\n'), 1)
 
     def test_all_legacy_aliases_retain_their_owners(self):
