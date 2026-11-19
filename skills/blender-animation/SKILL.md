@@ -16,7 +16,9 @@ keys. Check first/last pose and transitions at the intended camera. Secondary mo
 must have a target behavior: baked keys, runtime bones, or engine simulation;
 Blender Cloth is not live engine cloth in a GLB.
 
-Read [motion details](references/motion.md) for clips and secondary chains. Capture
+Read [motion details](references/motion.md) for clips and secondary chains. For
+GLB clips, slotted Actions/NLA, material/shader animation or spinning parts, read
+[glTF animation delivery](references/gltf-animation-delivery.md). Capture
 named frames/poses and playback evidence; stills alone do not establish motion feel.
 Handoff Actions/ranges/FPS and blockers through a [snapshot](../../docs/blender-evidence.md)
 to [export validation](../blender-export-validation/SKILL.md). A rig defect goes to

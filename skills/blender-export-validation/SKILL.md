@@ -19,6 +19,10 @@ constraints or an engine damage system; require an explicit supported handoff.
 1. Inspect explicit object selection, dependencies, units/axes/transforms, modifiers,
    shape keys, skin bindings, materials/textures and Action/slot/NLA inclusion.
    Record Blender/exporter version and available RNA options; unknown options fail.
+   Clips, NLA tracks or animated materials: read
+   [glTF animation delivery](../blender-animation/references/gltf-animation-delivery.md)
+   (slide-to-zero crash, pointer animation, track naming). Remove empty material
+   slots left by applied Booleans before export.
    For fur, read [fur delivery](../blender-pipeline/references/techniques/fur-delivery.md).
    Direct native Hair Curves (`CURVES`) require an explicit supported delivery copy;
    never equate a successful body-only GLB with groom inclusion. Exclude references
