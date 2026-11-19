@@ -55,7 +55,7 @@ def install(root, kind):
     required = ["AGENTS.md", ".tooling/config.json", ".tooling/profile.json", ".tooling/profile.md"]
     if kind == "godot":
         require((root / "project.godot").is_file(), "Godot project.godot not found", "E_BOOTSTRAP")
-        profile["skills"].append("godot-project")
+        profile["skills"] += ["godot-project", "godot-gameplay-implementation", "godot-runtime-evidence"]
         profile["adapter"] = {"kind": "godot", "resources": ["project.godot"]}
         required.append("project.godot")
     elif kind == "blender":

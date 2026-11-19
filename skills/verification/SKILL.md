@@ -25,6 +25,7 @@ Use the level definitions and verdict semantics in the foundation. Read
 For Blender, use [snapshot/capture/export tools](../../docs/blender-evidence.md):
 STRUCTURAL PASS is separate from VISUAL SKIP, VISUAL REVIEW REQUIRED and VISUAL PASS.
 A PNG must be inspected for the named criterion before visual acceptance.
+Godot checks: [godot-runtime-evidence](../godot-runtime-evidence/SKILL.md); the log decides, not the exit code.
 
 ## Final QA receipt
 

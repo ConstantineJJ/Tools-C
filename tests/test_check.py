@@ -296,7 +296,8 @@ class ContractsTest(unittest.TestCase):
 
     def test_core_activation_cases_cover_non_blender_skills(self):
         suite = json.loads((check.ROOT / "tests/core_activation_cases.json").read_text(encoding="utf-8"))
-        expected = {"contracts-lint", "godot-project", "project-audit", "verification"}
+        expected = {"contracts-lint", "godot-project", "project-audit", "verification",
+                    "godot-asset-integration", "godot-gameplay-implementation", "godot-runtime-evidence"}
         self.assertEqual({case["skill"] for case in suite["cases"]}, expected)
         prompts = []
         for case in suite["cases"]:

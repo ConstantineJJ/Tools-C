@@ -42,10 +42,12 @@ def document_paths(root, alias):
     canonical = {s["id"]: s["path"] for s in manifest["skills"]}
     if alias not in manifest["blender_aliases"] and alias not in canonical:
         raise ValueError(f"Unknown Blender skill alias: {alias}")
-    if alias in canonical and (alias in {'project-audit', 'contracts-lint', 'godot-project'} or alias.startswith('production-')):
+    if alias in canonical and (alias in {'project-audit', 'contracts-lint', 'godot-project', 'godot-gameplay-implementation', 'godot-runtime-evidence'} or alias.startswith('production-')):
         paths = ['docs/foundation.md', canonical[alias]]
         if alias == 'contracts-lint': paths.extend(['docs/contracts.md', 'skills/contracts-lint/references/rule-lifecycle.md'])
         if alias == 'godot-project': paths.append('skills/godot-project/references/scene-ownership.md')
+        if alias == 'godot-gameplay-implementation': paths.append('skills/godot-gameplay-implementation/references/editing.md')
+        if alias == 'godot-runtime-evidence': paths.extend(f'skills/godot-runtime-evidence/references/{n}.md' for n in ('scenario-format', 'procedures', 'mcp-and-editor'))
         return paths
     paths = ["docs/foundation.md", "docs/blender-evidence.md", "skills/blender-pipeline/SKILL.md",
              "skills/blender-pipeline/references/core.md",

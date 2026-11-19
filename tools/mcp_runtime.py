@@ -239,7 +239,7 @@ def _route_task(task):
     if artistic_review_route(query):
         return ['verification']
     query=action_query(query)
-    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:imported-asset-recovery|reference-surface-transfer|robot-mechanism-modeling|weapon-module|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-asset-integration)\b',query)
+    explicit=re.findall(r'\b(?:visual-reference-reconstruction|blender-(?:imported-asset-recovery|reference-surface-transfer|robot-mechanism-modeling|weapon-module|anime-character-modeling|posteffects-polishing|rigging-skinning|animation|export-validation|character-modeling|architecture-environment|environment-assets|roads-infrastructure|props|destruction-assets|vehicle-modeling|product-electronics-modeling|vegetation|sculpting)|godot-(?:asset-integration|gameplay-implementation|runtime-evidence))\b',query)
     unclear = re.search(r'(?:причин\w*\s+неясн|выглядит\s+плохо|animation\s+looks\s+(?:bad|wrong)|cause\s+(?:is\s+)?unclear)', query)
     reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
     preparing_destruction = destruction_route(query) and bool(re.search(
