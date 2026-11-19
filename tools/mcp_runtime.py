@@ -234,6 +234,19 @@ def imported_asset_recovery_route(query):
     return bool(action and (source and (problem or separation or generic) or mesh and (separation or problem)))
 
 
+def godot_routes(query):
+    """Route Godot work to its owners; a bare mention keeps the asset owner."""
+    if not re.search(r'godot|годот|gdscript|\btscn\b',query): return []
+    gameplay=re.search(r'\bgdscript\b|\b(?:input\s*(?:actions?|map)|signals?|gameplay|mechanics?|jump|dash|autoloads?|(?:collision|physics)\s+layers?|player\s+(?:controller|movement|script))\b|геймплей|механик|прыж|скрипт|сигнал|сло[йяе]\w*\s+(?:физик|коллиз)|input\s*action',query)
+    evidence=re.search(r'\b(?:headless|parse\s+gate|scenario|smoke\s+test|runtime|playtest|capture|frames?|screenshots?|write-movie)\b|рантайм|сценари|скриншот|кадр|снимк|без\s+окна',query)
+    asset=re.search(r'\b(?:glb|gltf|import(?:ed|s)?|skeleton|materials?|animations?|playback|assets?)\b|импорт|ассет|скелет|материал|анимац',query)
+    routes=[]
+    if gameplay and not (asset and not re.search(r'\bgdscript\b|скрипт',query)): routes.append('godot-gameplay-implementation')
+    if evidence: routes.append('godot-runtime-evidence')
+    if asset or not routes: routes.append('godot-asset-integration')
+    return routes
+
+
 def _route_task(task):
     query=task.strip().lower()
     if artistic_review_route(query):
@@ -244,8 +257,9 @@ def _route_task(task):
     reviewing=bool(unclear or re.search(r'\b(?:review|inspect|audit|diagnose)\b|ревью|аудит|обзор|проверк|проверь|проверить|осмотр',query))
     preparing_destruction = destruction_route(query) and bool(re.search(
         r'\b(?:prepare|segment|split|fracture|shatter)\b|подготов|раздел|разбей|расколи|разрушь', query))
-    if reviewing and not preparing_destruction and not imported_asset_recovery_route(query) and not re.search(r'\b(?:create|build|model|remodel|redesign|rework|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|передел|переработ|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж',query):
-        return ['verification']
+    if reviewing and not preparing_destruction and not imported_asset_recovery_route(query) and not re.search(r'\b(?:create|build|model|remodel|redesign|rework|fix|repair|edit|sculpt|unwrap|bake|export|retopologize|add|polish|refine|improve|import)\b|(?:^|[.;\n]|\bthen\b|\band\b)\s*(?:transfer|project|crop|extract)\b|созда|сдела|смодел|передел|переработ|исправ|поправ|запек|экспорт|ретополог|добав|улучш|перенес|спроецир|выреж|импортир',query):
+        # A Godot parse/runtime review keeps its evidence owner next to verification.
+        return ['verification']+[r for r in godot_routes(query) if r=='godot-runtime-evidence']
     if explicit: return list(dict.fromkeys(explicit))
     # Conservative assistance, not an authorization classifier. Bare character/mesh/rig
     # mentions do not grant modeling or rig-edit ownership.
@@ -259,7 +273,12 @@ def _route_task(task):
     if procedures and not recovery: routes.append('blender-pipeline')
     if polishing and not recovery: routes.append('blender-posteffects-polishing')
     if re.search(r'export|round.trip|экспорт',query) or not recovery and re.search(r'glb|gltf',query): routes.append('blender-export-validation')
-    if re.search(r'godot|годот',query): routes.append('godot-asset-integration')
+    godot=godot_routes(query)
+    routes.extend(godot)
+    # Pure Godot gameplay/evidence work must not pick up Blender domain owners from
+    # words such as "controller" or "ramp".
+    if godot and 'godot-asset-integration' not in godot and not re.search(r'blender|блендер|glb|gltf',query):
+        return list(dict.fromkeys(routes))
     if re.search(r'weight|skinning|rebind|rigging|вес[аоы]?\b|привяз|скиннинг|(?:create|repair|edit|fix|build) (?:the |an? )?(?:rig|armature|skeleton)|(?:созда|исправ|поправ|постро)\w*\s+(?:(?:нов\w*|эт\w*|текущ\w*)\s+)*(?:rig\b|риг\w*|арматур\w*|скелет\w*)',query): routes.append('blender-rigging-skinning')
     if re.search(r'(?:add|create|edit|fix|author|correct|bake).*\b(?:action|animation|clip|motion)|\banimate\b|анимиру|(?:добав|созда|исправ|запек).*анимац|loop|root motion|цикл',query): routes.append('blender-animation')
     recovery_redesign = re.search(
