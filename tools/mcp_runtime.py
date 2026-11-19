@@ -22,6 +22,19 @@ def artistic_review_route(task):
     return bool(re.search(r'\bartistic[_ ]review\b|\bartistic\s+critic\b|художествен\w*\s+(?:проверк|ревью|критик)|независим\w*\s+художествен',task.lower()))
 
 
+def assembly_fit_route(task):
+    """Read-only FIT_INTEGRATION diagnosis: parts that look pasted on, foreign or poorly fitted."""
+    query = task.lower()
+    return bool(re.search(
+        r'\bblender-assembly-fit\b|\bfit[_ ]integration\b|\bassembly[- ](?:fit|coherence|integration)\b|'
+        r'\bpasted[- ]on\b|\bout\s+of\s+place\b|\bforeign[- ]looking\b|'
+        r'\b(?:look|looks|looking)\s+(?:\w+\s+){0,2}(?:pasted|glued|stuck\s+on|tacked\s+on|foreign|disconnected|bolted\s+on)\b|'
+        r'\b(?:does\s*n[o\']t|do\s+not|doesn\'t)\s+(?:fit|belong)\b|\bpoorly\s+(?:fitted|integrated|attached|seated)\b|'
+        r'посадк\w*\s+(?:\w+\s+){0,2}детал|чужеродн|не\s+вписыва|(?:при|на)клеен|(?:при|на)леплен|'
+        r'интеграци\w*\s+(?:\w+\s+){0,2}(?:детал|част|компонент)|(?:детал|част|компонент)\w*\s+(?:\w+\s+){0,3}не\s+(?:сидят|держ)',
+        query))
+
+
 def render_context(root, owner, procedures=()):
     # Keep the reader's two-argument API: a live adapter may cache that module.
     reader = runpy.run_path(str(Path(__file__).with_name('read_blender_skill.py')))
@@ -345,6 +358,11 @@ def route_task(task, *, root=ROOT):
     if visual and analysis and not geometry_intent(query) and not surface_transfer_route(query):
         return ['visual-reference-reconstruction']
     owners = _route_task(task)
+    if assembly_fit_route(query):
+        # Diagnosis leads; a requested repair keeps its domain owner beside it.
+        rest = [o for o in owners if o not in ('verification', 'blender-assembly-fit')]
+        owners = (['blender-assembly-fit', 'verification'] if not rest
+                  else [*rest, 'blender-assembly-fit', *(['verification'] if 'verification' in owners else [])])
     if visual and analysis and owners in ([], ['blender-pipeline']):
         return ['visual-reference-reconstruction']
     for lead in ('blender-weapon-module', 'blender-robot-mechanism-modeling'):

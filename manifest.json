@@ -123,6 +123,10 @@
       "path": "skills/blender-weapon-module/SKILL.md"
     },
     {
+      "id": "blender-assembly-fit",
+      "path": "skills/blender-assembly-fit/SKILL.md"
+    },
+    {
       "id": "blender-reference-surface-transfer",
       "path": "skills/blender-reference-surface-transfer/SKILL.md"
     }

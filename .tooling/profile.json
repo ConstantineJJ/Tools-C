@@ -33,6 +33,7 @@
     "visual-reference-reconstruction",
     "blender-robot-mechanism-modeling",
     "blender-weapon-module",
+    "blender-assembly-fit",
     "blender-reference-surface-transfer"
   ],
   "contracts": [

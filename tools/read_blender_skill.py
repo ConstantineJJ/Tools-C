@@ -77,6 +77,9 @@ def document_paths(root, alias):
     elif alias == "blender-weapon-module":
         paths.extend(["skills/blender-weapon-module/references/functional-detail.md",
                       "skills/blender-weapon-module/references/module-interface.md"])
+    elif alias == "blender-assembly-fit":
+        paths.extend(["skills/blender-assembly-fit/references/diagnostic-protocol.md",
+                      "skills/blender-assembly-fit/references/domain-cues.md"])
     elif alias == "blender-robot-mechanism-modeling":
         paths.extend(["skills/visual-reference-reconstruction/SKILL.md",
                       "skills/blender-pipeline/references/techniques/form-development.md"])

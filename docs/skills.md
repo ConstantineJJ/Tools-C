@@ -36,4 +36,5 @@ Project instructions and profiles retain their authority.
 | visual-reference-reconstruction | [Read](../skills/visual-reference-reconstruction/SKILL.md) |
 | blender-robot-mechanism-modeling | [Read](../skills/blender-robot-mechanism-modeling/SKILL.md) |
 | blender-weapon-module | [Read](../skills/blender-weapon-module/SKILL.md) |
+| blender-assembly-fit | [Read](../skills/blender-assembly-fit/SKILL.md) |
 | blender-reference-surface-transfer | [Read](../skills/blender-reference-surface-transfer/SKILL.md) |
