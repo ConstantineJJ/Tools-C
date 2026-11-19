@@ -1,9 +1,13 @@
-# Tools_C architecture 4.3.1
+# Tools_C architecture 4.4.0
 
-Architecture 4.3.1 has thirty-one canonical skills, one shared foundation, nine stable
+Architecture 4.4.0 has thirty-one canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.
+4.4.0 adds bounded KHR_animation_pointer inspection, glTF animation delivery and game
+atlas bake techniques, a reusable wear node group, lean entrypoints with
+references/procedure.md for the four largest domain skills, GPU captures and live
+addon identity in deployment_info.
 Historical v1 reports and lesson provenance retain their original versions.
 
 The four new production owners cover mechanic gyms, isolated parallel agent work,

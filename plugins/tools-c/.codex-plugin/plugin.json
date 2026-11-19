@@ -1,6 +1,6 @@
 {
   "name": "tools-c",
-  "version": "4.3.1",
+  "version": "4.4.0",
   "description": "Main Tools_C entrypoint routing to live canonical skills, existing MCP tools and verified evidence.",
   "author": {
     "name": "Constantine"

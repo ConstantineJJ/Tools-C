@@ -1,9 +1,9 @@
-# Tools_C 4.3.1
+# Tools_C 4.4.0
 
 Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
 Tools_C has [31 canonical skills](docs/skills.md), nine compatible legacy Blender
 routes, reusable checkers and project integration. Tools_C Light is a separate
-product. [Release 4.3.1](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.3.1)
+product. [Release 4.4.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.4.0)
 contains the distributable toolkit and checksums.
 
 Skills own procedures; project profiles hold replaceable project choices;
@@ -55,7 +55,10 @@ python tools/mcp_deployment.py --project "C:\path\to\Blender-MCP-Co"
 The [4.2.1 adapter patch](adapters/blender-mcp-4.2.1.patch) wires the existing
 server to the canonical helpers; it is not another MCP server. The
 [4.3.0 patch](adapters/blender-mcp-4.3.0.patch) adds the `result` alias, session
-state in `get_scene_info` and the mirrored/rear capture views. See
+state in `get_scene_info` and the mirrored/rear capture views. The [4.4.0 patch](adapters/blender-mcp-4.4.0.patch) adds the live addon
+identity block (`deployment_info.bridge`, addon 0.2.0); rendered captures use the GPU when
+Cycles enables one. Claude Desktop sessions run the server behind the ConHub Claudius
+gateway: use its **Restart Server** (ConHub 0.6.1) to load server changes there. See
 [deployment diagnosis](docs/mcp-deployment.md) for loaded/disk identity checks.
 After server changes, restart the existing MCP process and refresh client metadata.
 Local synchronization alone does not prove the live service has loaded changes.
