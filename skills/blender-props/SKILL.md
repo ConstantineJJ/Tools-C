@@ -1,6 +1,6 @@
 ---
 name: blender-props
-description: Create or revise portable/interior furniture, containers, tools, hand-held objects and decor. Own prop form, construction and interaction; route street fixtures and specialized devices to their owners.
+description: Create or revise portable/interior furniture, containers, tools, hand-held objects and decor. Own prop form, construction and interaction; route street fixtures, specialized devices and weapons (blender-weapon-module) to their owners.
 ---
 
 # Blender props

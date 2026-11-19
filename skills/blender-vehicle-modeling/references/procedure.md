@@ -1,0 +1,255 @@
+# Blender vehicle modeling — procedure, performance and validation
+
+Detailed passes for [the skill](../SKILL.md). Moved verbatim from SKILL.md in 4.4.0.
+
+## Workflow
+
+Use the least complex representation that preserves the required silhouette, reflections, articulation and target-camera detail.
+
+### Vehicle-specific acceptance gates
+
+For new or substantially rebuilt vehicles, follow the [V0–V4 gate and measurement guide](vehicle-qa.md):
+- **V0 source/datum:** source authority, units, axle markers, project coordinate basis, applicable PASS 0/Model Contract;
+- **V1 blockout/stance:** inspected neutral front/side/rear/top and target 3/4, wheelbase/track/ground-clearance measurements. A silhouette/proportion FAIL blocks body-panel detail, grilles, trim and UV/wear escalation;
+- **V2 developed clay/body curvature:** accept major body/fender/cabin/tank/cargo form in comparable clay *and* neutral highlight/reflection inspection before fine detailing. Pinches, wavy reflections or source mismatch return to geometry, not lighting, paint or increased subdivision;
+- **V3 articulation/mechanics:** actual wheel/steering/hinge/hitch origins, sampled required travel/turn/open states, measured or explicitly unverified clearance; return failed mechanisms to geometry before rig handoff;
+- **V4 geometry handoff:** records and evidence for applicable gates, source/contract hashes and remaining downstream owners; never infer GameReady/rig/export PASS from a visual vehicle.
+
+Apply only affected gates for a scoped correction. A generated capture or passing text/contract check is not visual acceptance. Use the existing Tools_C QA status/provenance system, **not a new ledger or checker schema**. Do not invent universal metric tolerances or certify unseen faces/poses.
+
+### Pass 1 — wheel centers, stance and bounding proportions
+
+Start with wheel/axle centers and a simple body envelope. Establish:
+- wheelbase;
+- front/rear track;
+- tire outer diameter and width;
+- ride height/ground clearance;
+- front/rear overhang;
+- overall length/width/height;
+- cabin/glasshouse volume;
+- major approach/departure silhouettes.
+
+For cars/trucks, wheels are powerful scale/proportion anchors. For motorcycles/bicycles, wheel centers, frame/fork geometry and steering-head relationship are even more fundamental.
+
+Judge the blockout from front, side, rear, top and multiple 3/4 views. A side blueprint can look correct while fender width, shoulder line or roof curvature is wrong in perspective.
+
+Do not begin panel gaps, grilles, vents, tread or interior controls until stance and primary surfaces are credible. **Run V1 before proceeding:** freeze the wheel/hardpoint datums, record measured values with project/reference tolerances or UNKNOWN, and inspect the neutral proxy against source-matched front/side/rear/top plus target 3/4. If silhouette, cab/body envelope, stance or wheel placement fails, correct the blockout and recapture; never escalate details to conceal it.
+
+### Pass 2 — primary body surfaces and reflection continuity
+
+Vehicle quality depends heavily on broad curvature and highlight flow.
+
+Build the hood/bonnet, roof, fenders, doors/side body, quarters, bumpers and glasshouse as simple controlled surfaces. Keep edge density low enough to adjust curvature without fighting topology.
+
+Check:
+- highlight continuity across neighboring panels;
+- changes in convex/concave form around wheel arches and shoulder lines;
+- symmetry around the center plane while the design is actually symmetric;
+- transitions into bumpers, pillars, rocker/sill and roof;
+- silhouette from target 3/4 views.
+
+Subdivision can be useful for smooth bodywork, but additional support loops/creases should serve surface control, not merely increase density. Weighted normals can help hard-surface parts but cannot fix poor body curvature.
+
+Use temporary glossy/neutral material and moving light/environment reflections if available; flat clay shading alone can hide surface waviness. **Run V2 before Pass 3 or tertiary details:** compare matte/clay and controlled neutral highlight views in the same cameras against V1/approved references. Inspect longitudinal highlight flow across hood, roof, fenders and adjoining panels (or tank/fork/cab for other vehicle classes). Reject waviness, kinks, false panel volume and modifier-masked contour errors; record the exact region and return to sparse control geometry. Deliberate stylized planes remain valid when approved.
+
+### Pass 3 — define panel architecture before detail
+
+Identify real visual/functional boundaries:
+- doors and shut lines;
+- hood/bonnet and trunk/tailgate;
+- bumper/fascia sections;
+- fenders/quarters;
+- grille/light housings;
+- glass and seals;
+- rocker/sill/cladding;
+- fuel/charge door;
+- removable service panels where visible.
+
+Decide whether a boundary needs separate geometry, a gap/recess, decal/normal detail or only a material transition. Do not carve every line into the main body if a simpler representation is stable and sufficient.
+
+Panel gaps should be consistent with the chosen scale/style and should not destroy the smoothness of adjacent body surfaces. If moving panels are required, separate them early enough to preserve hinge/clearance logic.
+
+### Pass 4 — symmetry and repeated assemblies
+
+Mirror and linked data are high-value for vehicles while left/right parts remain identical.
+
+- Keep the main shell mirrored while symmetry is valid.
+- Use shared wheel/tire/rim/brake geometry for identical corners where the project allows it.
+- Share repeated lights, mirrors, handles and suspension pieces where truly identical.
+- Split data only when front/rear or left/right geometry genuinely differs.
+- Preserve a clear center plane and intentional mirror origin/object.
+
+Asymmetrical damage, steering orientation, fuel doors, exhaust exits, wipers or trim variants are reasons to diverge intentionally; they are not reasons to discard reusable symmetry early.
+
+### Pass 5 — wheels and tires as systems
+
+Treat wheel assemblies as more than cylinders.
+
+Establish:
+- tire outer diameter, width and sidewall profile;
+- rim diameter/width/offset appropriate to the design;
+- hub/brake alignment;
+- wheel-center origin exactly on the rotation axis;
+- enough arch clearance for required steering/suspension travel;
+- tread representation appropriate to camera distance.
+
+For repeated tread, model one logical segment/source and array/instance/procedurally repeat it when practical. Do not keep thousands of individually unique tread blocks if shared/generated representation is sufficient.
+
+For realtime targets, decide whether tread belongs in geometry, normal/bake, parallax/material or a hybrid based on target view. Tire sidewall text/logos are usually surface detail unless close hero shots justify geometry.
+
+### Pass 6 — suspension, steering and visible mechanical logic
+
+Model only the mechanical depth the target requires, but keep visible relationships plausible.
+
+Identify:
+- wheel hub/upright center;
+- steering axis/tie-rod direction where visible/functional;
+- suspension arms/struts/springs/dampers at the required fidelity;
+- axle/differential/driveshaft or chain/belt where exposed;
+- brakes behind wheels;
+- exhaust and underbody volumes where camera/destruction exposes them.
+
+Do not invent a generic suspension for a specific reference vehicle if photos/manuals show otherwise. Conversely, do not reproduce every hidden fastener in a third-person background car.
+
+For steering wheels, verify inside-wheel/outside-wheel clearance at representative steering angles; for motorcycles verify front-fork/handlebar clearance and rear swingarm/wheel relationship.
+
+### Pass 7 — articulation and hierarchy before rigging
+
+Before rigging handoff, define geometry origins/axes:
+
+- wheels: hub center, local rotation axis consistent across the vehicle;
+- steering front wheels: hub center plus documented steering axis/parent arrangement;
+- doors: hinge line/axis;
+- hood/bonnet and trunk/tailgate: real hinge axis;
+- steering wheel: steering-column axis;
+- motorcycle fork/handlebar: steering-head axis;
+- swingarm: pivot at frame joint;
+- trailer: hitch/coupler articulation point;
+- wipers: spindle pivots.
+
+Test each required articulation with temporary transforms. Confirm panels do not obviously intersect at intended open/steer/travel ranges. Return objects to the agreed neutral state after testing.
+
+Do not create an elaborate bone/control rig here unless explicitly in scope; hand off stable axes and hierarchy to rigging. **Run V3 for requested motion:** capture neutral pivots/hierarchy and evaluate representative steering, suspension, door, swingarm or hitch extrema. Report measured clearance or collision method per pose and restore the neutral state. A bounding-box overlap alone is not proof of mesh collision; one passing pose is not proof of a continuous sweep.
+
+### Pass 8 — representation and game-ready reduction
+
+Choose high/low/mid/direct strategy per target.
+
+A **mid-poly/direct realtime** vehicle can be efficient when geometric bevels, body panels and normal/decal atlases support frequent iteration. A **high/low** workflow can be justified for complex sculpted/mechanical detail. A **hybrid** can use high-poly bakes for wheels/roof/interior details while keeping body panels editable mid-poly.
+
+When deriving lower-detail geometry:
+- preserve body silhouette and wheel arches first;
+- preserve major reflection continuity on broad panels;
+- preserve moving-part boundaries and articulation axes;
+- simplify hidden underbody/interior where target cameras allow;
+- bake/atlas small bolts, vents, tread and trim where appropriate;
+- avoid deleting geometry that the target camera can expose through wheel wells, glass or open panels.
+
+Do not optimize by one universal triangle number; screen size, vehicle count, damage/customization and platform determine the budget.
+
+### Pass 9 — interior and underbody scope control
+
+Interior detail should match actual visibility.
+
+For exterior traffic vehicles, a simple dark interior shell, seats, steering wheel and dashboard silhouette may be sufficient. First-person/player vehicles may require full cockpit geometry, controls and material separation. Openable doors/hoods raise the required depth substantially.
+
+Use tinted glass only as presentation, not as an excuse to omit geometry that becomes visible in the target game state.
+
+Underbody follows the same rule: preserve major visible volumes and suspension/wheel-well depth, add engine/transmission/exhaust/frame detail only as required.
+
+### Pass 10 — UV/material strategy and identity
+
+Separate material logic by physical surface:
+- body paint/clearcoat;
+- bare/painted metal;
+- glass;
+- rubber tires/seals;
+- chrome/polished metal;
+- matte/textured plastic;
+- lights/lenses;
+- interior fabric/leather/plastic;
+- decals/logos/license/labels;
+- dirt/mud/damage masks if the project uses them.
+
+The target engine/material model decides how many slots/maps are practical. Do not turn every visual material into a separate draw-call-heavy slot if shared materials/masks can represent it cleanly.
+
+Maintain coherent texel density and detail scale. Highly visible wheels, front fascia or cockpit may justify different allocation, but document the exception.
+
+For repeated wheels/tires and mirrored body regions, plan overlapping/mirroring against asymmetric logos, damage and dirt. Vehicle-specific wear often becomes obviously duplicated when both sides share high-information texture details.
+
+### Pass 11 — damage, dirt and usage history
+
+Wear should reflect vehicle use:
+- tires/wheel wells collect road dirt and abrasion;
+- lower body gets splash/mud/chipping differently from roof/upper panels;
+- door handles/steps/cargo edges receive contact wear;
+- exhaust areas can show heat/soot;
+- brakes/wheels gather distinct dust;
+- abandoned/weathered vehicles accumulate different patterns than actively maintained vehicles.
+
+Preserve material identity under dirt. Avoid uniform edge scratches over the whole vehicle. For stylized vehicles, exaggerate wear hierarchy deliberately rather than adding equal noise everywhere.
+
+### Pass 12 — vehicle stress test
+
+A representative structural QA should include applicable cases:
+- wheelbase/track and ride height check;
+- front/side/rear/3/4 silhouette;
+- wheel rotation origins;
+- steering angle/clearance;
+- one door/hood/trunk articulation if required;
+- suspension/underbody visibility through wheel wells;
+- glass/interior visibility;
+- symmetry/shared-data state;
+- moving-part hierarchy;
+- target-camera close and distant readability.
+
+A vehicle that looks correct in side view but fails in 3/4 reflections, wheel clearance or articulation is not accepted. **V4** records the accepted geometry checkpoints and explicit remaining surface, rig, export and engine gates; it must not claim an unexecuted target-system test.
+
+## Performance and LOD guidance
+
+- Preserve body silhouette/reflection continuity longer than tiny trim/fasteners.
+- Reuse identical wheel/tire and repeated subassembly data where practical.
+- Keep procedural/repeated tread or bolt detail instanced until realization is required.
+- LOD reductions should retain wheel radius/position, major arches, body outline and moving-piece boundaries before micro-detail.
+- Re-check shading/normal maps and glass/interior exposure at each LOD.
+- Split vehicle parts according to meaningful animation/damage/material/streaming needs, not simply one object per visible panel or one giant mesh by habit.
+- Engine physics, wheel collision, suspension values and runtime handling belong to the target-engine/project owner.
+
+## Validation
+
+Use the [vehicle QA/measurement reference](vehicle-qa.md) for axle-station positions, wheelbase, per-axle track, tire envelope, body ground clearance, overhang, pivots, tested motion poses and evidence quality. Measurements require a declared vehicle-local coordinate frame, evaluated geometry and expected project/source range where available; a number without units, method, pose, reference or tolerance is not a validated PASS. Use actual collision/closest-point geometry checks when needed; do not treat AABB-only overlap as a definitive clash.
+
+Perform applicable checks and label unavailable evidence as SKIP.
+
+### Proportion and stance
+- axle centers, wheelbase, track, tire diameter and ride height match the approved metric/reference system;
+- front/rear overhang and body/glasshouse proportions are coherent;
+- target 3/4 silhouette reads correctly, not only orthographic side view;
+- wheels sit correctly inside arches with intended clearance.
+
+### Surface and panel quality
+- broad body surfaces have controlled highlight/reflection flow;
+- neighboring surfaces meet without unintended kinks or waviness;
+- panel gaps/boundaries are consistent and do not destroy adjacent curvature;
+- visible normals/face orientation are correct;
+- modifier stack and transforms do not depend on accidental object scale/origin.
+
+### Mechanical/articulation
+- wheel origins sit on rotation axes;
+- steering axes/hierarchy are documented and representative steering does not cause obvious intersections;
+- door/hood/trunk/wiper/swingarm/hitch pivots are on intended physical axes where applicable;
+- visible suspension/brake/underbody elements attach plausibly;
+- moving parts remain separate where downstream behavior requires it.
+
+### Reuse and symmetry
+- intended mirrored/shared components remain linked/shared;
+- intentional asymmetry is explicit rather than accidental drift;
+- front/rear or left/right variants keep compatible attachment/axis conventions where promised;
+- repeated wheel/tire geometry has consistent dimensions and origins.
+
+### Surface and context
+- material classes remain readable under project lighting;
+- mirrored UVs do not duplicate asymmetrical high-information dirt/decals unintentionally;
+- interior/underbody depth is sufficient for target cameras/open states;
+- damage/weathering follows use/exposure/material logic;
+- representative target-camera views have been inspected before visual acceptance.

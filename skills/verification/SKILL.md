@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Verify scoped changes, convergence and L1-L4 evidence; QA grants no asset edit permission.
+description: Verify a scoped change or delivered asset with static checks, engine/runtime probes and reviewed visual evidence (L1-L4), including convergence of repeated fixes, and report PASS/WARN/SKIP honestly. Use for QA, acceptance and regression checks; it grants no permission to edit the asset.
 ---
 
 # Verification
