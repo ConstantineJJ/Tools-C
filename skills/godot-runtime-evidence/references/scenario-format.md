@@ -25,6 +25,8 @@ static validation: `tools/godot_runtime.py`.
   existing InputMap action. An unknown action is logged as an error and the run fails.
 - `node` is relative to the scene root; `.` is the root. `property` accepts sub-paths such as `position:y`.
 - Arrays of 2 or 3 numbers compare against Vector2 / Vector3.
+- `{"at_frame": 1, "input_action": "jump"}` passes only when the InputMap has that action with at least one
+  event. It proves the binding exists in the project, not that a physical key reaches the engine.
 - Assertions at a frame the run never reaches fail the run; a scenario with no assertions is rejected.
 - Assert a changed value and an unchanged neighbor: after pressing right, the box moved and the camera did not.
 - Number of physics frames is not time: with the default 60 ticks per second, 60 frames is one second

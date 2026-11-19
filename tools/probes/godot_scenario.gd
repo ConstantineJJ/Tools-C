@@ -124,7 +124,13 @@ func _check(frame: int) -> void:
 			continue
 		var node := _find(String(a.get("node", ".")))
 		var row := {"at_frame": frame, "node": a.get("node", "."), "passed": false}
-		if a.has("exists"):
+		if a.has("input_action"):
+			# InputMap binding evidence: the action exists and has at least one event.
+			var action_name := StringName(String(a["input_action"]))
+			row["input_action"] = String(action_name)
+			row["events"] = InputMap.action_get_events(action_name).size() if InputMap.has_action(action_name) else -1
+			row["passed"] = InputMap.has_action(action_name) and row["events"] > 0
+		elif a.has("exists"):
 			row["expect_exists"] = bool(a["exists"])
 			row["passed"] = (node != null) == bool(a["exists"])
 		elif node == null:

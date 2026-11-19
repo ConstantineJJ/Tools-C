@@ -10,7 +10,7 @@ from pathlib import Path
 from check import ROOT, Violation, existing
 
 PROBES = ROOT / "tools/probes"
-SCENARIO_ASSERT_KEYS = {"at_frame", "node", "exists", "property", "op", "value", "tolerance"}
+SCENARIO_ASSERT_KEYS = {"at_frame", "node", "exists", "property", "op", "value", "tolerance", "input_action"}
 
 
 def parse_gate_command(godot, root, skips=(), include_imported=False):

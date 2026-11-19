@@ -36,8 +36,15 @@ documentation; the engine you run is the final judge, so re-run `--parse-gate` a
   After adding or renaming one, run an import before judging "unknown identifier" errors.
 - `.godot/` is generated cache. Never edit it, and do not treat its absence as a defect.
 
+## Adding an input action to project.godot
+
+The editor is the normal route. When no editor is available, copy an existing action's block under `[input]`
+in the same file, rename it and change only `physical_keycode` (Space is 32); never invent the event fields.
+Then prove the binding with a scenario assertion `{"at_frame": 1, "input_action": "<name>"}` and a press/release
+step that changes the asserted state. An unknown action name in a step is logged as an error, so a typo fails.
+Say that the edit was by hand. A key press in a real window is still unproven.
+
 ## When not to hand-edit
 
-Animation tracks, imported scene internals (edit the import settings or an inherited scene instead),
-`project.godot` input event serialization, and large sub-resource graphs are safer through the editor,
-an import hint or a short engine script. Say which route was used.
+Animation tracks, imported scene internals (edit the import settings or an inherited scene instead) and large
+sub-resource graphs are safer through the editor, an import hint or a short engine script. Say which route was used.

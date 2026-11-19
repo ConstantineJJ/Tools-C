@@ -40,6 +40,12 @@ class ScenarioValidationTest(unittest.TestCase):
                 with self.assertRaises(Violation, msg=str(case)):
                     rt.validate_scenario(Path(folder), str(self.write(folder, case)))
 
+    def test_input_action_binding_assertion_is_accepted(self):
+        data = dict(GOOD, assertions=[{"at_frame": 1, "input_action": "jump"}])
+        with tempfile.TemporaryDirectory() as folder:
+            _, loaded = rt.validate_scenario(Path(folder), str(self.write(folder, data)))
+            self.assertEqual(loaded["assertions"][0]["input_action"], "jump")
+
     def test_missing_file_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
             with self.assertRaises(Violation):
