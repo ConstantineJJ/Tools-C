@@ -55,3 +55,5 @@ normals must not conceal holes, impossible intersections or deformation defects.
 Handoff includes texture paths, UV sets, material slots, channel/color-space map,
 bake settings and observed defects. UV/material edits require another-view and
 another-asset regression checks when resources are shared.
+
+Game-asset atlas bake (procedural/wear to glTF PBR, async bake, ORM, occlusion output): [game atlas bake](techniques/game-atlas-bake.md).

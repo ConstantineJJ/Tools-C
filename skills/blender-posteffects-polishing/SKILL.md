@@ -92,6 +92,11 @@ choices provisional; use existing references rather than inventing new asset lor
 
 Read [finishing techniques](references/finishing-techniques.md) when choosing masks,
 damage representation, channel treatment, emission or compositor operations.
+A ready procedural wear group (edge chips, cavity grime, dust, soot, scratches,
+panel seams, brushed streaks, RGB mask debug output) is in
+[wear_nodes.py](scripts/wear_nodes.py); tune per material, inspect the Debug output
+before judging beauty renders. For game delivery bake it via
+[game atlas bake](../blender-pipeline/references/techniques/game-atlas-bake.md).
 [Research notes](references/research-notes.md) identify the source-backed decisions
 and their limits; they do not require Substance, Toolbag or paid assets.
 
@@ -141,6 +146,14 @@ prevents acceptance. Do not start export, structural damage or another style pas
 without it being part of the request.
 
 ## Pitfalls / Lessons Learned
+
+### POL-003
+- Symptom: edge-wear mask is empty or covers whole faces on bevelled hard-surface parts.
+- Cause: Bevel shader normal compared with the shading normal, which bevel/weighted-normal
+  modifiers already harden.
+- Rule: compare the Bevel node normal with Geometry `True Normal`; tune the dot-product range.
+- Verification: route masks to emission (Debug output) and inspect before beauty renders.
+- Added from / context: Laser_R wear pass, Blender 5.3 Cycles, 2026-11-18.
 
 ### POL-001
 - Symptom: every edge is bright and every recess is equally dirty.
