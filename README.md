@@ -1,4 +1,4 @@
-# Tools_C 4.4.0
+# Tools_C 4.4.5
 
 Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
 Tools_C has [34 canonical skills](docs/skills.md), nine compatible legacy Blender

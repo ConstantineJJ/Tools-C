@@ -1,6 +1,6 @@
-# Tools_C architecture 4.4.0
+# Tools_C architecture 4.4.5
 
-Architecture 4.4.0 has thirty-one canonical skills, one shared foundation, nine stable
+Architecture 4.4.5 has thirty-four canonical skills, one shared foundation, nine stable
 legacy aliases, explicit rig/animation/export/Godot asset ownership, deterministic
 stage snapshots and visual capture, bounded GLB inspection, Python preflight and
 deployment evidence. Contract/profile/catalog format schema_version remains 1.
@@ -8,6 +8,8 @@ deployment evidence. Contract/profile/catalog format schema_version remains 1.
 atlas bake techniques, a reusable wear node group, lean entrypoints with
 references/procedure.md for the four largest domain skills, GPU captures and live
 addon identity in deployment_info.
+4.4.5 adds Godot runtime evidence (whole-project parse gate, input-action scenarios,
+frame capture), a gameplay implementation owner and keyword routing for both.
 Historical v1 reports and lesson provenance retain their original versions.
 
 The four new production owners cover mechanic gyms, isolated parallel agent work,

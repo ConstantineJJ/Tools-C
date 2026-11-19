@@ -32,13 +32,12 @@ Godot checks: [godot-runtime-evidence](../godot-runtime-evidence/SKILL.md); the 
 For full character final acceptance, use the existing
 [Blender character QA matrix](../blender-pipeline/references/qa.md)
 and the task-local [QA receipt checker](../../tools/qa_gate.py).
-A visual review requires opened images, reviewer observations and comparable
-source evidence. Declared PASS is not independently proven by a metadata
-checker. The final completeness gate blocks missing high_45/low_45 views,
-orthographic proportions, relevant closeups, user-marked red flags,
-protected-zone regressions or pending inspection. Explicitly separate
-STATIC_VISUAL / EXPORT / RIG_READY / DEFORMATION_READY / GAME_READY,
-including valid SKIP/NOT_APPLICABLE explanations.
+Visual review needs opened images, reviewer observations and comparable source
+evidence; a metadata checker does not prove a declared PASS. The completeness
+gate blocks missing high_45/low_45 and orthographic views, relevant closeups,
+user-marked red flags, protected-zone regressions or pending inspection.
+Separate STATIC_VISUAL / EXPORT / RIG_READY / DEFORMATION_READY / GAME_READY,
+with reasons for any SKIP/NOT_APPLICABLE.
 
 ## ARTISTIC_REVIEW
 
@@ -59,7 +58,7 @@ Skill-rule trials: [protocol](references/behavioral-tests.md). Offline PASS is n
 Use [QA profiles](../blender-pipeline/references/techniques/qa-profiles.md) for changed dependencies.
 Local work does not replace final saved-file/delivery gates.
 
-Compare the requested improvement and affected views, assets, topology, deformation, animation, runtime stability or complexity as applicable. Keep an improvement without material regression; correct a bounded regression; otherwise restore only your own attempted change through the project's recovery method. Stop after the required evidence is gathered and the result and open checks are reported. Test counts and exit codes alone do not establish visual or user-feel acceptance.
+Compare the requested improvement with affected views, topology, deformation, animation, runtime stability or complexity as applicable. Keep an improvement without material regression; correct a bounded one; otherwise restore only your own attempt through the project's recovery method. Stop once the required evidence, result and open checks are reported. Test counts and exit codes alone do not establish visual or user-feel acceptance.
 
 ## Pitfalls / Lessons Learned
 
