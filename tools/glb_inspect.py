@@ -64,6 +64,27 @@ def accessor(doc, binary, accessor_index):
     return values
 
 
+POINTER_LEAVES = {  # bounded KHR_animation_pointer subset: suffix -> value width
+    ('materials','emissiveFactor'):3,
+    ('materials','pbrMetallicRoughness','baseColorFactor'):4,
+    ('materials','pbrMetallicRoughness','metallicFactor'):1,
+    ('materials','pbrMetallicRoughness','roughnessFactor'):1,
+    ('materials','extensions','KHR_materials_emissive_strength','emissiveStrength'):1,
+    ('nodes','translation'):3,('nodes','rotation'):4,('nodes','scale'):3,
+}
+
+
+def resolve_pointer(doc, pointer):
+    """Validate a KHR_animation_pointer JSON pointer; return (label, value width)."""
+    need(isinstance(pointer,str) and pointer.startswith('/'),'Invalid animation pointer')
+    parts=pointer[1:].split('/')
+    need(len(parts)>=3 and parts[1].isdigit(),'Unsupported animation pointer: '+str(pointer))
+    key=(parts[0],*parts[2:])
+    need(key in POINTER_LEAVES,'Unsupported animation pointer: '+pointer)
+    owner=index(doc.get(parts[0],[]),int(parts[1]),'animation pointer '+parts[0])
+    return f"{parts[0][:-1]}:{owner.get('name',parts[1])}/{parts[-1]}", POINTER_LEAVES[key]
+
+
 def inspect(path):
     raw=Path(path).read_bytes(); doc,binary=parse(raw)
     for key in ('nodes','meshes','skins','materials','animations','accessors','bufferViews','buffers','scenes'):
@@ -162,16 +183,24 @@ def inspect(path):
         channels=[]
         for channel in animation.get('channels',[]):
             sampler=index(animation.get('samplers',[]),channel.get('sampler'),'animation sampler')
-            target=channel['target']; node=index(nodes,target.get('node'),'animation target')
-            kind=target.get('path'); need(kind in {'translation','rotation','scale','weights'},'Unsupported animation channel')
+            target=channel['target']; kind=target.get('path'); pointer=None
+            if kind=='pointer':
+                need('KHR_animation_pointer' in doc.get('extensionsUsed',[]),'KHR_animation_pointer not declared in extensionsUsed')
+                pointer=target.get('extensions',{}).get('KHR_animation_pointer',{}).get('pointer')
+                label,width=resolve_pointer(doc,pointer); node={'name':label}
+            else:
+                node=index(nodes,target.get('node'),'animation target')
+                need(kind in {'translation','rotation','scale','weights'},'Unsupported animation channel')
+                width=4 if kind=='rotation' else 3
             times=index(values,sampler.get('input'),'animation input'); output=index(values,sampler.get('output'),'animation output')
             a=doc['accessors'][sampler['input']]; need(a['type']=='SCALAR' and a['componentType']==5126,'Invalid animation time accessor')
             times=[row[0] for row in times]; need(times[0]>=0 and all(a<b for a,b in zip(times,times[1:])),'Animation times must increase')
             interp=sampler.get('interpolation','LINEAR'); need(interp in ('LINEAR','STEP','CUBICSPLINE'),'Unknown interpolation')
             if kind=='weights': raise ValueError('Morph animation comparison unsupported; external validation required')
             need(len(output)==len(times)*(3 if interp=='CUBICSPLINE' else 1),'Animation sample count mismatch')
-            need(len(output[0])==(4 if kind=='rotation' else 3),'Animation value width mismatch')
-            channels.append(dict(node=node.get('name',f"#{target['node']}"),path=kind,start=times[0],end=times[-1],
+            need(len(output[0])==width,'Animation value width mismatch')
+            name=node.get('name',f"#{target.get('node')}")
+            channels.append(dict(node=None if pointer else name,target=name,pointer=pointer,path=kind,start=times[0],end=times[-1],
                                  samples=len(times),value_min=[min(row[i] for row in output) for i in range(len(output[0]))],
                                  value_max=[max(row[i] for row in output) for i in range(len(output[0]))]))
         need(bool(channels),'Empty animation')

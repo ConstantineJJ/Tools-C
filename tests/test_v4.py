@@ -289,5 +289,44 @@ class V4Test(unittest.TestCase):
                 path.write_bytes(glb(d,b))
                 with self.assertRaises(ValueError): glb_inspect.inspect(path)
 
+    def pointer_glb(self, pointer='/materials/0/emissiveFactor', width='VEC3', used=True):
+        """Mesh + material animated through KHR_animation_pointer (no node target)."""
+        n={'VEC3':3,'SCALAR':1,'VEC4':4}[width]
+        binary=struct.pack('<9f',0,0,0,1,0,0,0,1,0)+struct.pack('<2f',0,1)+struct.pack(f'<{2*n}f',*([.5]*n+[1]*n))
+        doc=dict(asset=dict(version='2.0'),buffers=[dict(byteLength=len(binary))],
+                 bufferViews=[dict(buffer=0,byteLength=36),dict(buffer=0,byteOffset=36,byteLength=8),dict(buffer=0,byteOffset=44,byteLength=8*n)],
+                 accessors=[dict(bufferView=0,componentType=5126,count=3,type='VEC3'),dict(bufferView=1,componentType=5126,count=2,type='SCALAR'),
+                            dict(bufferView=2,componentType=5126,count=2,type=width)],
+                 materials=[dict(name='Core',emissiveFactor=[.5,.5,.5])],
+                 meshes=[dict(primitives=[dict(attributes=dict(POSITION=0),material=0)])],nodes=[dict(mesh=0,name='Glass')],scenes=[dict(nodes=[0])],scene=0,
+                 animations=[dict(name='Overheat',samplers=[dict(input=1,output=2)],
+                                  channels=[dict(sampler=0,target=dict(path='pointer',extensions=dict(KHR_animation_pointer=dict(pointer=pointer))))])])
+        if used: doc['extensionsUsed']=['KHR_animation_pointer']
+        return glb(doc,binary)
+
+    def test_glb_accepts_material_pointer_animation(self):
+        cases=[('/materials/0/emissiveFactor','VEC3','emissiveFactor'),
+               ('/materials/0/pbrMetallicRoughness/baseColorFactor','VEC4','baseColorFactor'),
+               ('/materials/0/extensions/KHR_materials_emissive_strength/emissiveStrength','SCALAR','emissiveStrength'),
+               ('/nodes/0/rotation','VEC4','rotation')]
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'ptr.glb'
+            for pointer,width,leaf in cases:
+                with self.subTest(pointer=pointer):
+                    path.write_bytes(self.pointer_glb(pointer,width))
+                    channel=glb_inspect.inspect(path)['animations'][0]['channels'][0]
+                    self.assertEqual(channel['path'],'pointer'); self.assertEqual(channel['pointer'],pointer)
+                    self.assertTrue(channel['target'].endswith(leaf)); self.assertEqual((channel['start'],channel['end']),(0,1))
+
+    def test_glb_rejects_bad_pointer_animation(self):
+        bad=[dict(pointer='/materials/3/emissiveFactor'),dict(pointer='/materials/0/emissiveFactor',width='SCALAR'),
+             dict(pointer='/materials/0/alphaCutoffX'),dict(pointer='materials/0/emissiveFactor'),dict(used=False)]
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'ptr.glb'
+            for kwargs in bad:
+                with self.subTest(**kwargs):
+                    path.write_bytes(self.pointer_glb(**kwargs))
+                    with self.assertRaises(ValueError): glb_inspect.inspect(path)
+
 
 if __name__=='__main__': unittest.main()
