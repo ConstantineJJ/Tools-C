@@ -165,3 +165,19 @@ evidence and are not automatically replayed or moved.
 Token and timeout primitives follow the Python documentation for
 [secrets](https://docs.python.org/3/library/secrets.html) and
 [sockets](https://docs.python.org/3/library/socket.html).
+
+## Long operations and live identity (4.4.0)
+
+- `execute_blender_python` blocks the bridge until the code returns; a bake/render longer
+  than the bridge budget ends as `UNKNOWN_EXECUTION` even when Blender finishes later.
+  Start long Blender jobs non-blocking: `bpy.ops.object.bake('INVOKE_DEFAULT', ...)` (or
+  render) inside a VIEW_3D context override, return at once, then poll
+  `bpy.app.is_job_running('OBJECT_BAKE')` in later calls and finalize when it is False.
+  Recipe: [game atlas bake](../skills/blender-pipeline/references/techniques/game-atlas-bake.md).
+  After `UNKNOWN_EXECUTION` inspect the scene before any retry.
+- `deployment_info.bridge` (adapter 4.4.0) reports the addon build Blender actually loaded
+  (`addon_version`, `addon_loaded_sha256`) against the repository copy;
+  `addon_reload_required: true` means reinstall/reload the addon. `restart_required`
+  still concerns only the MCP server process: restarting the bridge/addon does not reload it.
+- Rendered captures use Cycles GPU when the preferences enable one
+  (`TOOLS_C_CAPTURE_DEVICE=CPU|GPU` overrides); the device is stated in the capture label.

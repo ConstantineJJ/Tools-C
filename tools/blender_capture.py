@@ -20,6 +20,21 @@ VIEWS = {"front": (0, -1, 0), "side": (1, 0, 0), "back": (0, 1, 0),
          "rear_three_quarter": (1, 1, 0.6), "rear_three_quarter_left": (-1, 1, 0.6)}
 
 
+def cycles_device():
+    """GPU when Cycles preferences enable a GPU device; TOOLS_C_CAPTURE_DEVICE=CPU|GPU overrides.
+    Samples/seed/time limit stay fixed. GPU and CPU noise differ slightly: compare BEFORE/AFTER
+    captures from the same device (recorded in the lighting label)."""
+    import os
+    import bpy
+    forced = os.environ.get('TOOLS_C_CAPTURE_DEVICE', '').upper()
+    if forced in ('CPU', 'GPU'):
+        return forced
+    addon = bpy.context.preferences.addons.get('cycles')
+    if addon is None or getattr(addon.preferences, 'compute_device_type', 'NONE') == 'NONE':
+        return 'CPU'
+    return 'GPU' if any(d.use and d.type != 'CPU' for d in addon.preferences.devices) else 'CPU'
+
+
 def capture_viewport(output, view="front", target="selected", mode="solid", frame=None,
                      resolution=512, object_names=None, framing=None, camera_name=None,
                      channel='beauty'):
@@ -174,17 +189,17 @@ def capture_viewport(output, view="front", target="selected", mode="solid", fram
             temp.render.engine = 'CYCLES'
             temp.cycles.samples = 16; temp.cycles.seed = 0; temp.cycles.use_animated_seed = False
             temp.cycles.time_limit = 30
-            temp.cycles.device = 'CPU'
+            temp.cycles.device = cycles_device()
         if mode == 'rendered' and channel!='silhouette':
             temp.world = source.world
             for obj in source.objects:
                 if obj.type == 'LIGHT' and not obj.hide_render:
                     temp.collection.objects.link(obj)
-            lighting = 'source world and visible source lights; bounded Cycles CPU render, no compositor'
+            lighting = f'source world and visible source lights; bounded Cycles {temp.cycles.device} render, no compositor'
         else:
             world = bpy.data.worlds.new('Tools_C_EvidenceWorld'); world.color = (.06, .06, .06)
             temp.world = world
-            lighting = 'fixed studio solid' if mode == 'solid' else 'fixed three area lights, Standard transform, Cycles CPU'
+            lighting = 'fixed studio solid' if mode == 'solid' else f'fixed three area lights, Standard transform, Cycles {temp.cycles.device}'
             if mode == 'material_preview' and channel!='silhouette':
                 world.use_nodes = True
                 world.node_tree.nodes['Background'].inputs['Color'].default_value = (.12, .12, .12, 1)

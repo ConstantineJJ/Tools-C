@@ -1,0 +1,62 @@
+diff --git a/mcp-server/blender_mcp_server.py b/mcp-server/blender_mcp_server.py
+index ca62710..4988fb3 100644
+--- a/mcp-server/blender_mcp_server.py
++++ b/mcp-server/blender_mcp_server.py
+@@ -565,7 +565,19 @@ async def deployment_info() -> Dict[str, Any]:
+                                    annotations=tool.annotations.model_dump() if tool.annotations else None)
+                     for tool in tools}
+         schema_hash = hashlib.sha256(json.dumps(schemas, sort_keys=True).encode()).hexdigest()
+-        return dict(ok=True, server_file=str(Path(__file__).resolve()),
++        # Non-mutating bridge probe: which addon build is live in Blender right now.
++        repo_addon = Path(__file__).with_name('chatgpt_blender_mcp.py')
++        bridge = dict(reachable=False, addon_repo_sha256=hashlib.sha256(repo_addon.read_bytes()).hexdigest()
++                      if repo_addon.is_file() else None)
++        probe = send_to_blender(dict(type='bridge_info'), timeout=5)
++        if probe.get('ok'):
++            data = probe.get('data', {})
++            bridge.update(reachable=True, protocol_version=data.get('protocol_version'),
++                          addon_version=data.get('addon_version'), addon_loaded_sha256=data.get('addon_sha256'))
++            bridge['addon_reload_required'] = (bridge['addon_loaded_sha256'] != bridge['addon_repo_sha256'])
++        else:
++            bridge['error'] = probe.get('error')
++        return dict(ok=True, server_file=str(Path(__file__).resolve()), bridge=bridge,
+                     loaded_server_sha256=LOADED_SERVER_SHA256, disk_server_sha256=disk,
+                     restart_required=LOADED_SERVER_SHA256 != disk, skills_dir=str(SKILLS_DIR),
+                     checker_projects=[str(p) for p in _canonical_helper('mcp_checks.py')['registered_projects'](_tools_root(),Path(__file__).resolve().parent.parent)],
+diff --git a/mcp-server/chatgpt_blender_mcp.py b/mcp-server/chatgpt_blender_mcp.py
+index 6560b76..3d6d71d 100644
+--- a/mcp-server/chatgpt_blender_mcp.py
++++ b/mcp-server/chatgpt_blender_mcp.py
+@@ -1,7 +1,7 @@
+ ﻿bl_info = {
+     "name": "ChatGPT Blender MCP",
+     "author": "Local",
+-    "version": (0, 1, 0),
++    "version": (0, 2, 0),
+     "blender": (4, 0, 0),
+     "location": "View3D > Sidebar > MCP",
+     "description": "Local bridge between MCP server and Blender",
+@@ -19,6 +19,13 @@ import contextlib
+ import mathutils
+ import time
+ import os
++import hashlib
++
++try:  # identity of the addon file Blender actually loaded (reported by bridge_info)
++    with open(__file__, 'rb') as _stream:
++        ADDON_SHA256 = hashlib.sha256(_stream.read()).hexdigest()
++except OSError:
++    ADDON_SHA256 = None
+ import secrets
+ from pathlib import Path
+ from bpy.app.handlers import persistent
+@@ -127,7 +134,8 @@ def handle_payload(payload):
+         command_type = payload.get("type")
+ 
+         if command_type == 'bridge_info':
+-            return dict(ok=True, data=dict(protocol_version=2, authentication_required=True))
++            return dict(ok=True, data=dict(protocol_version=2, authentication_required=True,
++                                           addon_version=list(bl_info['version']), addon_sha256=ADDON_SHA256))
+ 
+         if command_type == "scene_info":
+             return {
