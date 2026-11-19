@@ -1,6 +1,6 @@
 ---
 name: godot-runtime-evidence
-description: Produce and judge Godot evidence beyond import - whole-project parse gate, scripted input/assert scenarios, frame capture, project test runners, export and Godot MCP use. Use to prove a Godot change works; it grants no permission to edit gameplay or assets.
+description: Produce and judge Godot evidence beyond import - whole-project parse gate, scripted input/assert scenarios, frame capture, project test runners, export and Godot MCP use. Use to prove a Godot change works; it grants no permission to edit gameplay or assets. Acceptance of appearance or feel also loads verification.
 ---
 
 # Godot runtime evidence

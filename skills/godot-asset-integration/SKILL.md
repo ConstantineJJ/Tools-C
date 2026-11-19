@@ -1,6 +1,6 @@
 ---
 name: godot-asset-integration
-description: Integrate delivered 3D assets into Godot and validate import settings, skeletons, materials and animation playback in the target scene. Use for asset handoff; general gameplay code and Blender authoring have separate owners.
+description: Integrate delivered 3D assets into Godot and validate import settings, skeletons, materials and animation playback in the target scene. Use for asset handoff; gameplay code and Blender authoring have separate owners, and appearance acceptance also loads verification.
 ---
 
 # Godot asset integration
