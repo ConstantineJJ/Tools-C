@@ -47,6 +47,7 @@ or domain decisions are requested.
 | Match supplied views or diagnose resemblance | [reference reconstruction](references/reference.md) |
 | Model robots, mechs or articulated mechanisms | [robot modeling](../blender-robot-mechanism-modeling/SKILL.md) |
 | Weapon modules, turret heads, guns | [weapon module](../blender-weapon-module/SKILL.md) |
+| Diagnose why existing parts look pasted on, foreign or poorly fitted (read-only FIT_INTEGRATION) | [assembly fit](../blender-assembly-fit/SKILL.md) |
 | Create or substantially revise generic character geometry | [character modeling](../blender-character-modeling/SKILL.md) |
 | Create or revise anime/manga humanoid forms, chibi proportions, faces or hair | [anime character modeling](../blender-anime-character-modeling/SKILL.md) |
 | Model animals, creatures, quadrupeds or anthropomorphic animal characters | [animal & anthropomorphic modeling](../blender-animal-anthropomorphic-modeling/SKILL.md) |

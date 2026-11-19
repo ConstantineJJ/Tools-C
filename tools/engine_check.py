@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import sys
 
+import godot_runtime
 from check import ROOT, Violation, existing, require
 
 
@@ -103,6 +104,12 @@ def main():
     parser.add_argument("--blender", nargs="?", const="auto", help="Executable or auto; opt in to factory background probe")
     parser.add_argument("--asset", action="append", default=[], help="Project-relative .glb/.gltf/.blend for Blender")
     parser.add_argument("--runtime-scene", help="Explicit res:// scene-load smoke; no input/visual acceptance")
+    parser.add_argument("--parse-gate", action="store_true", help="Load every script/scene/resource, including unreferenced ones")
+    parser.add_argument("--skip", action="append", default=[], help="res:// prefix the parse gate skips (e.g. vendored addons)")
+    parser.add_argument("--include-imported", action="store_true", help="Parse gate also loads imported assets")
+    parser.add_argument("--scenario", help="Scenario JSON (project-relative or absolute): input, frames, assertions")
+    parser.add_argument("--capture", action="store_true", help="With --scenario: rendered run writing a PNG sequence (needs a GPU/display)")
+    parser.add_argument("--fps", type=int, default=30, help="Fixed fps for capture")
     parser.add_argument("--logs", type=Path, default=ROOT / ".local/engine")
     args = parser.parse_args()
     root = args.project.resolve()
@@ -117,7 +124,33 @@ def main():
             row = probe([str(godot), "--headless", "--path", str(root), "--editor", "--import"],
                         "Godot Engine v", args.logs / "godot-import.log")
             rows.append(dict(level="L2", engine="godot", **identity, **row))
-            if args.runtime_scene and row["status"] == "PASS":
+            imported = row["status"] == "PASS"
+            if args.parse_gate and imported:
+                rows.append(dict(level="L2", engine="godot", **identity,
+                                 scope="whole-project load gate; shaders, C# and behavior unchecked",
+                                 **probe(godot_runtime.parse_gate_command(godot, root, args.skip, args.include_imported),
+                                         "TOOLS_C_GODOT_PARSE_GATE ", args.logs / "godot-parse-gate.log")))
+            elif args.parse_gate:
+                rows.append(dict(level="L2", status="SKIP", reason="Import failed; parse gate not run"))
+            if args.scenario and imported:
+                scenario_path, _ = godot_runtime.validate_scenario(root, args.scenario)
+                capture_dir = (args.logs / "godot-capture") if args.capture else None
+                if capture_dir is not None:
+                    shutil.rmtree(capture_dir, ignore_errors=True)
+                rows.append(dict(level="L3", engine="godot", **identity,
+                                 scope="scripted scenario; proves only its own assertions", **probe(
+                    godot_runtime.scenario_command(godot, root, scenario_path.resolve(), capture_dir, args.fps),
+                    "TOOLS_C_GODOT_SCENARIO ", args.logs / "godot-scenario.log", timeout=300)))
+                if capture_dir is not None and rows[-1]["status"] == "PASS":
+                    summary = godot_runtime.capture_summary(capture_dir)
+                    if summary["frames"] == 0:
+                        rows.append(dict(level="L4", status="FAIL", reason="Capture requested but no frames were written"))
+                    else:
+                        note = "frames never changed" if summary["distinct"] == 1 else "frames differ"
+                        rows.append(dict(level="L4", status="WARN", capture=summary,
+                                         reason=f"{summary['frames']} frames captured ({note}); VISUAL REVIEW REQUIRED, "
+                                                "capture alone is not acceptance"))
+            elif args.runtime_scene and imported:
                 if not args.runtime_scene.startswith("res://"):
                     raise Violation("E_PATH", "Runtime scene must use res://")
                 existing(root, args.runtime_scene[6:])
@@ -126,7 +159,7 @@ def main():
                      str(ROOT / "tools/probes/godot_load.gd"), "--", args.runtime_scene],
                     "TOOLS_C_GODOT_RUNTIME ", args.logs / "godot-runtime.log")))
             else:
-                rows.append(dict(level="L3", status="SKIP", reason="No runtime scene requested or import failed"))
+                rows.append(dict(level="L3", status="SKIP", reason="No runtime scene or scenario requested, or import failed"))
         else:
             rows += [dict(level="L2", engine="godot", status="SKIP", reason=godot_source),
                      dict(level="L3", status="SKIP", reason=godot_source)]
@@ -138,7 +171,8 @@ def main():
                 "TOOLS_C_BLENDER ", args.logs / "blender-import.log")))
         else:
             rows.append(dict(level="L2", engine="blender", status="SKIP", reason=blender_source))
-        rows.append(dict(level="L4", status="SKIP", reason="Headless probes do not provide visual or input/feel acceptance"))
+        if not any(row["level"] == "L4" for row in rows):
+            rows.append(dict(level="L4", status="SKIP", reason="No capture requested; visual and input-feel acceptance need reviewed frames or a human"))
     except (Violation, OSError, subprocess.TimeoutExpired) as exc:
         rows.append(dict(level="L2", status="FAIL", reason=str(exc)))
     print(json.dumps(rows, ensure_ascii=False, indent=2))

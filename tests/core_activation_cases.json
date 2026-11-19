@@ -31,12 +31,11 @@
         "Add a new Tools_C JSON contract kind without editing a Godot project."
       ],
       "edge": {
-        "prompt": "A GLB imports into Godot but its material looks wrong in the project scene.",
+        "prompt": "A reimport removed authored wrapper offsets and a shared material changed on every instance; decide which scene or resource owns each value.",
         "expected": [
-          "godot-project",
-          "verification"
+          "godot-project"
         ],
-        "reason": "The target scene and visual evidence must distinguish import from appearance."
+        "reason": "Ownership of imported, wrapper, instance and shared values decides the edit location."
       }
     },
     {
@@ -73,6 +72,63 @@
           "verification"
         ],
         "reason": "L2 import success does not establish L3 playback or L4 visual quality."
+      }
+    },
+    {
+      "skill": "godot-asset-integration",
+      "should_trigger": [
+        "Import the delivered character GLB into the Godot project and check its skeleton, materials and idle playback in the target scene.",
+        "Set the Godot import options and import hints so a delivered prop gets convex collision and the right root scale."
+      ],
+      "should_not_trigger": [
+        "Author the idle loop on the Blender rig.",
+        "Write the player jump logic and input handling in GDScript."
+      ],
+      "edge": {
+        "prompt": "A GLB imports into Godot but its material looks wrong in the project scene.",
+        "expected": [
+          "godot-asset-integration",
+          "verification"
+        ],
+        "reason": "The import owner diagnoses exporter, importer and scene lighting; reviewed frames decide appearance."
+      }
+    },
+    {
+      "skill": "godot-gameplay-implementation",
+      "should_trigger": [
+        "Add a dash ability to the player: a new input action, the script change and the physics layer the dash hits.",
+        "Wire a pickup scene so touching it emits a signal and updates the score in GDScript."
+      ],
+      "should_not_trigger": [
+        "Import the delivered GLB and verify its skeleton in Godot.",
+        "Prove with a headless run that the existing move action changes the player position."
+      ],
+      "edge": {
+        "prompt": "Implement the new weapon-switch input and show that it works in the running project.",
+        "expected": [
+          "godot-gameplay-implementation",
+          "godot-runtime-evidence"
+        ],
+        "reason": "One owner writes the behavior; the evidence owner proves it with an input scenario."
+      }
+    },
+    {
+      "skill": "godot-runtime-evidence",
+      "should_trigger": [
+        "Prove with a headless run that pressing the move action changes the player position, and report what was not proven.",
+        "Check that no script in this Godot project is broken, including files no scene uses."
+      ],
+      "should_not_trigger": [
+        "Add the move action and write the movement script.",
+        "Check the Blender export's skeleton and animation clips."
+      ],
+      "edge": {
+        "prompt": "Capture frames of the new door animation in Godot and say whether it is accepted.",
+        "expected": [
+          "godot-runtime-evidence",
+          "verification"
+        ],
+        "reason": "Capture is evidence input; acceptance of appearance needs reviewed frames or the user."
       }
     }
   ]

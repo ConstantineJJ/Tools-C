@@ -29,6 +29,8 @@ Project instructions and profiles retain their authority.
 | blender-animation | [Read](../skills/blender-animation/SKILL.md) |
 | blender-export-validation | [Read](../skills/blender-export-validation/SKILL.md) |
 | godot-asset-integration | [Read](../skills/godot-asset-integration/SKILL.md) |
+| godot-gameplay-implementation | [Read](../skills/godot-gameplay-implementation/SKILL.md) |
+| godot-runtime-evidence | [Read](../skills/godot-runtime-evidence/SKILL.md) |
 | production-mechanic-gym | [Read](../skills/production-mechanic-gym/SKILL.md) |
 | production-subagent-worktree | [Read](../skills/production-subagent-worktree/SKILL.md) |
 | production-lookdev-gate | [Read](../skills/production-lookdev-gate/SKILL.md) |
@@ -36,4 +38,5 @@ Project instructions and profiles retain their authority.
 | visual-reference-reconstruction | [Read](../skills/visual-reference-reconstruction/SKILL.md) |
 | blender-robot-mechanism-modeling | [Read](../skills/blender-robot-mechanism-modeling/SKILL.md) |
 | blender-weapon-module | [Read](../skills/blender-weapon-module/SKILL.md) |
+| blender-assembly-fit | [Read](../skills/blender-assembly-fit/SKILL.md) |
 | blender-reference-surface-transfer | [Read](../skills/blender-reference-surface-transfer/SKILL.md) |

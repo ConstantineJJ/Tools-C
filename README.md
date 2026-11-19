@@ -1,7 +1,7 @@
 # Tools_C 4.4.0
 
 Provider-neutral agent tooling for Blender, Godot and 3D projects. The main
-Tools_C has [31 canonical skills](docs/skills.md), nine compatible legacy Blender
+Tools_C has [34 canonical skills](docs/skills.md), nine compatible legacy Blender
 routes, reusable checkers and project integration. Tools_C Light is a separate
 product. [Release 4.4.0](https://github.com/ConstantineJJ/Tools-C/releases/tag/v4.4.0)
 contains the distributable toolkit and checksums.

@@ -26,6 +26,8 @@
     "blender-animation",
     "blender-export-validation",
     "godot-asset-integration",
+    "godot-gameplay-implementation",
+    "godot-runtime-evidence",
     "production-mechanic-gym",
     "production-subagent-worktree",
     "production-lookdev-gate",
@@ -33,6 +35,7 @@
     "visual-reference-reconstruction",
     "blender-robot-mechanism-modeling",
     "blender-weapon-module",
+    "blender-assembly-fit",
     "blender-reference-surface-transfer"
   ],
   "contracts": [

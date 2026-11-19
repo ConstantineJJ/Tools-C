@@ -45,3 +45,42 @@ then fails the import probe when that plugin logs an error, even with exit 0. Pr
 that diagnostic; do not filter it out, disable the user's plugin or stop their editor
 automatically. Run standalone import when that project's editor has been closed,
 or report the port conflict separately from an earlier successful import/runtime run.
+
+## Godot whole-project, scenario and capture probes
+
+Godot exits 0 even when scripts fail to parse or resources are missing, so a result is
+judged by the log (`SCRIPT ERROR:` / `ERROR:` lines) plus a marker line, never by exit
+code alone. Observed on Godot 4.7.2: a script or scene that nothing references is not
+touched by import or by a scene-load smoke, so a broken orphan file passes both.
+
+Extra opt-in flags (all require `--godot` and a successful import):
+
+```powershell
+python tools/engine_check.py --project P --godot auto --parse-gate [--skip res://addons/x/] [--include-imported]
+python tools/engine_check.py --project P --godot auto --scenario tests/scenarios/move.json
+python tools/engine_check.py --project P --godot auto --scenario tests/scenarios/move.json --capture --fps 30
+```
+
+- `--parse-gate` (L2, `tools/probes/godot_parse_gate.gd`): loads every `.gd`, `.tscn`,
+  `.scn`, `.tres`, `.res` under `res://`, including unreferenced ones. A script fails when
+  `reload()` reports an error (a broken script still loads as a non-null object, so a null
+  check is not enough). A scene or resource fails on a missing dependency or unresolved UID.
+  Not checked: `.gdshader`, C#, GDExtension binaries, runtime behavior. Vendored addons are
+  excluded with `--skip`, and every skipped prefix is recorded in the marker.
+- `--scenario` (L3, `tools/probes/godot_scenario.gd`): JSON with `scene`, `frames`, `steps`
+  (press/release/tap an InputMap action, or call a method at a frame) and `assertions`
+  (node exists, or property op value at a frame; ops `== != < <= > >= approx`).
+  `tools/godot_runtime.py` rejects a scenario with no assertions, an assertion beyond the
+  last frame or an unknown key before the engine starts, so it cannot pass by proving nothing.
+  An unknown input action, a missing call target or a node that is not found is a failed
+  assertion or logged error, not a skip. The scenario proves only what it asserts.
+- `--capture` (L4 input): reruns the scenario with a real renderer (needs a GPU and display;
+  not `--headless`) and `--write-movie` as a PNG sequence under `<logs>/godot-capture/`.
+  The row is WARN with `VISUAL REVIEW REQUIRED`, the frame count, the number of distinct
+  frames and first/middle/last sample paths. Identical frames mean nothing moved. A capture
+  never becomes PASS by itself; a reviewer or the user looks at the sampled frames.
+  The requested `--resolution` may be overridden by project window settings; read the real
+  size from the PNG, not from the flag.
+
+Scenario files and project probes belong to the target project (for example
+`tests/scenarios/`); they are not stored under `.local/`.

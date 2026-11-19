@@ -75,6 +75,39 @@ class WeaponRoutingTests(unittest.TestCase):
         self.assertNotIn('blender-weapon-module', self.owners('Review the laser export'))
 
 
+class AssemblyFitRoutingTests(unittest.TestCase):
+    def owners(self, task):
+        import mcp_runtime
+        return mcp_runtime.route_task(task)
+
+    def test_diagnosis_activates(self):
+        for task in ('Почему эта пластина на плече выглядит как приклеенная?',
+                     'Проверь посадку деталей на лазере',
+                     'Run FIT_INTEGRATION on the turret assembly',
+                     'These kitbash parts look pasted on and out of place, audit the assembly',
+                     'Боковые панели выглядят чужеродно, не вписываются в корпус'):
+            self.assertEqual(self.owners(task)[:2], ['blender-assembly-fit', 'verification'], task)
+
+    def test_unrelated_work_does_not_activate(self):
+        for task in ('Export this GLB', 'Review the laser export',
+                     'Создай нового персонажа в стиле аниме', 'Write a Python CLI for logs'):
+            self.assertNotIn('blender-assembly-fit', self.owners(task), task)
+
+    def test_repair_request_keeps_domain_owner(self):
+        owners = self.owners('Rebuild the robot shoulder plate, it looks pasted on')
+        self.assertIn('blender-assembly-fit', owners)
+        self.assertIn('blender-robot-mechanism-modeling', owners)
+        self.assertNotEqual(owners[0], 'blender-assembly-fit')
+        # Without a recognised domain owner, a repair ask still gets the diagnosis first.
+        self.assertEqual(self.owners('Исправь посадку деталей на лазере')[:2], ['blender-assembly-fit', 'verification'])
+
+    def test_context_loads_subgroups(self):
+        import read_blender_skill
+        paths = read_blender_skill.document_paths(ROOT, 'blender-assembly-fit')
+        self.assertIn('skills/blender-assembly-fit/references/domain-cues.md', paths)
+        self.assertIn('skills/blender-assembly-fit/references/diagnostic-protocol.md', paths)
+
+
 class CaptureViewTests(unittest.TestCase):
     def test_mirrored_and_rear_views_exist(self):
         # blender_capture imports bpy; read its VIEWS literal without Blender.

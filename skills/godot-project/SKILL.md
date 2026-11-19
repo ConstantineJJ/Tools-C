@@ -1,6 +1,6 @@
 ---
 name: godot-project
-description: Edit or validate Godot scenes, resources and imported assets using the project's actual engine version, ownership rules and runtime evidence. Use for Godot project work, not Blender authoring alone.
+description: Own Godot project orientation and scene/resource ownership - engine version, project settings, instancing, shared resources and reimport-safe edits - and route to the gameplay, asset or evidence owner. Use to read or restructure a Godot project; not Blender authoring alone.
 ---
 
 # Godot projects
@@ -14,23 +14,40 @@ Follow the user's requested behavior, active project instructions/profile and cu
 ## Domain constraints
 
 - Protected: authored overrides, shared-resource intent, scene instancing, unrelated gameplay behavior and protected project assets.
-- Owned edits: named scenes, scripts, resources, import settings and necessary dependencies within scope.
-- Acceptance: the requested behavior loads and runs in the actual target project; affected instances and relevant views retain their expected behavior.
+- Owned edits: named scenes, resources, project settings and necessary dependencies within scope.
+- Acceptance: the requested structure loads in the actual target project, affected instances retain their expected values, and the evidence level reached is stated.
 
-For delivered 3D asset import/playback, use [godot-asset-integration](../godot-asset-integration/SKILL.md)
-as the stage owner; this skill owns general scenes, resources and gameplay integration.
+## Who owns what
+
+| Task | Owner |
+| --- | --- |
+| Gameplay scripts, input actions, physics layers, signals, scene wiring for behavior | [godot-gameplay-implementation](../godot-gameplay-implementation/SKILL.md) |
+| Delivered GLB/glTF import, skeleton, materials, animation playback | [godot-asset-integration](../godot-asset-integration/SKILL.md) |
+| Import / parse gate / scenario / capture / export / Godot MCP evidence | [godot-runtime-evidence](../godot-runtime-evidence/SKILL.md) |
+| Tuning one mechanic in isolation | [production-mechanic-gym](../production-mechanic-gym/SKILL.md) |
+| Scene ownership, instancing, shared Resources, project settings, orientation | this skill |
 
 ## Workflow
 
-Read the local profile, project.godot, relevant scenes, scripts and current import hierarchy. Identify Godot version and the owner of each edited value. Keep authored gameplay state outside reimported content when reimport would replace it. Inspect shared Resource and instance behavior before changing a property. Read [scene ownership and instancing](references/scene-ownership.md) when imported scenes, shared resources or repeated objects are involved.
-
-Take skeleton roles, axes, root motion, collision ownership and export format from the target profile. For imported 3D assets, compare scale, normals/tangents and material response with a known-good asset in the same scene. Do not treat Blender or another engine's display settings as Godot defaults.
-
-Run L1 and, when applicable, bounded [engine/import probes](../../docs/engines.md). Read-only QA must not save editor or gameplay state. Use an explicit runtime assertion for changed behavior and another affected instance or view. A clean parse/import does not establish gameplay or visual acceptance.
+1. Orient: read the local profile, `project.godot` (`config/features` is the declared engine version; also the
+   main scene, InputMap, named physics layers, physics engine, autoloads, enabled plugins), the relevant scenes
+   and scripts, and the current import hierarchy. Record the version the executable reports; they can differ.
+2. Identify the owner of each value to be edited (imported asset, authored wrapper, per-instance override,
+   shared Resource, runtime-spawned node). Keep authored state outside content that reimport replaces. Read
+   [scene ownership and instancing](references/scene-ownership.md) for imported scenes, shared resources or repeated objects.
+3. Take skeleton roles, axes, root motion, collision ownership and export format from the target profile, not
+   from Blender or another engine's display settings.
+4. Edit only the named owner. For text-format scene edits follow
+   [scene and script editing](../godot-gameplay-implementation/references/editing.md).
+5. Prove it with [godot-runtime-evidence](../godot-runtime-evidence/SKILL.md). Import alone and a scene-load smoke
+   do not cover scripts nothing references; use the whole-project parse gate for "the project is clean".
+   Read-only QA must not save editor or gameplay state.
 
 ## Anti-degradation and stop
 
-Compare the requested behavior with previous scene overrides, another instance, asset appearance and runtime stability. Restore temporary diagnostic state. Stop when scoped checks pass at the required level; report an unavailable engine, input or visual check as SKIP with reason rather than a pass.
+Compare the requested structure with previous scene overrides, another instance and runtime stability.
+Restore temporary diagnostic state. Stop when scoped checks pass at the required level; report an unavailable
+engine, input or visual check as SKIP with reason rather than a pass.
 
 ## Pitfalls / Lessons Learned
 
